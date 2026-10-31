@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+.wrangler/
+.env
+.env.*
+.dev.vars
+test-results/
+playwright-report/
+.DS_Store
+out/
+.claude/settings.local.json

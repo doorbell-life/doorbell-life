@@ -1,0 +1,5 @@
+packages:
+  - widget
+  - site
+  - schema
+  - regions/*

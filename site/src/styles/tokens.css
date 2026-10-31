@@ -1,0 +1,47 @@
+/* 官網唯一的設計 token 檔。值取自 ~/.claude/skills/design-tokens（colors.md、typography.md）。
+   最小字級 18px，無例外。 */
+:root {
+  --bg-base: oklch(0.97 0.005 250);
+  --bg-surface: oklch(0.94 0.005 250);
+  --bg-overlay: oklch(0.90 0.008 250);
+  --bg-hover: oklch(0.92 0.005 250);
+  --text-primary: oklch(0.20 0.01 250);
+  --text-secondary: oklch(0.45 0.01 250);
+  --text-muted: oklch(0.60 0.008 250);
+  --color-critical: oklch(0.55 0.22 25);
+  --color-pass: oklch(0.48 0.16 150);
+  --color-link: oklch(0.48 0.15 250);
+  --border-subtle: oklch(0.85 0.005 250);
+
+  --text-xs: 1.125rem;
+  --text-sm: 1.25rem;
+  --text-base: 1.5rem;
+  --text-lg: 1.75rem;
+  --text-xl: 2rem;
+  --text-2xl: 3rem;
+  --text-3xl: 3.5rem;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@supports not (color: oklch(0 0 0)) {
+  :root {
+    --bg-base: #f5f6f8;
+    --bg-surface: #ecedf0;
+    --bg-overlay: #dfe0e5;
+    --bg-hover: #e5e6ea;
+    --text-primary: #1e2030;
+    --text-secondary: #5e6070;
+    --text-muted: #8a8c98;
+    --color-critical: #c93135;
+    --color-pass: #1e8050;
+    --color-link: #1e5ab8;
+    --border-subtle: #d5d6da;
+  }
+}
+
+html {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font: 400 var(--text-base)/1.6 var(--font-sans);
+}
+a { color: var(--color-link); }

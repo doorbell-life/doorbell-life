@@ -1,0 +1,7 @@
+{
+  "name": "@doorbell-life/schema",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "exports": { ".": "./src/index.ts" }
+}

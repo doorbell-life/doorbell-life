@@ -1,0 +1,35 @@
+# 每日公開資料同步（CLAUDE.md §5、§8）。只處理公開資料；合作資料不在這裡跑（§3 第 10 條）。
+# 同步異常時以非 0 結束，這次就不產出，CDN 上維持前一天的資料，GitHub 會通知維護者。
+name: daily
+on:
+  schedule:
+    - cron: "0 19 * * *" # 台灣時間每天 03:00
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: pnpm/action-setup@v6.1.0
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: 26
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      # 取回上一次的同步輸出，用來判斷個案數是否驟降
+      - uses: actions/cache/restore@v6.1.0
+        with:
+          path: regions/*/out
+          key: sync-out-${{ github.run_id }}
+          restore-keys: sync-out-
+      - run: pnpm daily
+      - uses: actions/cache/save@v6.1.0
+        with:
+          path: regions/*/out
+          key: sync-out-${{ github.run_id }}
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: cdn
+          path: widget/dist
