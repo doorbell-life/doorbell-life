@@ -1,7 +1,7 @@
 ---
 // 門鈴燈：品牌唯一的暖色記號
 interface Props { size?: number }
-const { size = 14 } = Astro.props;
+const { size = 18 } = Astro.props;
 ---
 <span class="bell" style={`--s:${size}px`} aria-hidden="true"></span>
 <style>
@@ -12,6 +12,7 @@ const { size = 14 } = Astro.props;
     height: var(--s);
     border-radius: 50%;
     background: var(--color-bell);
-    box-shadow: 0 0 0 calc(var(--s) / 2.8) color-mix(in oklch, var(--color-bell) 22%, transparent);
+    margin: 0 calc(var(--s) * 0.2) 0 calc(var(--s) * 0.4);
+    box-shadow: 0 0 0 calc(var(--s) * 0.4) color-mix(in oklch, var(--color-bell) 28%, transparent);
   }
 </style>

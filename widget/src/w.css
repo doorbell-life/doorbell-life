@@ -6,9 +6,9 @@ border:1px solid var(--dbl-line);border-radius:12px;background:var(--dbl-bg);col
 font:400 24px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 @supports not (color:oklch(0 0 0)){.dbl{--dbl-bg:#f5f6f8;--dbl-fg:#1e2030;--dbl-mute:#5e6070;--dbl-line:#d5d6da;--dbl-link:#1e5ab8;--dbl-bell:#b86a2a}}
 .dbl *{all:revert;box-sizing:border-box;font:inherit;color:inherit;margin:0}
-.dbl-t,.dbl-l .dbl-h{display:flex;align-items:center;gap:12px}
-.dbl-t{margin-bottom:16px;font-size:20px;font-weight:600;color:var(--dbl-mute)}
-.dbl-t:before,.dbl-l .dbl-h:before{content:"";flex:none;width:14px;height:14px;border-radius:50%;background:var(--dbl-bell);box-shadow:0 0 0 5px color-mix(in oklch,var(--dbl-bell) 22%,transparent)}
+.dbl-t,.dbl-l .dbl-h{display:flex;align-items:center;gap:14px}
+.dbl-t{margin-bottom:16px;font-size:20px;font-weight:700;color:var(--dbl-bell)}
+.dbl-t:before,.dbl-l .dbl-h:before{content:"";flex:none;width:18px;height:18px;margin:0 4px 0 7px;border-radius:50%;background:var(--dbl-bell);box-shadow:0 0 0 7px color-mix(in oklch,var(--dbl-bell) 28%,transparent)}
 .dbl-b:has(.dbl-i){display:grid;grid-template-columns:min(160px,35%) 1fr;gap:0 20px;align-items:start}
 .dbl-i{grid-row:span 3;width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px}
 .dbl-h{display:block;font-size:28px;font-weight:700;line-height:1.3}
