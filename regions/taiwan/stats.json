@@ -1,0 +1,29 @@
+{
+  "_說明": "宣導數字，人工整理。每筆都要有官方來源與查核日。來源檔變動由每週來源比對（pnpm watch-sources）通知，維護者查證後更新本檔。",
+  "items": [
+    {
+      "id": "tw-missing-2025",
+      "title": "2025 年全國失蹤人口 23,974 人",
+      "features": "失蹤原因以離家出走最多（45.30%），失智症走失次之（8.54%）。",
+      "source": { "name": "警政署統計通報 115 年第 6 週", "url": "https://data.gov.tw/dataset/176796" },
+      "publishedAt": "2026-02-04",
+      "checkedAt": "2026-11-01"
+    },
+    {
+      "id": "tw-missing-elders-2025",
+      "title": "2025 年 65 歲以上失蹤 5,138 人",
+      "features": "其中失智症走失占 36.34%，是這個年齡層最主要的失蹤原因。",
+      "source": { "name": "警政署統計通報 115 年第 6 週", "url": "https://data.gov.tw/dataset/176796" },
+      "publishedAt": "2026-02-04",
+      "checkedAt": "2026-11-01"
+    },
+    {
+      "id": "tw-missing-teens-2025",
+      "title": "12–17 歲失蹤者 64.01% 是離家出走",
+      "features": "2025 年各年齡層中，12–17 歲的失蹤人口率最高，離家出走比例也最高。",
+      "source": { "name": "警政署統計通報 115 年第 6 週", "url": "https://data.gov.tw/dataset/176796" },
+      "publishedAt": "2026-02-04",
+      "checkedAt": "2026-11-01"
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { invalidReason, isExpired, type Case } from "@doorbell-life/schema";
 import { D01_URL, parseD01, toCase } from "./d01.ts";
+import { adoptCountCase, statCases } from "./stats.ts";
 
 const OUT = new URL("../out/", import.meta.url);
 // 與前一次相比，數量少於這個比例就視為異常（例如來源出錯只回傳一部分）。
@@ -36,6 +37,14 @@ async function main() {
   mkdirSync(OUT, { recursive: true });
   writeFileSync(file, JSON.stringify(cases));
   console.log(`d01 ok=${cases.length} dropped=${dropped} prev=${prev ?? "none"}`);
+  const stats = JSON.parse(readFileSync(new URL("../stats.json", import.meta.url), "utf8"));
+  const statOut = [...statCases(stats.items), adoptCountCase(cases.length, today)];
+  for (const c of statOut) {
+    const bad = invalidReason(c);
+    if (bad) throw new Error(`stats ${c.id}：${bad}`);
+  }
+  writeFileSync(new URL("stats.json", OUT), JSON.stringify(statOut));
+  console.log(`stats ok=${statOut.length}`);
 }
 
 if (import.meta.main) {

@@ -1,0 +1,17 @@
+# 每週來源比對（CLAUDE.md §9）：來源有變動時這個工作會失敗，GitHub 通知維護者人工查證。
+name: weekly-sources
+on:
+  schedule:
+    - cron: "0 1 * * 1" # 台灣時間每週一 09:00
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: 26
+      - run: node .github/scripts/watch-sources.ts
