@@ -23,21 +23,36 @@ export const REQUIRED = [
 
 type Raw = Record<string, unknown>;
 
-export function toCase(r: Raw): Case {
+function dayBefore(d: string): string {
+  const t = new Date(`${d}T00:00:00Z`);
+  t.setUTCDate(t.getUTCDate() - 1);
+  return t.toISOString().slice(0, 10);
+}
+
+// 開放認養日還沒到的個案，當作「走失毛孩找主人」：可能有飼主正在找牠（維護者 2026-11-01 決定）。
+// 不一定每一隻都在等飼主領回，所以文字只寫事實：開放認養日，以及若是你的毛孩請聯絡收容所。
+// 到了開放認養日，同一筆會自動變回待認養。
+export function toCase(r: Raw, today: string): Case {
   const variety = clean(r.animal_Variety, 30);
   const kind = clean(r.animal_kind, 10);
   const closed = clean(r.animal_closeddate, 10);
+  const open = clean(r.animal_opendate, 10);
+  const lost = open > today;
+  const traits = [
+    SEX[String(r.animal_sex)],
+    AGE[String(r.animal_age)],
+    BODY[String(r.animal_bodytype)],
+    clean(r.animal_colour, 20),
+    clean(r.animal_remark, 120),
+  ].filter(Boolean).join("、");
+  const found = clean(r.animal_foundplace, 40);
   return {
     id: `d01-${clean(r.animal_id, 20)}`,
-    topic: "animals-adopt",
+    topic: lost ? "animals-lost" : "animals-adopt",
     title: variety && variety !== kind ? `${kind}・${variety}` : kind,
-    features: [
-      SEX[String(r.animal_sex)],
-      AGE[String(r.animal_age)],
-      BODY[String(r.animal_bodytype)],
-      clean(r.animal_colour, 20),
-      clean(r.animal_remark, 120),
-    ].filter(Boolean).join("、"),
+    features: lost
+      ? [found && `在${found}附近被發現`, traits, `${open} 開放認養，若是你走失的毛孩請盡快聯絡收容所`].filter(Boolean).map((x) => x.replace(/[。.]+$/, "")).join("。")
+      : traits,
     photo: cleanUrl(r.album_file),
     country: "TW",
     area: AREA[Number(r.animal_area_pkid)] ?? "",
@@ -54,8 +69,10 @@ export function toCase(r: Raw): Case {
       license: "政府資料開放授權條款第1版",
     },
     // 約 3% 個案 animal_opendate 空白但仍開放認養（2026-10-31 實測 297/8679），退回用建立日、更新日
-    publishedAt: clean(r.animal_opendate, 10) || clean(r.animal_createtime, 10) || clean(r.cDate, 10),
-    expiresAt: closed && closed !== "2999-12-31" ? closed : null, // 來源用 2999-12-31 表示未設期限
+    // 走失毛孩的開放認養日在未來，上架日改用建立日
+    publishedAt: (lost ? "" : open) || clean(r.animal_createtime, 10) || clean(r.cDate, 10),
+    // 走失毛孩在開放認養日前一天下架；待認養依來源的截止日（來源用 2999-12-31 表示未設期限）
+    expiresAt: lost ? dayBefore(open) : closed && closed !== "2999-12-31" ? closed : null,
     offlineCacheable: true,
   };
 }

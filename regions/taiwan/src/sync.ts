@@ -18,7 +18,7 @@ export function build(raw: unknown, today: string): { cases: Case[]; dropped: nu
   const cases: Case[] = [];
   let dropped = 0;
   for (const r of parseD01(raw)) {
-    const c = toCase(r);
+    const c = toCase(r, today);
     if (invalidReason(c) || isExpired(c, today)) dropped++;
     else cases.push(c);
   }
@@ -26,7 +26,7 @@ export function build(raw: unknown, today: string): { cases: Case[]; dropped: nu
 }
 
 async function main() {
-  const file = new URL("animals-adopt.json", OUT);
+  const file = new URL("d01.json", OUT);
   const prev = existsSync(file) ? (JSON.parse(readFileSync(file, "utf8")) as Case[]).length : null;
   const res = await fetch(D01_URL, { signal: AbortSignal.timeout(120_000) });
   if (!res.ok) throw new Error(`D01 HTTP ${res.status}`);
@@ -38,7 +38,7 @@ async function main() {
   writeFileSync(file, JSON.stringify(cases));
   console.log(`d01 ok=${cases.length} dropped=${dropped} prev=${prev ?? "none"}`);
   const stats = JSON.parse(readFileSync(new URL("../stats.json", import.meta.url), "utf8"));
-  const statOut = [...statCases(stats.items), adoptCountCase(cases.length, today)];
+  const statOut = [...statCases(stats.items), adoptCountCase(cases.filter((c) => c.topic === "animals-adopt").length, today)];
   for (const c of statOut) {
     const bad = invalidReason(c);
     if (bad) throw new Error(`stats ${c.id}：${bad}`);
