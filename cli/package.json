@@ -1,0 +1,18 @@
+{
+  "name": "doorbell-life",
+  "version": "0.1.0",
+  "description": "把網站的 4xx、5xx 錯誤頁變成公益資訊曝光位：偵測架構、列出變更、確認後才寫入",
+  "license": "MIT",
+  "type": "module",
+  "bin": { "doorbell-life": "dist/cli.js" },
+  "files": ["dist"],
+  "engines": { "node": ">=20" },
+  "repository": { "type": "git", "url": "git+https://github.com/doorbell-life/doorbell-life.git", "directory": "cli" },
+  "homepage": "https://doorbell.life",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

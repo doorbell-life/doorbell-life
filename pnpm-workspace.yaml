@@ -3,4 +3,5 @@ packages:
   - site
   - schema
   - templates
+  - cli
   - regions/*
