@@ -1,9 +1,90 @@
 ---
 import Base from "../layouts/Base.astro";
+import Bell from "../components/Bell.astro";
+import { regionCases } from "../lib/data";
+
+const cases = regionCases("taiwan");
+const adopt = cases?.filter((c) => c.topic === "animals-adopt") ?? [];
+const lost = cases?.filter((c) => c.topic === "animals-lost") ?? [];
+const sample = adopt.find((c) => c.features && c.contact.phone) ?? null;
+const fmt = (n: number) => n.toLocaleString("en-US");
+const steps = [
+  ["政府與合作單位提供資料", "失蹤協尋、捐血、收容所動物等公開資料。"],
+  ["每天整理、檢查", "過期與已經找到的個案自動移除。"],
+  ["網站一次安裝", "貼一行程式碼，之後不用再維護。"],
+  ["訪客遇到錯誤頁", "看到附近需要幫忙的人和動物。"],
+  ["民眾伸出援手", "聯絡收容所或協尋專線。"],
+  ["找到家，自動下架", "換下一個需要幫忙的個案。"],
+];
 ---
-<Base title="按門鈴 doorbell.life" lang="zh-Hant-TW" description="把網站的錯誤頁變成失蹤協尋、捐血、動物認養的公益曝光位。">
+<Base title="按門鈴 doorbell.life：把錯誤頁變成公益曝光位" lang="zh-Hant-TW" description="任何網站的 404、500 錯誤頁，都能顯示附近需要幫忙的人和動物。免費、開源、不追蹤訪客。">
   <main>
-    <h1>按門鈴</h1>
-    <p>把網站的錯誤頁，變成提醒「有人需要幫忙」的門鈴。</p>
+    <section class="hero">
+      <h1>把網站的錯誤頁，變成提醒「有人需要幫忙」的門鈴。</h1>
+      <p class="lead">任何網站的 404、500 錯誤頁，都能顯示附近需要幫忙的人和動物。免費、開源、不追蹤訪客，也不改變錯誤狀態碼。</p>
+      <p class="cta">
+        <a class="btn" href="/install/taiwan/">安裝到我的網站</a>
+        <a href="/how-it-works/taiwan/">看運作方式 →</a>
+      </p>
+    </section>
+
+    {cases && (
+      <section class="today" aria-label="今天的數字">
+        <div class="num"><strong>{fmt(adopt.length)}</strong><span>隻動物在公立收容所等待認養</span></div>
+        <div class="num"><strong>{fmt(lost.length)}</strong><span>隻剛進收容所，可能有飼主正在找牠</span></div>
+        <p class="src">資料來源：農業部 動物認領養開放資料，每天更新。</p>
+      </section>
+    )}
+
+    {sample && (
+      <section class="demo">
+        <h2>錯誤頁上看起來像這樣</h2>
+        <div class="page">
+          <p class="code">404</p>
+          <p class="msg">找不到這個頁面</p>
+          <aside class="card">
+            <p class="t"><Bell /> 有人需要幫忙</p>
+            <strong class="h">{sample.title}</strong>
+            <p class="d">{sample.area}・{sample.features}</p>
+            <p class="c">{sample.contact.name} {sample.contact.phone}</p>
+            <p class="s">資料來源：doorbell.life 按門鈴</p>
+          </aside>
+        </div>
+      </section>
+    )}
+
+    <section class="steps">
+      <h2>怎麼運作</h2>
+      <ol>
+        {steps.map(([h, d]) => <li><strong>{h}</strong><span>{d}</span></li>)}
+      </ol>
+    </section>
   </main>
 </Base>
+<style>
+  main { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  h1 { font-size: var(--text-2xl); line-height: 1.25; margin: 48px 0 24px; max-width: 18em; }
+  h2 { font-size: var(--text-xl); margin: 0 0 24px; }
+  .lead { color: var(--text-secondary); max-width: 32em; margin: 0; }
+  .cta { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; margin: 32px 0 0; }
+  .btn { background: var(--text-primary); color: var(--bg-base); padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+  .today { margin: 72px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px; }
+  .num { background: var(--bg-surface); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; }
+  .num strong { font-size: var(--text-3xl); line-height: 1.1; }
+  .num span { color: var(--text-secondary); }
+  .src { grid-column: 1 / -1; margin: 0; color: var(--text-secondary); font-size: var(--text-xs); }
+  .demo { margin: 72px 0; }
+  .page { border: 1px solid var(--border-subtle); border-radius: 12px; padding: 32px 16px; background: var(--bg-surface); }
+  .code { margin: 0; font-size: var(--text-2xl); font-weight: 700; color: var(--text-muted); text-align: center; }
+  .msg { margin: 0 0 24px; text-align: center; }
+  .card { max-width: 640px; margin: 0 auto; padding: 24px; border: 1px solid var(--border-subtle); border-radius: 12px; background: var(--bg-base); }
+  .card .t { display: flex; align-items: center; gap: 12px; margin: 0 0 16px; font-size: var(--text-sm); font-weight: 600; color: var(--text-secondary); }
+  .card .h { display: block; font-size: var(--text-lg); line-height: 1.3; }
+  .card .d { margin: 4px 0 0; color: var(--text-secondary); }
+  .card .c { margin: 8px 0 0; font-weight: 600; }
+  .card .s { margin: 20px 0 0; font-size: var(--text-xs); color: var(--color-link); }
+  .steps ol { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; counter-reset: s; }
+  .steps li { counter-increment: s; background: var(--bg-surface); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 4px; }
+  .steps li::before { content: counter(s); font-size: var(--text-xl); font-weight: 700; color: var(--color-bell); }
+  .steps span { color: var(--text-secondary); }
+</style>

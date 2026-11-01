@@ -27,13 +27,14 @@ Promise.all([get(src), a.brand ? get("b/" + a.brand) : 0]).then(([d, b]) => {
   root.className = "dbl dbl-" + mode;
   root.lang = d.l;
   if (b) for (const k in b.v) root.style.setProperty("--dbl-" + k, b.v[k]); // 品牌主色等
+  if (mode != "l") mk("p", "t", root, t.title); // 「有人需要幫忙」，前面的橘色圓點由 CSS 畫
   const box = mk("div", "b", root);
   const show = (i: any) => {
     box.textContent = "";
     if (i.img && i.img.startsWith(C + "/") && mode != "l") (mk("img", "i", box) as HTMLImageElement).src = i.img; // 只接受自家 CDN 圖
     mk("strong", "h", box, i.h);
     if (mode != "l") mk("p", "d", box, i.d);
-    mk("p", "c", box, i.c);
+    mk("p", "n", box, i.c); // class 不能用 c：卡片模式的外框是 dbl-c
     navigator.sendBeacon && Math.random() < .1 && navigator.sendBeacon(C + "/s?h=" + location.hostname + "&k=" + i.k); // 抽樣 1/10
   };
   const top = items.filter((i: any) => i.k == items[0].k);

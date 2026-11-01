@@ -1,5 +1,6 @@
 ---
 import "../styles/tokens.css";
+import Bell from "../components/Bell.astro";
 
 interface Props {
   title: string;
@@ -17,6 +18,20 @@ const { title, lang, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <header class="top">
+      <a class="brand" href="/"><Bell /> 按門鈴 <span class="en">doorbell.life</span></a>
+    </header>
     <slot />
+    <footer class="foot">
+      <p>按門鈴 doorbell.life：開源公益服務。程式碼 MIT，文章 CC BY 4.0。</p>
+      <p><a href="https://github.com/doorbell-life/doorbell-life">GitHub</a></p>
+    </footer>
   </body>
 </html>
+<style>
+  .top, .foot { max-width: 1040px; margin: 0 auto; padding: 24px 16px; }
+  .brand { display: inline-flex; align-items: center; gap: 14px; font-size: var(--text-lg); font-weight: 700; color: var(--text-primary); text-decoration: none; }
+  .en { font-weight: 400; color: var(--text-secondary); font-size: var(--text-sm); }
+  .foot { margin-top: 64px; border-top: 1px solid var(--border-subtle); color: var(--text-secondary); font-size: var(--text-xs); }
+  .foot p { margin: 4px 0; }
+</style>

@@ -6,7 +6,7 @@ const CDN = "https://cdn.doorbell.life";
 const HOST = "https://host.example";
 const dist = (f: string) => readFileSync(new URL(`../dist/${f}`, import.meta.url), "utf8");
 
-const T = { "zh-tw": { by: "資料來源：doorbell.life 按門鈴", wait: "請稍候，# 秒後可重試", retry: "現在可以重新整理頁面了" } };
+const T = { "zh-tw": { title: "有人需要幫忙", by: "資料來源：doorbell.life 按門鈴", wait: "請稍候，# 秒後可重試", retry: "現在可以重新整理頁面了" } };
 const item = (h: string, extra: Record<string, string> = {}) => ({ k: "animals-adopt", h, d: "臺南市・公、成年", c: "臺南市動物之家 (06)2964439", ...extra });
 
 interface Opts {
@@ -40,6 +40,9 @@ async function open(page: Page, o: Opts = {}) {
 test("404 顯示卡片，狀態碼與網址不變，原本的錯誤頁保留", async ({ page }) => {
   const res = await open(page);
   await expect(page.locator(".dbl-c .dbl-h")).toHaveText("貓・混種貓");
+  await expect(page.locator(".dbl-t")).toHaveText("有人需要幫忙");
+  // 外框模式 class 與內部元素 class 不能撞名（曾因 dbl-c 撞名讓整張卡片變粗體）
+  expect(await page.locator(".dbl-d").evaluate((e) => getComputedStyle(e).fontWeight)).toBe("400");
   expect(res.status()).toBe(404);
   expect(page.url()).toBe(`${HOST}/missing`);
   await expect(page.locator("#orig")).toBeVisible();
