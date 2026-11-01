@@ -1,0 +1,59 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { REPO, WIDGET } from "../../../lib/site";
+
+const tag = `<script src="${WIDGET}" async data-status="404"></script>`;
+const topics = [
+  ["missing-elders", "失智走失長者"],
+  ["missing-children", "失蹤兒少"],
+  ["missing-adults", "失蹤成人"],
+  ["blood", "捐血"],
+  ["animals-lost", "走失毛孩"],
+  ["animals-adopt", "待認養動物"],
+  ["stats", "宣導數字"],
+];
+---
+<Base title="安裝 doorbell.life：五種方式｜按門鈴" lang="zh-Hant-TW" description="一行 script、WordPress 外掛、伺服器設定、安裝 CLI、AI 代理人 skill：五種方式把錯誤頁變成公益資訊曝光位。">
+  <main>
+    <h1>怎麼安裝到我的網站？</h1>
+    <p class="lead">有五種方式，結果都一樣：錯誤頁照常回傳原本的狀態碼，頁面上多一張公益資訊卡片。免費，不用註冊。</p>
+
+    <h2 id="script">1. 一行 script（已有錯誤頁的網站）</h2>
+    <p>在錯誤頁的 <code>&lt;/body&gt;</code> 前貼上這一行，<code>data-status</code> 改成該頁的狀態碼：</p>
+    <pre><code>{tag}</code></pre>
+    <table>
+      <thead><tr><th>參數</th><th>說明</th><th>預設</th></tr></thead>
+      <tbody>
+        <tr><td><code>data-status</code></td><td>這一頁的狀態碼。401、403 顯示一行；429、503 顯示多個個案輪播；其他顯示一張卡片。</td><td>404</td></tr>
+        <tr><td><code>data-region</code></td><td>地區，例如 <code>taiwan</code>。</td><td>依訪客瀏覽器的時區判斷</td></tr>
+        <tr><td><code>data-lang</code></td><td>介面語言，<code>zh-TW</code> 或 <code>en</code>。個案內容維持來源語言。</td><td>網頁的 lang，或訪客瀏覽器語言</td></tr>
+        <tr><td><code>data-topics</code></td><td>只播這些議題，用逗號分隔。</td><td>全部議題</td></tr>
+        <tr><td><code>data-retry</code></td><td>429、503 頁的重試秒數，會顯示倒數。</td><td>不顯示倒數</td></tr>
+      </tbody>
+    </table>
+    <h3>議題代碼</h3>
+    <ul>{topics.map(([k, v]) => <li><code>{k}</code>：{v}</li>)}</ul>
+    <h3>網站有設定 CSP 時</h3>
+    <p>請允許 <code>https://cdn.doorbell.life</code> 出現在 <code>script-src</code>、<code>style-src</code>、<code>connect-src</code>、<code>img-src</code>。</p>
+
+    <h2 id="wordpress">2. WordPress 外掛（不碰程式碼）</h2>
+    <p>外掛會在 404 頁顯示卡片，並可一鍵把 WordPress 更新時的維護頁（503）換成會輪播公益資訊的版本，停用外掛時自動移除。後台在「設定 → doorbell.life」選介面語言、地區與議題。</p>
+    <p>上架 WordPress 外掛目錄後，可在後台搜尋「doorbell.life」安裝；原始碼在 <a href={`${REPO}/tree/main/wordpress-plugin`}>GitHub</a>。</p>
+
+    <h2 id="server">3. 伺服器設定（含 5xx）</h2>
+    <p>網站壞掉時，網頁伺服器直接回應本機的錯誤頁檔案，不需要連到 doorbell.life。步驟：</p>
+    <ol>
+      <li>用下載腳本把錯誤頁範本存到 <code>/var/www/doorbell-life/</code>，並設定每天執行一次，讓離線頁的資料保持更新。</li>
+      <li>把 Nginx 或 Apache 的設定片段加進網站設定。</li>
+      <li>檢查設定後重新載入伺服器。</li>
+    </ol>
+    <p>設定檔與完整說明：<a href={`${REPO}/tree/main/configs`}>configs/</a>。哪些主機環境可以自訂 5xx，見<a href="/support/taiwan/">支援環境</a>。</p>
+
+    <h2 id="cli">4. 安裝 CLI（工程師）</h2>
+    <pre><code>npx doorbell-life install</code></pre>
+    <p>在網站專案資料夾執行。會偵測架構（Astro、Vite、Hugo、Jekyll、純 HTML、Nginx、Apache 等），列出要做的變更，你確認後才寫入。已有 404.html 時只加一行 script，不覆蓋。</p>
+
+    <h2 id="ai-agent">5. AI 代理人（Claude Code 等）</h2>
+    <p>把 <a href={`${REPO}/tree/main/skills/doorbell-life`}>skills/doorbell-life</a> 資料夾複製到 <code>~/.claude/skills/</code>，再跟代理人說「幫我安裝 doorbell.life」。代理人會先執行 CLI；CLI 判斷不了的自訂架構（Express、Django、Rails 等），由代理人找到錯誤頁加上那一行 script。</p>
+  </main>
+</Base>

@@ -1,0 +1,52 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { byArea, regionCases, regionStats, today } from "../../../lib/data";
+
+const cases = regionCases("taiwan");
+const rows = cases ? byArea(cases) : [];
+const sum = (k: "adopt" | "lost" | "dog" | "cat") => rows.reduce((n, r) => n + r[k], 0);
+const stats = regionStats("taiwan");
+const fmt = (n: number) => n.toLocaleString("en-US");
+const date = today();
+---
+<Base title="台灣公立收容所動物與失蹤人口數據｜按門鈴" lang="zh-Hant-TW" description="每天更新：各縣市公立收容所待認養動物數、剛進收容所可能有飼主在找的動物數，以及警政署失蹤人口統計。附來源，可下載。">
+  <main>
+    <h1>台灣今天有多少動物在收容所等家？</h1>
+    {cases ? (
+      <p class="lead">{date} 全台公立收容所有 {fmt(sum("adopt"))} 隻動物等待認養，另有 {fmt(sum("lost"))} 隻剛進收容所、還沒開放認養，可能有飼主正在找牠。資料來源：<a href="https://data.gov.tw/dataset/85903">農業部 動物認領養開放資料</a>，每天更新。</p>
+    ) : (
+      <p class="lead">今天的資料尚未同步。</p>
+    )}
+
+    {cases && (
+      <>
+        <h2>各縣市</h2>
+        <table>
+          <thead><tr><th>縣市</th><th>待認養</th><th>可能有飼主在找</th><th>狗</th><th>貓</th></tr></thead>
+          <tbody>
+            {rows.map((r) => <tr><td>{r.area}</td><td>{fmt(r.adopt)}</td><td>{fmt(r.lost)}</td><td>{fmt(r.dog)}</td><td>{fmt(r.cat)}</td></tr>)}
+          </tbody>
+        </table>
+        <p class="muted">「可能有飼主在找」指開放認養日還沒到的動物，不一定每一隻都有飼主。狗、貓之外的其他動物未分列。下載：<a href="/data/taiwan/animals-by-county.csv">CSV</a>（{date}）。</p>
+      </>
+    )}
+
+    {stats.length > 0 && (
+      <>
+        <h2>失蹤人口</h2>
+        <ul>
+          {stats.map((s) => (
+            <li>
+              <strong>{s.title}</strong>。{s.features}
+              <span class="muted">來源：<a href={s.source.url}>{s.source.name}</a>（{s.publishedAt} 發布，{s.checkedAt} 查核）</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+  </main>
+</Base>
+<style>
+  li { margin-bottom: 16px; }
+  li .muted { display: block; }
+</style>

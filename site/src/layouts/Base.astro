@@ -1,13 +1,16 @@
 ---
 import "../styles/tokens.css";
 import Bell from "../components/Bell.astro";
+import { LAUNCHED, NAV_TW, REPO } from "../lib/site";
 
 interface Props {
   title: string;
   lang: string;
   description: string;
+  noindex?: boolean;
 }
-const { title, lang, description } = Astro.props;
+const { title, lang, description, noindex = false } = Astro.props;
+const path = Astro.url.pathname;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -15,23 +18,47 @@ const { title, lang, description } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, noarchive" />}
     <title>{title}</title>
   </head>
   <body>
+    {!LAUNCHED && <p class="prelaunch">doorbell.life 尚未正式上線：網域、CDN 與安裝工具準備中，頁面上的安裝方式上線後才能使用。</p>}
     <header class="top">
       <a class="brand" href="/"><Bell /> 按門鈴 <span class="en">doorbell.life</span></a>
+      <nav>
+        {NAV_TW.map(([href, label]) => <a href={href} aria-current={path.startsWith(href) ? "page" : undefined}>{label}</a>)}
+      </nav>
     </header>
     <slot />
     <footer class="foot">
       <p>按門鈴 doorbell.life：開源公益服務。程式碼 MIT，文章 CC BY 4.0。</p>
-      <p><a href="https://github.com/doorbell-life/doorbell-life">GitHub</a></p>
+      <p><a href={REPO}>GitHub</a></p>
     </footer>
   </body>
 </html>
+<style is:global>
+  main { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  main h1 { font-size: var(--text-2xl); line-height: 1.25; margin: 40px 0 24px; max-width: 18em; }
+  main h2 { font-size: var(--text-xl); margin: 56px 0 16px; }
+  main h3 { font-size: var(--text-lg); margin: 32px 0 8px; }
+  main p, main li { max-width: 36em; }
+  .lead { color: var(--text-secondary); }
+  .muted { color: var(--text-secondary); font-size: var(--text-xs); }
+  pre { background: var(--bg-overlay); border-radius: 8px; padding: 16px; overflow-x: auto; font-size: var(--text-xs); line-height: 1.5; max-width: 100%; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: var(--text-xs); }
+  table { border-collapse: collapse; width: 100%; font-size: var(--text-sm); display: block; overflow-x: auto; }
+  th, td { text-align: left; vertical-align: top; padding: 12px; border-bottom: 1px solid var(--border-subtle); }
+  th { background: var(--bg-overlay); font-weight: 600; }
+</style>
 <style>
+  .prelaunch { margin: 0; padding: 12px 16px; background: var(--bg-overlay); color: var(--text-primary); font-size: var(--text-xs); text-align: center; }
   .top, .foot { max-width: 1040px; margin: 0 auto; padding: 24px 16px; }
-  .brand { display: inline-flex; align-items: center; gap: 14px; font-size: var(--text-lg); font-weight: 700; color: var(--text-primary); text-decoration: none; }
+  .top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: inline-flex; align-items: center; gap: 12px; font-size: var(--text-lg); font-weight: 700; color: var(--text-primary); text-decoration: none; }
   .en { font-weight: 400; color: var(--text-secondary); font-size: var(--text-sm); }
+  nav { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: var(--text-sm); }
+  nav a { color: var(--text-secondary); text-decoration: none; }
+  nav a[aria-current="page"] { color: var(--text-primary); font-weight: 700; }
   .foot { margin-top: 64px; border-top: 1px solid var(--border-subtle); color: var(--text-secondary); font-size: var(--text-xs); }
   .foot p { margin: 4px 0; }
 </style>

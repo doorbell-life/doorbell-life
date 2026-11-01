@@ -1,0 +1,23 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { REPO } from "../../../lib/site";
+---
+<Base title="哪些主機環境可以自訂錯誤頁？｜按門鈴" lang="zh-Hant-TW" description="Nginx、Apache、Cloudflare、GitHub Pages、Netlify、Vercel、共享主機能不能自訂 4xx 與 5xx 錯誤頁。">
+  <main>
+    <h1>哪些主機環境可以自訂錯誤頁？</h1>
+    <p class="lead">4xx 幾乎都能裝；5xx 要看主機環境，很多代管平台與共享主機不開放。以下依各平台官方文件整理，查核日期 2026-11-01。</p>
+    <table>
+      <thead><tr><th>環境</th><th>4xx</th><th>5xx</th><th>做法</th></tr></thead>
+      <tbody>
+        <tr><td>自己管理的 Nginx</td><td>可以</td><td>可以，含後端連不上的 502、504</td><td>伺服器設定</td></tr>
+        <tr><td>自己管理的 Apache</td><td>可以</td><td>可以，含後端連不上的 503</td><td>伺服器設定</td></tr>
+        <tr><td>Cloudflare 付費方案</td><td>可以</td><td>可以</td><td>儀表板 Custom Errors</td></tr>
+        <tr><td>Cloudflare 免費方案</td><td>用 Worker</td><td>用 Worker</td><td>Custom Errors 不開放給免費方案，可改用 Worker 擋在網站前面；每個請求都會計入你自己的 Workers 免費額度</td></tr>
+        <tr><td>GitHub Pages、Netlify、Vercel、Cloudflare Pages</td><td>只有 404</td><td>不行</td><td>把 404 範本放在網站根目錄的 404.html；官方文件沒有提供自訂 5xx 的方式</td></tr>
+        <tr><td>WordPress</td><td>404</td><td>維護模式的 503</td><td>WordPress 外掛</td></tr>
+        <tr><td>共享主機</td><td>視主機商</td><td>多半不行</td><td>主機商開放 .htaccess 時，可用 Apache 的 ErrorDocument 設定</td></tr>
+      </tbody>
+    </table>
+    <p>各平台的官方說明連結與設定檔：<a href={`${REPO}/tree/main/configs`}>configs/</a>。</p>
+  </main>
+</Base>
