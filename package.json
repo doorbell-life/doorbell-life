@@ -8,12 +8,13 @@
     "node": ">=22.23.4"
   },
   "scripts": {
-    "build": "pnpm -r build",
+    "build": "pnpm -r build && node .github/scripts/assemble-cdn.ts",
     "test": "vitest run --passWithNoTests",
     "test:e2e": "playwright test",
     "sync": "pnpm --filter \"./regions/*\" sync",
     "daily": "pnpm sync && pnpm test && pnpm build && pnpm test:e2e",
-    "watch-sources": "node .github/scripts/watch-sources.ts"
+    "watch-sources": "node .github/scripts/watch-sources.ts",
+    "test:configs": "sh configs/test/run.sh"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",
