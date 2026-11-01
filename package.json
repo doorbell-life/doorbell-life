@@ -11,7 +11,7 @@
     "test": "vitest run --passWithNoTests",
     "test:e2e": "playwright test",
     "sync": "pnpm --filter \"./regions/*\" sync",
-    "daily": "pnpm sync && pnpm test && pnpm build"
+    "daily": "pnpm sync && pnpm test && pnpm build && pnpm test:e2e"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",

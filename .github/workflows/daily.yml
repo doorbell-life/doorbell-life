@@ -24,6 +24,7 @@ jobs:
           path: regions/*/out
           key: sync-out-${{ github.run_id }}
           restore-keys: sync-out-
+      - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm daily
       - uses: actions/cache/save@v6.1.0
         with:
