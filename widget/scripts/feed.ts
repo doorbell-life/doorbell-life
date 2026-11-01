@@ -38,7 +38,7 @@ export function buildFeed(cases: Case[], lang: string, t: Record<string, unknown
 function main() {
   const t: Record<string, unknown> = {};
   for (const f of readdirSync(new URL("i18n/", ROOT)).filter((f) => f.endsWith(".json"))) {
-    t[f.slice(0, -5).toLowerCase()] = JSON.parse(readFileSync(new URL(`i18n/${f}`, ROOT), "utf8"));
+    t[f.slice(0, -5).toLowerCase()] = JSON.parse(readFileSync(new URL(`i18n/${f}`, ROOT), "utf8")).widget; // 只放元件用的文字
   }
   mkdirSync(new URL("d/", DIST), { recursive: true });
   const redirects: string[] = [];

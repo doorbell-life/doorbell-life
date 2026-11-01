@@ -39,7 +39,8 @@
   }
 }
 
-html {
+/* 基準字級放在 body，不放 html：放在 html 會讓所有 rem 跟著放大。 */
+body {
   background: var(--bg-base);
   color: var(--text-primary);
   font: 400 var(--text-base)/1.6 var(--font-sans);

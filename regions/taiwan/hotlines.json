@@ -1,0 +1,9 @@
+{
+  "_說明": "求助專線，寫死在離線 5xx 頁。每筆附官方來源與查核日。",
+  "items": [
+    { "name": "緊急狀況報警", "number": "110", "hours": "24 小時", "source": "https://dep.mohw.gov.tw/DOPS/cp-1183-6499-105.html", "checkedAt": "2026-11-01" },
+    { "name": "113 保護專線（兒少、老人、家暴）", "number": "113", "hours": "24 小時", "source": "https://dep.mohw.gov.tw/DOPS/cp-1183-6499-105.html", "checkedAt": "2026-11-01" },
+    { "name": "失智症關懷專線", "number": "0800-474-580", "hours": "上班日 9:00–21:00", "source": "https://dementia.gov.taipei/News_Content.aspx?n=04825D3265339708&sms=D3FC34DCF234E6DD&s=65C3246500BEEBAD", "checkedAt": "2026-11-01" },
+    { "name": "動物保護專線", "number": "1959", "hours": "", "source": "https://www.moa.gov.tw/theme_data.php?theme=news&sub_theme=agri&id=8913", "checkedAt": "2026-11-01" }
+  ]
+}

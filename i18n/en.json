@@ -1,5 +1,32 @@
 {
-  "by": "Data via doorbell.life",
-  "wait": "Please wait, you can retry in # seconds",
-  "retry": "You can reload the page now"
+  "widget": {
+    "by": "Data via doorbell.life",
+    "wait": "Please wait, you can retry in # seconds",
+    "retry": "You can reload the page now"
+  },
+  "pages": {
+    "status": {
+      "400": "Bad request",
+      "401": "Sign-in required",
+      "403": "Access denied",
+      "404": "Page not found",
+      "405": "Method not allowed",
+      "408": "Request timed out",
+      "410": "This page has been removed",
+      "414": "URL too long",
+      "429": "Too many requests, please wait",
+      "500": "Something went wrong",
+      "501": "Not supported",
+      "502": "The site is temporarily unreachable",
+      "503": "Down for maintenance",
+      "504": "The site took too long to respond"
+    },
+    "home": "Back to home",
+    "offline": "This site is temporarily unavailable. Please try again later. While you wait, see who needs help.",
+    "hotlines": "Helplines",
+    "stats": "Did you know",
+    "animals": "Waiting for adoption",
+    "cachedAt": "Data as of #",
+    "by": "Provided by doorbell.life"
+  }
 }

@@ -2,4 +2,5 @@ packages:
   - widget
   - site
   - schema
+  - templates
   - regions/*
