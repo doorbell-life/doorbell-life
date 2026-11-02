@@ -17,15 +17,16 @@ const steps = [
   ["找到家，自動下架", "換下一個需要幫忙的個案。"],
 ];
 ---
-<Base title="按門鈴 doorbell.life：讓 404 頁不再白白浪費" lang="zh-Hant-TW" description="每天都有人看到錯誤頁就離開。裝上按門鈴，這一頁會顯示附近需要幫忙的人和動物。免費、開源，不追蹤訪客。">
+<Base title="按門鈴 doorbell.life：讓 404 頁不再白白浪費" lang="zh-Hant-TW" description="走失的長輩、告急的血庫、等家的貓狗，都需要被更多人看見。你的錯誤頁，每天都有人看。貼一行程式碼就好，免費、開源，不追蹤訪客。">
   <main>
     <section class="hero">
       <h1>讓 404 頁不再白白浪費。</h1>
-      <p class="lead">每天都有人看到錯誤頁就離開。裝上按門鈴，這一頁會顯示附近需要幫忙的人和動物。免費、開源，不追蹤訪客。</p>
+      <p class="lead">走失的長輩、告急的血庫、等家的貓狗，<br />都需要被更多人看見。<br />你的錯誤頁，每天都有人看。</p>
       <p class="cta">
         <a class="btn" href="/install/taiwan/">安裝到我的網站</a>
         <a href="/how-it-works/taiwan/">看運作方式 →</a>
       </p>
+      <p class="promise">貼一行程式碼就好。免費、開源，不追蹤訪客。</p>
     </section>
 
     {cases && (
@@ -65,6 +66,7 @@ const steps = [
   h2 { margin-top: 0; }
   .lead { color: var(--text-secondary); max-width: 32em; margin: 0; }
   .cta { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; margin: 32px 0 0; }
+  .promise { margin: 16px 0 0; color: var(--text-secondary); font-size: var(--text-xs); }
   .btn { background: var(--text-primary); color: var(--bg-base); padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; }
   .today { margin: 72px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px; }
   .num { background: var(--bg-surface); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; }
