@@ -17,6 +17,10 @@ const articles = defineCollection({
     sources: z
       .array(z.object({ name: z.string(), url: z.string().url(), checkedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/) }))
       .min(1),
+    series: z.enum(["care", "temporary-care"]).optional(), // 飼養系列、臨時照顧系列（§9）
+    species: z.array(z.enum(["dog", "cat", "rabbit", "guinea-pig", "hamster", "bird", "wildlife"])).optional(),
+    // 可列印的精簡檢查表（臨時照顧系列必填）：每項一句可以照做的動作，列印頁在 {文章網址}checklist/
+    checklist: z.array(z.string()).optional(),
   }),
 });
 
