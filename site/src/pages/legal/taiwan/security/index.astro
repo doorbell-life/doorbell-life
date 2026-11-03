@@ -1,0 +1,20 @@
+---
+import Base from "../../../../layouts/Base.astro";
+import LegalDraft from "../../../../components/LegalDraft.astro";
+import { REPO } from "../../../../lib/site";
+---
+<Base title="資安問題回報｜按門鈴" description="發現按門鈴的資安問題，請私下寄信回報，不要開公開 issue。" noindex>
+  <main>
+    <h1>發現資安問題，怎麼回報？</h1>
+    <LegalDraft />
+    <p class="lead">請寄信到 contact@doorbell.life，主旨以 [SECURITY] 開頭，不要開公開的 GitHub issue。</p>
+    <p>按門鈴的元件會出現在很多網站上，資料植入或跨站腳本的問題可能同時影響所有安裝的網站，所以請先私下告訴我們。</p>
+    <h2>信裡請附上</h2>
+    <ul>
+      <li>問題描述與影響範圍</li>
+      <li>重現步驟</li>
+      <li>你的聯絡方式（如果希望收到回覆）</li>
+    </ul>
+    <p>同樣的說明也在 <a href={`${REPO}/blob/main/SECURITY.md`}>SECURITY.md</a>。</p>
+  </main>
+</Base>

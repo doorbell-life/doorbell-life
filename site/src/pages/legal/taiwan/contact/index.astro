@@ -1,0 +1,17 @@
+---
+import Base from "../../../../layouts/Base.astro";
+import LegalDraft from "../../../../components/LegalDraft.astro";
+import { REPO } from "../../../../lib/site";
+---
+<Base title="聯絡我們｜按門鈴" description="寄信到 contact@doorbell.life，或在 GitHub 回報。" noindex>
+  <main>
+    <h1>怎麼聯絡按門鈴？</h1>
+    <LegalDraft />
+    <ul>
+      <li><strong>一般聯絡、下架申請、合作洽詢</strong>：contact@doorbell.life</li>
+      <li><strong>資料錯誤、翻譯、地區包貢獻</strong>：<a href={`${REPO}/issues`}>GitHub issue</a>（內容公開，請不要附個人資料）</li>
+      <li><strong>資安問題</strong>：見<a href="/legal/taiwan/security/">資安問題回報</a></li>
+    </ul>
+    <p>如果你是失蹤協尋個案的本人或家屬，希望下架，請在信件主旨寫「下架申請」，我們會優先處理。</p>
+  </main>
+</Base>

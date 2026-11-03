@@ -1,0 +1,32 @@
+---
+import Base from "../../../../layouts/Base.astro";
+import LegalDraft from "../../../../components/LegalDraft.astro";
+import { REPO } from "../../../../lib/site";
+---
+<Base title="Terms of use | doorbell.life" description="Conditions for using the doorbell.life widget, site content and data." noindex>
+  <main>
+    <h1>What are the terms for using doorbell.life?</h1>
+    <LegalDraft en />
+    <p class="lead">Any website can install doorbell.life for free, without signing up. Here is what you should know.</p>
+    <h2>Free and provided as is</h2>
+    <p>doorbell.life is run by its maintainer as an individual and does not guarantee uninterrupted service. If the widget can't load its data it steps aside and your original error page is shown.</p>
+    <h2>Accuracy of the data</h2>
+    <p>Cases and statistics come from government open data and the agencies that publish it, synced once a day. We filter and check the data but cannot guarantee it is complete, correct or current. Before acting, rely on the source agency and the contact shown on the card.</p>
+    <h2>Sites that install the widget should not</h2>
+    <ul>
+      <li>alter the case content the widget shows, or use it for anything other than finding people and placing animals;</li>
+      <li>save, repost or republish missing-person cases elsewhere;</li>
+      <li>imply that doorbell.life or any data source endorses your site.</li>
+    </ul>
+    <h2>Licenses</h2>
+    <ul>
+      <li>Code and interface translations: MIT.</li>
+      <li>WordPress plugin: GPL-2.0-or-later.</li>
+      <li>Articles: CC BY 4.0. Please credit the source.</li>
+      <li>Data: under each source's own terms; partner data is not licensed to anyone else.</li>
+    </ul>
+    <p>Source code: <a href={REPO}>GitHub</a>.</p>
+    <h2>Changes</h2>
+    <p>Updates to these terms will be dated on this page. Questions: contact@doorbell.life.</p>
+  </main>
+</Base>

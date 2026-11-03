@@ -1,0 +1,20 @@
+---
+import Base from "../../../../layouts/Base.astro";
+import LegalDraft from "../../../../components/LegalDraft.astro";
+import { REPO } from "../../../../lib/site";
+---
+<Base title="Reporting a security issue | doorbell.life" description="Report doorbell.life security issues privately by email, not in a public issue." noindex>
+  <main>
+    <h1>How do I report a security issue?</h1>
+    <LegalDraft en />
+    <p class="lead">Email contact@doorbell.life with a subject starting with [SECURITY]. Please don't open a public GitHub issue.</p>
+    <p>The widget runs on many websites, so a data-injection or cross-site scripting bug could affect all of them at once. Tell us privately first.</p>
+    <h2>Please include</h2>
+    <ul>
+      <li>what the problem is and what it affects</li>
+      <li>steps to reproduce it</li>
+      <li>how to reach you, if you'd like a reply</li>
+    </ul>
+    <p>The same guidance is in <a href={`${REPO}/blob/main/SECURITY.md`}>SECURITY.md</a>.</p>
+  </main>
+</Base>

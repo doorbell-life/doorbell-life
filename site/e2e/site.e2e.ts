@@ -25,7 +25,17 @@ const PAGES = [
   ...ABOUT, "/faq/taiwan/", "/regions/taiwan/", ...MISSING_TW,
   "/animals/taiwan/adopt/", "/animals/taiwan/lost/", "/articles/taiwan/",
   ...PAGES_US,
+  ...["taiwan", "usa"].flatMap((r) => ["", "privacy/", "terms/", "security/", "contact/"].map((p) => `/legal/${r}/${p}`)),
+  "/animals/taiwan/practice/",
 ];
+
+test("法律頁草稿：不收錄，且顯示草稿標示", async ({ page }) => {
+  for (const path of ["/legal/taiwan/privacy/", "/legal/usa/terms/"]) {
+    await page.goto(BASE + path);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+    await expect(page.locator(".draft")).toBeVisible();
+  }
+});
 
 for (const path of PAGES) {
   for (const width of [360, 1280]) {

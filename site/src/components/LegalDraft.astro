@@ -1,0 +1,14 @@
+---
+// 法律頁草稿標示：維護者審閱前一律顯示，並由頁面設 noindex。審閱後把 DRAFT 改成 false。
+interface Props { en?: boolean }
+const { en = false } = Astro.props;
+export const DRAFT = true;
+---
+{DRAFT && (
+  <p class="draft">{en
+    ? "Draft — not yet reviewed by the maintainer or a lawyer. Not in effect."
+    : "草稿：尚未經維護者與法律專業人士審閱，目前不生效。"}</p>
+)}
+<style>
+  .draft { padding: 16px; border-radius: 8px; background: var(--bg-overlay); font-weight: 600; }
+</style>

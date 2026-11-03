@@ -1,0 +1,17 @@
+---
+import Base from "../../../../layouts/Base.astro";
+import LegalDraft from "../../../../components/LegalDraft.astro";
+import { REPO } from "../../../../lib/site";
+---
+<Base title="Contact | doorbell.life" description="Email contact@doorbell.life or open a GitHub issue." noindex>
+  <main>
+    <h1>How do I contact doorbell.life?</h1>
+    <LegalDraft en />
+    <ul>
+      <li><strong>General questions, removal requests, partnerships</strong>: contact@doorbell.life</li>
+      <li><strong>Data errors, translations, region packs</strong>: <a href={`${REPO}/issues`}>GitHub issues</a> (public; please don't include personal information)</li>
+      <li><strong>Security issues</strong>: see <a href="/legal/usa/security/">Reporting a security issue</a></li>
+    </ul>
+    <p>If you are the person in a missing-person case, or family, and want it removed, put "Removal request" in the subject and we will handle it first.</p>
+  </main>
+</Base>
