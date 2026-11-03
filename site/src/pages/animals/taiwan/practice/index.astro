@@ -1,0 +1,197 @@
+---
+// 飼養體驗遊戲（CLAUDE.md §9）：真的跨 7 天，每天回來照顧一次。
+// 進度只存在訪客自己的瀏覽器（§3 第 6 條例外二），不送出、不設帳號；瀏覽器不能儲存時改成一次玩完。
+import Base from "../../../../layouts/Base.astro";
+import { SPECIES } from "../../../../lib/practice/content";
+---
+<Base title="養之前，先試養 7 天｜按門鈴" lang="zh-Hant-TW" description="每天回來照顧一次，連續 7 天，看看自己準備好養寵物了沒。進度只存在你自己的瀏覽器。">
+  <main>
+    <h1>養之前，先試養 7 天</h1>
+    {SPECIES.length === 0 ? (
+      <p class="lead">遊戲內容準備中。每一個照顧知識都要有可靠的來源，寫好就會開放。</p>
+    ) : (
+      <>
+        <p class="lead">選一隻動物，接下來 7 天每天回來照顧牠一次。忘了來，牠就會少一天被照顧。第 7 天看看你準備好了沒。</p>
+        <p class="muted">進度只存在這台裝置的瀏覽器裡，不會傳給我們。換裝置或清除瀏覽器資料，進度就會不見。</p>
+        <div id="game" aria-live="polite"></div>
+        <script type="application/json" id="game-data" set:html={JSON.stringify(SPECIES)} />
+      </>
+    )}
+  </main>
+</Base>
+<script>
+  import { canPlay, DAYS, finished, gameDay, missedDays, newState, parseState, record, result, type SpeciesContent, type State } from "../../../../lib/practice/engine";
+
+  const KEY = "doorbell-practice-v1";
+  const root = document.getElementById("game");
+  const data = document.getElementById("game-data");
+  if (root && data) {
+    const species: SpeciesContent[] = JSON.parse(data.textContent || "[]");
+    const localDay = () => new Date().toLocaleDateString("sv-SE");
+
+    // 瀏覽器儲存：任何錯誤都改成一次玩完，不讓遊戲壞掉
+    let canStore = true;
+    const load = (): State | null => {
+      try { return parseState(localStorage.getItem(KEY)); } catch { canStore = false; return null; }
+    };
+    const save = (s: State | null) => {
+      try { s ? localStorage.setItem(KEY, JSON.stringify(s)) : localStorage.removeItem(KEY); } catch { canStore = false; }
+    };
+    try { localStorage.setItem(KEY + "-test", "1"); localStorage.removeItem(KEY + "-test"); } catch { canStore = false; }
+
+    let state = load();
+    let fastDay = 1; // 一次玩完模式用的虛擬天數
+    const dayOf = (s: State) => (canStore ? gameDay(s.start, localDay()) : fastDay);
+
+    const el = <K extends keyof HTMLElementTagNameMap>(tag: K, text?: string, cls?: string) => {
+      const e = document.createElement(tag);
+      if (text) e.textContent = text;
+      if (cls) e.className = cls;
+      return e;
+    };
+    const button = (text: string, on: () => void, cls = "btn") => {
+      const b = el("button", text, cls);
+      b.type = "button";
+      b.addEventListener("click", on);
+      return b;
+    };
+    const sourceLink = (s: { name: string; url: string }) => {
+      const a = el("a", s.name);
+      a.href = s.url;
+      return a;
+    };
+
+    function pick() {
+      root!.textContent = "";
+      if (!canStore) root!.append(el("p", "這個瀏覽器不能儲存進度，所以改成一次玩完：每照顧完一天，按「下一天」繼續。", "muted"));
+      root!.append(el("h2", "選一隻動物"));
+      const row = el("div", undefined, "choices");
+      for (const c of species) {
+        row.append(button(c.name, () => {
+          state = canStore ? newState(c.id, localDay()) : newState(c.id, "2000-01-01");
+          fastDay = 1;
+          save(state);
+          render();
+        }));
+      }
+      root!.append(row);
+    }
+
+    function play(s: State, c: SpeciesContent, day: number) {
+      root!.textContent = "";
+      const miss = canStore ? missedDays(s, localDay()) : [];
+      if (miss.length) {
+        const box = el("div", undefined, "missed");
+        box.append(el("p", `你有 ${miss.length} 天沒來（第 ${miss.join("、")} 天）。${c.missed}`));
+        root!.append(box);
+      }
+      root!.append(el("h2", `第 ${day} 天：照顧${c.name}`));
+      root!.append(el("p", "今天你會做哪些事？", "muted"));
+      const tasks = el("ul", undefined, "tasks");
+      for (const t of c.tasks) {
+        const li = el("li");
+        const label = el("label");
+        const box = el("input");
+        box.type = "checkbox";
+        box.value = t.id;
+        label.append(box, " ", t.text);
+        li.append(label);
+        tasks.append(li);
+      }
+      root!.append(tasks);
+      const ev = c.events[day - 1];
+      root!.append(el("h3", ev.prompt));
+      const opts = el("ul", undefined, "tasks");
+      ev.choices.forEach((ch, i) => {
+        const li = el("li");
+        const label = el("label");
+        const r = el("input");
+        r.type = "radio";
+        r.name = "answer";
+        r.value = String(i);
+        label.append(r, " ", ch.text);
+        li.append(label);
+        opts.append(li);
+      });
+      root!.append(opts);
+      root!.append(button("完成今天的照顧", () => {
+        const done = [...tasks.querySelectorAll("input:checked")].map((x) => (x as HTMLInputElement).value);
+        const picked = opts.querySelector("input:checked") as HTMLInputElement | null;
+        state = record(s, day, { tasks: done, answer: picked ? Number(picked.value) : null });
+        save(state);
+        feedback(c, day, done, picked ? Number(picked.value) : null);
+      }));
+    }
+
+    function feedback(c: SpeciesContent, day: number, done: string[], answer: number | null) {
+      root!.textContent = "";
+      root!.append(el("h2", `第 ${day} 天的回顧`));
+      const list = el("ul", undefined, "review");
+      for (const t of c.tasks) {
+        const li = el("li", `${done.includes(t.id) ? "✓ 有做" : "✗ 沒做"}：${t.text}。${t.why}`);
+        li.append(" 來源：", sourceLink(t.source));
+        list.append(li);
+      }
+      root!.append(list);
+      const ev = c.events[day - 1];
+      const ch = answer === null ? null : ev.choices[answer];
+      const right = ev.choices.find((x) => x.ok)!;
+      const p = el("p", ch ? `${ch.ok ? "做得好" : "這樣不太好"}：${ch.why}` : `你沒有選擇。比較好的做法是「${right.text}」：${right.why}`);
+      p.append(" 來源：", sourceLink((ch ?? right).source));
+      root!.append(el("h3", ev.prompt), p);
+      if (!canStore && day < DAYS) root!.append(button("下一天", () => { fastDay = day + 1; render(); }));
+      else if (day >= DAYS) root!.append(button("看結果", () => { fastDay = DAYS + 1; render(); }));
+      else root!.append(el("p", "今天照顧完了，明天再回來。", "lead"));
+    }
+
+    function end(s: State, c: SpeciesContent) {
+      root!.textContent = "";
+      const r = result(s, c, localDay());
+      const title = { ready: "你準備好了", almost: "差一點就準備好了", "not-yet": "再想一想" }[r.level];
+      const body = {
+        ready: "7 天都有來，該做的照顧幾乎都做到了。真的要養之前，再讀一下飼養系列文章，也可以去收容所看看等家的動物。",
+        almost: "大部分都做到了，但有幾天或幾件事漏掉。真實的動物每天都需要你，想清楚每天的時間能不能固定挪出來。",
+        "not-yet": "這 7 天漏了不少。養一隻動物是每天、好幾年的事，先讀完飼養系列文章，再決定也不遲。",
+      }[r.level];
+      root!.append(el("h2", title), el("p", body));
+      root!.append(el("p", `來照顧的天數：${r.cared}／${DAYS}；照顧項目：${r.tasksDone}／${r.tasksTotal}；狀況題答對：${r.correct}／${DAYS}`, "muted"));
+      const links = el("ul");
+      for (const a of c.articles) {
+        const li = el("li");
+        const link = el("a", a.title);
+        link.href = a.url;
+        li.append(link);
+        links.append(li);
+      }
+      const shelter = el("li");
+      const sa = el("a", "看看公立收容所等家的動物");
+      sa.href = "/animals/taiwan/adopt/";
+      shelter.append(sa);
+      links.append(shelter);
+      root!.append(links, button("重新開始", () => { save(null); state = null; render(); }, "btn ghost"));
+    }
+
+    function render() {
+      if (!state || !species.some((c) => c.id === state!.species)) return pick();
+      const c = species.find((x) => x.id === state!.species)!;
+      const day = dayOf(state);
+      if (canStore ? finished(state, localDay()) : day > DAYS) return end(state, c);
+      if (canStore && !canPlay(state, localDay())) {
+        root!.textContent = "";
+        root!.append(el("h2", `第 ${day} 天`), el("p", `今天已經照顧過${c.name}了，明天再回來。`, "lead"));
+        return;
+      }
+      play(state, c, day);
+    }
+    render();
+  }
+</script>
+<style is:global>
+  #game .btn { font: inherit; font-weight: 600; padding: 12px 24px; border: 0; border-radius: 8px; background: var(--text-primary); color: var(--bg-base); cursor: pointer; margin: 8px 8px 8px 0; }
+  #game .btn.ghost { background: var(--bg-overlay); color: var(--text-primary); }
+  #game .tasks { list-style: none; padding: 0; }
+  #game .tasks li { padding: 8px 0; }
+  #game .missed { padding: 16px; border-radius: 8px; background: var(--bg-overlay); }
+  #game .review li { margin: 8px 0; }
+  #game input { width: 20px; height: 20px; }
+</style>
