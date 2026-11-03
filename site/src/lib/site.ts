@@ -18,6 +18,7 @@ export const FOOT_TW = [
   ["/missing/taiwan/", "失蹤協尋"],
   ["/animals/taiwan/lost/", "走失毛孩"],
   ["/animals/taiwan/vets/", "動物醫院"],
+  ["/animals/taiwan/practice/", "先試養 7 天"],
   ["/support/taiwan/", "支援環境"],
   ["/regions/taiwan/", "支援地區"],
 ] as const;

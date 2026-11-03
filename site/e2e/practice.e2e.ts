@@ -19,7 +19,8 @@ test("跨天：一天一次、漏天記下、第 7 天後看結果，且不發�
   await page.clock.setFixedTime(new Date("2026-11-03T10:00:00"));
   await ready(page);
   const requests: string[] = [];
-  page.on("request", (r) => { if (!r.url().startsWith(URL)) requests.push(r.url()); });
+  // 只有網站自己的頁面與程式檔可以載入；任何送到別處的請求都不行
+  page.on("request", (r) => { if (!r.url().startsWith(BASE + "/")) requests.push(r.url()); });
 
   await page.locator("#game .choices button").first().click();
   await expect(page.getByRole("heading", { name: /^第 1 天/ })).toBeVisible();
