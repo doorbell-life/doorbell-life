@@ -1,0 +1,19 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { ALL_REGIONS, COMPARE_TOPICS, L } from "../../../lib/compare";
+import type { Region } from "../../../lib/site";
+
+export function getStaticPaths() {
+  return ALL_REGIONS.map((region) => ({ params: { region }, props: { region } }));
+}
+const { region } = Astro.props as { region: Region };
+const lang = region === "taiwan" ? "zh-TW" : "en";
+const l = L[region];
+---
+<Base title={`${l.index}｜${region === "taiwan" ? "按門鈴" : "doorbell.life"}`} description={l.lead} region={region}>
+  <main>
+    <h1>{l.index}</h1>
+    <p class="lead">{l.lead}</p>
+    <ul>{COMPARE_TOPICS.map((t) => <li><a href={`/compare/${region}/${t.topic}/${t.id}/`}>{t.title[lang]}</a></li>)}</ul>
+  </main>
+</Base>

@@ -27,6 +27,7 @@ const PAGES = [
   ...PAGES_US,
   ...["taiwan", "usa"].flatMap((r) => ["", "privacy/", "terms/", "security/", "contact/"].map((p) => `/legal/${r}/${p}`)),
   "/animals/taiwan/practice/",
+  ...["taiwan", "usa"].flatMap((r) => ["", "missing/how-to-report-missing/", "blood/who-can-donate-blood/", "animals/shelter-adoption/"].map((p) => `/compare/${r}/${p}`)),
 ];
 
 test("法律頁草稿：不收錄，且顯示草稿標示", async ({ page }) => {

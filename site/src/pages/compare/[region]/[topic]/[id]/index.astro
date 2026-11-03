@@ -1,0 +1,51 @@
+---
+// 共同題目比較頁（CLAUDE.md §9）：比較表由欄位自動產生，地區決定呈現語言；每新增一個地區就多一欄。
+import Base from "../../../../../layouts/Base.astro";
+import { ALL_REGIONS, COMPARE_TOPICS, L, regionFile, type CompareTopic } from "../../../../../lib/compare";
+import type { Region } from "../../../../../lib/site";
+
+export function getStaticPaths() {
+  return ALL_REGIONS.flatMap((region) => COMPARE_TOPICS.map((t) => ({ params: { region, topic: t.topic, id: t.id }, props: { region, t } })));
+}
+const { region, t } = Astro.props as { region: Region; t: CompareTopic };
+const lang = region === "taiwan" ? "zh-TW" : "en";
+const l = L[region];
+const files = Object.fromEntries(ALL_REGIONS.map((r) => [r, regionFile(r, t)]));
+const practices = ALL_REGIONS.filter((r) => files[r].practice);
+---
+<Base title={`${t.title[lang]}｜${region === "taiwan" ? "按門鈴" : "doorbell.life"}`} description={l.lead} region={region}>
+  <main>
+    <p class="muted"><a href={`/compare/${region}/`}>{l.index}</a></p>
+    <h1>{t.title[lang]}</h1>
+    <p class="lead">{l.lead}</p>
+    <table>
+      <thead><tr><th>{l.item}</th>{ALL_REGIONS.map((r) => <th>{l.region[r]}</th>)}</tr></thead>
+      <tbody>
+        {t.fields.map((f) => (
+          <tr>
+            <th scope="row">{f.label[lang]}</th>
+            {ALL_REGIONS.map((r) => {
+              const v = files[r].fields[f.key];
+              return v ? (
+                <td>
+                  <p>{v.value}</p>
+                  <p class="muted">{l.sources}：{v.sources.map((s, i) => <>{i > 0 && "、"}<a href={s.url}>{s.name}</a>（{l.checked} {s.checkedAt}）</>)}</p>
+                </td>
+              ) : <td class="muted">{l.notYet}</td>;
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    {practices.length > 0 && (
+      <>
+        <h2>{l.practice}</h2>
+        {practices.map((r) => <p><strong>{l.region[r]}</strong>：{files[r].practice}</p>)}
+      </>
+    )}
+  </main>
+</Base>
+<style>
+  td p { margin: 0 0 8px; }
+  tbody th { min-width: 8em; }
+</style>

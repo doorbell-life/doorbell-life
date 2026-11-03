@@ -43,6 +43,9 @@ importers:
 
   site:
     dependencies:
+      '@doorbell-life/schema':
+        specifier: workspace:*
+        version: link:../schema
       astro:
         specifier: 7.4.4
         version: 7.4.4(@types/node@26.6.6)(esbuild@0.28.2)(yaml@2.9.1)

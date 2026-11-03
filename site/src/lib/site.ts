@@ -21,6 +21,7 @@ export const FOOT_TW = [
   ["/animals/taiwan/practice/", "先試養 7 天"],
   ["/support/taiwan/", "支援環境"],
   ["/regions/taiwan/", "支援地區"],
+  ["/compare/taiwan/", "各地比較"],
 ] as const;
 
 // 關於頁（CLAUDE.md §9 about/）：給非技術讀者的說明頁。
@@ -57,6 +58,7 @@ export const FOOT_US = [
   ["/missing/usa/", "Missing persons"],
   ["/support/usa/", "Supported hosts"],
   ["/regions/usa/", "Regions"],
+  ["/compare/usa/", "Comparisons"],
 ] as const;
 
 export const ABOUT_US = [
