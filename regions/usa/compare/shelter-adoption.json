@@ -1,0 +1,35 @@
+{
+  "practice": "Public shelters handle competing interest in different ways. Cuyahoga County, Ohio, lets up to two families line up in person for a dog still on stray hold, so the dog can go home soon after the hold ends if no owner claims it. LA Animal Services uses a silent auction when several people want the same animal. Montgomery County, Maryland, adopts first-come, first-served and does not hold animals based on questionnaires.",
+  "fields": {
+    "fee": {
+      "value": "Set by each city or county shelter. For example, LA Animal Services charges $102/$122 for adult dogs (the higher fee includes a license for city residents), $150 for puppies, $25 for adult cats and $50 for kittens, including spay/neuter, vaccines and a microchip. Shelters sometimes waive fees, as Montgomery County, Maryland, did on August 29–30, 2026.",
+      "sources": [
+        { "name": "LA Animal Services (City of Los Angeles): About Adoption", "url": "https://www.laanimalservices.com/about-adoption", "checkedAt": "2026-11-03" },
+        { "name": "Montgomery County, MD, news release: free pet adoptions Aug. 29–30, 2026", "url": "https://www.montgomerycountymd.gov/news/montgomery-county-animal-services-adoption-center-offers-free-pet-adoptions-aug-29-30-part-nbcuniversal-locals-clear-shelters-campaign", "checkedAt": "2026-11-03" }
+      ]
+    },
+    "adopter-requirements": {
+      "value": "Set by each shelter. For example, LA Animal Services and Montgomery County, Maryland, require a government-issued photo ID, and Montgomery County also asks for rabies certificates for dogs, cats or ferrets already in the home. Cuyahoga County, Ohio, requires adopters to be 18 or older and has current dogs, and children 9 and under in the household, meet the dog.",
+      "sources": [
+        { "name": "LA Animal Services (City of Los Angeles): About Adoption", "url": "https://www.laanimalservices.com/about-adoption", "checkedAt": "2026-11-03" },
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: How to Adopt", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/adopt-pet/how-adopt", "checkedAt": "2026-11-03" },
+        { "name": "Cuyahoga County (Ohio) Animal Shelter: Adoption Process", "url": "https://animalshelter.cuyahogacounty.gov/adopt/adoption-process", "checkedAt": "2026-11-03" }
+      ]
+    },
+    "class-or-interview": {
+      "value": "None of the example shelters lists a required class; they use a questionnaire and an in-person conversation. Cuyahoga County, Ohio, has a staff member discuss the questionnaire with you in an interview; Montgomery County, Maryland, has you complete a questionnaire and meet an adoption counselor, with same-day adoption; LA Animal Services staff guide you through an application form.",
+      "sources": [
+        { "name": "Cuyahoga County (Ohio) Animal Shelter: Adoption Process", "url": "https://animalshelter.cuyahogacounty.gov/adopt/adoption-process", "checkedAt": "2026-11-03" },
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: How to Adopt", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/adopt-pet/how-adopt", "checkedAt": "2026-11-03" },
+        { "name": "LA Animal Services (City of Los Angeles): FAQs", "url": "https://www.laanimalservices.com/faqs", "checkedAt": "2026-11-03" }
+      ]
+    },
+    "stray-hold-period": {
+      "value": "Set by state or local law, so it varies. For example, Cuyahoga County, Ohio, says Ohio law requires dogs without ID to be held at least 72 hours and dogs with a current license 14 days. Mobile County, Alabama, holds all strays for seven days before they are put up for adoption, sent to rescue or euthanized.",
+      "sources": [
+        { "name": "Cuyahoga County (Ohio) Animal Shelter: Adoption Process", "url": "https://animalshelter.cuyahogacounty.gov/adopt/adoption-process", "checkedAt": "2026-11-03" },
+        { "name": "Mobile County, AL: Animal Services", "url": "https://www.mobilecountyal.gov/government/departments/animal-control/animal-services", "checkedAt": "2026-11-03" }
+      ]
+    }
+  }
+}

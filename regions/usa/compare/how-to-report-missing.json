@@ -1,0 +1,36 @@
+{
+  "practice": "Federal law sets a timeline for missing children under 21: states must ensure that no law enforcement agency keeps a waiting-period policy before accepting a report, and the report must be entered into the state system, the FBI's National Crime Information Center (NCIC) and NamUs within 2 hours of receipt (34 U.S.C. § 41308). Some states extend protections to adults; California's police training guidelines, citing Penal Code § 14211(a), have agencies accept a missing person report regardless of jurisdiction.",
+  "fields": {
+    "waiting-period": {
+      "value": "No waiting period for anyone under 21: federal law bars agencies from requiring one and requires entry into NCIC within 2 hours. For adults 21 and older, the U.S. Justice Department says there is no standard national protocol, so practice varies by state and agency. For example, California's police training guidelines call the idea that 24 hours must pass before a report is accepted a \"common myth.\"",
+      "sources": [
+        { "name": "34 U.S.C. § 41308, State requirements (Office of the Law Revision Counsel)", "url": "https://uscode.house.gov/us/usc/119-120/t34/s41308", "checkedAt": "2026-11-03" },
+        { "name": "U.S. Department of Justice, Operation Lady Justice: When a Loved One Goes Missing (November 2021)", "url": "https://www.justice.gov/tribal/media/1268781/dl?inline=", "checkedAt": "2026-11-03" },
+        { "name": "California Commission on Peace Officer Standards and Training (POST): Guidelines for Handling Missing Persons Investigations (2024)", "url": "https://post.ca.gov/Portals/0/post_docs/publications/Missing_Persons_Guidelines2024_NEW3.pdf", "checkedAt": "2026-11-03" }
+      ]
+    },
+    "who-and-where": {
+      "value": "Family or friends report to the law enforcement agency where the person went missing, in person, by phone or online. Call 911 if the person may be in danger or at immediate risk; otherwise use the police non-emergency number. On tribal land, contact the tribal police if there is one, or the local police or county sheriff.",
+      "sources": [
+        { "name": "U.S. Department of Justice, Operation Lady Justice: When a Loved One Goes Missing (November 2021)", "url": "https://www.justice.gov/tribal/media/1268781/dl?inline=", "checkedAt": "2026-11-03" }
+      ]
+    },
+    "alert-systems": {
+      "value": "AMBER Alerts for abducted children are issued by law enforcement under state plans, which exist in all 50 states, D.C., Puerto Rico and the U.S. Virgin Islands; the Justice Department's recommended criteria include a child 17 or younger in imminent danger, but each state sets its own. Alerts for missing older adults, such as Silver Alerts, are state programs with no federal law establishing a national system, and criteria differ: for example, Texas lists 65+, Maryland 60+ and North Carolina 50+.",
+      "sources": [
+        { "name": "AMBER Alert (U.S. Department of Justice, OJP): Frequently Asked Questions", "url": "https://amberalert.ojp.gov/about/faqs", "checkedAt": "2026-11-03" },
+        { "name": "AMBER Alert (U.S. Department of Justice, OJP): Guidelines for Issuing AMBER Alerts", "url": "https://amberalert.ojp.gov/about/guidelines-for-issuing-alerts", "checkedAt": "2026-11-03" },
+        { "name": "Congressional Research Service, R47010: Missing and Murdered Indigenous People (MMIP), updated July 3, 2023", "url": "https://www.congress.gov/crs_external_products/R/HTML/R47010.html", "checkedAt": "2026-11-03" },
+        { "name": "National Ashanti Alert Network (Bureau of Justice Assistance, DOJ): Links to State Programs", "url": "https://ashanti.bja.ojp.gov/resources", "checkedAt": "2026-11-03" }
+      ]
+    },
+    "rates": {
+      "value": "About 145.7 missing person records were entered per 100,000 people in 2025 (498,038 NCIC entries ÷ 341,784,857 residents, Census Bureau estimate for July 1, 2025, 50 states and D.C.); 88,093 records were still active on December 31, 2025, about 25.8 per 100,000. NCIC counts records, not unique people. The FBI publishes no recovery rate: it reports 503,409 records purged in 2025, for reasons including the person being located, returning home, or the record being invalid.",
+      "sources": [
+        { "name": "FBI, 2025 NCIC Missing Person and Unidentified Person Statistics (February 4, 2026)", "url": "https://www.fbi.gov/file-repository/cjis/2025-ncic-missing-person-and-unidentified-person-statistics.pdf", "checkedAt": "2026-11-03" },
+        { "name": "U.S. Census Bureau, Vintage 2025 state population totals (NST-EST2025-ALLDATA)", "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/state/totals/NST-EST2025-ALLDATA.csv", "checkedAt": "2026-11-03" },
+        { "name": "U.S. Census Bureau: U.S. Population Growth Slows Due to Historic Decline in Net International Migration (January 27, 2026)", "url": "https://www.census.gov/newsroom/press-releases/2026/population-growth-slows.html", "checkedAt": "2026-11-03" }
+      ]
+    }
+  }
+}
