@@ -1,0 +1,98 @@
+[
+ {
+  "animalid": "A548528",
+  "intype": "RETURN",
+  "indate": "2026-11-01T00:00:00.000",
+  "petname": "*ASIAGO",
+  "animaltype": "DOG",
+  "petage": "5 YEARS",
+  "petsize": "MED",
+  "color": "TAN / WHITE",
+  "breed": "AM PIT BULL TER",
+  "sex": "S",
+  "url": {
+   "url": "http://www.petharbor.com/get_image.asp?res=DETAIL&id=A548528&location=MONT"
+  }
+ },
+ {
+  "animalid": "A546186",
+  "intype": "OWNER SUR",
+  "indate": "2026-10-30T00:00:00.000",
+  "petname": "*PUPAROTTI",
+  "animaltype": "DOG",
+  "petage": "1 YEAR 1 MONTH",
+  "petsize": "MED",
+  "color": "GRAY / WHITE",
+  "breed": "AM PIT BULL TER / FRENCH BULLDOG",
+  "sex": "N",
+  "url": {
+   "url": "http://www.petharbor.com/get_image.asp?res=DETAIL&id=A546186&location=MONT"
+  }
+ },
+ {
+  "animalid": "A550284",
+  "intype": "OWNER SUR",
+  "indate": "2026-10-30T00:00:00.000",
+  "petname": "MOCHA",
+  "animaltype": "OTHER",
+  "petage": "2 YEARS",
+  "petsize": "SMALL",
+  "color": "TRICOLOR",
+  "breed": "GUINEA PIG",
+  "sex": "M",
+  "url": {
+   "url": "http://www.petharbor.com/get_image.asp?res=DETAIL&id=A550284&location=MONT"
+  }
+ },
+ {
+  "animalid": "A550072",
+  "intype": "OWNER SUR",
+  "indate": "2026-10-25T00:00:00.000",
+  "petname": "USOP",
+  "animaltype": "OTHER",
+  "petage": "NO AGE",
+  "petsize": "MED",
+  "color": "GREEN",
+  "breed": "TURTLE",
+  "sex": "F",
+  "url": {
+   "url": "http://www.petharbor.com/get_image.asp?res=DETAIL&id=A550072&location=MONT"
+  }
+ },
+ {
+  "animalid": "A503551",
+  "intype": "OWNER SUR",
+  "indate": "2026-10-13T00:00:00.000",
+  "petname": "JAINA",
+  "animaltype": "CAT",
+  "petage": "4 YEARS",
+  "petsize": "KITTE",
+  "color": "WHITE / GRAY TAB",
+  "breed": "DOMESTIC SH",
+  "sex": "S",
+  "url": {
+   "url": "http://www.petharbor.com/get_image.asp?res=DETAIL&id=A503551&location=MONT"
+  }
+ },
+ {
+  "animalid": "A550050",
+  "intype": "STRAY",
+  "indate": "2026-10-24T00:00:00.000",
+  "petname": "*AMARA",
+  "animaltype": "DOG",
+  "petage": "1 YEAR 7 MONTHS",
+  "petsize": "LARGE",
+  "color": "BLACK / WHITE",
+  "breed": "AM PIT BULL TER",
+  "sex": "S",
+  "url": {
+   "url": "http://www.petharbor.com/get_image.asp?res=DETAIL&id=A550050&location=MONT"
+  },
+  "crossing": "13500 TAMARACK RD, SILVER SPRING, MD, 20904",
+  ":@computed_region_vu5j_pcmz": "5",
+  ":@computed_region_tx5f_5em3": "5",
+  ":@computed_region_kbsp_ykn9": "53",
+  ":@computed_region_d7bw_bq6x": "12",
+  ":@computed_region_rbt8_3x7n": "1"
+ }
+]

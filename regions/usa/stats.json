@@ -1,0 +1,29 @@
+{
+  "_說明": "宣導數字，人工整理。每筆都要有官方來源與查核日。來源檔變動由每週來源比對（pnpm watch-sources）通知，維護者查證後更新本檔。",
+  "items": [
+    {
+      "id": "us-missing-entries-2025",
+      "title": "498,038 missing person records were entered in 2025",
+      "features": "As of December 31, 2025, 88,093 missing person records were still active in the FBI's NCIC.",
+      "source": { "name": "FBI, 2025 NCIC Missing Person and Unidentified Person Statistics", "url": "https://www.fbi.gov/file-repository/cjis/2025-ncic-missing-person-and-unidentified-person-statistics.pdf" },
+      "publishedAt": "2026-02-04",
+      "checkedAt": "2026-11-03"
+    },
+    {
+      "id": "us-missing-juveniles-2025",
+      "title": "21,487 children under 18 were still missing at the end of 2025",
+      "features": "That is 24% of the 88,093 active missing person records in the FBI's NCIC on December 31, 2025.",
+      "source": { "name": "FBI, 2025 NCIC Missing Person and Unidentified Person Statistics", "url": "https://www.fbi.gov/file-repository/cjis/2025-ncic-missing-person-and-unidentified-person-statistics.pdf" },
+      "publishedAt": "2026-02-04",
+      "checkedAt": "2026-11-03"
+    },
+    {
+      "id": "us-missing-runaway-2025",
+      "title": "94.9% of 2025 entries with a known circumstance were runaways",
+      "features": "Of the 239,622 missing person records entered in 2025 that noted a circumstance, 227,353 were coded as Runaway.",
+      "source": { "name": "FBI, 2025 NCIC Missing Person and Unidentified Person Statistics", "url": "https://www.fbi.gov/file-repository/cjis/2025-ncic-missing-person-and-unidentified-person-statistics.pdf" },
+      "publishedAt": "2026-02-04",
+      "checkedAt": "2026-11-03"
+    }
+  ]
+}
