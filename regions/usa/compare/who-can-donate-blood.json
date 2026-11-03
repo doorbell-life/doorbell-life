@@ -1,0 +1,32 @@
+{
+  "practice": "Federal rules make the donor type visible on the product itself: every blood product label for transfusion must carry the statement \"paid donor\" or \"volunteer donor\" no less prominently than the product name, and the rule spells out that benefits such as time off from work, which cannot readily be converted to cash, do not count as payment (21 CFR 606.121(c)(8)(v)).",
+  "fields": {
+    "age": {
+      "value": "Federal FDA donor rules set no minimum age; it depends on state law. The American Red Cross (a national blood organization, not a government agency) says donors must be at least 17 in most states, or 16 with parental consent in some states; its state list shows Delaware, Hawaii and New Mexico do not accept 16-year-olds.",
+      "sources": [
+        { "name": "21 CFR 630.10, General donor eligibility requirements (eCFR)", "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-F/part-630/subpart-B/section-630.10", "checkedAt": "2026-11-03" },
+        { "name": "American Red Cross Blood Services (national blood organization): Information for Young Blood Donors", "url": "https://www.redcrossblood.org/donate-blood/how-to-donate/info-for-student-donors.html", "checkedAt": "2026-11-03" }
+      ]
+    },
+    "min-weight": {
+      "value": "At least 50 kg (110 lb) under federal rules. The American Red Cross adds height-based weight requirements for donors 18 and younger and for all high school students.",
+      "sources": [
+        { "name": "21 CFR 630.10(f)(5), General donor eligibility requirements (eCFR)", "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-F/part-630/subpart-B/section-630.10", "checkedAt": "2026-11-03" },
+        { "name": "American Red Cross Blood Services (national blood organization): Information for Young Blood Donors", "url": "https://www.redcrossblood.org/donate-blood/how-to-donate/info-for-student-donors.html", "checkedAt": "2026-11-03" }
+      ]
+    },
+    "whole-blood-interval": {
+      "value": "No more than once every 8 weeks for whole blood, and once every 16 weeks after a double red cell (two-unit apheresis) donation, under federal rules. The American Red Cross states this as every 56 days, up to 6 times a year.",
+      "sources": [
+        { "name": "21 CFR 630.15(a)(1)(i), Donor eligibility requirements specific to Whole Blood, Red Blood Cells and Plasma collected by apheresis (eCFR)", "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-F/part-630/subpart-B/section-630.15", "checkedAt": "2026-11-03" },
+        { "name": "American Red Cross Blood Services (national blood organization): Eligibility Requirements", "url": "https://www.redcrossblood.org/donate-blood/how-to-donate/eligibility-requirements.html", "checkedAt": "2026-11-03" }
+      ]
+    },
+    "paid-or-voluntary": {
+      "value": "Federal rules allow both but require labeling: blood products for transfusion must be labeled \"paid donor\" or \"volunteer donor.\" A paid donor receives monetary payment for the donation; benefits not readily convertible to cash, such as time off from work, do not count as payment.",
+      "sources": [
+        { "name": "21 CFR 606.121(c)(8)(v), Container label (eCFR)", "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-F/part-606/subpart-G/section-606.121", "checkedAt": "2026-11-03" }
+      ]
+    }
+  }
+}
