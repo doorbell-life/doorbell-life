@@ -43,6 +43,50 @@ export const COMPARE_TOPICS: CompareTopic[] = [
       { key: "stray-hold-period", label: { "zh-TW": "無主動物公告幾天才開放認養", en: "How long strays are held before adoption" } },
     ],
   },
+  {
+    id: "pet-registration",
+    topic: "animals",
+    title: { "zh-TW": "寵物登記與晶片，各地規定比一比", en: "Pet licensing and microchips: rules compared" },
+    fields: [
+      { key: "mandatory", label: { "zh-TW": "哪些動物強制登記、植入晶片", en: "Which animals must be registered or microchipped" } },
+      { key: "fee", label: { "zh-TW": "登記費用", en: "Registration fee" } },
+      { key: "penalty", label: { "zh-TW": "未登記的罰則", en: "Penalty for not registering" } },
+      { key: "chip-database", label: { "zh-TW": "晶片資料誰管、怎麼查", en: "Who keeps microchip records, and how to look one up" } },
+    ],
+  },
+  {
+    id: "found-animal",
+    topic: "animals",
+    title: { "zh-TW": "撿到走失動物，各地規定比一比", en: "Finding a stray or lost animal: rules compared" },
+    fields: [
+      { key: "duty-to-report", label: { "zh-TW": "法律上要不要通報或送交", en: "Is reporting or handing it over required by law?" } },
+      { key: "report-to", label: { "zh-TW": "送交或通報對象", en: "Who to report to or hand it over to" } },
+      { key: "foster-yourself", label: { "zh-TW": "可不可以自己先暫養", en: "Can you keep it for now yourself?" } },
+      { key: "owner-proof", label: { "zh-TW": "飼主認領要帶什麼證明", en: "What owners need to reclaim their pet" } },
+    ],
+  },
+  {
+    id: "blood-stock",
+    topic: "blood",
+    title: { "zh-TW": "血庫存量怎麼看？各地比一比", en: "How blood supply is reported: compared" },
+    fields: [
+      { key: "publisher", label: { "zh-TW": "誰公布庫存", en: "Who publishes the blood supply" } },
+      { key: "unit", label: { "zh-TW": "用什麼單位表示", en: "How it is expressed" } },
+      { key: "shortage-threshold", label: { "zh-TW": "多少算告急", en: "What counts as a shortage" } },
+      { key: "update-frequency", label: { "zh-TW": "多久更新一次", en: "How often it is updated" } },
+    ],
+  },
+  {
+    id: "dementia-wandering",
+    topic: "missing",
+    title: { "zh-TW": "失智長輩防走失，各地做法比一比", en: "Preventing dementia-related wandering: programs compared" },
+    fields: [
+      { key: "id-tools", label: { "zh-TW": "政府提供的辨識工具", en: "Identification tools provided by government" } },
+      { key: "pre-registration", label: { "zh-TW": "指紋或資料建檔", en: "Fingerprint or information pre-registration" } },
+      { key: "gps-subsidy", label: { "zh-TW": "定位設備補助", en: "Subsidies for GPS devices" } },
+      { key: "caregiver-hotline", label: { "zh-TW": "照顧者諮詢專線", en: "Caregiver helpline" } },
+    ],
+  },
 ];
 
 export interface CompareValue {
