@@ -1,0 +1,27 @@
+---
+import AboutPage from "../../../../components/AboutPage.astro";
+import { REPO } from "../../../../lib/site";
+---
+<AboutPage
+  region="usa"
+  title="How can I help? | doorbell.life"
+  h1="How can I help?"
+  description="Add doorbell.life to your website, report data errors, suggest data for your area, or help translate the interface."
+  lead="You don’t need to know how to code. Pick any one of these."
+>
+  <h2>Have a website? Install doorbell.life</h2>
+  <p>Paste one line of code, or install the WordPress plugin, and your error pages can help. See <a href="/install/usa/">Install</a>.</p>
+
+  <h2>Spotted an error? Tell us</h2>
+  <p>Email <a href="mailto:contact@doorbell.life">contact@doorbell.life</a> or <a href={`${REPO}/issues`}>open an issue on GitHub</a>. Tell us which case and what’s wrong, and include an official source if you have one.</p>
+
+  <h2>Know a reliable data source? Send it to us</h2>
+  <p>If your county or state publishes shelter, blood donation, or helpline data, email us or open an issue with the source URL. Nothing goes live until the maintainer has checked it. To contribute data for a whole region, see <a href="/regions/usa/">Regions</a>.</p>
+  <p>The same goes for articles and region comparisons: every fact needs an official local source, so please include it.</p>
+
+  <h2>Speak another language? Help translate</h2>
+  <p>The interface text shown on error pages lives in the <a href={`${REPO}/tree/main/i18n`}>i18n</a> folder, one file per language, published under the MIT license. Send a pull request or email us. Articles aren’t translated; each region’s articles are written from scratch in the local language.</p>
+
+  <h2>Sharing a missing-person notice? Take care</h2>
+  <p>Share the FBI’s original poster as published, and don’t add personal details or guesses of your own.</p>
+</AboutPage>

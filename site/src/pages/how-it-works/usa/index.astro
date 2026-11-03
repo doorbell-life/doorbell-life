@@ -1,0 +1,34 @@
+---
+import Base from "../../../layouts/Base.astro";
+---
+<Base title="How doorbell.life works | doorbell.life" region="usa" description="Three layouts, where the data comes from, how fast cases come down, why the error status code never changes, and why we don’t track visitors.">
+  <main>
+    <h1>How does doorbell.life work?</h1>
+    <p class="lead">When a visitor takes a wrong turn, or a site is down for maintenance or broken, the error page shows people and animals nearby who need help. The data is pulled from public sources every day, and expired cases, and people and pets who have been found, are removed automatically.</p>
+
+    <h2>Three layouts, matched to the visitor’s situation</h2>
+    <table>
+      <thead><tr><th>Layout</th><th>Status codes</th><th>The visitor</th><th>What it shows</th><th>If the data can’t load</th></tr></thead>
+      <tbody>
+        <tr><td>Short card</td><td>400, 401, 403, 404, 405, 408, 410, 414</td><td>Took a wrong turn or lacks access, and is about to leave</td><td>One card, one case; a single line on 401 and 403</td><td>The site’s own error page, unchanged</td></tr>
+        <tr><td>Waiting carousel</td><td>429, 503</td><td>Has to wait, so stays the longest</td><td>Several cases in rotation, with an optional retry countdown</td><td>Falls back to the offline content</td></tr>
+        <tr><td>Offline page</td><td>500, 501, 502, 504</td><td>The site is broken or unreachable</td><td>Helplines, public statistics, and cached adoptable animals</td><td>The page is a static file, so it needs no connection</td></tr>
+      </tbody>
+    </table>
+    <p>Topics are ordered by urgency: older adults with dementia who wander, missing children, missing adults, urgent blood needs, lost pets, adoptable animals, then public statistics. Topics with no data in a region are skipped. In the US today, that means missing children, missing adults, adoptable animals, and statistics.</p>
+
+    <h2>Four promises that don’t change</h2>
+    <h3>The status code stays the same</h3>
+    <p>A 404 is still a 404. The widget never changes the status code and never redirects, so search engines see the error page exactly as before.</p>
+    <h3>If it fails, it stays out of the way</h3>
+    <p>If the data, the styles, or the widget itself can’t load, nothing is added. Visitors see the site’s original error page, never an error message from us.</p>
+    <h3>No visitor tracking</h3>
+    <p>No cookies, no browser storage, no IP addresses kept, and no IP-based location. The region comes from the time zone set in the visitor’s browser. To count views, the widget samples 1 in 10 displays and records only the site’s domain and the topic shown.</p>
+    <h3>Data is shown as plain text only</h3>
+    <p>We treat every data source as untrusted. Special characters are filtered out and everything is shown as plain text, never run as code on the page.</p>
+
+    <h2>How often data updates, and how fast cases come down</h2>
+    <p>Public data is synced once a day against the full source list. A case that is no longer in the source is removed in that same sync, so it’s gone within 24 hours of the source taking it down. If a source suddenly changes format or returns nothing, we don’t pull everything at once. Animal data keeps the previous day’s copy, missing-person cases are paused, and a maintainer is notified.</p>
+    <p>No web page is ever made for a missing-person case, those cases are never included in the offline page, and every page in that section asks search engines not to index or archive it.</p>
+  </main>
+</Base>

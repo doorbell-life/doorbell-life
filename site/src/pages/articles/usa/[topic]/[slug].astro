@@ -1,0 +1,27 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../../../layouts/Base.astro";
+import { articleAlternates } from "../../../../lib/articles";
+
+export async function getStaticPaths() {
+  const all = await getCollection("articles", (a) => a.data.region === "usa");
+  return all.map((a) => ({ params: { topic: a.data.topic, slug: a.id.split("/").pop()! }, props: { a } }));
+}
+const { a } = Astro.props;
+const { Content } = await render(a);
+const missing = a.data.topic === "missing";
+const alternates = await articleAlternates(a);
+---
+<Base title={`${a.data.title} | doorbell.life`} region="usa" description={a.data.description} noindex={missing} alternates={alternates}>
+  <main>
+    <article>
+      <h1>{a.data.title}</h1>
+      <Content />
+      <h2>Sources</h2>
+      <ul>
+        {a.data.sources.map((s) => <li><a href={s.url}>{s.name}</a><span class="muted"> (checked {s.checkedAt})</span></li>)}
+      </ul>
+      <p class="muted">Published {a.data.publishedAt}. Last checked {a.data.checkedAt}. Licensed under CC BY 4.0.</p>
+    </article>
+  </main>
+</Base>

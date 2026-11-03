@@ -1,0 +1,60 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { REPO, WIDGET } from "../../../lib/site";
+
+const tag = `<script src="${WIDGET}" async data-status="404"></script>`;
+const topics = [
+  ["missing-elders", "Older adults with dementia who wander"],
+  ["missing-children", "Missing children"],
+  ["missing-adults", "Missing adults"],
+  ["blood", "Blood donation"],
+  ["animals-lost", "Lost pets"],
+  ["animals-adopt", "Adoptable animals"],
+  ["stats", "Public statistics"],
+];
+---
+<Base title="Install doorbell.life: five ways | doorbell.life" region="usa" description="A one-line script, a WordPress plugin, server configs, an install CLI, or an AI agent skill: five ways to turn your error pages into public-service notices.">
+  <main>
+    <h1>How do I add doorbell.life to my website?</h1>
+    <p class="lead">There are five ways, and they all end the same: your error pages keep their original status codes and gain one public-service card. It’s free, and there’s nothing to sign up for.</p>
+
+    <h2 id="script">1. One-line script (sites that already have error pages)</h2>
+    <p>Paste this line before <code>&lt;/body&gt;</code> on your error page, and set <code>data-status</code> to that page’s status code:</p>
+    <pre><code>{tag}</code></pre>
+    <table>
+      <thead><tr><th>Attribute</th><th>What it does</th><th>Default</th></tr></thead>
+      <tbody>
+        <tr><td><code>data-status</code></td><td>The page’s status code. 401 and 403 show one line; 429 and 503 rotate through several cases; everything else shows one card.</td><td>404</td></tr>
+        <tr><td><code>data-region</code></td><td>The region, such as <code>usa</code> or <code>taiwan</code>.</td><td>Based on the visitor’s browser time zone</td></tr>
+        <tr><td><code>data-lang</code></td><td>Interface language, <code>en</code> or <code>zh-TW</code>. Case details stay in the source’s language.</td><td>The page’s lang attribute, or the visitor’s browser language</td></tr>
+        <tr><td><code>data-topics</code></td><td>Show only these topics, separated by commas.</td><td>All topics</td></tr>
+        <tr><td><code>data-retry</code></td><td>Seconds until retry on 429 and 503 pages, shown as a countdown.</td><td>No countdown</td></tr>
+      </tbody>
+    </table>
+    <h3>Topic codes</h3>
+    <ul>{topics.map(([k, v]) => <li><code>{k}</code>: {v}</li>)}</ul>
+    <p>Only topics with data in a region are shown. In the US today, that’s <code>missing-children</code>, <code>missing-adults</code>, <code>animals-adopt</code>, and <code>stats</code>.</p>
+    <h3>If your site uses a Content Security Policy</h3>
+    <p>Allow <code>https://cdn.doorbell.life</code> in <code>script-src</code>, <code>style-src</code>, <code>connect-src</code>, and <code>img-src</code>.</p>
+
+    <h2 id="wordpress">2. WordPress plugin (no code)</h2>
+    <p>The plugin adds the card to your 404 page. With one click, it can also replace the maintenance page WordPress shows during updates (503) with a version that rotates public-service notices, and it removes that page when you deactivate the plugin. Settings are under Settings → doorbell.life.</p>
+    <p>Two limits for now: the settings screen is in Traditional Chinese, and its region menu offers only automatic detection and Taiwan. Leave the region on automatic, and visitors with a US time zone will see US data. The source code is on <a href={`${REPO}/tree/main/wordpress-plugin`}>GitHub</a>; once the plugin is listed in the WordPress plugin directory, you’ll be able to search for “doorbell.life” from your dashboard.</p>
+
+    <h2 id="server">3. Server configs (including 5xx)</h2>
+    <p>When your site is down, the web server answers with error pages stored on the server itself, so nothing needs to reach doorbell.life. The steps:</p>
+    <ol>
+      <li>Use the download script to save the error page templates to <code>/var/www/doorbell-life/</code>, and schedule it to run daily so the offline pages stay current. For US pages, run it with <code>en usa</code>: <code>sh update-templates.sh /var/www/doorbell-life en usa</code>.</li>
+      <li>Add the Nginx or Apache snippet to your site config.</li>
+      <li>Test the config and reload the server.</li>
+    </ol>
+    <p>Config files and full instructions: <a href={`${REPO}/tree/main/configs`}>configs/</a>. To see which hosts let you customize 5xx pages, check <a href="/support/usa/">Supported hosts</a>.</p>
+
+    <h2 id="cli">4. Install CLI (for developers)</h2>
+    <pre><code>npx doorbell-life install --lang en --region usa</code></pre>
+    <p>Run it in your site’s project folder. It detects your stack (Astro, Vite, Hugo, Jekyll, plain HTML, Nginx, Apache, and more), lists the changes it plans to make, and writes nothing until you confirm. If you already have a 404.html, it adds just the one script line and doesn’t overwrite your page.</p>
+
+    <h2 id="ai-agent">5. AI agent (Claude Code and others)</h2>
+    <p>Copy the <a href={`${REPO}/tree/main/skills/doorbell-life`}>skills/doorbell-life</a> folder into <code>~/.claude/skills/</code>, then tell your agent “install doorbell.life.” The agent runs the CLI first. For custom stacks the CLI can’t handle (Express, Django, Rails, and so on), the agent finds your error pages and adds the script line itself.</p>
+  </main>
+</Base>

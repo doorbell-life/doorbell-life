@@ -1,0 +1,23 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { REPO } from "../../../lib/site";
+---
+<Base title="Which hosts let you customize error pages? | doorbell.life" region="usa" description="Whether Nginx, Apache, Cloudflare, GitHub Pages, Netlify, Vercel, and shared hosting let you customize 4xx and 5xx error pages.">
+  <main>
+    <h1>Which hosts let you customize error pages?</h1>
+    <p class="lead">Almost any site can add doorbell.life to its 4xx pages. 5xx pages depend on your host, and many managed platforms and shared hosts don’t allow them. This table is based on each platform’s official documentation, checked 2026-11-01.</p>
+    <table>
+      <thead><tr><th>Environment</th><th>4xx</th><th>5xx</th><th>How</th></tr></thead>
+      <tbody>
+        <tr><td>Nginx you manage</td><td>Yes</td><td>Yes, including 502 and 504 when the backend is unreachable</td><td>Server config</td></tr>
+        <tr><td>Apache you manage</td><td>Yes</td><td>Yes, including 503 when the backend is unreachable</td><td>Server config</td></tr>
+        <tr><td>Cloudflare paid plans</td><td>Yes</td><td>Yes</td><td>Custom Errors in the dashboard</td></tr>
+        <tr><td>Cloudflare free plan</td><td>Add the script line to your site’s own error pages</td><td>With a Worker</td><td>Custom Errors isn’t available on the free plan. For 5xx, you can put a Worker in front of your site instead (the example handles 500–504); every request counts against your own Workers free quota</td></tr>
+        <tr><td>GitHub Pages, Netlify, Vercel, Cloudflare Pages</td><td>404 only</td><td>No</td><td>Put the 404 template at your site root as 404.html; their official docs offer no way to customize 5xx pages</td></tr>
+        <tr><td>WordPress</td><td>404</td><td>The 503 maintenance page</td><td>WordPress plugin</td></tr>
+        <tr><td>Shared hosting</td><td>Depends on the host</td><td>Usually no</td><td>If your host allows .htaccess, use Apache’s ErrorDocument directive</td></tr>
+      </tbody>
+    </table>
+    <p>Links to each platform’s official docs, plus the config files: <a href={`${REPO}/tree/main/configs`}>configs/</a>.</p>
+  </main>
+</Base>

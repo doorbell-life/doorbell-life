@@ -12,7 +12,11 @@ export const COUNTY_SLUG: Record<string, string> = {
   屏東縣: "pingtung-county", 花蓮縣: "hualien-county", 臺東縣: "taitung-county", 澎湖縣: "penghu-county",
   金門縣: "kinmen-county", 連江縣: "lienchiang-county",
 };
-const ORDER = Object.keys(COUNTY_SLUG);
+
+// 美國地區代稱：郡名加州名全名。新的收容所資料上線時在這裡加一行；不在清單上的地區不列出。
+export const AREA_SLUG_US: Record<string, string> = {
+  "Montgomery County, MD": "montgomery-county-maryland",
+};
 
 export type AnimalTopic = "animals-adopt" | "animals-lost";
 
@@ -20,18 +24,19 @@ export interface County { area: string; slug: string; cases: Case[] }
 
 // 沒有同步輸出時回傳 null，頁面只說明尚未同步，不顯示任何數字。
 // 縣市依行政區順序；同縣市內新上架的在前，同日依 id，讓分頁穩定。
-export function counties(topic: AnimalTopic): County[] | null {
-  const all = regionCases("taiwan");
+export function counties(topic: AnimalTopic, region: "taiwan" | "usa" = "taiwan"): County[] | null {
+  const all = regionCases(region);
   if (!all) return null;
+  const slugs = region === "usa" ? AREA_SLUG_US : COUNTY_SLUG;
   const m = new Map<string, Case[]>();
   for (const c of all) {
-    if (c.topic !== topic || !COUNTY_SLUG[c.area]) continue;
+    if (c.topic !== topic || !slugs[c.area]) continue;
     if (!m.has(c.area)) m.set(c.area, []);
     m.get(c.area)!.push(c);
   }
-  return ORDER.filter((a) => m.has(a)).map((area) => ({
+  return Object.keys(slugs).filter((a) => m.has(a)).map((area) => ({
     area,
-    slug: COUNTY_SLUG[area],
+    slug: slugs[area],
     cases: m.get(area)!.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.id.localeCompare(b.id)),
   }));
 }

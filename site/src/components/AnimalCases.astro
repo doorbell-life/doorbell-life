@@ -4,8 +4,8 @@
 import type { Case } from "../lib/data";
 import { tel } from "../lib/animals";
 
-interface Props { cases: Case[] }
-const { cases } = Astro.props;
+interface Props { cases: Case[]; en?: boolean }
+const { cases, en = false } = Astro.props;
 ---
 <ul class="cases">
   {cases.map((c) => (
@@ -13,7 +13,7 @@ const { cases } = Astro.props;
       <strong>{c.title}</strong>
       {c.features && <p class="f">{c.features}</p>}
       <p class="c">{c.contact.name}{c.contact.phone && <> <a href={`tel:${tel(c.contact.phone)}`}>{c.contact.phone}</a></>}</p>
-      <p class="s">來源：<a href={c.source.url}>{c.source.name}</a></p>
+      <p class="s">{en ? "Source: " : "來源："}<a href={c.source.url}>{c.source.name}</a></p>
     </li>
   ))}
 </ul>

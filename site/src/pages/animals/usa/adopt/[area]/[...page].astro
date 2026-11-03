@@ -1,0 +1,36 @@
+---
+// 美國單一地區的待認養動物，每頁 PAGE_SIZE 筆。只放文字，不放來源照片（CLAUDE.md §12 第 5 條）。
+import type { GetStaticPaths, Page } from "astro";
+import Base from "../../../../../layouts/Base.astro";
+import AnimalCases from "../../../../../components/AnimalCases.astro";
+import type { Case } from "../../../../../lib/data";
+import { counties, PAGE_SIZE } from "../../../../../lib/animals";
+import { today } from "../../../../../lib/data";
+
+export const getStaticPaths = (({ paginate }) =>
+  (counties("animals-adopt", "usa") ?? []).flatMap((c) => paginate(c.cases, { params: { area: c.slug }, props: { area: c.area }, pageSize: PAGE_SIZE }))) satisfies GetStaticPaths;
+const { page, area } = Astro.props as { page: Page<Case>; area: string };
+const fmt = (n: number) => n.toLocaleString("en-US");
+const nth = page.currentPage > 1 ? ` (page ${page.currentPage})` : "";
+const h1 = `Adoptable shelter animals in ${area}${nth}`;
+---
+<Base title={`${h1} | doorbell.life`} region="usa" description={`${fmt(page.total)} animals available for adoption in ${area}, with the shelter’s phone number. Updated daily from the county’s open data.`}>
+  <main>
+    <p class="crumb"><a href="/animals/usa/adopt/">Adoptable animals</a> / {area}</p>
+    <h1>{h1}</h1>
+    <p class="lead">{fmt(page.total)} animals are available for adoption in {area}, as of {today("usa")}. If you’d like to adopt, call the shelter first to make sure the animal is still there.</p>
+    <AnimalCases cases={page.data} en />
+    {page.lastPage > 1 && (
+      <nav class="pager" aria-label="Pages">
+        {page.url.prev ? <a href={page.url.prev}>← Previous</a> : <span />}
+        <span>Page {page.currentPage} of {page.lastPage}</span>
+        {page.url.next ? <a href={page.url.next}>Next →</a> : <span />}
+      </nav>
+    )}
+  </main>
+</Base>
+<style>
+  .crumb { margin: 32px 0 0; font-size: var(--text-xs); color: var(--text-secondary); }
+  .crumb + h1 { margin-top: 8px; }
+  .pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; margin: 32px 0 0; font-size: var(--text-sm); }
+</style>

@@ -1,0 +1,18 @@
+---
+import Base from "../../../layouts/Base.astro";
+import SixSteps from "../../../components/SixSteps.astro";
+import { ABOUT_US } from "../../../lib/site";
+---
+<Base title="About doorbell.life | doorbell.life" region="usa" description="doorbell.life turns website error pages into notices about people and animals nearby who need help. Where the data comes from, what happens after someone is found, and where the money comes from.">
+  <main>
+    <h1>What is doorbell.life?</h1>
+    <p class="lead">You open a web page and see “Page not found.” doorbell.life makes that screen do one more thing: tell you about people and animals nearby who need help. It’s like someone ringing a doorbell as they pass, asking you to take a look.</p>
+    <h2>From data to found, in six steps</h2>
+    <SixSteps region="usa" />
+    <h2>Learn more</h2>
+    <ul>
+      {ABOUT_US.map(([href, label]) => <li><a href={href}>{label}</a></li>)}
+      <li><a href="/faq/usa/">FAQ</a></li>
+    </ul>
+  </main>
+</Base>

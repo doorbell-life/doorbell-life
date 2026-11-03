@@ -1,0 +1,54 @@
+---
+// 美國數據頁。待認養只有 Montgomery County, MD 一間收容所；沒有同步輸出時不顯示數字。
+import Base from "../../../layouts/Base.astro";
+import { byArea, regionCases, regionStats, today } from "../../../lib/data";
+
+const cases = regionCases("usa");
+const rows = cases ? byArea(cases) : [];
+const sum = (k: "adopt" | "dog" | "cat") => rows.reduce((n, r) => n + r[k], 0);
+const stats = regionStats("usa");
+const fmt = (n: number) => n.toLocaleString("en-US");
+const date = today("usa");
+---
+<Base title="US shelter animal and missing-person data | doorbell.life" region="usa" description="Updated daily: adoptable animals at the Montgomery County, MD shelter, plus FBI statistics on missing persons. Sources cited, data downloadable.">
+  <main>
+    <h1>How many animals are waiting for a home today?</h1>
+    {cases ? (
+      <p class="lead">As of {date}, {fmt(sum("adopt"))} animals are available for adoption at the Montgomery County, Maryland shelter. Source: <a href="https://data.montgomerycountymd.gov/Public-Safety/Adoptable-Pets/e54u-qx42">Montgomery County, MD – Adoptable Pets</a>, updated daily.</p>
+    ) : (
+      <p class="lead">Today’s data hasn’t been synced yet.</p>
+    )}
+    <p>This covers one county shelter only, not the whole country. It’s the only US shelter data we use so far.</p>
+
+    {cases && (
+      <>
+        <h2>By area</h2>
+        <table>
+          <thead><tr><th>Area</th><th>Adoptable</th><th>Dogs</th><th>Cats</th><th>Other animals</th></tr></thead>
+          <tbody>
+            {rows.map((r) => <tr><td>{r.area}</td><td>{fmt(r.adopt)}</td><td>{fmt(r.dog)}</td><td>{fmt(r.cat)}</td><td>{fmt(r.adopt - r.dog - r.cat)}</td></tr>)}
+          </tbody>
+        </table>
+        <p class="muted">Download: <a href="/data/usa/animals-by-area.csv">CSV</a> ({date}).</p>
+      </>
+    )}
+
+    {stats.length > 0 && (
+      <>
+        <h2>Missing persons</h2>
+        <ul>
+          {stats.map((s) => (
+            <li>
+              <strong>{s.title}.</strong> {s.features}
+              <span class="muted">Source: <a href={s.source.url}>{s.source.name}</a> (published {s.publishedAt}, checked {s.checkedAt})</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+  </main>
+</Base>
+<style>
+  li { margin-bottom: 16px; }
+  li .muted { display: block; }
+</style>

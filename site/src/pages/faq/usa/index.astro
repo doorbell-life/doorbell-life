@@ -1,0 +1,75 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { REPO } from "../../../lib/site";
+import { articleUrl, regionArticles } from "../../../lib/articles";
+
+// 答案要跟程式實際行為一致：widget/src/widget.ts、templates/src/render.ts、widget/scripts/build.mjs。
+const seo = (await regionArticles("usa", "webmasters")).find((a) => a.data.common === "custom-error-page-seo");
+---
+<Base title="FAQ | doorbell.life" region="usa" description="Does doorbell.life cost anything? Will it hurt SEO, slow down my site, or track visitors? What should I do if I see someone who needs help on an error page?">
+  <main>
+    <h1>Frequently asked questions</h1>
+    <p class="lead">The first half is for website owners. The second half is for people who saw doorbell.life on an error page.</p>
+
+    <h2>For website owners</h2>
+
+    <h3>Does it cost anything? Do I need an account?</h3>
+    <p>No and no. It’s free, and the code is open source.</p>
+
+    <h3>Does it change the status code? Will it hurt my SEO?</h3>
+    <p>No. The widget only adds a block of content to the page. It doesn’t change the status code and doesn’t redirect. A 404 stays a 404, and search engines see the same error page as before.{seo && <> For details, see <a href={articleUrl(seo)}>{seo.data.title}</a></>}</p>
+
+    <h3>Will it slow down my site?</h3>
+    <p>The widget loads with <code>async</code>, so it never blocks the page from rendering. It’s under 1 KB compressed, and every build checks that size automatically. It only goes on error pages, so the rest of your site isn’t affected.</p>
+
+    <h3>What happens if the data can’t load?</h3>
+    <p>Nothing is added. If the data, the styles, or the widget itself fails to load, the widget inserts nothing. Visitors see your original error page and never see an error message from us.</p>
+
+    <h3>Where does it appear on the page? Will it break my layout?</h3>
+    <p>Right after the script tag, so it shows up wherever you paste the line. The widget resets your site’s styles inside its own block, so it normally won’t break your layout or change anything else on your site.</p>
+
+    <h3>What do visitors in other countries see?</h3>
+    <p>The widget picks a region from the visitor’s browser time zone. We have region packs for the United States and Taiwan. Visitors in any other time zone see your original error page. You can also set the region with <code>data-region</code>; see <a href="/regions/usa/">Regions</a>.</p>
+
+    <h3>What will US visitors see?</h3>
+    <p>FBI missing-person posters, adoptable animals from the Montgomery County, Maryland shelter, and public statistics on missing persons. That’s all of our US data today.</p>
+
+    <h3>Can I show only some topics?</h3>
+    <p>Yes. List the topic codes you want in <code>data-topics</code>. The codes are in the <a href="/install/usa/#script">install guide</a>.</p>
+
+    <h3>Does it track my visitors?</h3>
+    <p>No. It sets no cookies, stores nothing in the browser, and doesn’t use IP addresses to find location. To count views, it sends a record for 1 in 10 displays, containing only your domain and the topic shown.</p>
+
+    <h3>Will it put ads on my site?</h3>
+    <p>No. The widget and the error page templates never carry ads.</p>
+
+    <h3>Does the widget update itself?</h3>
+    <p>Yes. You paste a fixed URL, and when we update the code, your next visitor gets the new version. You don’t have to do anything. Because it updates itself, it doesn’t come with an integrity hash (SRI). All the code is public, so anyone can review it.</p>
+
+    <h3>Can I add it to 5xx pages for when my site is down?</h3>
+    <p>It depends on your host. Nginx or Apache that you manage can do it: when your site is down, the server answers with a static error page stored on the server, without contacting us. Many managed platforms and shared hosts can’t. See <a href="/support/usa/">Supported hosts</a>.</p>
+
+    <h3>Can I use my brand’s look?</h3>
+    <p>Brand styling isn’t ready yet, so every site uses the default look for now. If you’re interested, see <a href="/about/usa/sponsors/">For corporate sponsors</a>.</p>
+
+    <h3>Why are there no photos?</h3>
+    <p>We only use photos after copying them to our own servers, never by linking to the source site. That isn’t ready yet, so the widget shows text only for now.</p>
+
+    <h2>For people who saw doorbell.life on an error page</h2>
+
+    <h3>Why is this on the website’s error page?</h3>
+    <p>The website installed doorbell.life, so its error pages show people and animals nearby who need help. doorbell.life sets no cookies and doesn’t track you. See <a href="/about/usa/overview/">doorbell.life in one minute</a>.</p>
+
+    <h3>I want to adopt an animal on the card. What should I do?</h3>
+    <p>Call the shelter number on the card. The data updates once a day, so the animal may already have been adopted; check before you go. More animals are listed under <a href="/animals/usa/adopt/">Adoptable animals</a>.</p>
+
+    <h3>I recognize someone on a missing-person card. What should I do?</h3>
+    <p>If you see the person right now, call 911. Otherwise, submit a tip at <a href="https://tips.fbi.gov/">tips.fbi.gov</a> or call 1-800-CALL-FBI (<a href="tel:18002255324">1-800-225-5324</a>).</p>
+
+    <h3>Someone in my family is missing. What should I do?</h3>
+    <p>Call 911 or your local police. Other helplines are on the <a href="/missing/usa/">Missing persons</a> page.</p>
+
+    <h3>The information on a card is wrong. What should I do?</h3>
+    <p>Email <a href="mailto:contact@doorbell.life">contact@doorbell.life</a> or <a href={`${REPO}/issues`}>open an issue on GitHub</a>. See <a href="/about/usa/takedown/">What happens after someone is found?</a></p>
+  </main>
+</Base>

@@ -1,0 +1,67 @@
+---
+// 美國失蹤協尋各頁共用版面（英文）。整區 noindex、noarchive（CLAUDE.md §3 第 4 條）。
+// 靜態頁絕不列失蹤個案：FBI 協尋海報只經由元件出現在錯誤頁，這裡不讀 out/fbi.json。
+import Base from "../layouts/Base.astro";
+import Hotlines from "./Hotlines.astro";
+import { regionStats } from "../lib/data";
+import { articleUrl, regionArticles } from "../lib/articles";
+
+interface Props { title: string; h1: string; description: string; numbers: string[]; stats: string[] }
+const { title, h1, description, numbers, stats } = Astro.props;
+const shown = regionStats("usa").filter((s) => stats.includes(s.id));
+const articles = await regionArticles("usa", "missing");
+const subs = [
+  ["/missing/usa/children/", "Missing children"],
+  ["/missing/usa/elders/", "Older adults with dementia"],
+  ["/missing/usa/adults/", "Missing adults"],
+];
+---
+<Base title={title} region="usa" description={description} noindex>
+  <main>
+    <h1>{h1}</h1>
+    <p class="lead">In an emergency, call 911.</p>
+
+    <h2>Helplines</h2>
+    <Hotlines region="usa" numbers={numbers} />
+
+    <slot />
+
+    {shown.length > 0 && (
+      <>
+        <h2>Did you know?</h2>
+        <ul class="stats">
+          {shown.map((s) => (
+            <li>
+              <strong>{s.title}.</strong> {s.features}
+              <span class="muted">Source: <a href={s.source.url}>{s.source.name}</a> (published {s.publishedAt}, checked {s.checkedAt})</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+
+    {articles.length > 0 && (
+      <>
+        <h2>Related articles</h2>
+        <ul>{articles.map((a) => <li><a href={articleUrl(a)}>{a.data.title}</a></li>)}</ul>
+      </>
+    )}
+
+    <h2>Why doesn’t this page list any missing people?</h2>
+    <p>On purpose. doorbell.life does not publish pages about individual missing people. In the US, missing-person posters from the FBI appear only on the error pages of websites that install doorbell.life, loaded from our daily data file. No page is made for any person, and these posters are never part of the offline page shown when a site is down.</p>
+    <p>When the FBI takes a poster down, it disappears from every error page after our next daily update, within 24 hours. If the FBI data looks wrong on a given day, for example it comes back empty or in a new format, we stop showing missing-person cases until the data looks normal again, and the maintainer is notified. This section of the site asks search engines not to index or archive it. See <a href="/about/usa/takedown/">What happens after someone is found?</a></p>
+
+    <h2>Have information about someone on an FBI poster?</h2>
+    <p>Submit a tip at <a href="https://tips.fbi.gov/">tips.fbi.gov</a> or call 1-800-CALL-FBI (<a href="tel:18002255324">1-800-225-5324</a>). If you see the person right now, call 911. The posters come from the FBI’s <a href="https://www.fbi.gov/wanted/kidnap">Kidnappings &amp; Missing Persons</a> list. doorbell.life is not affiliated with or endorsed by the FBI.</p>
+
+    <p class="subs">
+      {subs.map(([href, label]) => <a href={href} aria-current={Astro.url.pathname === href ? "page" : undefined}>{label}</a>)}
+    </p>
+  </main>
+</Base>
+<style>
+  .stats li { margin-bottom: 16px; }
+  .stats .muted { display: block; }
+  .subs { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 48px; }
+  .subs a[aria-current="page"] { color: var(--text-primary); font-weight: 700; text-decoration: none; }
+</style>
