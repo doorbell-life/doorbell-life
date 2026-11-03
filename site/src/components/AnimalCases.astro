@@ -1,0 +1,28 @@
+---
+// 動物個案清單。一律純文字（CLAUDE.md §3 第 1 條）：Astro 的 {} 會跳脫，不用 set:html。
+// 不放來源照片：照片要先轉存到自家 CDN（§12 第 5 條）。
+import type { Case } from "../lib/data";
+import { tel } from "../lib/animals";
+
+interface Props { cases: Case[] }
+const { cases } = Astro.props;
+---
+<ul class="cases">
+  {cases.map((c) => (
+    <li>
+      <strong>{c.title}</strong>
+      {c.features && <p class="f">{c.features}</p>}
+      <p class="c">{c.contact.name}{c.contact.phone && <> <a href={`tel:${tel(c.contact.phone)}`}>{c.contact.phone}</a></>}</p>
+      <p class="s">來源：<a href={c.source.url}>{c.source.name}</a></p>
+    </li>
+  ))}
+</ul>
+<style>
+  .cases { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+  .cases li { background: var(--bg-surface); border-radius: 12px; padding: 24px; max-width: none; overflow-wrap: anywhere; }
+  .cases strong { display: block; line-height: 1.3; }
+  .cases p { margin: 8px 0 0; }
+  .f { color: var(--text-secondary); }
+  .c { font-weight: 600; }
+  .s { font-size: var(--text-xs); color: var(--text-secondary); }
+</style>

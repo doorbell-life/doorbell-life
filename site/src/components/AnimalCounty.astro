@@ -1,0 +1,46 @@
+---
+// 單一縣市的動物列表，每頁 PAGE_SIZE 筆。
+import type { Page } from "astro";
+import Base from "../layouts/Base.astro";
+import AnimalCases from "./AnimalCases.astro";
+import type { Case } from "../lib/data";
+import { TOPIC, type AnimalTopic } from "../lib/animals";
+import { today } from "../lib/data";
+
+interface Props { topic: AnimalTopic; area: string; page: Page<Case> }
+const { topic, area, page } = Astro.props;
+const adopt = topic === "animals-adopt";
+const fmt = (n: number) => n.toLocaleString("en-US");
+const nth = page.currentPage > 1 ? `（第 ${page.currentPage} 頁）` : "";
+const h1 = adopt ? `${area}公立收容所待認養動物${nth}` : `${area}剛進收容所的動物${nth}`;
+---
+<Base
+  title={`${h1}｜按門鈴`}
+  lang="zh-Hant-TW"
+  description={adopt
+    ? `${area}公立收容所開放認養的動物，共 ${fmt(page.total)} 隻，附收容所電話。資料來自農業部開放資料，每天更新。`
+    : `${area}剛進公立收容所、還沒到開放認養日的動物，共 ${fmt(page.total)} 隻。毛孩走失了，先在這裡找找。`}
+>
+  <main>
+    <p class="crumb"><a href={TOPIC[topic].path}>{adopt ? "待認養動物" : "剛進收容所的動物"}</a> / {area}</p>
+    <h1>{h1}</h1>
+    <p class="lead">
+      {adopt
+        ? `${area}有 ${fmt(page.total)} 隻動物開放認養，資料日期 ${today()}。想認養請先打電話給收容所，確認牠還在。`
+        : `${area}有 ${fmt(page.total)} 隻動物剛進收容所，資料日期 ${today()}。看到像你家毛孩的，請盡快打電話給收容所。`}
+    </p>
+    <AnimalCases cases={page.data} />
+    {page.lastPage > 1 && (
+      <nav class="pager" aria-label="分頁">
+        {page.url.prev ? <a href={page.url.prev}>← 上一頁</a> : <span />}
+        <span>第 {page.currentPage} 頁，共 {page.lastPage} 頁</span>
+        {page.url.next ? <a href={page.url.next}>下一頁 →</a> : <span />}
+      </nav>
+    )}
+  </main>
+</Base>
+<style>
+  .crumb { margin: 32px 0 0; font-size: var(--text-xs); color: var(--text-secondary); }
+  .crumb + h1 { margin-top: 8px; }
+  .pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; margin: 32px 0 0; font-size: var(--text-sm); }
+</style>

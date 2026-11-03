@@ -1,0 +1,18 @@
+---
+import Base from "../../../layouts/Base.astro";
+import SixSteps from "../../../components/SixSteps.astro";
+import { ABOUT_TW } from "../../../lib/site";
+---
+<Base title="關於按門鈴 doorbell.life｜按門鈴" lang="zh-Hant-TW" description="按門鈴讓網站的錯誤頁，顯示附近需要幫忙的人和動物。資料從哪裡來、找到之後怎麼辦、錢從哪裡來，都在這裡。">
+  <main>
+    <h1>按門鈴是什麼？</h1>
+    <p class="lead">你打開網頁，看到「找不到這個頁面」。按門鈴讓這個畫面多做一件事：告訴你附近有人、有動物需要幫忙。就像經過時按一下門鈴，提醒你看一眼。</p>
+    <h2>從資料到找到家，一共六步</h2>
+    <SixSteps />
+    <h2>想知道更多</h2>
+    <ul>
+      {ABOUT_TW.map(([href, label]) => <li><a href={href}>{label}</a></li>)}
+      <li><a href="/faq/taiwan/">常見問題</a></li>
+    </ul>
+  </main>
+</Base>

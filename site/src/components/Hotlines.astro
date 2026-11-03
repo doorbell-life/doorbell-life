@@ -1,0 +1,26 @@
+---
+// 求助專線，讀 regions/taiwan/hotlines.json（每筆附官方來源與查核日）。numbers 指定要列哪幾支，順序照給的順序。
+import { regionHotlines } from "../lib/data";
+import { tel } from "../lib/animals";
+
+interface Props { numbers?: string[] }
+const all = regionHotlines("taiwan");
+const { numbers } = Astro.props;
+const list = numbers ? numbers.flatMap((n) => all.filter((h) => h.number === n)) : all;
+---
+{list.length > 0 && (
+  <ul class="hotlines">
+    {list.map((h) => (
+      <li>
+        <a class="n" href={`tel:${tel(h.number)}`}>{h.number}</a>
+        <span>{h.name}{h.hours && `，${h.hours}`}</span>
+        <span class="muted"><a href={h.source}>官方來源</a>（查核 {h.checkedAt}）</span>
+      </li>
+    ))}
+  </ul>
+)}
+<style>
+  .hotlines { list-style: none; padding: 0; display: grid; gap: 12px; }
+  .hotlines li { background: var(--bg-surface); border-radius: 12px; padding: 16px 20px; display: flex; flex-direction: column; max-width: 36em; }
+  .n { font-size: var(--text-lg); font-weight: 700; text-decoration: none; }
+</style>

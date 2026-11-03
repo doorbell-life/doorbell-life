@@ -1,0 +1,30 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { articleUrl, taiwanArticles, TOPIC_LABEL, type ArticleTopic } from "../../../lib/articles";
+
+const all = await taiwanArticles();
+const groups = (Object.keys(TOPIC_LABEL) as ArticleTopic[])
+  .map((t) => ({ t, list: all.filter((a) => a.data.topic === t) }))
+  .filter((g) => g.list.length > 0);
+---
+<Base title="文章：失蹤協尋、捐血、動物、網站錯誤頁｜按門鈴" lang="zh-Hant-TW" description="一篇回答一個問題：家人失蹤怎麼辦、誰可以捐血、怎麼認養動物、錯誤頁怎麼做。每篇都附台灣官方來源。">
+  <main>
+    <h1>文章</h1>
+    <p class="lead">一篇只回答一個問題，第一句就是答案。每篇都附台灣官方來源和查核日期。</p>
+    {groups.length === 0 && <p>文章還在撰寫中。</p>}
+    {groups.map((g) => (
+      <section>
+        <h2>{TOPIC_LABEL[g.t]}</h2>
+        <ul>
+          {g.list.map((a) => (
+            <li><a href={articleUrl(a)}>{a.data.title}</a><span class="muted">{a.data.description}</span></li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </main>
+</Base>
+<style>
+  li { margin-bottom: 16px; }
+  li .muted { display: block; }
+</style>

@@ -1,0 +1,20 @@
+---
+// 六步流程（CLAUDE.md §9 about/ 的共同起點）。首頁與關於頁共用。
+const steps = [
+  ["政府與合作單位提供資料", "失蹤協尋、捐血、收容所動物等公開資料。"],
+  ["每天整理、檢查", "過期與已經找到的個案自動移除。"],
+  ["網站一次安裝", "貼一行程式碼，之後不用再維護。"],
+  ["訪客遇到錯誤頁", "看到附近需要幫忙的人和動物。"],
+  ["民眾伸出援手", "聯絡收容所或協尋專線。"],
+  ["找到家，自動下架", "換下一個需要幫忙的個案。"],
+];
+---
+<ol class="steps">
+  {steps.map(([h, d]) => <li><strong>{h}</strong><span>{d}</span></li>)}
+</ol>
+<style>
+  .steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; counter-reset: s; }
+  .steps li { counter-increment: s; background: var(--bg-surface); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 4px; max-width: none; }
+  .steps li::before { content: counter(s); font-size: var(--text-xl); font-weight: 700; color: var(--color-bell); }
+  .steps span { color: var(--text-secondary); }
+</style>

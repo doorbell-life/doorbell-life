@@ -1,0 +1,10 @@
+---
+import type { GetStaticPaths } from "astro";
+import AnimalCounty from "../../../../../components/AnimalCounty.astro";
+import { counties, PAGE_SIZE } from "../../../../../lib/animals";
+
+export const getStaticPaths = (({ paginate }) =>
+  (counties("animals-lost") ?? []).flatMap((c) => paginate(c.cases, { params: { county: c.slug }, props: { area: c.area }, pageSize: PAGE_SIZE }))) satisfies GetStaticPaths;
+const { page, area } = Astro.props;
+---
+<AnimalCounty topic="animals-lost" area={area} page={page} />

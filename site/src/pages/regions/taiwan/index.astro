@@ -1,0 +1,40 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { REPO } from "../../../lib/site";
+---
+<Base title="doorbell.life 支援哪些地區？｜按門鈴" lang="zh-Hant-TW" description="目前支援台灣，美國準備中。說明訪客會看到哪個地區的資料，以及怎麼提供新地區的資料。">
+  <main>
+    <h1>doorbell.life 支援哪些地區？</h1>
+    <p class="lead">目前是台灣，美國準備中。每個地區有自己的資料、求助專線和語言，我們稱為「地區包」。</p>
+
+    <table>
+      <thead><tr><th>地區</th><th>語言</th><th>狀態</th><th>資料</th></tr></thead>
+      <tbody>
+        <tr><td>台灣（taiwan）</td><td>繁體中文</td><td>每天同步</td><td>公立收容所動物（農業部）、失蹤人口統計（警政署）、求助專線</td></tr>
+        <tr><td>美國（usa）</td><td>英文</td><td>準備中</td><td>尚未接上</td></tr>
+      </tbody>
+    </table>
+
+    <h2>訪客會看到哪個地區的資料？</h2>
+    <p>元件看訪客瀏覽器設定的時區，選對應的地區包，不看 IP。時區是台灣的訪客，看到台灣的資料。</p>
+    <p>其他時區目前還沒有地區包，這些訪客看到的就是網站原本的錯誤頁，不會硬塞其他國家的個案。</p>
+    <p>網站也可以自己指定地區，例如加上 <code>data-region="taiwan"</code>，見<a href="/install/taiwan/">安裝</a>。</p>
+
+    <h2>想讓你的地區也加入？</h2>
+    <p>任何人都可以提供。一個地區包包含這些東西，可以參考<a href={`${REPO}/tree/main/regions/taiwan`}>台灣的地區包</a>：</p>
+    <ul>
+      <li>地區代碼、國家、語言、時區</li>
+      <li>求助專線，每支附官方來源和查核日期</li>
+      <li>宣導數字，每筆附官方來源和查核日期</li>
+      <li>公開資料的同步程式，把來源資料轉成<a href={`${REPO}/tree/main/schema`}>統一格式</a></li>
+      <li>要每週比對的來源網址，來源有變動時通知維護者</li>
+    </ul>
+    <p>不會寫程式也沒關係。到 <a href={`${REPO}/issues`}>GitHub 開一個 issue</a>，或寄信到 <a href="mailto:contact@doorbell.life">contact@doorbell.life</a>，寫下地區名稱和資料來源網址。維護者查證來源和授權後，才會上線。</p>
+    <h3>哪些資料不收</h3>
+    <ul>
+      <li>沒有官方來源的資料。</li>
+      <li>不允許公開再利用的資料。</li>
+      <li>從網站自動抓下來的失蹤個案。失蹤個案只會由負責協尋的單位提供。</li>
+    </ul>
+  </main>
+</Base>

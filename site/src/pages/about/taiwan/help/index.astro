@@ -1,0 +1,26 @@
+---
+import AboutPage from "../../../../components/AboutPage.astro";
+import { REPO } from "../../../../lib/site";
+---
+<AboutPage
+  title="我能怎麼幫忙？｜按門鈴"
+  h1="我能怎麼幫忙？"
+  description="把按門鈴裝到你的網站、回報資料錯誤、提供你所在地區的資料、幫忙翻譯介面。"
+  lead="不一定要會寫程式。下面幾件事，挑一件就好。"
+>
+  <h2>有網站：裝上按門鈴</h2>
+  <p>貼一行程式碼，或在 WordPress 裝外掛，你的錯誤頁就能幫忙。見<a href="/install/taiwan/">安裝</a>。</p>
+
+  <h2>看到資料有錯：告訴我們</h2>
+  <p>寄信到 <a href="mailto:contact@doorbell.life">contact@doorbell.life</a>，或在 <a href={`${REPO}/issues`}>GitHub 開 issue</a>，附上是哪一則、哪裡有錯，有官方來源更好。</p>
+
+  <h2>知道可靠的資料：提供給我們</h2>
+  <p>你所在的縣市、國家有公開的收容所、捐血或求助專線資料，可以寄信或開 issue，附上來源網址。維護者查證後才會上線。想提供整個地區的資料，見<a href="/regions/taiwan/">支援地區</a>。</p>
+  <p>文章和各地比較的內容也一樣：每個事實都要有當地官方來源，請一起附上。</p>
+
+  <h2>會其他語言：幫忙翻譯</h2>
+  <p>錯誤頁上的介面文字放在 <a href={`${REPO}/tree/main/i18n`}>i18n</a> 資料夾，一種語言一個檔案，以 MIT 授權公開。可以直接送 pull request，或寄信給我們。文章不翻譯，各地區用當地語言從頭寫。</p>
+
+  <h2>轉傳的時候：小心一點</h2>
+  <p>失蹤協尋的訊息，請轉傳協尋單位公開的原始內容，不要自己加上個人資料或猜測。</p>
+</AboutPage>
