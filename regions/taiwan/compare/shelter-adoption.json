@@ -1,0 +1,38 @@
+{
+  "practice": "《公立動物收容處所管理規則》規定，收容所要先替動物辦好寵物登記、植入晶片和絕育才交給認養人，認養人也要先接受飼主責任教育；收容所並須在接收動物 3 日內把資料公開在網站和籠位前。以臺北市為例，認養人要先上至少 1 小時的線上課程，動物之家另列出傳染病篩檢、疫苗、終身行為諮詢等認養後的支持服務。",
+  "fields": {
+    "fee": {
+      "value": "全國沒有統一的認養費，《動物保護法》第 14 條讓縣市主管機關訂定收容所收費標準；認養寵物的登記費，已絕育免收、未絕育 100 元，收容所也可補助狂犬病注射或絕育費用。舉例：苗栗縣動物保護教育園區認養一律免費植入晶片、寵物登記、狂犬病疫苗和絕育；臺北市動物之家把植入晶片及寵物登記、絕育列為認養福利。",
+      "sources": [
+        { "name": "全國法規資料庫：動物保護法（110 年 5 月 19 日修正）第 14 條", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0060027", "checkedAt": "2026-11-03" },
+        { "name": "全國法規資料庫：寵物登記管理及營利性寵物繁殖買賣或寄養業管理收費標準（91 年 12 月 31 日修正）", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0060030", "checkedAt": "2026-11-03" },
+        { "name": "全國法規資料庫：公立動物收容處所管理規則（104 年 8 月 31 日發布）第 16 條", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0060082", "checkedAt": "2026-11-03" },
+        { "name": "農業部動物保護資訊網：苗栗縣動物保護教育園區推多元福利 邀您「以認養代替購買」", "url": "https://animal.moa.gov.tw/Frontend/News/Detail/N0000000002329", "checkedAt": "2026-11-03" },
+        { "name": "臺北市動物保護處：認養步驟／須知", "url": "https://www.tcapo.gov.taipei/cp.aspx?n=540601EBB8FD4066", "checkedAt": "2026-11-03" }
+      ]
+    },
+    "adopter-requirements": {
+      "value": "全國規定：帶身分證明文件申請，不得有《動物保護法》第 33 條之 1 所列情形（例如曾棄養、虐待動物），並經收容所評估能提供法定的照顧。法規沒有統一的年齡門檻；舉例，苗栗縣動物保護教育園區要求認養人年滿 18 歲。",
+      "sources": [
+        { "name": "全國法規資料庫：公立動物收容處所管理規則（104 年 8 月 31 日發布）第 15 條", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0060082", "checkedAt": "2026-11-03" },
+        { "name": "全國法規資料庫：動物保護法（110 年 5 月 19 日修正）第 33 條之 1", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0060027", "checkedAt": "2026-11-03" },
+        { "name": "農業部動物保護資訊網：苗栗縣動物保護教育園區推多元福利 邀您「以認養代替購買」", "url": "https://animal.moa.gov.tw/Frontend/News/Detail/N0000000002329", "checkedAt": "2026-11-03" }
+      ]
+    },
+    "class-or-interview": {
+      "value": "要。全國規定認養人須接受飼主責任及動物飼養管理教育，並經收容所評估。舉例，臺北市規定至少 1 小時的教育（可上「臺北e大」毛孩學院線上課程），並經面談及書面評估，必要時家訪；認養超過 4 隻可實地訪視。",
+      "sources": [
+        { "name": "全國法規資料庫：公立動物收容處所管理規則（104 年 8 月 31 日發布）第 15 條", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0060082", "checkedAt": "2026-11-03" },
+        { "name": "臺北市法規查詢系統：臺北市公立動物收容處所動物認領認養辦法第 5 條", "url": "https://laws.gov.taipei/law/LawSearch/LawArticleContent/FL090141", "checkedAt": "2026-11-03" },
+        { "name": "臺北市動物保護處：認養步驟／須知", "url": "https://www.tcapo.gov.taipei/cp.aspx?n=540601EBB8FD4066", "checkedAt": "2026-11-03" }
+      ]
+    },
+    "stray-hold-period": {
+      "value": "查得到飼主的動物，收容所要在接收後 3 日內通知原飼主，自通知日起超過 7 日未領回才可公告認養；無從辨識身分的動物，法律沒有規定最短等待天數。收容所須在接收後 3 日內把動物資料公開在網站和籠位前。",
+      "sources": [
+        { "name": "全國法規資料庫：動物保護法（110 年 5 月 19 日修正）第 14 條第 2 項", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0060027", "checkedAt": "2026-11-03" },
+        { "name": "全國法規資料庫：公立動物收容處所管理規則（104 年 8 月 31 日發布）第 2、8、9 條", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0060082", "checkedAt": "2026-11-03" }
+      ]
+    }
+  }
+}
