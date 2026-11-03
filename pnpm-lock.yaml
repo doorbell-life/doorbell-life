@@ -33,6 +33,12 @@ importers:
         specifier: workspace:*
         version: link:../../schema
 
+  regions/usa:
+    dependencies:
+      '@doorbell-life/schema':
+        specifier: workspace:*
+        version: link:../../schema
+
   schema: {}
 
   site:

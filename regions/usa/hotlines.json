@@ -1,0 +1,9 @@
+{
+  "_說明": "求助專線，寫死在離線 5xx 頁。每筆附官方來源與查核日。",
+  "items": [
+    { "name": "Emergency (police, fire, ambulance)", "number": "911", "hours": "24/7", "source": "https://www.usa.gov/report-crime", "checkedAt": "2026-11-03" },
+    { "name": "Missing child hotline (National Center for Missing & Exploited Children)", "number": "1-800-843-5678", "hours": "24/7", "source": "https://www.missingkids.org/gethelpnow/isyourchildmissing", "checkedAt": "2026-11-03" },
+    { "name": "National Runaway Safeline", "number": "1-800-786-2929", "hours": "24/7", "source": "https://www.1800runaway.org/", "checkedAt": "2026-11-03" },
+    { "name": "Alzheimer's Association Helpline (dementia)", "number": "1-800-272-3900", "hours": "24/7", "source": "https://www.alz.org/help-support/resources/helpline", "checkedAt": "2026-11-03" }
+  ]
+}
