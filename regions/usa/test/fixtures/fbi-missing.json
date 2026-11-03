@@ -1,0 +1,256 @@
+{
+ "total": 3,
+ "items": [
+  {
+   "files": [
+    {
+     "url": "https://www.fbi.gov/wanted/kidnap/ylva-annika-hagner/download.pdf",
+     "name": "English"
+    },
+    {
+     "url": "https://www.fbi.gov/wanted/kidnap/ylva-annika-hagner/hagnerswedish.pdf/@@download/file/hagnerSwedish.pdf",
+     "name": "P SVENSKA"
+    }
+   ],
+   "age_range": null,
+   "uid": "7e03eb689c954265ada44259ccbccfd2",
+   "weight": "110 pounds",
+   "occupations": null,
+   "field_offices": [
+    "sanfrancisco"
+   ],
+   "locations": null,
+   "reward_text": null,
+   "sex": "Female",
+   "hair": null,
+   "ncic": null,
+   "dates_of_birth_used": [
+    "August 4, 1954"
+   ],
+   "caution": null,
+   "nationality": null,
+   "age_min": null,
+   "age_max": null,
+   "scars_and_marks": null,
+   "subjects": [
+    "Kidnappings and Missing Persons"
+   ],
+   "aliases": null,
+   "race_raw": "White",
+   "suspects": null,
+   "publication": "2026-09-24T10:03:00",
+   "title": "YLVA ANNIKA HAGNER",
+   "coordinates": [],
+   "hair_raw": "Red",
+   "languages": [
+    "English",
+    "Swedish"
+   ],
+   "complexion": null,
+   "build": null,
+   "details": "<p>The FBI's San Francisco Field Office and the Belmont Police Department in California are seeking information from the public regarding the disappearance of Ylva Annika Hagner.  She was last seen at approximately 9:30 p.m., on October 14, 1996, at her place of employment in Belmont, California.  At the time of her disappearance, Hagner was living in Palo Alto, California, and attending Stanford University as a Graduate Student.  Her vehicle was located abandoned in front of a Days Inn Motel in San Carlos, California, on October 16, 1996. The keys were in the ignition, and her purse was missing.  </p>",
+   "status": "na",
+   "legat_names": null,
+   "eyes": "blue",
+   "person_classification": "Main",
+   "description": "October 14, 1996\r\nBelmont, California",
+   "images": [
+    {
+     "large": "https://www.fbi.gov/wanted/kidnap/ylva-annika-hagner/@@images/image/large",
+     "caption": null,
+     "thumb": "https://www.fbi.gov/wanted/kidnap/ylva-annika-hagner/@@images/image/thumb",
+     "original": "https://www.fbi.gov/wanted/kidnap/ylva-annika-hagner/@@images/image"
+    },
+    {
+     "large": "https://www.fbi.gov/wanted/kidnap/ylva-annika-hagner/hagner2.jpg/@@images/image/large",
+     "caption": "",
+     "thumb": "https://www.fbi.gov/wanted/kidnap/ylva-annika-hagner/hagner2.jpg/@@images/image/thumb",
+     "original": "https://www.fbi.gov/wanted/kidnap/ylva-annika-hagner/hagner2.jpg"
+    },
+    {
+     "large": "https://www.fbi.gov/wanted/kidnap/ylva-annika-hagner/hagner3.jpg/@@images/image/large",
+     "caption": "",
+     "thumb": "https://www.fbi.gov/wanted/kidnap/ylva-annika-hagner/hagner3.jpg/@@images/image/thumb",
+     "original": "https://www.fbi.gov/wanted/kidnap/ylva-annika-hagner/hagner3.jpg"
+    },
+    {
+     "large": "https://www.fbi.gov/wanted/kidnap/ylva-annika-hagner/hagner4.jpg/@@images/image/large",
+     "caption": "",
+     "thumb": "https://www.fbi.gov/wanted/kidnap/ylva-annika-hagner/hagner4.jpg/@@images/image/thumb",
+     "original": "https://www.fbi.gov/wanted/kidnap/ylva-annika-hagner/hagner4.jpg"
+    }
+   ],
+   "possible_countries": null,
+   "weight_min": 110,
+   "additional_information": null,
+   "remarks": "<p>Hagner speaks with a Swedish accent.  She was last seen wearing a lime green sweatshirt and a blue skirt.</p>",
+   "path": "/wanted/kidnap/ylva-annika-hagner",
+   "eyes_raw": "Blue",
+   "weight_max": 110,
+   "reward_min": 0,
+   "url": "https://www.fbi.gov/wanted/kidnap/ylva-annika-hagner",
+   "possible_states": null,
+   "modified": "2026-10-13T13:22:16+00:00",
+   "reward_max": 0,
+   "race": "white",
+   "height_max": 66,
+   "place_of_birth": "Sweden",
+   "height_min": 65,
+   "poster_classification": "missing",
+   "warning_message": null,
+   "pathId": "https://api.fbi.gov/@wanted-person/7e03eb689c954265ada44259ccbccfd2"
+  },
+  {
+   "files": [
+    {
+     "url": "https://www.fbi.gov/wanted/vicap/missing-persons/james-s-ruland---north-fond-du-lac-wisconsin/ruland.pdf",
+     "name": "English"
+    }
+   ],
+   "age_range": "Forty years old",
+   "uid": "b4db60d7ed14449cb73ba39564ef9e19",
+   "weight": "160 pounds",
+   "occupations": null,
+   "field_offices": null,
+   "locations": null,
+   "reward_text": null,
+   "sex": "Male",
+   "hair": "brown",
+   "ncic": null,
+   "dates_of_birth_used": null,
+   "caution": null,
+   "nationality": null,
+   "age_min": null,
+   "age_max": null,
+   "scars_and_marks": null,
+   "subjects": [
+    "ViCAP Missing Persons"
+   ],
+   "aliases": null,
+   "race_raw": "White",
+   "suspects": null,
+   "publication": "2021-02-23T08:02:00",
+   "title": "JAMES S. RULAND - NORTH FOND du LAC, WISCONSIN",
+   "coordinates": [],
+   "hair_raw": "Brown, collar length",
+   "languages": null,
+   "complexion": null,
+   "build": null,
+   "details": "<p>On Thursday, October 26, 1995, James S. Ruland was last seen hitchhiking in North Fond du Lac, Wisconsin. Nine days later, he was reported missing by his sister. On November 14, 1995, Ruland’s white Dodge Aires station wagon was recovered from the Stretch Truck Stop near North Fond du Lac. The keys were in the ignition and Ruland’s personal possessions were in the cargo area.</p>\r\n<p>Ruland sustained a severe head injury when he was young which required a shunt implant. The initial shunt failed, necessitating a second shunt. The implants required “bilateral burr holes” so the shunts could pass through his skull. Fond du Lac Sheriff’s Office is requesting assistance with locating Ruland.</p>",
+   "status": "na",
+   "legat_names": null,
+   "eyes": "blue",
+   "person_classification": "Main",
+   "description": "October 26, 1995\r\nNorth Fond du Lac, Wisconsin",
+   "images": [
+    {
+     "large": "https://www.fbi.gov/wanted/vicap/missing-persons/james-s-ruland---north-fond-du-lac-wisconsin/@@images/image/large",
+     "caption": null,
+     "thumb": "https://www.fbi.gov/wanted/vicap/missing-persons/james-s-ruland---north-fond-du-lac-wisconsin/@@images/image/thumb",
+     "original": "https://www.fbi.gov/wanted/vicap/missing-persons/james-s-ruland---north-fond-du-lac-wisconsin/@@images/image"
+    }
+   ],
+   "possible_countries": null,
+   "weight_min": 160,
+   "additional_information": null,
+   "remarks": "<p>Distinguishing Characteristics: Metal plate in head - bilateral burr holes/shunts, mustache</p>\r\n<p>Clothing/Belongings: Green camouflage jacket, silver wire rimmed glasses</p>",
+   "path": "/wanted/vicap/missing-persons/james-s-ruland---north-fond-du-lac-wisconsin",
+   "eyes_raw": "Blue, wears glasses",
+   "weight_max": 160,
+   "reward_min": 0,
+   "url": "https://www.fbi.gov/wanted/vicap/missing-persons/james-s-ruland---north-fond-du-lac-wisconsin",
+   "possible_states": null,
+   "modified": "2026-10-01T17:49:08+00:00",
+   "reward_max": 0,
+   "race": "white",
+   "height_max": 72,
+   "place_of_birth": null,
+   "height_min": 72,
+   "poster_classification": "missing",
+   "warning_message": null,
+   "pathId": "https://api.fbi.gov/@wanted-person/b4db60d7ed14449cb73ba39564ef9e19"
+  },
+  {
+   "files": [
+    {
+     "url": "https://www.fbi.gov/wanted/kidnap/carlotta-maria-sanchez/download.pdf",
+     "name": "English"
+    }
+   ],
+   "age_range": null,
+   "uid": "98df11f3903d4ecab8940693471cbca8",
+   "weight": "112 pounds (at time of disappearance)",
+   "occupations": null,
+   "field_offices": [
+    "seattle"
+   ],
+   "locations": null,
+   "reward_text": "The FBI is offering a reward of up to $25,000 for information leading to the recovery of Carlotta Maria Sanchez and the arrest or conviction of those responsible for her disappearance.",
+   "sex": "Female",
+   "hair": "brown",
+   "ncic": null,
+   "dates_of_birth_used": [
+    "February 10, 1967"
+   ],
+   "caution": null,
+   "nationality": "American",
+   "age_min": null,
+   "age_max": null,
+   "scars_and_marks": null,
+   "subjects": [
+    "Kidnappings and Missing Persons",
+    "Indian Country"
+   ],
+   "aliases": null,
+   "race_raw": null,
+   "suspects": null,
+   "publication": "2023-08-25T07:57:00",
+   "title": "CARLOTTA MARIA SANCHEZ",
+   "coordinates": [],
+   "hair_raw": "Brown",
+   "languages": null,
+   "complexion": null,
+   "build": null,
+   "details": "<p>On August 30, 1979, Carlotta Maria Sanchez, accompanied by her cousin, <a data-urltype=\"/view\" data-val=\"https://www.fbi.gov/wanted/kidnap/elsie-eldora-luscier\" href=\"https://www.fbi.gov/wanted/kidnap/elsie-eldora-luscier\" data-linktype=\"external\">Elsie Eldora Luscier</a>, disappeared from Taholah, Washington, which is in the Quinault Nation Indian Reservation.  The FBI is seeking information about the disappearance of both girls, and about those responsible for their disappearance.</p>\r\n<p> </p>",
+   "status": "na",
+   "legat_names": null,
+   "eyes": "brown",
+   "person_classification": "Main",
+   "description": "August 30, 1979\r\nTaholah, Washington",
+   "images": [
+    {
+     "large": "https://www.fbi.gov/wanted/kidnap/carlotta-maria-sanchez/@@images/image/large",
+     "caption": null,
+     "thumb": "https://www.fbi.gov/wanted/kidnap/carlotta-maria-sanchez/@@images/image/thumb",
+     "original": "https://www.fbi.gov/wanted/kidnap/carlotta-maria-sanchez/@@images/image"
+    },
+    {
+     "large": "https://www.fbi.gov/wanted/kidnap/carlotta-maria-sanchez/sanchezc2.jpg/@@images/image/large",
+     "caption": "",
+     "thumb": "https://www.fbi.gov/wanted/kidnap/carlotta-maria-sanchez/sanchezc2.jpg/@@images/image/thumb",
+     "original": "https://www.fbi.gov/wanted/kidnap/carlotta-maria-sanchez/sanchezc2.jpg"
+    }
+   ],
+   "possible_countries": null,
+   "weight_min": 112,
+   "additional_information": null,
+   "remarks": null,
+   "path": "/wanted/kidnap/carlotta-maria-sanchez",
+   "eyes_raw": "Brown",
+   "weight_max": 112,
+   "reward_min": 0,
+   "url": "https://www.fbi.gov/wanted/kidnap/carlotta-maria-sanchez",
+   "possible_states": null,
+   "modified": "2026-09-30T13:38:53+00:00",
+   "reward_max": 0,
+   "race": null,
+   "height_max": 66,
+   "place_of_birth": "Yuma, Arizona",
+   "height_min": 66,
+   "poster_classification": "missing",
+   "warning_message": null,
+   "pathId": "https://api.fbi.gov/@wanted-person/98df11f3903d4ecab8940693471cbca8"
+  }
+ ],
+ "page": 1
+}

@@ -1,8 +1,25 @@
 {
   "_說明": "每週來源比對：這些網址的內容雜湊與 sources.lock.json 不同時，通知維護者人工查證（CLAUDE.md §9 事實複查）。沒有列入、要人工複查的：fbi.gov 的 NCIC 統計 PDF（stats.json 引用；fbi.gov 對 Node fetch 回 403）、alz.org 與 1800runaway.org（每次回應內容都不同，無法用雜湊比對）。",
   "sources": [
-    { "id": "usagov-report-crime", "url": "https://www.usa.gov/report-crime", "note": "911 與失蹤兒童專線號碼（hotlines.json 引用）" },
-    { "id": "ncmec-hotline", "url": "https://www.missingkids.org/gethelpnow/isyourchildmissing", "note": "失蹤兒童 24 小時專線（hotlines.json 引用）" },
-    { "id": "mc-shelter-contact", "url": "https://www.montgomerycountymd.gov/animalservices/about/contact.html", "note": "Montgomery County 收容所名稱、地址、電話（src/mc.ts 寫死）" }
+    {
+      "id": "usagov-report-crime",
+      "url": "https://www.usa.gov/report-crime",
+      "note": "911 與失蹤兒童專線號碼（hotlines.json 引用）"
+    },
+    {
+      "id": "ncmec-hotline",
+      "url": "https://www.missingkids.org/gethelpnow/isyourchildmissing",
+      "note": "失蹤兒童 24 小時專線（hotlines.json 引用）"
+    },
+    {
+      "id": "mc-shelter-contact",
+      "url": "https://www.montgomerycountymd.gov/animalservices/about/contact.html",
+      "note": "Montgomery County 收容所名稱、地址、電話（src/mc.ts 寫死）"
+    },
+    {
+      "id": "fbi-contact",
+      "url": "https://www.fbi.gov/contact-us",
+      "note": "FBI 聯絡方式（tips.fbi.gov、1-800-CALL-FBI）；fbi.gov 可能擋程式讀取，讀不到時人工複查"
+    }
   ]
 }

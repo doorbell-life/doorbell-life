@@ -11,5 +11,6 @@
 
 ## 沒有做的
 
-- **失蹤兒童個案**：NCMEC 有 RSS（https://www.missingkids.org/supportus/share/rss ），但使用條款（https://www.missingkids.org/footer/termsandconditions ）禁止修改內容、衍生使用、以程式擷取，也禁止用於贊助目的。我們會改寫格式、由排程程式抓取，服務又有 ESG 贊助，因此不使用。
+- **失蹤協尋個案**：FBI Wanted API 的失蹤協尋海報（https://api.fbi.gov/wanted/v1/list?poster_classification=missing ）。fbi.gov 隱私權政策寫明站上未另行標示出處的資訊屬公共資訊、可散布或複製，但不得使用 FBI 徽章或暗示背書（https://www.fbi.gov/privacy-policy ）。失蹤時未滿 18 歲歸兒少，年齡算不出來歸成人；全部不進離線版。api.fbi.gov 擋 Node 內建 fetch，同步改用 curl，User-Agent 照實標明身分。異常時輸出空檔、暫停顯示失蹤個案。
+- **NCMEC 不使用**：RSS（https://www.missingkids.org/supportus/share/rss ）的使用條款（https://www.missingkids.org/footer/termsandconditions ）禁止公開顯示、inline linking 與程式擷取，例外只有官方橫幅、海報與連結。
 - **RescueGroups 待認養動物**：需要 API 金鑰。
