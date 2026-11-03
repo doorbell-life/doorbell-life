@@ -1,0 +1,78 @@
+---
+// 動物列表首頁：縣市清單。沒有同步資料時只說明尚未同步，不顯示數字。
+import Base from "../layouts/Base.astro";
+import { counties, TOPIC, type AnimalTopic } from "../lib/animals";
+import { today } from "../lib/data";
+import { articleUrl, taiwanArticles } from "../lib/articles";
+
+interface Props { topic: AnimalTopic }
+const { topic } = Astro.props;
+const adopt = topic === "animals-adopt";
+const list = counties(topic);
+const total = list?.reduce((n, c) => n + c.cases.length, 0) ?? 0;
+const fmt = (n: number) => n.toLocaleString("en-US");
+const date = today();
+const other = TOPIC[TOPIC[topic].other];
+const articles = await taiwanArticles("animals");
+---
+<Base
+  title={adopt ? "台灣公立收容所待認養動物，依縣市查詢｜按門鈴" : "剛進公立收容所的動物，可能有飼主在找｜按門鈴"}
+  lang="zh-Hant-TW"
+  description={adopt
+    ? "全台公立收容所開放認養的狗、貓與其他動物，依縣市列出，附收容所電話。資料來自農業部開放資料，每天更新。"
+    : "剛進公立收容所、還沒到開放認養日的動物，依縣市列出。毛孩走失了，先來這裡找找，再打電話給收容所。"}
+>
+  <main>
+    <h1>{adopt ? "哪些動物在公立收容所等人認養？" : "毛孩走失了，會不會在收容所？"}</h1>
+    {list ? (
+      adopt ? (
+        <p class="lead">{date} 全台公立收容所有 {fmt(total)} 隻動物開放認養。選你所在的縣市看看，想認養就直接打電話給收容所。</p>
+      ) : (
+        <p class="lead">{date} 全台公立收容所有 {fmt(total)} 隻動物剛進收容所，還沒到開放認養日。毛孩走失了，先在這裡找找，看到像的就盡快打電話給收容所。</p>
+      )
+    ) : (
+      <p class="lead">今天的資料尚未同步，稍後再來看。</p>
+    )}
+
+    {list && list.length > 0 && (
+      <>
+        <h2>選縣市</h2>
+        <ul class="counties">
+          {list.map((c) => <li><a href={`${TOPIC[topic].path}${c.slug}/`}>{c.area}</a><span>{fmt(c.cases.length)} 隻</span></li>)}
+        </ul>
+      </>
+    )}
+
+    <h2>先知道這幾件事</h2>
+    <ul>
+      {adopt ? (
+        <>
+          <li>資料一天更新一次，你看到的動物可能已經被認養。出發前先打電話問收容所。</li>
+          <li>認養的條件和流程由各收容所決定，請以收容所的說明為準。</li>
+        </>
+      ) : (
+        <>
+          <li>這裡列的是開放認養日還沒到的動物，不一定每一隻都有飼主在找。到了開放認養日，牠會改列在<a href={other.path}>待認養</a>。</li>
+          <li>資料一天更新一次。剛走失的毛孩可能還沒出現在這裡，也請直接打電話問住家附近的收容所。</li>
+        </>
+      )}
+      <li>這裡先不放照片：來源照片要先存到我們自己的伺服器才會使用，這部分還在準備。</li>
+      <li>資料來源：<a href="https://data.gov.tw/dataset/85903">農業部 動物認領養開放資料</a>。各縣市的數字整理在<a href="/data/taiwan/">數據頁</a>。</li>
+    </ul>
+
+    {articles.length > 0 && (
+      <>
+        <h2>相關文章</h2>
+        <ul>{articles.map((a) => <li><a href={articleUrl(a)}>{a.data.title}</a></li>)}</ul>
+      </>
+    )}
+
+    <p><a href={other.path}>看{other.name}的動物 →</a></p>
+  </main>
+</Base>
+<style>
+  .counties { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 12px; }
+  .counties li { background: var(--bg-surface); border-radius: 12px; padding: 16px 20px; display: flex; justify-content: space-between; gap: 12px; max-width: none; }
+  .counties a { font-weight: 600; text-decoration: none; }
+  .counties span { color: var(--text-secondary); }
+</style>

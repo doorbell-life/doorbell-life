@@ -1,0 +1,64 @@
+---
+// 失蹤協尋各頁共用版面。整區 noindex、noarchive（CLAUDE.md §3 第 4 條）。
+// 目前沒有失蹤個案：個案只會來自負責協尋的單位，這裡不放、也不編造任何個案。
+import Base from "../layouts/Base.astro";
+import Hotlines from "./Hotlines.astro";
+import { regionStats } from "../lib/data";
+import { articleUrl, taiwanArticles } from "../lib/articles";
+
+interface Props { title: string; h1: string; description: string; numbers: string[]; stats: string[] }
+const { title, h1, description, numbers, stats } = Astro.props;
+const shown = regionStats("taiwan").filter((s) => stats.includes(s.id));
+const articles = await taiwanArticles("missing");
+const subs = [
+  ["/missing/taiwan/children/", "失蹤兒少"],
+  ["/missing/taiwan/elders/", "失智走失長者"],
+  ["/missing/taiwan/adults/", "失蹤成人"],
+];
+---
+<Base title={title} lang="zh-Hant-TW" description={description} noindex>
+  <main>
+    <h1>{h1}</h1>
+    <p class="lead">遇到緊急情況，請直接打 110。</p>
+
+    <h2>求助專線</h2>
+    <Hotlines numbers={numbers} />
+
+    <slot />
+
+    {shown.length > 0 && (
+      <>
+        <h2>你知道嗎</h2>
+        <ul class="stats">
+          {shown.map((s) => (
+            <li>
+              <strong>{s.title}</strong>。{s.features}
+              <span class="muted">來源：<a href={s.source.url}>{s.source.name}</a>（{s.publishedAt} 發布，{s.checkedAt} 查核）</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+
+    {articles.length > 0 && (
+      <>
+        <h2>相關文章</h2>
+        <ul>{articles.map((a) => <li><a href={articleUrl(a)}>{a.data.title}</a></li>)}</ul>
+      </>
+    )}
+
+    <h2>為什麼這裡沒有個案？</h2>
+    <p>失蹤個案只會由負責協尋的單位提供，我們不自己蒐集，也不拿統計數字當協尋個案。目前還沒有個案上架。</p>
+    <p>之後個案上架，也只會即時顯示，不另外存成網頁；協尋單位通知下架後 1 小時內，就會從所有錯誤頁消失。這一區不讓搜尋引擎收錄或存檔。詳情見<a href="/about/taiwan/takedown/">找到之後怎麼辦</a>。</p>
+
+    <p class="subs">
+      {subs.map(([href, label]) => <a href={href} aria-current={Astro.url.pathname === href ? "page" : undefined}>{label}</a>)}
+    </p>
+  </main>
+</Base>
+<style>
+  .stats li { margin-bottom: 16px; }
+  .stats .muted { display: block; }
+  .subs { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 48px; }
+  .subs a[aria-current="page"] { color: var(--text-primary); font-weight: 700; text-decoration: none; }
+</style>

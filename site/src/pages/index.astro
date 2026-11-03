@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Bell from "../components/Bell.astro";
+import SixSteps from "../components/SixSteps.astro";
 import { regionCases } from "../lib/data";
 
 const cases = regionCases("taiwan");
@@ -8,14 +9,6 @@ const adopt = cases?.filter((c) => c.topic === "animals-adopt") ?? [];
 const lost = cases?.filter((c) => c.topic === "animals-lost") ?? [];
 const sample = adopt.find((c) => c.features && c.contact.phone) ?? null;
 const fmt = (n: number) => n.toLocaleString("en-US");
-const steps = [
-  ["政府與合作單位提供資料", "失蹤協尋、捐血、收容所動物等公開資料。"],
-  ["每天整理、檢查", "過期與已經找到的個案自動移除。"],
-  ["網站一次安裝", "貼一行程式碼，之後不用再維護。"],
-  ["訪客遇到錯誤頁", "看到附近需要幫忙的人和動物。"],
-  ["民眾伸出援手", "聯絡收容所或協尋專線。"],
-  ["找到家，自動下架", "換下一個需要幫忙的個案。"],
-];
 ---
 <Base title="按門鈴 doorbell.life：一個「找不到」的畫面，也許能點亮一個希望" lang="zh-Hant-TW" description="或許是深夜裡，焦急地尋找走失的家人；或許是血庫告急，正等著熱血響應呼喚；或許是收容所裡的毛孩，還在等一個家。而你的 404 頁面，可以讓這些期盼，多一次被看見的機會。">
   <main>
@@ -57,9 +50,7 @@ const steps = [
 
     <section class="steps">
       <h2>怎麼運作</h2>
-      <ol>
-        {steps.map(([h, d]) => <li><strong>{h}</strong><span>{d}</span></li>)}
-      </ol>
+      <SixSteps />
     </section>
   </main>
 </Base>
@@ -85,8 +76,4 @@ const steps = [
   .card .d { margin: 4px 0 0; color: var(--text-secondary); }
   .card .c { margin: 8px 0 0; font-weight: 600; }
   .card .s { margin: 20px 0 0; font-size: var(--text-xs); color: var(--color-link); }
-  .steps ol { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; counter-reset: s; }
-  .steps li { counter-increment: s; background: var(--bg-surface); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 4px; }
-  .steps li::before { content: counter(s); font-size: var(--text-xl); font-weight: 700; color: var(--color-bell); }
-  .steps span { color: var(--text-secondary); }
 </style>

@@ -3,11 +3,12 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 export interface Case {
+  id: string;
   topic: string;
   title: string;
   features: string;
   area: string;
-  contact: { name: string; phone: string };
+  contact: { name: string; phone: string; address: string };
   source: { name: string; url: string };
   publishedAt: string;
 }
@@ -31,6 +32,13 @@ export interface Stat {
 
 export function regionStats(region: string): Stat[] {
   const file = regionFile(region, "stats.json");
+  return existsSync(file) ? JSON.parse(readFileSync(file, "utf8")).items : [];
+}
+
+export interface Hotline { name: string; number: string; hours: string; source: string; checkedAt: string }
+
+export function regionHotlines(region: string): Hotline[] {
+  const file = regionFile(region, "hotlines.json");
   return existsSync(file) ? JSON.parse(readFileSync(file, "utf8")).items : [];
 }
 

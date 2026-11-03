@@ -1,0 +1,72 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { REPO } from "../../../lib/site";
+import { articleUrl, taiwanArticles } from "../../../lib/articles";
+
+// 答案要跟程式實際行為一致：widget/src/widget.ts、templates/src/render.ts、widget/scripts/build.mjs。
+const seo = (await taiwanArticles("webmasters")).find((a) => a.data.common === "custom-error-page-seo");
+---
+<Base title="常見問題｜按門鈴" lang="zh-Hant-TW" description="安裝按門鈴要錢嗎？會影響 SEO 嗎？會拖慢網站、追蹤訪客嗎？在錯誤頁看到需要幫忙的個案該怎麼做？">
+  <main>
+    <h1>常見問題</h1>
+    <p class="lead">前半給網站管理者，後半給在錯誤頁看到按門鈴的人。</p>
+
+    <h2>給網站管理者</h2>
+
+    <h3>安裝要錢嗎？要註冊嗎？</h3>
+    <p>都不用。免費，程式碼開源。</p>
+
+    <h3>會改變錯誤頁的狀態碼嗎？會影響 SEO 嗎？</h3>
+    <p>不會改。元件只在頁面上多放一塊內容，不改狀態碼，也不轉址。404 還是 404，搜尋引擎看到的錯誤頁跟原本一樣。{seo && <>詳細說明見<a href={articleUrl(seo)}>{seo.data.title}</a></>}</p>
+
+    <h3>會拖慢我的網站嗎？</h3>
+    <p>元件用 <code>async</code> 載入，不會擋住頁面顯示。程式壓縮後不到 1 KB，每次建置都會自動檢查大小。它只裝在錯誤頁，一般頁面不受影響。</p>
+
+    <h3>讀不到資料時會怎樣？</h3>
+    <p>什麼都不放。資料、樣式或元件本身任何一個讀不到，元件就不插入任何東西，訪客看到的就是你原本的錯誤頁，不會出現我們的錯誤訊息。</p>
+
+    <h3>內容會出現在頁面的哪裡？會不會弄亂版面？</h3>
+    <p>出現在那一行 script 的正後方，所以你把 script 貼在哪裡，內容就在哪裡。元件會先清掉網站樣式對它的影響，一般不會弄亂你的版面，也不會改到你網站的其他地方。</p>
+
+    <h3>國外的訪客會看到什麼？</h3>
+    <p>元件依訪客瀏覽器的時區選地區。目前只有台灣的地區包，其他時區的訪客看到的就是你原本的錯誤頁。你也可以用 <code>data-region</code> 指定地區，見<a href="/regions/taiwan/">支援地區</a>。</p>
+
+    <h3>可以只顯示某些議題嗎？</h3>
+    <p>可以，用 <code>data-topics</code> 列出要的議題代碼。代碼見<a href="/install/taiwan/#script">安裝說明</a>。</p>
+
+    <h3>會追蹤我的訪客嗎？</h3>
+    <p>不會。不設 cookie，不在瀏覽器存任何東西，不用 IP 判斷地區。為了做曝光統計，每顯示 10 次會抽 1 次送出紀錄，內容只有你的網域和顯示的議題。</p>
+
+    <h3>會在我的網站放廣告嗎？</h3>
+    <p>不會。元件和錯誤頁範本都不放廣告。</p>
+
+    <h3>元件會自動更新嗎？</h3>
+    <p>會。你貼的是固定網址，我們更新程式後，下一位訪客就會用到新版，你不用做任何事。因為會自動更新，所以不附完整性檢查碼（SRI）；程式碼全部公開，任何人都能檢查。</p>
+
+    <h3>網站壞掉的 5xx 頁面也能裝嗎？</h3>
+    <p>要看主機環境。自己管理的 Nginx、Apache 可以，網站壞掉時伺服器直接回應本機的靜態錯誤頁，不需要連到我們。很多代管平台和共享主機不行。見<a href="/support/taiwan/">支援環境</a>。</p>
+
+    <h3>可以換成我們品牌的外觀嗎？</h3>
+    <p>品牌外觀還在準備，目前都用預設外觀。有興趣請見<a href="/about/taiwan/sponsors/">給企業贊助者</a>。</p>
+
+    <h3>為什麼沒有照片？</h3>
+    <p>照片要先存到我們自己的伺服器才會使用，不直接連到來源網站。這部分還在準備，所以目前只顯示文字。</p>
+
+    <h2>給在錯誤頁看到按門鈴的人</h2>
+
+    <h3>為什麼這個網站的錯誤頁上有這些內容？</h3>
+    <p>這個網站裝了按門鈴，讓錯誤頁顯示附近需要幫忙的人和動物。按門鈴不設 cookie，也不追蹤你。見<a href="/about/taiwan/overview/">一分鐘看懂按門鈴</a>。</p>
+
+    <h3>我想認養卡片上的動物，該怎麼做？</h3>
+    <p>直接打卡片上的收容所電話。資料一天更新一次，牠可能已經被認養，出發前先確認。更多動物見<a href="/animals/taiwan/adopt/">待認養動物</a>。</p>
+
+    <h3>我的毛孩走失了，怎麼找？</h3>
+    <p>先看<a href="/animals/taiwan/lost/">剛進收容所的動物</a>，也請直接打電話問住家附近的收容所。</p>
+
+    <h3>家人失蹤了怎麼辦？</h3>
+    <p>請打 110。其他求助專線見<a href="/missing/taiwan/">失蹤協尋</a>。</p>
+
+    <h3>卡片上的資料有錯怎麼辦？</h3>
+    <p>寄信到 <a href="mailto:contact@doorbell.life">contact@doorbell.life</a>，或在 <a href={`${REPO}/issues`}>GitHub 開 issue</a>。見<a href="/about/taiwan/takedown/">找到之後怎麼辦</a>。</p>
+  </main>
+</Base>
