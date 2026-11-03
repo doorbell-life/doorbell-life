@@ -1,0 +1,41 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { REPO } from "../../../lib/site";
+---
+<Base title="Which regions does doorbell.life support? | doorbell.life" region="usa" description="doorbell.life supports the United States and Taiwan. Which region’s data visitors see, and how to contribute data for a new region.">
+  <main>
+    <h1>Which regions does doorbell.life support?</h1>
+    <p class="lead">The United States and Taiwan. Each region has its own data, helplines, and language. We call this a “region pack.”</p>
+
+    <table>
+      <thead><tr><th>Region</th><th>Language</th><th>Status</th><th>Data</th></tr></thead>
+      <tbody>
+        <tr><td>United States (usa)</td><td>English</td><td>Synced daily</td><td>FBI missing-person posters (error pages only), adoptable animals from the Montgomery County, MD shelter, FBI missing-person statistics, helplines</td></tr>
+        <tr><td>Taiwan (taiwan)</td><td>Traditional Chinese</td><td>Synced daily</td><td>Public shelter animals (Ministry of Agriculture), missing-person statistics (National Police Agency), helplines</td></tr>
+      </tbody>
+    </table>
+    <p>US coverage is limited for now. Adoptable animals come from a single county shelter in Maryland, and there’s no US data yet for lost pets, blood donation, or older adults with dementia who wander. We don’t use the National Center for Missing &amp; Exploited Children’s data feed because its terms of use don’t allow public display on other sites.</p>
+
+    <h2>Which region’s data will a visitor see?</h2>
+    <p>The widget looks at the time zone set in the visitor’s browser and picks the matching region pack. It never looks at IP addresses. A visitor whose browser is set to a time zone used in the 50 states or Washington, D.C., including Alaska and Hawaii, sees US data. US territories such as Puerto Rico aren’t included yet.</p>
+    <p>Other time zones don’t have a region pack yet. Those visitors see the site’s original error page; we don’t show them cases from another country.</p>
+    <p>A website can also choose the region itself, for example with <code>data-region="usa"</code>. See <a href="/install/usa/">Install</a>.</p>
+
+    <h2>Want to add your region?</h2>
+    <p>Anyone can contribute. A region pack contains the following; see the <a href={`${REPO}/tree/main/regions/usa`}>US region pack</a> for an example:</p>
+    <ul>
+      <li>Region code, country, language, and time zones</li>
+      <li>Helplines, each with an official source and the date it was checked</li>
+      <li>Public statistics, each with an official source and the date it was checked</li>
+      <li>Sync code that converts public data into the <a href={`${REPO}/tree/main/schema`}>shared format</a></li>
+      <li>Source URLs to compare every week, so the maintainer is notified when a source changes</li>
+    </ul>
+    <p>You don’t need to code. <a href={`${REPO}/issues`}>Open an issue on GitHub</a> or email <a href="mailto:contact@doorbell.life">contact@doorbell.life</a> with the region name and the data source URLs. Nothing goes live until the maintainer has checked the source and its license.</p>
+    <h3>Data we don’t accept</h3>
+    <ul>
+      <li>Data without an official source.</li>
+      <li>Data whose terms don’t allow public reuse.</li>
+      <li>Missing-person cases scraped from websites. Missing-person cases only come from the agencies responsible for the search.</li>
+    </ul>
+  </main>
+</Base>

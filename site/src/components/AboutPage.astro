@@ -1,21 +1,22 @@
 ---
 // 關於頁共用版面：給非技術讀者，問答式。頁尾列出其他關於頁。
 import Base from "../layouts/Base.astro";
-import { ABOUT_TW } from "../lib/site";
+import { ABOUT_TW, ABOUT_US, type Region } from "../lib/site";
 
-interface Props { title: string; h1: string; description: string; lead?: string }
-const { title, h1, description, lead } = Astro.props;
-const others = ABOUT_TW.filter(([href]) => href !== Astro.url.pathname);
+interface Props { title: string; h1: string; description: string; lead?: string; region?: Region }
+const { title, h1, description, lead, region = "taiwan" } = Astro.props;
+const en = region === "usa";
+const others = (en ? ABOUT_US : ABOUT_TW).filter(([href]) => href !== Astro.url.pathname);
 ---
-<Base title={title} lang="zh-Hant-TW" description={description}>
+<Base title={title} region={region} description={description}>
   <main class="about">
     <h1>{h1}</h1>
     {lead && <p class="lead">{lead}</p>}
     <slot />
-    <h2>其他問題</h2>
+    <h2>{en ? "Other questions" : "其他問題"}</h2>
     <ul>
       {others.map(([href, label]) => <li><a href={href}>{label}</a></li>)}
-      <li><a href="/faq/taiwan/">常見問題</a></li>
+      <li>{en ? <a href="/faq/usa/">FAQ</a> : <a href="/faq/taiwan/">常見問題</a>}</li>
     </ul>
   </main>
 </Base>

@@ -1,0 +1,36 @@
+---
+import AboutPage from "../../../../components/AboutPage.astro";
+import { REPO } from "../../../../lib/site";
+---
+<AboutPage
+  region="usa"
+  title="What happens after someone is found? How fast do cases come down? | doorbell.life"
+  h1="What happens after someone is found? How fast do cases come down?"
+  description="When an animal is adopted or a missing person is found, the case disappears from every error page automatically, within 24 hours of the source taking it down."
+  lead="Once someone is found, the case comes down automatically and the next case that needs help takes its place. Nobody has to remember to delete it."
+>
+  <h2>A shelter animal was adopted. How soon does it disappear?</h2>
+  <p>Within 24 hours of the shelter removing it from its list. We sync once a day, and each time we compare against the shelter’s full list. An animal that’s no longer on the list is removed in that same sync.</p>
+
+  <h2>A missing person was found. How soon does the case disappear?</h2>
+  <p>Within 24 hours of the FBI taking the poster down. Like animal data, the FBI’s list is compared in full every day, and a poster that’s gone from the list is removed from every error page after that day’s update, with no one needing to do it by hand.</p>
+  <p>So that a case never stays public longer, or more widely, than the FBI’s own poster:</p>
+  <ul>
+    <li>Cases appear only on error pages, from our daily data file. No web page is ever made for a case, so once it’s removed, it can’t be found on our site.</li>
+    <li>Every missing-person page on this site asks search engines not to index or archive it.</li>
+    <li>The backup page a website shows when it’s down never includes missing-person cases.</li>
+    <li>We show only what the FBI’s poster already shows, and never add details of our own.</li>
+  </ul>
+
+  <h2>If a source suddenly has no data, does everything disappear?</h2>
+  <p>No. When a source has a problem, we don’t take everything down at once. Animal data keeps the previous day’s copy. Missing-person cases are paused until the FBI data looks normal again, so we never show a list we can’t confirm is current. Either way, the maintainer is notified.</p>
+
+  <h2>I saw a case on an error page and want to help. What should I do?</h2>
+  <ul>
+    <li>Animals: call the shelter number on the card. The data updates once a day, so check the animal is still there before you go.</li>
+    <li>Missing people: if you see the person right now, call 911. Otherwise, submit a tip at <a href="https://tips.fbi.gov/">tips.fbi.gov</a> or call 1-800-CALL-FBI (<a href="tel:18002255324">1-800-225-5324</a>).</li>
+  </ul>
+
+  <h2>Something’s wrong, or you want us to remove a case?</h2>
+  <p>Email <a href="mailto:contact@doorbell.life">contact@doorbell.life</a> or <a href={`${REPO}/issues`}>open an issue on GitHub</a>, and tell us which case and what’s wrong. Animal and poster details come from the shelter and the FBI, so please tell them too. When the source changes, our next sync follows.</p>
+</AboutPage>

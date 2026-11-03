@@ -2,22 +2,22 @@
 import Base from "../../../layouts/Base.astro";
 import { REPO } from "../../../lib/site";
 ---
-<Base title="doorbell.life 支援哪些地區？｜按門鈴" lang="zh-Hant-TW" description="目前支援台灣，美國準備中。說明訪客會看到哪個地區的資料，以及怎麼提供新地區的資料。">
+<Base title="doorbell.life 支援哪些地區？｜按門鈴" lang="zh-Hant-TW" description="目前支援台灣與美國。說明訪客會看到哪個地區的資料，以及怎麼提供新地區的資料。">
   <main>
     <h1>doorbell.life 支援哪些地區？</h1>
-    <p class="lead">目前是台灣，美國準備中。每個地區有自己的資料、求助專線和語言，我們稱為「地區包」。</p>
+    <p class="lead">目前是台灣與美國。每個地區有自己的資料、求助專線和語言，我們稱為「地區包」。</p>
 
     <table>
       <thead><tr><th>地區</th><th>語言</th><th>狀態</th><th>資料</th></tr></thead>
       <tbody>
         <tr><td>台灣（taiwan）</td><td>繁體中文</td><td>每天同步</td><td>公立收容所動物（農業部）、失蹤人口統計（警政署）、求助專線</td></tr>
-        <tr><td>美國（usa）</td><td>英文</td><td>準備中</td><td>尚未接上</td></tr>
+        <tr><td>美國（usa）</td><td>英文</td><td>每天同步</td><td>FBI 失蹤協尋海報（只在錯誤頁顯示）、馬里蘭州 Montgomery County 收容所待認養動物、FBI 失蹤人口統計、求助專線；英文說明見 <a href="/regions/usa/" lang="en">Regions</a></td></tr>
       </tbody>
     </table>
 
     <h2>訪客會看到哪個地區的資料？</h2>
-    <p>元件看訪客瀏覽器設定的時區，選對應的地區包，不看 IP。時區是台灣的訪客，看到台灣的資料。</p>
-    <p>其他時區目前還沒有地區包，這些訪客看到的就是網站原本的錯誤頁，不會硬塞其他國家的個案。</p>
+    <p>元件看訪客瀏覽器設定的時區，選對應的地區包，不看 IP。時區是台灣的訪客，看到台灣的資料；時區是美國的訪客，看到美國的資料。</p>
+    <p>其他國家的時區目前還沒有地區包，這些訪客看到的就是網站原本的錯誤頁，不會硬塞其他國家的個案。</p>
     <p>網站也可以自己指定地區，例如加上 <code>data-region="taiwan"</code>，見<a href="/install/taiwan/">安裝</a>。</p>
 
     <h2>想讓你的地區也加入？</h2>

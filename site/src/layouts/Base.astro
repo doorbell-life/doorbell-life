@@ -1,16 +1,36 @@
 ---
 import "../styles/tokens.css";
 import Bell from "../components/Bell.astro";
-import { FOOT_TW, LAUNCHED, NAV_TW, REPO } from "../lib/site";
+import { CHROME, isRegion, LAUNCHED, REGIONS, REPO, type Region } from "../lib/site";
+import { staticRoutes } from "../lib/data";
 
 interface Props {
   title: string;
-  lang: string;
   description: string;
+  // 地區決定語言、導覽與頁尾；不給就看網址第二段（§9 `區塊/地區/內容`），都沒有就是台灣。
+  region?: Region;
+  lang?: string;
   noindex?: boolean;
+  // 同一頁的各地區版本（hreflang）。不給就自動找：把網址的地區換成其他地區，該頁存在就互相標註。
+  alternates?: Partial<Record<Region, string>>;
 }
-const { title, lang, description, noindex = false } = Astro.props;
 const path = Astro.url.pathname;
+const seg = path.split("/");
+const { title, description, noindex = false } = Astro.props;
+const region: Region = Astro.props.region ?? (isRegion(seg[2]) ? seg[2] : "taiwan");
+const lang = Astro.props.lang ?? REGIONS[region].lang;
+const ui = CHROME[region];
+
+const auto: Partial<Record<Region, string>> = {};
+if (isRegion(seg[2])) {
+  for (const r of Object.keys(REGIONS) as Region[]) {
+    const p = [...seg.slice(0, 2), r, ...seg.slice(3)].join("/");
+    if (staticRoutes().has(p)) auto[r] = p;
+  }
+}
+const alt = Object.entries(Astro.props.alternates ?? auto) as [Region, string][];
+const alternates = alt.length > 1 ? alt : [];
+const others = alternates.filter(([r]) => r !== region);
 ---
 <!doctype html>
 <html lang={lang}>
@@ -19,20 +39,24 @@ const path = Astro.url.pathname;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, noarchive" />}
+    {alternates.map(([r, href]) => <link rel="alternate" hreflang={REGIONS[r].hreflang} href={new URL(href, Astro.site).href} />)}
     <title>{title}</title>
   </head>
   <body>
-    {!LAUNCHED && <p class="prelaunch">doorbell.life 尚未正式上線：網域、CDN 與安裝工具準備中，頁面上的安裝方式上線後才能使用。</p>}
+    {!LAUNCHED && <p class="prelaunch">{ui.prelaunch}</p>}
     <header class="top">
-      <a class="brand" href="/"><Bell /> 按門鈴 <span class="en">doorbell.life</span></a>
+      <a class="brand" href={ui.home}><Bell /> {ui.brand} {ui.brand !== "doorbell.life" && <span class="en">doorbell.life</span>}</a>
       <nav>
-        {NAV_TW.map(([href, label]) => <a href={href} aria-current={path.startsWith(href) ? "page" : undefined}>{label}</a>)}
+        {ui.nav.map(([href, label]) => <a href={href} aria-current={path.startsWith(href) ? "page" : undefined}>{label}</a>)}
       </nav>
     </header>
     <slot />
     <footer class="foot">
-      <p>按門鈴 doorbell.life：開源公益服務。程式碼 MIT，文章 CC BY 4.0。</p>
-      <p class="links">{FOOT_TW.map(([href, label]) => <a href={href}>{label}</a>)}<a href={REPO}>GitHub</a></p>
+      <p>{ui.footer}</p>
+      {ui.other && others.length > 0 && (
+        <p>{ui.other} {others.map(([r, href]) => <a href={href} hreflang={REGIONS[r].hreflang} lang={REGIONS[r].lang}>{REGIONS[r].label}</a>)}</p>
+      )}
+      <p class="links">{ui.foot.map(([href, label]) => <a href={href}>{label}</a>)}<a href={REPO}>GitHub</a></p>
     </footer>
   </body>
 </html>

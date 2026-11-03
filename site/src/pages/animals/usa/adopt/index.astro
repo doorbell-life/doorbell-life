@@ -1,0 +1,53 @@
+---
+// 美國待認養動物：地區清單。沒有同步資料時只說明尚未同步，不顯示數字。
+import Base from "../../../../layouts/Base.astro";
+import { counties } from "../../../../lib/animals";
+import { today } from "../../../../lib/data";
+import { articleUrl, regionArticles } from "../../../../lib/articles";
+
+const list = counties("animals-adopt", "usa");
+const total = list?.reduce((n, c) => n + c.cases.length, 0) ?? 0;
+const fmt = (n: number) => n.toLocaleString("en-US");
+const articles = await regionArticles("usa", "animals");
+---
+<Base title="Adoptable shelter animals in the US, by area | doorbell.life" region="usa" description="Dogs, cats, and other animals available for adoption at the Montgomery County, Maryland shelter, with the shelter’s phone number. Updated daily from the county’s open data.">
+  <main>
+    <h1>Which shelter animals are waiting to be adopted?</h1>
+    {list ? (
+      <p class="lead">As of {today("usa")}, {fmt(total)} animals are available for adoption. Pick an area, and if you’d like to adopt, call the shelter directly.</p>
+    ) : (
+      <p class="lead">Today’s data hasn’t been synced yet. Please check back later.</p>
+    )}
+
+    {list && list.length > 0 && (
+      <>
+        <h2>Pick an area</h2>
+        <ul class="counties">
+          {list.map((c) => <li><a href={`/animals/usa/adopt/${c.slug}/`}>{c.area}</a><span>{fmt(c.cases.length)}</span></li>)}
+        </ul>
+      </>
+    )}
+
+    <h2>Good to know</h2>
+    <ul>
+      <li>For now, we only have data from one shelter: Montgomery County Animal Services and Adoption Center in Derwood, Maryland. Other US areas aren’t covered yet.</li>
+      <li>The list updates once a day, so an animal you see may already have been adopted. Call the shelter before you go.</li>
+      <li>Each shelter sets its own adoption rules and process. Follow what the shelter tells you.</li>
+      <li>There are no photos here yet. We only use photos after copying them to our own servers, and that isn’t ready.</li>
+      <li>Source: <a href="https://data.montgomerycountymd.gov/Public-Safety/Adoptable-Pets/e54u-qx42">Montgomery County, MD – Adoptable Pets</a> (public domain). Totals are on the <a href="/data/usa/">data page</a>.</li>
+    </ul>
+
+    {articles.length > 0 && (
+      <>
+        <h2>Related articles</h2>
+        <ul>{articles.map((a) => <li><a href={articleUrl(a)}>{a.data.title}</a></li>)}</ul>
+      </>
+    )}
+  </main>
+</Base>
+<style>
+  .counties { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 12px; }
+  .counties li { background: var(--bg-surface); border-radius: 12px; padding: 16px 20px; display: flex; justify-content: space-between; gap: 12px; max-width: none; }
+  .counties a { font-weight: 600; text-decoration: none; }
+  .counties span { color: var(--text-secondary); }
+</style>

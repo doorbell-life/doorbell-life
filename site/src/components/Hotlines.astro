@@ -1,20 +1,24 @@
 ---
-// 求助專線，讀 regions/taiwan/hotlines.json（每筆附官方來源與查核日）。numbers 指定要列哪幾支，順序照給的順序。
+// 求助專線，讀 regions/{地區}/hotlines.json（每筆附官方來源與查核日）。numbers 指定要列哪幾支，順序照給的順序。
 import { regionHotlines } from "../lib/data";
 import { tel } from "../lib/animals";
+import type { Region } from "../lib/site";
 
-interface Props { numbers?: string[] }
-const all = regionHotlines("taiwan");
-const { numbers } = Astro.props;
+interface Props { numbers?: string[]; region?: Region }
+const { numbers, region = "taiwan" } = Astro.props;
+const all = regionHotlines(region);
 const list = numbers ? numbers.flatMap((n) => all.filter((h) => h.number === n)) : all;
+const en = region === "usa";
 ---
 {list.length > 0 && (
   <ul class="hotlines">
     {list.map((h) => (
       <li>
         <a class="n" href={`tel:${tel(h.number)}`}>{h.number}</a>
-        <span>{h.name}{h.hours && `，${h.hours}`}</span>
-        <span class="muted"><a href={h.source}>官方來源</a>（查核 {h.checkedAt}）</span>
+        <span>{h.name}{h.hours && (en ? `, ${h.hours}` : `，${h.hours}`)}</span>
+        {en
+          ? <span class="muted"><a href={h.source}>Official source</a> (checked {h.checkedAt})</span>
+          : <span class="muted"><a href={h.source}>官方來源</a>（查核 {h.checkedAt}）</span>}
       </li>
     ))}
   </ul>

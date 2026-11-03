@@ -1,0 +1,45 @@
+---
+import AboutPage from "../../../../components/AboutPage.astro";
+import { REPO } from "../../../../lib/site";
+---
+<AboutPage
+  region="usa"
+  title="Where does the data come from? Who checks it? | doorbell.life"
+  h1="Where does the data come from? Who checks it?"
+  description="doorbell.life’s US data comes from public government sources and is checked automatically every day. Statistics and helplines are checked by hand, each with an official source."
+  lead="All of our US data comes from public government sources. Code checks it every day, and everything we enter by hand cites an official source."
+>
+  <h2>What data do we use today?</h2>
+  <table>
+    <thead><tr><th>Data</th><th>Source</th><th>Updates</th></tr></thead>
+    <tbody>
+      <tr><td>Missing-person posters (shown on error pages only)</td><td><a href="https://www.fbi.gov/wanted/kidnap">FBI Kidnappings &amp; Missing Persons</a>, through the FBI Wanted API</td><td>Synced daily</td></tr>
+      <tr><td>Adoptable shelter animals</td><td><a href="https://data.montgomerycountymd.gov/Public-Safety/Adoptable-Pets/e54u-qx42">Montgomery County, MD – Adoptable Pets</a></td><td>Synced daily</td></tr>
+      <tr><td>Missing-person statistics</td><td><a href="https://www.fbi.gov/file-repository/cjis/2025-ncic-missing-person-and-unidentified-person-statistics.pdf">FBI, 2025 NCIC Missing Person and Unidentified Person Statistics</a></td><td>Entered by hand; updated when the source changes</td></tr>
+      <tr><td>Helplines</td><td>Each helpline’s official website</td><td>Entered by hand, each with the date it was checked</td></tr>
+    </tbody>
+  </table>
+  <p>Montgomery County publishes Adoptable Pets as public domain. The <a href="https://www.fbi.gov/privacy-policy">fbi.gov privacy policy</a> says information on the site is public information that may be distributed or copied unless otherwise noted. We credit the FBI as the source, don’t use the FBI seal, and don’t claim any FBI endorsement.</p>
+
+  <h2>Where do the missing-person cases come from?</h2>
+  <p>Only from the FBI’s missing-person posters. We never scrape missing-person cases from other websites. If a poster shows the person was under 18 when they went missing, it’s shown as a missing child; if the age can’t be worked out, it’s shown as a missing adult. We don’t guess.</p>
+  <p>We don’t use the data feed from the National Center for Missing &amp; Exploited Children, because its terms of use don’t allow public display on other sites. Its 24-hour hotline is still listed on our <a href="/missing/usa/">Missing persons</a> page.</p>
+
+  <h2>Who checks it?</h2>
+  <h3>Code checks it every day</h3>
+  <ul>
+    <li>If a source changes format, suddenly returns nothing, or has fewer than half as many cases as the day before, we treat it as a problem. Animal data keeps the previous day’s copy, missing-person cases are paused, and the maintainer is notified.</li>
+    <li>Every record is checked against our data format, and anything that doesn’t fit is dropped.</li>
+    <li>Cases past their end date are removed automatically.</li>
+  </ul>
+  <h3>The maintainer reviews it every week</h3>
+  <p>Every week, the system compares our official source pages with the last check. When one has changed, the maintainer is notified, checks it by hand, and then updates the numbers.</p>
+  <h3>Anyone can check it</h3>
+  <p>All the code that handles our data is public on <a href={REPO}>GitHub</a>, so anyone can see exactly how the data is processed.</p>
+
+  <h2>Could someone tamper with the data?</h2>
+  <p>We treat every source as untrusted. Special characters are filtered out first, and everything is shown as plain text, never run as code on the page. So even if someone slipped malicious content into a source, it wouldn’t spread to the websites that use doorbell.life.</p>
+
+  <h2>Why aren’t there any photos?</h2>
+  <p>We only use photos after copying them to our own servers, never by linking to the source site. That isn’t ready yet, so we show text only for now.</p>
+</AboutPage>

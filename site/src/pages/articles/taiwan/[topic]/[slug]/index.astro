@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import Base from "../../../../../layouts/Base.astro";
+import { articleAlternates } from "../../../../../lib/articles";
 
 export async function getStaticPaths() {
   const all = await getCollection("articles", (a) => a.data.region === "taiwan");
@@ -9,8 +10,9 @@ export async function getStaticPaths() {
 const { a } = Astro.props;
 const { Content } = await render(a);
 const missing = a.data.topic === "missing";
+const alternates = await articleAlternates(a);
 ---
-<Base title={`${a.data.title}｜按門鈴`} lang="zh-Hant-TW" description={a.data.description} noindex={missing}>
+<Base title={`${a.data.title}｜按門鈴`} lang="zh-Hant-TW" description={a.data.description} noindex={missing} alternates={alternates}>
   <main>
     <article>
       <h1>{a.data.title}</h1>
