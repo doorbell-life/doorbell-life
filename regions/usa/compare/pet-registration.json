@@ -1,0 +1,35 @@
+{
+  "practice": "Licensing and microchip registration are kept separate in the examples. Montgomery County, Maryland, licenses cats as well as dogs and ties each license term to the pet's rabies vaccination dates, so a 1-year license can run 2 to 12 months. LA Animal Services offers a $10 dog license to low-income seniors (62+) and low-income disabled owners, and New York City lets owners buy a license for one to five years.",
+  "fields": {
+    "mandatory": {
+      "value": "Licensing is set by cities and counties; for example, the City of Los Angeles requires it for dogs over four months, Montgomery County, Maryland, for dogs and cats over four months, and New York City for all dogs. A microchip is required federally for every dog entering the U.S., per the CDC; locally, for example, New York City requires one for trained guard dogs.",
+      "sources": [
+        { "name": "LA Animal Services (City of Los Angeles): Licenses", "url": "https://www.laanimalservices.com/licensing", "checkedAt": "2026-11-04" },
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: Pet Licensing", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/pet-licensing", "checkedAt": "2026-11-04" },
+        { "name": "NYC Health: Dog Licenses", "url": "https://www.nyc.gov/site/doh/services/dog-licenses.page", "checkedAt": "2026-11-04" },
+        { "name": "CDC Yellow Book: Traveling with Pets and Service Animals", "url": "https://www.cdc.gov/yellow-book/hcp/family-travel/traveling-with-pets-and-service-animals.html", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "fee": {
+      "value": "Set locally. For example, the City of Los Angeles charges $20 for one year or $55 for three years for a spayed or neutered dog (schedule dated October 2010). New York City charges $8.50 a year for a spayed or neutered dog, and $34 for an unaltered dog older than 4 months.",
+      "sources": [
+        { "name": "LA Animal Services (City of Los Angeles): Licenses", "url": "https://www.laanimalservices.com/licensing", "checkedAt": "2026-11-04" },
+        { "name": "NYC Health: Dog Licenses", "url": "https://www.nyc.gov/site/doh/services/dog-licenses.page", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "penalty": {
+      "value": "Set locally. For example, New York City says owners may be fined for not licensing a dog or not attaching the license in public, and may be fined $2 for each year a license was not renewed on time.",
+      "sources": [
+        { "name": "NYC Health: Dog Licenses", "url": "https://www.nyc.gov/site/doh/services/dog-licenses.page", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "chip-database": {
+      "value": "The chip's registry company keeps the records, not a government agency, and owners must register the chip and keep their contact details current there. To find which registry a chip number belongs to, the AVMA (a professional association) and LA Animal Services point to online lookup tools such as the American Animal Hospital Association's Microchip Registry Lookup.",
+      "sources": [
+        { "name": "American Veterinary Medical Association (professional association): Microchips reunite pets with families", "url": "https://www.avma.org/resources-tools/pet-owners/petcare/microchips-reunite-pets-families", "checkedAt": "2026-11-04" },
+        { "name": "LA Animal Services (City of Los Angeles): Microchipping", "url": "https://www.laanimalservices.com/microchipping", "checkedAt": "2026-11-04" },
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: Lost My Pet", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/lost-found-pets/lost-my-pet", "checkedAt": "2026-11-04" }
+      ]
+    }
+  }
+}

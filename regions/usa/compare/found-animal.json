@@ -1,0 +1,36 @@
+{
+  "practice": "Some local agencies let finders care for a found pet at home under set conditions instead of bringing it in. LA Animal Services' Shelter-at-Home program allows home care for up to 30 days if the finder notifies a center, sends photos and has the animal scanned for a microchip within four hours. Montgomery County, Maryland, accepts either the animal itself or a found report, and says many animals are reunited by matching lost and found reports.",
+  "fields": {
+    "duty-to-report": {
+      "value": "Set by county or city law, so it varies. For example, Baltimore County, Maryland, requires a found report within 24 hours and handing the animal to county Animal Services within 72 hours; San Diego County, California, says by law you must notify county Animal Services and give a found dog to a shelter (County Code 62.676).",
+      "sources": [
+        { "name": "Baltimore County, MD, Animal Services: Lost and Found Pet Help", "url": "https://www.baltimorecountymd.gov/departments/animal-services/lost-found-pet-help", "checkedAt": "2026-11-04" },
+        { "name": "San Diego County Department of Animal Services: Found A Stray?", "url": "https://www.sddac.com/content/sdc/das/lost-found/found.html", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "report-to": {
+      "value": "The local city or county animal services agency. For example, Montgomery County, Maryland, takes found reports online, in person or by phone at (240) 773-5900; LA Animal Services has finders notify the closest of its centers.",
+      "sources": [
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: Lost My Pet (includes found-pet reports)", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/lost-found-pets/lost-my-pet", "checkedAt": "2026-11-04" },
+        { "name": "LA Animal Services (City of Los Angeles): I've Found a Pet", "url": "https://www.laanimalservices.com/i-found-a-pet", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "foster-yourself": {
+      "value": "Depends on the place. The City of Los Angeles allows home care for up to 30 days under its Shelter-at-Home rules, and Montgomery County, Maryland, allows it if you file a found report. Baltimore County, Maryland, requires the animal be turned over within 72 hours, and San Diego County says the only legal way to keep a found dog is to adopt it from County Animal Services.",
+      "sources": [
+        { "name": "LA Animal Services (City of Los Angeles): I've Found a Pet", "url": "https://www.laanimalservices.com/i-found-a-pet", "checkedAt": "2026-11-04" },
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: Lost My Pet (includes found-pet reports)", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/lost-found-pets/lost-my-pet", "checkedAt": "2026-11-04" },
+        { "name": "Baltimore County, MD, Animal Services: Lost and Found Pet Help", "url": "https://www.baltimorecountymd.gov/departments/animal-services/lost-found-pet-help", "checkedAt": "2026-11-04" },
+        { "name": "San Diego County Department of Animal Services: Found A Stray?", "url": "https://www.sddac.com/content/sdc/das/lost-found/found.html", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "owner-proof": {
+      "value": "Set by each shelter. For example, Montgomery County, Maryland, asks for at least one of license and vaccination records, purchase or adoption receipts, microchip registration documents or vet records, in a name matching your ID. LA Animal Services asks for proof such as photos, vaccination records or adoption certificates plus government-issued photo ID; Baltimore County, Maryland, also requires proof of current rabies vaccination.",
+      "sources": [
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: Lost My Pet", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/lost-found-pets/lost-my-pet", "checkedAt": "2026-11-04" },
+        { "name": "LA Animal Services (City of Los Angeles): Lost Pets", "url": "https://www.laanimalservices.com/lost-pet", "checkedAt": "2026-11-04" },
+        { "name": "Baltimore County, MD, Animal Services: Lost and Found Pet Help", "url": "https://www.baltimorecountymd.gov/departments/animal-services/lost-found-pet-help", "checkedAt": "2026-11-04" }
+      ]
+    }
+  }
+}

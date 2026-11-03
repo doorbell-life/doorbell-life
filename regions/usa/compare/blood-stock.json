@@ -1,0 +1,31 @@
+{
+  "practice": "Because blood is collected by several organizations, each reports on its own inventory. America's Blood Centers notes that its national data reflects trends and that a local blood center's needs may differ. In July 2026 the American Red Cross reported its supply by blood type, saying it had less than a one-day national supply of type O positive.",
+  "fields": {
+    "publisher": {
+      "value": "Non-government blood organizations, each for its own inventory. America's Blood Centers (an association of community blood centers) publishes a national Daily Inventory Report on the 59 community blood centers; the American Red Cross (a nonprofit that supplies about 40% of the nation's blood) monitors its own national supply daily.",
+      "sources": [
+        { "name": "America's Blood Centers (non-government): Current U.S. Blood Supply, Daily Inventory Report widget", "url": "https://americasblood.org/widget/", "checkedAt": "2026-11-04" },
+        { "name": "American Red Cross (nonprofit): American Red Cross Declares Second-Ever National Blood Supply Crisis (July 27, 2026)", "url": "https://www.redcross.org/about-us/news-and-events/press-release/2026/red-cross-declares-national-blood-supply-crisis-urges-immediate-.html", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "unit": {
+      "value": "Days of supply: how many days a center's stock would meet normal demand, which America's Blood Centers groups as 3 or more days, 2 days, or a day or less. The American Red Cross also gives days of supply by blood type, such as less than a one-day supply of type O positive in July 2026.",
+      "sources": [
+        { "name": "America's Blood Centers (non-government): Current U.S. Blood Supply, Daily Inventory Report widget", "url": "https://americasblood.org/widget/", "checkedAt": "2026-11-04" },
+        { "name": "American Red Cross (nonprofit): American Red Cross Declares Second-Ever National Blood Supply Crisis (July 27, 2026)", "url": "https://www.redcross.org/about-us/news-and-events/press-release/2026/red-cross-declares-national-blood-supply-crisis-urges-immediate-.html", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "shortage-threshold": {
+      "value": "America's Blood Centers (non-government) says centers with 3 or more days can meet normal demand, a 2-day supply is running low, and a day or less is critically low.",
+      "sources": [
+        { "name": "America's Blood Centers (non-government): Current U.S. Blood Supply, Daily Inventory Report widget", "url": "https://americasblood.org/widget/", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "update-frequency": {
+      "value": "Daily for America's Blood Centers' national report, which says its data updates daily.",
+      "sources": [
+        { "name": "America's Blood Centers (non-government): Current U.S. Blood Supply, Daily Inventory Report widget", "url": "https://americasblood.org/widget/", "checkedAt": "2026-11-04" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "practice": "Under Kevin and Avonte's Law (2018), the Justice Department's Bureau of Justice Assistance funds health care, law enforcement and other public safety agencies to use locative technologies and to run wandering-prevention programs. Some sheriff's offices run local programs: Wake County, North Carolina, offers a free transmitter bracelet program, and Burlington County, New Jersey, keeps a free, confidential registry that police can use to identify a person who wanders and return them home.",
+  "fields": {
+    "id-tools": {
+      "value": "The National Institute on Aging recommends that the person carry ID or wear a medical bracelet with name, address and a caregiver's phone, and points to the MedicAlert + Alzheimer's Association Safe and Found service, which is not part of NIA and may charge. Some local agencies provide wearable devices; for example, the Wake County, North Carolina, Sheriff's Office runs a free program in which enrolled people wear a transmitter bracelet.",
+      "sources": [
+        { "name": "National Institute on Aging: Coping With Alzheimer's Behaviors: Wandering and Getting Lost", "url": "https://www.nia.nih.gov/health/alzheimers-changes-behavior-and-communication/coping-alzheimers-behaviors-wandering-and", "checkedAt": "2026-11-04" },
+        { "name": "Wake County (NC) Sheriff's Office: Project Lifesaver", "url": "https://www.wake.gov/departments-government/sheriffs-office/divisions/administration/project-lifesaver", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "pre-registration": {
+      "value": "Some local police and sheriff's offices run voluntary registries. For example, the Burlington County, New Jersey, Sheriff's Office keeps a free Persons At-Risk Registry with a photo and key details, available to police 24 hours a day; the Justice Department's COPS Office describes a similar registry run by police in Colonie, New York.",
+      "sources": [
+        { "name": "Burlington County (NJ) Sheriff's Office: Persons At-Risk Registry", "url": "https://www.burlingtoncountynj.gov/144/Persons-At-Risk-Registry", "checkedAt": "2026-11-04" },
+        { "name": "U.S. Department of Justice, COPS Office, Community Policing Dispatch (July 2025): Vulnerable Person Registry Programs", "url": "https://cops.usdoj.gov/html/dispatch/07-2025/vulnerable_person_registry.html", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "gps-subsidy": {
+      "value": "The Justice Department's Kevin and Avonte Program funds health care, law enforcement and other public safety agencies, not families directly, to implement locative technologies that track missing people with dementia or developmental disabilities. Locally, for example, Wake County, North Carolina, runs its transmitter tracking program free of charge.",
+      "sources": [
+        { "name": "Bureau of Justice Assistance (DOJ): Kevin and Avonte Program Overview", "url": "https://bja.ojp.gov/program/kevin-avonte/overview", "checkedAt": "2026-11-04" },
+        { "name": "Wake County (NC) Sheriff's Office: Project Lifesaver", "url": "https://www.wake.gov/departments-government/sheriffs-office/divisions/administration/project-lifesaver", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "caregiver-hotline": {
+      "value": "The National Institute on Aging's ADEAR Center (800-438-4380) answers questions about Alzheimer's and related dementias and makes referrals. The Eldercare Locator (1-800-677-1116), a public service of the Administration for Community Living, connects families to local services by phone, text, chat or email.",
+      "sources": [
+        { "name": "National Institute on Aging: Coping With Alzheimer's Behaviors: Wandering and Getting Lost", "url": "https://www.nia.nih.gov/health/alzheimers-changes-behavior-and-communication/coping-alzheimers-behaviors-wandering-and", "checkedAt": "2026-11-04" },
+        { "name": "Administration for Community Living: Eldercare Locator", "url": "https://eldercare.acl.gov/", "checkedAt": "2026-11-04" }
+      ]
+    }
+  }
+}
