@@ -21,6 +21,12 @@ describe("toItem", () => {
   });
 });
 
+describe("分隔符號", () => {
+  it("英文個案用半形分隔", () => {
+    expect(toItem({ ...mk("a", "animals-adopt"), contentLang: "en", area: "Montgomery County, MD", features: "Male" }).d).toBe("Montgomery County, MD · Male");
+  });
+});
+
 describe("buildFeed", () => {
   it("依議題時效排序，每個議題最多 PER_TOPIC 筆", () => {
     const cases = [

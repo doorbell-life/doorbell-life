@@ -14,7 +14,7 @@ export function toItem(c: Case): Item {
   const item: Item = {
     k: c.topic,
     h: c.title,
-    d: [c.area, c.features].filter(Boolean).join("・"),
+    d: [c.area, c.features].filter(Boolean).join(c.contentLang.startsWith("zh") ? "・" : " · "), // 中文用全形，其他語言用半形
     c: [c.contact.name, c.contact.phone].filter(Boolean).join(" "),
   };
   if (c.photo?.startsWith(CDN)) item.img = c.photo; // 只放已轉存到自家 CDN 的照片

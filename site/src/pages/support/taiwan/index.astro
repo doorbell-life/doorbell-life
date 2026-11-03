@@ -12,7 +12,7 @@ import { REPO } from "../../../lib/site";
         <tr><td>自己管理的 Nginx</td><td>可以</td><td>可以，含後端連不上的 502、504</td><td>伺服器設定</td></tr>
         <tr><td>自己管理的 Apache</td><td>可以</td><td>可以，含後端連不上的 503</td><td>伺服器設定</td></tr>
         <tr><td>Cloudflare 付費方案</td><td>可以</td><td>可以</td><td>儀表板 Custom Errors</td></tr>
-        <tr><td>Cloudflare 免費方案</td><td>用 Worker</td><td>用 Worker</td><td>Custom Errors 不開放給免費方案，可改用 Worker 擋在網站前面；每個請求都會計入你自己的 Workers 免費額度</td></tr>
+        <tr><td>Cloudflare 免費方案</td><td>在網站自己的錯誤頁加一行 script</td><td>用 Worker</td><td>Custom Errors 不開放給免費方案；5xx 可改用 Worker 擋在網站前面（範例只處理 500–504），每個請求都會計入你自己的 Workers 免費額度</td></tr>
         <tr><td>GitHub Pages、Netlify、Vercel、Cloudflare Pages</td><td>只有 404</td><td>不行</td><td>把 404 範本放在網站根目錄的 404.html；官方文件沒有提供自訂 5xx 的方式</td></tr>
         <tr><td>WordPress</td><td>404</td><td>維護模式的 503</td><td>WordPress 外掛</td></tr>
         <tr><td>共享主機</td><td>視主機商</td><td>多半不行</td><td>主機商開放 .htaccess 時，可用 Apache 的 ErrorDocument 設定</td></tr>
