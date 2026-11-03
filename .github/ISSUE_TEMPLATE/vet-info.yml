@@ -1,0 +1,33 @@
+name: 動物醫院資訊回報
+description: 回報某家動物醫院有 24 小時急診、看特殊寵物，或已經歇業
+title: "[動物醫院] "
+labels: ["vet-info"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: 醫院名稱與縣市鄉鎮
+      placeholder: 例如：○○動物醫院，臺北市大安區
+    validations:
+      required: true
+  - type: checkboxes
+    id: what
+    attributes:
+      label: 要回報什麼
+      options:
+        - label: 有 24 小時急診
+        - label: 看兔子、天竺鼠、倉鼠等小動物
+        - label: 看鳥類
+        - label: 已經歇業或搬遷
+        - label: 其他
+  - type: input
+    id: source
+    attributes:
+      label: 怎麼知道的（醫院官網、公告網址等）
+      description: 維護者會照這個來源查證，查證後才會標註。請不要附上個人資料。
+    validations:
+      required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: 補充說明

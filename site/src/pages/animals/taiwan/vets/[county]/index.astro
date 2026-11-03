@@ -1,0 +1,24 @@
+---
+import Base from "../../../../../layouts/Base.astro";
+import { vetCounties, type CountyVets } from "../../../../../lib/vets";
+
+export function getStaticPaths() {
+  return (vetCounties() ?? []).map((c) => ({ params: { county: c.slug }, props: { c } }));
+}
+const { c } = Astro.props as { c: CountyVets };
+---
+<Base title={`${c.county}動物醫院名錄，依鄉鎮查詢｜按門鈴`} lang="zh-Hant-TW" description={`${c.county}共 ${c.total} 家領有開業執照的獸醫診療機構，依鄉鎮市區列出電話與地址。`}>
+  <main>
+    <p class="muted"><a href="/animals/taiwan/vets/">動物醫院名錄</a> › {c.county}</p>
+    <h1>{c.county}有哪些動物醫院？</h1>
+    <p class="lead">{c.county}共有 {c.total} 家領有開業執照的獸醫診療機構。選鄉鎮市區看電話和地址。</p>
+    <ul class="towns">
+      {c.districts.map((d) => <li><a href={`/animals/taiwan/vets/${c.slug}/${d.slug}/`}>{d.name}</a><span>{d.vets.length} 家</span></li>)}
+    </ul>
+  </main>
+</Base>
+<style>
+  .towns { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 8px 24px; }
+  .towns li { display: flex; justify-content: space-between; gap: 8px; border-bottom: 1px solid var(--border-subtle); padding: 8px 0; }
+  .towns span { color: var(--text-secondary); }
+</style>

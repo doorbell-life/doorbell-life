@@ -1,0 +1,34 @@
+---
+import Base from "../../../../../../layouts/Base.astro";
+import { NO_DISTRICT, REPORT_URL, VETS_SOURCE, vetCounties, type CountyVets, type District } from "../../../../../../lib/vets";
+
+export function getStaticPaths() {
+  return (vetCounties() ?? []).flatMap((c) => c.districts.map((d) => ({ params: { county: c.slug, district: d.slug }, props: { c, d } })));
+}
+const { c, d } = Astro.props as { c: CountyVets; d: District };
+const place = d.name === NO_DISTRICT ? `${c.county}（地址未標示行政區）` : `${c.county}${d.name}`;
+const tel = (p: string) => p.replace(/[^\d#]/g, "");
+---
+<Base title={`${place}的動物醫院｜按門鈴`} lang="zh-Hant-TW" description={`${place}共 ${d.vets.length} 家領有開業執照的獸醫診療機構，列出負責獸醫、電話與地址。`}>
+  <main>
+    <p class="muted"><a href="/animals/taiwan/vets/">動物醫院名錄</a> › <a href={`/animals/taiwan/vets/${c.slug}/`}>{c.county}</a> › {d.name}</p>
+    <h1>{place}有哪些動物醫院？</h1>
+    <p class="lead">共 {d.vets.length} 家。出發前請先打電話確認營業時間，以及是否能看你的動物。</p>
+    {d.name === NO_DISTRICT && <p class="muted">這些機構在官方資料裡的地址沒有寫鄉鎮市區，我們不自行推測，所以集中列在這裡。</p>}
+    <ul class="vets">
+      {d.vets.map((v) => (
+        <li>
+          <strong>{v.name}</strong>
+          <span>{v.address}</span>
+          <span><a href={`tel:${tel(v.phone)}`}>{v.phone}</a></span>
+          <span class="muted">負責{v.type}：{v.vet}{v.licensedAt && `・發照 ${v.licensedAt}`}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="muted">知道這裡哪家有 24 小時急診或看特殊寵物，或發現已經歇業？<a href={REPORT_URL}>回報給我們</a>。資料來源：<a href={VETS_SOURCE.url}>{VETS_SOURCE.name}</a>（每半年更新）。</p>
+  </main>
+</Base>
+<style>
+  .vets { list-style: none; padding: 0; }
+  .vets li { display: flex; flex-direction: column; gap: 2px; padding: 16px 0; border-bottom: 1px solid var(--border-subtle); }
+</style>
