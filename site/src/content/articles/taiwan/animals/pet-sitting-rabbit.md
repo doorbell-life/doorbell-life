@@ -12,7 +12,7 @@ sources:
   - name: 農業部動物保護資訊網：哺乳類動物飼養及照顧指南ＱＡ【兔隻篇】
     url: https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000827?parentID=Tab0000126
     checkedAt: "2026-11-03"
-  - name: 農業部：兔飼養與照顧指南（民國 115 年 10 月 16 日版）
+  - name: 農業部：兔飼養與照顧指南
     url: https://animal.moa.gov.tw/public/upload/Know_ArticleFile/26101604043916514196XR1.pdf
     checkedAt: "2026-11-03"
   - name: 全國法規資料庫：動物保護法（修正日期民國 110 年 5 月 19 日）
