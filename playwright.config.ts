@@ -2,6 +2,7 @@ import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
   testMatch: "**/*.e2e.ts",
+  testIgnore: ".claude/**",
   use: { browserName: "chromium" },
   // 官網測試用：先 pnpm build，再以 astro preview 提供 site/dist
   webServer: {

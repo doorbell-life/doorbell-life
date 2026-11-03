@@ -4,6 +4,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { invalidReason, isExpired, type Case } from "@doorbell-life/schema";
 import { D01_URL, parseD01, toCase } from "./d01.ts";
 import { adoptCountCase, statCases } from "./stats.ts";
+import { parseVets, VETS_URL } from "./vets.ts";
 
 const OUT = new URL("../out/", import.meta.url);
 // 與前一次相比，數量少於這個比例就視為異常（例如來源出錯只回傳一部分）。
@@ -23,6 +24,26 @@ export function build(raw: unknown, today: string): { cases: Case[]; dropped: nu
     else cases.push(c);
   }
   return { cases, dropped };
+}
+
+// 動物醫院名錄：異常時保留前一次輸出，不影響個案同步。
+async function syncVets() {
+  const dir = new URL("dir/", OUT);
+  const file = new URL("vets.json", dir);
+  const prev = existsSync(file) ? (JSON.parse(readFileSync(file, "utf8")) as unknown[]).length : null;
+  try {
+    const res = await fetch(VETS_URL, { signal: AbortSignal.timeout(120_000) });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const vets = parseVets(await res.json());
+    const drop = checkDrop(vets.length, prev);
+    if (drop) throw new Error(drop);
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(file, JSON.stringify(vets));
+    console.log(`vets ok=${vets.length} prev=${prev ?? "none"}`);
+  } catch (e) {
+    console.error(`vets 同步異常，保留前一次資料：${e instanceof Error ? e.message : e}`);
+    process.exitCode = 2;
+  }
 }
 
 async function main() {
@@ -45,6 +66,7 @@ async function main() {
   }
   writeFileSync(new URL("stats.json", OUT), JSON.stringify(statOut));
   console.log(`stats ok=${statOut.length}`);
+  await syncVets();
 }
 
 if (import.meta.main) {

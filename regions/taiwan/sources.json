@@ -1,8 +1,25 @@
 {
   "_說明": "每週來源比對：這些網址的內容雜湊與 sources.lock.json 不同時，通知維護者人工查證（CLAUDE.md §9 事實複查）。",
   "sources": [
-    { "id": "d04-summary", "url": "https://opdadm.moi.gov.tw/api/v1/no-auth/resource/api/dataset/787B2715-CB2C-442C-A96F-D700F06499A4/resource/3050FC55-4057-4C84-8E0B-7BF70770918B/download", "note": "警政署失蹤人口概況（stats.json 引用）" },
-    { "id": "d04-meta-176796", "url": "https://data.gov.tw/api/v2/rest/dataset/176796", "note": "失蹤人口概況資料集，換新年度會改資源網址" },
-    { "id": "d04-meta-176408", "url": "https://data.gov.tw/api/v2/rest/dataset/176408", "note": "失蹤人口統計資料集" }
+    {
+      "id": "d04-summary",
+      "url": "https://opdadm.moi.gov.tw/api/v1/no-auth/resource/api/dataset/787B2715-CB2C-442C-A96F-D700F06499A4/resource/3050FC55-4057-4C84-8E0B-7BF70770918B/download",
+      "note": "警政署失蹤人口概況（stats.json 引用）"
+    },
+    {
+      "id": "d04-meta-176796",
+      "url": "https://data.gov.tw/api/v2/rest/dataset/176796",
+      "note": "失蹤人口概況資料集，換新年度會改資源網址"
+    },
+    {
+      "id": "d04-meta-176408",
+      "url": "https://data.gov.tw/api/v2/rest/dataset/176408",
+      "note": "失蹤人口統計資料集"
+    },
+    {
+      "id": "vets",
+      "url": "https://data.moa.gov.tw/Service/OpenData/DataFileService.aspx?UnitId=078",
+      "note": "動物醫院名錄（獸醫師（佐）開業執照，每半年更新）：有變動時檢查欄位與行政區解析"
+    }
   ]
 }

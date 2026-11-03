@@ -10,3 +10,4 @@ playwright-report/
 .DS_Store
 out/
 .claude/settings.local.json
+.claude/worktrees/
