@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../../../layouts/Base.astro";
+
+export async function getStaticPaths() {
+  const all = await getCollection("articles", (a) => a.data.region === "taiwan");
+  return all.map((a) => ({ params: { topic: a.data.topic, slug: a.id.split("/").pop()! }, props: { a } }));
+}
+const { a } = Astro.props;
+const { Content } = await render(a);
+const missing = a.data.topic === "missing";
+---
+<Base title={`${a.data.title}｜按門鈴`} lang="zh-Hant-TW" description={a.data.description} noindex={missing}>
+  <main>
+    <article>
+      <h1>{a.data.title}</h1>
+      <Content />
+      <h2>資料來源</h2>
+      <ul>
+        {a.data.sources.map((s) => <li><a href={s.url}>{s.name}</a><span class="muted">（查核 {s.checkedAt}）</span></li>)}
+      </ul>
+      <p class="muted">發布 {a.data.publishedAt}，最後查核 {a.data.checkedAt}。文章以 CC BY 4.0 授權。</p>
+    </article>
+  </main>
+</Base>
