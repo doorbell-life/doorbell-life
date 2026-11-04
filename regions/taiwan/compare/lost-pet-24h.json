@@ -1,0 +1,38 @@
+{
+  "practice": "台灣的寵物協尋靠兩套全國系統串起來：飼主在寵物登記管理資訊網申報遺失，資料會刊登讓全國民眾協尋；收容所則在全國動物收容管理系統公告收進來的動物，並掃描晶片、查得到飼主的 3 日內通知。縣市另有自己的做法，例如臺北市動物保護處開放飼主私訊臺北市動物之家臉書粉絲專頁刊登寵物資訊，也接受飼主把協尋傳單寄到動物之家。",
+  "fields": {
+    "check-shelters": {
+      "value": "全國動物收容管理系統的「收容公告」可依犬貓、收容所縣市、收容所或晶片號碼查詢；收容所要在接收動物 3 日內把照片、毛色、捕捉地點等資料公開在網站和籠位前。舉例，臺北市動物之家開放時間（週二至週日 10:00–12:30、13:30–16:00，國定假日除外）可打 02-8791-3254 詢問。",
+      "sources": [
+        { "name": "全國動物收容管理系統：收容公告", "url": "https://www.pet.gov.tw/AnimalApp/AnnounceMent_Announce.aspx", "checkedAt": "2026-11-04" },
+        { "name": "全國法規資料庫：公立動物收容處所管理規則（104 年 8 月 31 日發布）第 8、9 條", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0060082", "checkedAt": "2026-11-04" },
+        { "name": "臺北市動物保護處：寵物走失之四種協尋方法", "url": "https://www.tcapo.gov.taipei/News_Content.aspx?n=10457D24D71EC09E&s=78FA051A62FBB4B8", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "report-loss": {
+      "value": "要。已登記的寵物遺失後 5 天內，飼主或寄養者要申報遺失，可在寵物登記管理資訊網自行申報，或到寵物登記站請他們協助；申報後資料會刊登在網站上讓全國民眾協尋。遺失登記免費，未依期限申報可處 3,000 元以上 15,000 元以下罰鍰。",
+      "sources": [
+        { "name": "全國法規資料庫：寵物登記管理辦法（106 年 4 月 12 日修正）第 7 條", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0060029", "checkedAt": "2026-11-04" },
+        { "name": "農業部寵物登記管理資訊網：首頁（遺失申報說明）", "url": "https://www.pet.gov.tw/", "checkedAt": "2026-11-04" },
+        { "name": "全國法規資料庫：寵物登記管理及營利性寵物繁殖買賣或寄養業管理收費標準（91 年 12 月 31 日修正）第 5 條", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0060030", "checkedAt": "2026-11-04" },
+        { "name": "全國法規資料庫：動物保護法（110 年 5 月 19 日修正）第 31 條", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0060027", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "update-chip": {
+      "value": "電話等聯絡資料可登入寵物登記管理資訊網的飼主專區線上更新；還沒登錄 Email 的，要親自到登記站更新，或加入官方 LINE 提供身分證正面照和 Email 線上新增。搬家、取得或轉讓寵物，要在 1 個月內向登記機構辦變更登記，費用 100 元。",
+      "sources": [
+        { "name": "農業部寵物登記管理資訊網：首頁（飼主登入說明）", "url": "https://www.pet.gov.tw/", "checkedAt": "2026-11-04" },
+        { "name": "農業部《農政與農情》：我國寵物登記制度之發展歷程與現況", "url": "https://www.moa.gov.tw/ws.php?id=2517704", "checkedAt": "2026-11-04" },
+        { "name": "全國法規資料庫：寵物登記管理辦法（106 年 4 月 12 日修正）第 6 條", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0060029", "checkedAt": "2026-11-04" },
+        { "name": "全國法規資料庫：寵物登記管理及營利性寵物繁殖買賣或寄養業管理收費標準（91 年 12 月 31 日修正）第 4 條", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0060030", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "hotline": {
+      "value": "1959 動物保護專線：用手機、市話或網路電話直撥，會依發話地接通當地縣市的動物保護機關，可通報或諮詢寵物登記等動保事項。各縣市收容所另有電話，舉例，臺北市動物之家是 02-8791-3254。",
+      "sources": [
+        { "name": "農業部：農委會1959動保專線即日啟用 全國22縣市動保機關直通（2022-12-28）", "url": "https://www.moa.gov.tw/theme_data.php?theme=news&sub_theme=agri&id=8913", "checkedAt": "2026-11-04" },
+        { "name": "臺北市動物保護處：寵物走失之四種協尋方法", "url": "https://www.tcapo.gov.taipei/News_Content.aspx?n=10457D24D71EC09E&s=78FA051A62FBB4B8", "checkedAt": "2026-11-04" }
+      ]
+    }
+  }
+}
