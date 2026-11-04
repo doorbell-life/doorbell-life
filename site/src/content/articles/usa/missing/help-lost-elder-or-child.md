@@ -1,6 +1,6 @@
 ---
 title: What should you do if you see a child or older adult who seems lost?
-description: Stay with them in a safe, public spot and call 911 or local police. Speak calmly, do not take them anywhere yourself, and let officers reunite them with family.
+description: Stay with them in a safe, public spot and call 911 or local police. Speak calmly and wait with them until officers arrive.
 region: usa
 topic: missing
 common: help-lost-elder-or-child
@@ -27,7 +27,7 @@ sources:
     checkedAt: "2026-11-03"
 ---
 
-Stay with them in a safe, public spot and call 911 or local police. Speak calmly, do not take them anywhere yourself, and let officers reunite them with family.
+Stay with them in a safe, public spot and call 911 or local police. Speak calmly and wait with them until officers arrive.
 
 Someone may already be looking for this person. Police can check missing person reports and alerts you cannot see, so the call is the most useful thing you can do.
 
@@ -43,7 +43,6 @@ A young child alone, an older adult who cannot say where they live, or anyone ne
 ## Step 2: Stay with them, in view of others
 
 - Stay where you are or move a short distance to a safe, well-lit public spot, such as a store entrance or a front desk.
-- Do not drive them home or to a police station yourself. Let police handle the handoff, so the family and officers know exactly where the person is.
 - If you are in a store, mall, park, or venue, tell staff or security. North Dakota's child safety guidance teaches children who get separated in a public place to go to a checkout counter, security office, or lost and found, so staff there are a natural first stop.
 
 ## Step 3: Talk to an older adult gently
