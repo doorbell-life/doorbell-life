@@ -5,7 +5,7 @@ region: taiwan
 topic: blood
 common: before-after-donation
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: 台灣血液基金會：捐血前、後您應該注意的事情（PC-006.2）
     url: https://www.blood.org.tw/files/file_pool/1/0P147365806276623429/%E6%8D%90%E8%A1%80%E5%89%8D%E3%80%81%E5%BE%8C%E6%82%A8%E6%87%89%E8%A9%B2%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%8B%E6%83%85.pdf
@@ -13,9 +13,9 @@ sources:
   - name: 台灣血液基金會：捐血後感覺虛弱、頭昏與噁心（PC-007.2）
     url: https://www.blood.org.tw/files/file_pool/1/0P147366327529905931/%E6%8D%90%E8%A1%80%E5%BE%8C%E6%84%9F%E8%A6%BA%E8%99%9B%E5%BC%B1%E3%80%81%E9%A0%AD%E6%98%8F%E8%88%87%E5%99%81%E5%BF%83.pdf
     checkedAt: "2026-11-03"
-  - name: 台灣血液基金會：捐血須知（112 年 4 月版）
-    url: https://www.blood.org.tw/files/file_pool/1/0P076362309725494200/b572e88e-dd66-4b15-9ad5-97c9e0ed8f97.pdf
-    checkedAt: "2026-11-03"
+  - name: 台灣血液基金會：捐血須知（114 年版）
+    url: https://www.blood.org.tw/files/file_pool/1/0Q260362861290607007/B-003-8_114%E6%8D%90%E8%A1%80%E9%A0%88%E7%9F%A5_%E5%85%A7%E6%96%87_%E5%8D%B0%E5%88%B7%E6%AA%94FN-1.pdf
+    checkedAt: "2026-11-04"
   - name: 台灣血液基金會：捐血流程相關事項說明
     url: https://www.blood.org.tw/xmdoc/cont?xsmsid=0P063425238709222204
     checkedAt: "2026-11-03"
@@ -51,7 +51,7 @@ sources:
 - 28 日內打過活性減毒疫苗
 - 1 年內刺青
 
-健康問卷也會問你是否睡眠不足、8 小時內有沒有喝酒。完整條件可以到血液基金會網站的「暫緩捐血資訊」查詢，現場面談時也可以直接問護理人員。
+健康問卷也會問你是否睡眠不足、8 小時內有沒有喝酒。完整條件可以到血液基金會網站的「暫緩捐血資訊」查詢，捐血過程中有任何疑問，也可以隨時問現場工作人員。
 
 ## 捐血過程中
 

@@ -5,14 +5,14 @@ region: taiwan
 topic: blood
 common: blood-stock-days
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: 台灣血液基金會官方網站首頁（血液庫存燈號說明）
     url: https://www.blood.org.tw/
     checkedAt: "2026-11-03"
-  - name: 台灣血液基金會：捐血須知（112 年 4 月版），「血液供應百分百」
-    url: https://www.blood.org.tw/files/file_pool/1/0P076362309725494200/b572e88e-dd66-4b15-9ad5-97c9e0ed8f97.pdf
-    checkedAt: "2026-11-03"
+  - name: 台灣血液基金會：捐血須知（114 年版），「血液供應百分百」
+    url: https://www.blood.org.tw/files/file_pool/1/0Q260362861290607007/B-003-8_114%E6%8D%90%E8%A1%80%E9%A0%88%E7%9F%A5_%E5%85%A7%E6%96%87_%E5%8D%B0%E5%88%B7%E6%AA%94FN-1.pdf
+    checkedAt: "2026-11-04"
   - name: 台灣血液基金會新聞稿：春節期間年味濃血量卻很少（115 年 2 月 20 日）
     url: https://www.blood.org.tw/files/file_pool/1/0Q051344557057419404/1150220%E6%96%B0%E8%81%9E%E7%A8%BF_%E6%98%A5%E7%AF%80%E6%9C%9F%E9%96%93%E5%B9%B4%E5%91%B3%E6%BF%83%E8%A1%80%E9%87%8F%E5%8D%BB%E5%BE%88%E5%B0%91-%E5%91%BC%E7%B1%B2%E6%B0%91%E7%9C%BE%E8%B8%B4%E8%BA%8D-%E5%9B%9E%E5%A8%98%E5%AE%B6-%E6%8D%90%E8%A1%80_F.pdf
     checkedAt: "2026-11-03"
@@ -61,5 +61,5 @@ sources:
 
 《捐血須知》建議，先看網站上各中心、各血型的庫存燈號，再決定要不要去捐血。
 
-- 你的血型在所屬中心亮黃燈或紅燈，就是最需要你的時候。
+- 看你的血型在所屬中心是黃燈（偏低）還是紅燈（急缺）。
 - 出發前先確認自己符合捐血條件，請看本站〈誰可以捐血？〉。

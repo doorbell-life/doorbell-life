@@ -5,7 +5,7 @@ region: taiwan
 topic: blood
 common: donor-eligibility
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: 全國法規資料庫：捐血者健康標準（114 年 7 月 2 日修正）
     url: https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020125
@@ -13,9 +13,9 @@ sources:
   - name: 台灣血液基金會：因應捐血者健康標準修正 Q&A（114 年 7 月 3 日）
     url: https://www.blood.org.tw/files/file_pool/1/0P184419805931339458/%E5%9B%A0%E6%87%89%E6%8D%90%E8%A1%80%E8%80%85%E5%81%A5%E5%BA%B7%E6%A8%99%E6%BA%96%E4%BF%AE%E6%AD%A3%E5%95%8F%E8%88%87%E7%AD%94_vF_1140703.pdf
     checkedAt: "2026-11-03"
-  - name: 台灣血液基金會：捐血須知（112 年 4 月版），「捐血的條件」
-    url: https://www.blood.org.tw/files/file_pool/1/0P076362309725494200/b572e88e-dd66-4b15-9ad5-97c9e0ed8f97.pdf
-    checkedAt: "2026-11-03"
+  - name: 台灣血液基金會：捐血須知（114 年版），「捐血的條件」
+    url: https://www.blood.org.tw/files/file_pool/1/0Q260362861290607007/B-003-8_114%E6%8D%90%E8%A1%80%E9%A0%88%E7%9F%A5_%E5%85%A7%E6%96%87_%E5%8D%B0%E5%88%B7%E6%AA%94FN-1.pdf
+    checkedAt: "2026-11-04"
   - name: 台灣血液基金會：暫緩捐血資訊查詢
     url: https://www.blood.org.tw/deferral
     checkedAt: "2026-11-03"
@@ -71,7 +71,3 @@ sources:
 ## 不能捐血的情況
 
 標準第 4 條列出永久不得捐血的情形，包括：曾罹患惡性腫瘤或白血病、曾施用毒品、感染愛滋病毒、曾從事性交易服務等。這些規定是為了保護受血病人，也保護捐血人自己。
-
-## 不能捐，也能幫忙
-
-不符合條件也沒關係。可以陪家人朋友去捐血，或把血液庫存的資訊分享給符合條件的人。

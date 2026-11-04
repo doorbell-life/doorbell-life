@@ -4,7 +4,7 @@ description: 報案時帶證件到任何一個警察機關做筆錄、拿證明�
 region: taiwan
 topic: missing
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: 內政部警政署：失蹤人口查尋作業要點（110 年 3 月 5 日修正）
     url: https://glrs.moi.gov.tw/LawContent.aspx?id=GL000128
@@ -18,6 +18,9 @@ sources:
   - name: 內政部警政署：查尋失蹤人口、身分不明者資料
     url: https://eze8.npa.gov.tw/NpaE8ServerRWD/NK_Query.jsp
     checkedAt: "2026-11-03"
+  - name: 內政部警政署統計室：有愛無礙 幫助失智長者找到回家的路（114 年 5 月 1 日）
+    url: https://www.npa.gov.tw/ch/app/data/view?module=wg054&id=2206&serno=024f92f9-6bdf-4482-b896-5c968d8bc00d
+    checkedAt: "2026-11-04"
 ---
 
 報案時帶證件到任何一個警察機關做筆錄、拿證明單；人找到了，由本人或報案人帶證件到警察機關撤尋，同樣會拿到證明單。
@@ -32,7 +35,7 @@ sources:
 
 ### 去哪裡報
 
-任何警察機關都可以，不分本轄或他轄，也不用等滿 24 小時。
+任何警察機關都可以，不分本轄或他轄。警政署也公開呼籲，親人失蹤不用等超過 24 小時才報案，隨報即辦。
 
 ### 流程
 
