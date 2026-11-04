@@ -12,7 +12,7 @@ import LegalDraft from "../../../../components/LegalDraft.astro";
     <ul>
       <li>Your browser downloads the widget, its stylesheet and the day's data from cdn.doorbell.life. As with any web request, the connection reveals your IP address and browser type to the server. We do not keep them.</li>
       <li>Your region is worked out from your browser's time zone, inside your browser.</li>
-      <li>Impression counts: one in ten displays sends two things, the site's domain and the topic shown, so we can count impressions per site and topic. Nothing about you is sent.</li>
+      <li>Impression counts: one in ten displays sends two things, the site's domain and the topic shown. Our server also records the country that Cloudflare derives from the connection, so we can count daily impressions per site, topic and country. We never read or keep your IP address, and the country is never used to decide what you see.</li>
     </ul>
 
     <h2>When you browse doorbell.life</h2>
@@ -32,6 +32,14 @@ import LegalDraft from "../../../../components/LegalDraft.astro";
       <li>Cards show data from government open data and from the agencies that publish it. We show only fields the source makes public and add nothing.</li>
       <li>Missing-person cases never get static pages and are never cached for offline pages; those pages are marked noindex and noarchive. When the source removes a case, it disappears from every error page.</li>
       <li>If you are the person in a case, or family, and want it removed, email contact@doorbell.life.</li>
+    </ul>
+
+    <h2>The brand dashboard</h2>
+    <ul>
+      <li>Brand owners sign in with an email link, no password. We keep the email, the site domains they declare and their style settings, to sign them in, produce reports and publish their widget style.</li>
+      <li>Sign-in links expire after 15 minutes and work once; the database stores only hashes of sign-in codes and sessions.</li>
+      <li>After signing in, the dashboard sets one sign-in cookie (only to keep you signed in, expires after 30 days, deleted when you sign out). This only happens when a brand owner signs in; regular visitors never get it.</li>
+      <li>To delete a brand account, email contact@doorbell.life.</li>
     </ul>
 
     <h2>Information you choose to give us</h2>
