@@ -8,7 +8,7 @@ const cat: SpeciesContent = {
   id: "cat",
   name: "貓",
   tasks: [
-    { id: "water", text: "換新鮮的水", why: "依《動物保護法》，貓任何時候都要有充足、乾淨的水；平常吃乾糧的貓更要注意喝水量。", source: CAT },
+    { id: "water", text: "確認有乾淨的水", why: "依《動物保護法》，貓任何時候都要有充足、乾淨的水；平常吃乾糧的貓更要注意喝水量。", source: CAT },
     { id: "food", text: "按時餵飯，吃完把碗洗乾淨", why: "貓篇的定時餵法是依需求每天分 3 到 5 次、份量固定，每次吃完把食盆清乾淨。", source: CAT },
     { id: "litter", text: "清貓砂盆", why: "貓砂盆有異味，貓會不想進去上廁所，貓篇建議每天清 2 到 3 次排泄物。", source: CAT },
     { id: "play", text: "用逗貓棒陪牠玩", why: "養在室內的貓也需要運動和探索，追到實體的玩具會讓牠有成就感。", source: CAT },

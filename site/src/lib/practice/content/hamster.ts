@@ -18,10 +18,10 @@ const content: SpeciesContent = {
   id: "hamster",
   name: "倉鼠",
   tasks: [
-    { id: "water", text: "換新鮮的水", why: "倉鼠喝得不多，但《動物保護法》要飼主提供 24 小時充足、乾淨的飲水。", source: LAW },
+    { id: "water", text: "確認有乾淨的水", why: "倉鼠喝得不多，但《動物保護法》要飼主提供 24 小時充足、乾淨的飲水。", source: LAW },
     { id: "food", text: "給固定份量的飼料", why: "倉鼠會挑飼料裡的堅果先吃，每天固定份量，牠才不會養成挑食的習慣。", source: MAMMAL },
     { id: "bedding", text: "換掉牠上廁所那個角落的墊料", why: "大部分倉鼠會在籠子的某個角落上廁所，那一區的墊料要常換。", source: QA },
-    { id: "door", text: "確認籠門扣好、電線離籠子遠遠的", why: "倉鼠很會從小縫鑽出去，咬斷電線會危及牠的生命。", source: QA },
+    { id: "door", text: "確認籠子關好", why: "指南要倉鼠一定關籠養，以免牠咬斷電線，危及生命。", source: QA },
     { id: "chew", text: "確認籠裡有木塊或磨牙棒", why: "倉鼠的門牙一直長，有東西啃能降低門牙太長的風險。", source: QA },
     { id: "night", text: "晚上看看牠活動和吃東西的樣子", why: "倉鼠是夜行性動物，晚上活動正常，白天躲著睡就不用擔心。", source: QA },
   ],
@@ -72,7 +72,7 @@ const content: SpeciesContent = {
     {
       prompt: "明天要出門一整天，晚上才會回家。",
       choices: [
-        { text: "出門前換好水、給今天份量的飼料，再確認籠門扣好", ok: true, why: "倉鼠很會從小縫逃脫，所以指南建議關籠養。", source: QA },
+        { text: "出門前換好水、給今天份量的飼料，再確認籠子關好", ok: true, why: "倉鼠很會從小縫逃脫，所以指南建議關籠養。", source: QA },
         { text: "讓牠在房間裡自由跑，比較不悶", ok: false, why: "倉鼠會啃咬東西磨牙，咬斷電線會危及牠的生命和居家安全。", source: QA },
       ],
     },

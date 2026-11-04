@@ -19,7 +19,7 @@ const content: SpeciesContent = {
   name: "天竺鼠",
   tasks: [
     { id: "hay", text: "把牧草放滿", why: "天竺鼠的牙齒會一直長，要隨時有乾草或新鮮牧草可以咬，才磨得到牙。", source: QA },
-    { id: "water", text: "換新鮮的水", why: "《動物保護法》要飼主提供 24 小時充足、乾淨的飲水。", source: LAW },
+    { id: "water", text: "確認有乾淨的水", why: "《動物保護法》要飼主提供 24 小時充足、乾淨的飲水。", source: LAW },
     { id: "veggie", text: "給天竺鼠專用飼料和新鮮蔬菜", why: "天竺鼠自己不會製造維生素 C，要靠專用飼料和蔬菜補，但這部分不超過每天食量的 20%。", source: QA },
     { id: "clean", text: "清理尿盆和看護墊", why: "天竺鼠尿尿便便的量很大，大多不會定點上廁所，在牠愛蹲的角落和食物旁放尿盆，清起來比較快。", source: QA },
     { id: "check", text: "看看牠吃了多少、便便和尿的樣子", why: "指南建議每天留意食量、喝水量、排便和排尿，有異常才能早點發現。", source: MAMMAL },
@@ -38,13 +38,13 @@ const content: SpeciesContent = {
       prompt: "傍晚牠在籠子裡跑來跑去，想讓牠出來跑一跑。",
       choices: [
         { text: "用 30 公分以上的圍片圍出一塊地方，放個能躲的小屋", ok: true, why: "指南建議用 30 公分以上的圍片隔出活動空間，並給牠足夠的地方躲。", source: QA },
-        { text: "直接放在客廳地上，讓牠自己到處跑", ok: false, why: "讓寵物到籠外活動要先確認空間安全，陌生的環境也可能讓牠緊張。", source: MAMMAL },
+        { text: "直接放在客廳地上，讓牠自己到處跑", ok: false, why: "指南建議用 30 公分以上的圍片隔出活動空間，直接放在地上沒有做到這一點。", source: QA },
       ],
     },
     {
       prompt: "下午家裡很熱，牠側躺著，呼吸很急，還在流口水。",
       choices: [
-        { text: "馬上開冷氣或電扇降溫，同時打電話給獸醫", ok: true, why: "呼吸急促、側躺、流口水是中暑的徵兆，要儘快降溫，避免中暑或熱衰竭。", source: QA },
+        { text: "馬上開冷氣或電扇幫牠降溫", ok: true, why: "呼吸急促、側躺、流口水是中暑的徵兆，要儘快降溫，避免中暑或熱衰竭。", source: QA },
         { text: "幫牠沖冷水降溫", ok: false, why: "天竺鼠不擅長游泳、容易受驚，毛沒吹乾容易失溫，沒有獸醫指示不要幫牠洗澡。", source: MAMMAL },
         { text: "牠可能只是累了，讓牠睡一下", ok: false, why: "天竺鼠沒有汗腺，熱到出現這些症狀就要儘快處理，不能等。", source: QA },
       ],

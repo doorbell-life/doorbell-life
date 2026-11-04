@@ -9,7 +9,7 @@ const dog: SpeciesContent = {
   id: "dog",
   name: "狗",
   tasks: [
-    { id: "water", text: "換新鮮的水", why: "依《動物保護法》，狗平常待的地方任何時候都要有充足、乾淨的水。", source: DOG },
+    { id: "water", text: "確認有乾淨的水", why: "依《動物保護法》，狗平常待的地方任何時候都要有充足、乾淨的水。", source: DOG },
     { id: "food", text: "早晚各餵一次", why: "犬篇建議每天至少早晚各餵一次，份量依年齡、活動量和體重調整。", source: DOG },
     { id: "walk", text: "帶出門散步 20 到 30 分鐘", why: "這是犬篇訂的每天最低建議，讓牠接觸外面的環境，有助社會化。", source: DOG },
     { id: "clean", text: "巡一下牠的地方，清掉大小便", why: "犬篇建議每天巡視牠的生活空間，保持乾淨，避免臭味、寄生蟲和潮濕。", source: DOG },

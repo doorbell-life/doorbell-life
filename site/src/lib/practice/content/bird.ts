@@ -41,7 +41,7 @@ const content: SpeciesContent = {
     {
       prompt: "想讓牠出籠飛一飛。",
       choices: [
-        { text: "先關好門窗，再在家裡開籠", ok: true, why: "寵物鳥大多靠人照顧，一旦飛出去，大多沒辦法自己找食物、避開危險而活下來。", source: BIRD },
+        { text: "只在門窗關好的封閉空間裡開籠", ok: true, why: "指南提醒寵物鳥飛失的結果往往是付出生命，不要在非封閉空間放飛。", source: BIRD },
         { text: "帶到公園放飛，牠飛累了會回來", ok: false, why: "就算在家裡喚回練得很好，也不應該在開放空間放飛，飛走的鳥往往活不下來。", source: BIRD },
       ],
     },
@@ -62,7 +62,7 @@ const content: SpeciesContent = {
     {
       prompt: "明天要出門一整天，晚上才會回家。",
       choices: [
-        { text: "出門前把飼料和水都備足，確認籠門扣好", ok: true, why: "鳥必須不斷進食，食物不夠可能在很短時間內就致命。", source: BIRD },
+        { text: "出門前把飼料和水都備足", ok: true, why: "鳥必須不斷進食，食物不夠可能在很短時間內就致命。", source: BIRD },
         { text: "鳥那麼小，早上給一點點就夠了", ok: false, why: "鳥的基礎代謝率高，沒有充足的食物，可能很快就有致命的影響。", source: BIRD },
       ],
     },
