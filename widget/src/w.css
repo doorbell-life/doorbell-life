@@ -3,13 +3,13 @@
    字型只用系統字型：品牌主選的字型不由元件載入（保住元件大小，也不讓訪客連到字型服務）。
    品牌（CLAUDE.md §6）：套品牌時根元素帶版型 class（dbl-bell／dbl-full-image／dbl-one-line）；失蹤協尋個案不帶，維持中性。
    品牌色只從 --b-brand-o（oklch）／--b-brand（hex）讀，且只用在只吃顏色的屬性，品牌設定就算塞 url() 也不會載入外部資源。 */
-.dbl{--dbl-bg:oklch(.97 .005 250);--dbl-fg:oklch(.2 .01 250);--dbl-mute:oklch(.45 .01 250);--dbl-line:oklch(.85 .005 250);--dbl-link:oklch(.48 .15 250);--dbl-bell:oklch(.55 .16 55);
+.dbl{--dbl-bg:oklch(.97 .005 250);--dbl-fg:oklch(.2 .01 250);--dbl-mute:oklch(.45 .01 250);--dbl-line:oklch(.85 .005 250);--dbl-link:oklch(.48 .15 250);--dbl-bell:oklch(.52 .16 55);
 all:initial;display:block;box-sizing:border-box;max-width:640px;margin:24px auto;padding:24px;
 border:1px solid var(--dbl-line);border-radius:12px;background-color:var(--dbl-bg);color:var(--dbl-fg);overflow-wrap:anywhere;
 font:400 24px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
-.dbl-bell,.dbl-full-image,.dbl-one-line{--dbl-bell:var(--b-brand-o,oklch(.55 .16 55));border-top:4px solid var(--dbl-bell)}
-@supports not (color:oklch(0 0 0)){.dbl{--dbl-bg:#f5f6f8;--dbl-fg:#1e2030;--dbl-mute:#5e6070;--dbl-line:#d5d6da;--dbl-link:#1e5ab8;--dbl-bell:#b86a2a}
-.dbl-bell,.dbl-full-image,.dbl-one-line{--dbl-bell:var(--b-brand,#b86a2a)}}
+.dbl-bell,.dbl-full-image,.dbl-one-line{--dbl-bell:var(--b-brand-o,oklch(.52 .16 55));border-top:4px solid var(--dbl-bell)}
+@supports not (color:oklch(0 0 0)){.dbl{--dbl-bg:#f3f5f8;--dbl-fg:#13161a;--dbl-mute:#51565b;--dbl-line:#cbced1;--dbl-link:#005fad;--dbl-bell:#ab4700}
+.dbl-bell,.dbl-full-image,.dbl-one-line{--dbl-bell:var(--b-brand,#ab4700)}}
 .dbl *{all:revert;box-sizing:border-box;font:inherit;color:inherit;margin:0}
 .dbl-t,.dbl-l .dbl-h,.dbl-one-line .dbl-h{display:flex;align-items:center;gap:14px}
 .dbl-t{margin-bottom:16px;font-size:20px;font-weight:700;color:var(--dbl-bell)}

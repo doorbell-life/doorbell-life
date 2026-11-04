@@ -132,7 +132,7 @@ test("失蹤協尋個案一律中性樣式：不套品牌色、不換版型、�
   await expect(page.locator(".dbl")).toHaveClass("dbl dbl-c");
   await expect(page.locator(".dbl-t")).toBeVisible(); // 沒被 one-line 縮掉
   await expect(page.locator(".dbl-d")).toBeVisible();
-  expect(await titleColor(page)).toBe(await computed(page, "oklch(.55 .16 55)"));
+  expect(await titleColor(page)).toBe(await computed(page, "oklch(.52 .16 55)"));
   expect(await page.locator(".dbl").evaluate((e) => getComputedStyle(e).borderTopWidth)).toBe("1px");
   await expect(page.locator(".dbl-o")).toHaveText("由 綠色乖乖 支持");
   expect(await page.locator(".dbl-o").evaluate((e) => parseFloat(getComputedStyle(e).fontSize))).toBe(18);
@@ -190,7 +190,7 @@ for (const [name, o] of [
     await open(page, o);
     await expect(page.locator(".dbl")).toHaveClass("dbl dbl-c");
     await expect(page.locator(".dbl-h")).toHaveText("貓・混種貓");
-    expect(await titleColor(page)).toBe(await computed(page, "oklch(.55 .16 55)"));
+    expect(await titleColor(page)).toBe(await computed(page, "oklch(.52 .16 55)"));
     expect(await page.locator(".dbl-o").count()).toBe(0);
     expect(errors).toEqual([]);
   });
