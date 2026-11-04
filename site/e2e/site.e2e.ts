@@ -27,7 +27,7 @@ const PAGES = [
   ...PAGES_US,
   ...["taiwan", "usa"].flatMap((r) => ["", "privacy/", "terms/", "security/", "contact/"].map((p) => `/legal/${r}/${p}`)),
   "/animals/taiwan/practice/",
-  ...["taiwan", "usa"].flatMap((r) => ["", "missing/how-to-report-missing/", "blood/who-can-donate-blood/", "animals/shelter-adoption/", "animals/pet-registration/", "animals/found-animal/", "blood/blood-stock/", "missing/dementia-wandering/"].map((p) => `/compare/${r}/${p}`)),
+  ...["taiwan", "usa"].flatMap((r) => ["", "missing/how-to-report-missing/", "blood/who-can-donate-blood/", "animals/shelter-adoption/", "animals/pet-registration/", "animals/found-animal/", "blood/blood-stock/", "missing/dementia-wandering/", "missing/child-runaway/", "missing/help-lost-person/", "missing/share-alerts/", "blood/where-to-donate/", "animals/before-adopting/", "animals/lost-pet-24h/"].map((p) => `/compare/${r}/${p}`)),
 ];
 
 test("法律頁草稿：不收錄，且顯示草稿標示", async ({ page }) => {

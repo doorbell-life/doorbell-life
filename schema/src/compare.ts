@@ -87,6 +87,72 @@ export const COMPARE_TOPICS: CompareTopic[] = [
       { key: "caregiver-hotline", label: { "zh-TW": "照顧者諮詢專線", en: "Caregiver helpline" } },
     ],
   },
+  {
+    id: "child-runaway",
+    topic: "missing",
+    title: { "zh-TW": "孩子離家出走，各地怎麼處理？", en: "When a child runs away: how places compare" },
+    fields: [
+      { key: "report-or-not", label: { "zh-TW": "家長要不要報案、怎麼報", en: "Should parents report it, and how" } },
+      { key: "youth-hotline", label: { "zh-TW": "給孩子的求助專線", en: "Helplines for the young person" } },
+      { key: "police-on-finding", label: { "zh-TW": "警方找到後怎麼處理", en: "What police do once the child is found" } },
+      { key: "runaway-share", label: { "zh-TW": "離家出走占失蹤兒少的比例", en: "Share of missing young people who ran away" } },
+    ],
+  },
+  {
+    id: "help-lost-person",
+    topic: "missing",
+    title: { "zh-TW": "路上看到走失的長輩或孩子，各地怎麼做？", en: "Finding a lost child or older adult: how places compare" },
+    fields: [
+      { key: "call-number", label: { "zh-TW": "該打哪支電話", en: "Which number to call" } },
+      { key: "can-you-take-them", label: { "zh-TW": "可不可以自己帶去警局", en: "Can you take them to the police yourself?" } },
+      { key: "id-clues", label: { "zh-TW": "可以看哪些身上的辨識線索", en: "What identification clues to look for" } },
+      { key: "public-alerts", label: { "zh-TW": "有沒有公開的協尋警報", en: "Is there a public alert system?" } },
+    ],
+  },
+  {
+    id: "share-alerts",
+    topic: "missing",
+    title: { "zh-TW": "轉傳協尋訊息，各地規定比一比", en: "Sharing missing-person alerts: rules compared" },
+    fields: [
+      { key: "official-channel", label: { "zh-TW": "官方協尋訊息從哪裡發布", en: "Where official alerts are published" } },
+      { key: "minor-privacy", label: { "zh-TW": "未成年人個資保護規定", en: "Privacy protection for minors" } },
+      { key: "false-info-penalty", label: { "zh-TW": "散布不實協尋訊息的法律責任", en: "Legal liability for spreading false alerts" } },
+      { key: "remove-after-found", label: { "zh-TW": "尋獲後怎麼撤下", en: "How alerts are withdrawn after the person is found" } },
+    ],
+  },
+  {
+    id: "where-to-donate",
+    topic: "blood",
+    title: { "zh-TW": "哪裡可以捐血？各地比一比", en: "Where can you donate blood? Compared" },
+    fields: [
+      { key: "operators", label: { "zh-TW": "由誰經營捐血服務", en: "Who runs blood collection" } },
+      { key: "site-count", label: { "zh-TW": "固定捐血點數量", en: "Number of fixed donation sites" } },
+      { key: "find-site", label: { "zh-TW": "怎麼查最近的捐血點", en: "How to find the nearest site" } },
+      { key: "appointment", label: { "zh-TW": "要不要預約", en: "Is an appointment needed?" } },
+    ],
+  },
+  {
+    id: "before-adopting",
+    topic: "animals",
+    title: { "zh-TW": "認養前要準備什麼？各地規定比一比", en: "Before adopting: requirements compared" },
+    fields: [
+      { key: "legal-duties", label: { "zh-TW": "飼主的法定義務", en: "Owners' legal duties" } },
+      { key: "must-sterilize", label: { "zh-TW": "認養後要不要絕育", en: "Is sterilization required after adoption?" } },
+      { key: "vaccines", label: { "zh-TW": "必打的疫苗", en: "Required vaccinations" } },
+      { key: "cost-support", label: { "zh-TW": "有沒有費用補助", en: "Is there financial support?" } },
+    ],
+  },
+  {
+    id: "lost-pet-24h",
+    topic: "animals",
+    title: { "zh-TW": "寵物走失後 24 小時，各地資源比一比", en: "The first 24 hours after a pet goes missing: resources compared" },
+    fields: [
+      { key: "check-shelters", label: { "zh-TW": "去哪裡查收容所公告", en: "Where to check shelter listings" } },
+      { key: "report-loss", label: { "zh-TW": "要不要、去哪裡登記遺失", en: "Whether and where to file a lost-pet report" } },
+      { key: "update-chip", label: { "zh-TW": "晶片資料怎麼更新", en: "How to update microchip records" } },
+      { key: "hotline", label: { "zh-TW": "可以打的專線", en: "Hotlines to call" } },
+    ],
+  },
 ];
 
 export interface CompareValue {
