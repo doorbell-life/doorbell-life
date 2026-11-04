@@ -1,11 +1,11 @@
 ---
 title: How does adopting from a public animal shelter work?
-description: At a typical public shelter you browse the animals online or in person, fill out an adoption questionnaire, meet the animal with a counselor, then show ID, pay the fee, and often take your pet home the same day, usually already vaccinated, spayed or neutered, and microchipped; the exact steps are set by each shelter.
+description: At the two public shelters used as examples here, you browse the animals online or in person, fill out an adoption questionnaire or talk with an adoption counselor, show a government photo ID, pay the fee, and can take your pet home already vaccinated, spayed or neutered, and microchipped. Each shelter sets its own steps.
 region: usa
 topic: animals
 common: shelter-adoption-process
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "Montgomery County, MD, Animal Services and Adoption Center: How to Adopt"
     url: https://www.montgomerycountymd.gov/animal-services-adoption-center/adopt-pet/how-adopt
@@ -22,11 +22,14 @@ sources:
   - name: "LA Animal Services (City of Los Angeles): Spay & Neuter"
     url: https://www.laanimalservices.com/spay-and-neuter
     checkedAt: "2026-11-03"
+  - name: "LA Animal Services (City of Los Angeles): Microchipping"
+    url: https://www.laanimalservices.com/microchipping
+    checkedAt: "2026-11-04"
 ---
 
-At a typical public shelter you browse the animals online or in person, fill out an adoption questionnaire, meet the animal with a counselor, then show ID, pay the fee, and often take your pet home the same day, usually already vaccinated, spayed or neutered, and microchipped; the exact steps are set by each shelter.
+At the two public shelters used as examples here, you browse the animals online or in person, fill out an adoption questionnaire or talk with an adoption counselor, show a government photo ID, pay the fee, and can take your pet home already vaccinated, spayed or neutered, and microchipped. Each shelter sets its own steps.
 
-In the U.S., public shelters are run by cities and counties, and each sets its own process and fees. This article walks through two of them as examples: the Montgomery County Animal Services and Adoption Center in Maryland, which the county describes as its only open-admission municipal shelter, and LA Animal Services, which runs six shelters for the City of Los Angeles.
+Each shelter sets its own process and fees. This article walks through two public shelters as examples: the Montgomery County Animal Services and Adoption Center in Maryland, which the county describes as its only open-admission municipal shelter, and LA Animal Services, which runs six shelters for the City of Los Angeles.
 
 ## Step 1: Look at who's available
 
@@ -43,15 +46,15 @@ Montgomery County asks every adopter to complete an Adoption Questionnaire about
 What Montgomery County asks for:
 
 - a government-issued photo ID, such as a driver's license;
-- copies of rabies certificates for any dogs, cats, or ferrets already in your household;
-- if you live in the county, licenses for your current pets, which you'll have to buy if they aren't already licensed with the county;
 - the adoption fee, if one applies.
+
+If the animal you want is in foster care, you finalize the adoption by appointment, and at that time you must bring copies of rabies certificates for any dogs, cats, or ferrets in your household; county residents must also buy licenses for household pets that aren't already licensed with the county.
 
 LA Animal Services also requires a government-issued photo ID (driver's license, state ID, or passport). It takes cash, check, or credit card, and the name on the card must match the ID.
 
 ## Step 4: Meet the animal
 
-You meet the animal with a counselor's help. Montgomery County describes a "meet and greet," after which you tell the adoption team whether you'd like to go ahead, and they set up the adoption.
+At Montgomery County, once your questionnaire is received you're added to the wait list, and you choose two animals you'd like to meet; adoption counselors can help you decide. For an animal in foster care, staff have the foster family set up a "meet and greet," after which you tell the adoption team whether you'd like to go ahead.
 
 If more than one person wants the same animal, shelters handle it differently. Montgomery County is first-come, first-served. LA Animal Services uses a silent auction among the interested adopters, which it describes as a fair process without favoritism.
 
@@ -77,8 +80,8 @@ Shelters sometimes waive adoption fees. For example, Montgomery County waived ad
 
 ## After you get home
 
-- **Register the microchip in your name.** A shelter chip doesn't help if the registry can't reach you. See [Why should you microchip your pet?](/articles/usa/animals/why-microchip/).
+- **Keep the microchip information current.** LA Animal Services says that when a microchipped pet isn't returned home, it's usually because the owner information in the registry is wrong or missing. See [Why should you microchip your pet?](/articles/usa/animals/why-microchip/).
 - **Get the license your city or county requires.** See [How do pet licensing and microchip registration work in the U.S.?](/articles/usa/animals/pet-registration/).
-- **Book a vet visit** and bring the shelter's medical records.
+- **Use the free exam if one is offered.** LA Animal Services' adoption packet includes a certificate for a free health exam at a participating Southern California Veterinary Medical Association office within three working days of adoption (not available for rabbits).
 
 If you haven't adopted yet, start with [What should you prepare before adopting a pet?](/articles/usa/animals/before-adopting/).

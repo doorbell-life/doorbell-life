@@ -1,11 +1,11 @@
 ---
 title: What does "days of supply" mean when blood centers talk about inventory?
-description: It is how many days a blood center's current stock would last at normal hospital demand. America's Blood Centers treats 3 or more days as enough for normal operations, 2 days as low, and 1 day or less as critically low.
+description: It describes a blood center's inventory as the number of days of blood it has on hand. America's Blood Centers says 3 or more days is enough to meet normal operating demands, 2 days is running low, and 1 day or less is critically low.
 region: usa
 topic: blood
 common: blood-stock-days
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "America's Blood Centers: Current U.S. Blood Supply, Daily Inventory Report widget"
     url: https://americasblood.org/widget/
@@ -24,9 +24,9 @@ sources:
     checkedAt: "2026-11-03"
 ---
 
-It is how many days a blood center's current stock would last at normal hospital demand. America's Blood Centers treats 3 or more days as enough for normal operations, 2 days as low, and 1 day or less as critically low.
+It describes a blood center's inventory as the number of days of blood it has on hand. America's Blood Centers says 3 or more days is enough to meet normal operating demands, 2 days is running low, and 1 day or less is critically low.
 
-You will see this measure in news reports and blood drive appeals: "a one-day supply of type O," "less than two days on the shelf." It is a quick way to compare inventory with how fast hospitals use blood.
+You will see this measure in blood drive appeals. In July 2026, for example, the American Red Cross said it had "less than a one-day national supply of type O positive blood."
 
 ## How to read the numbers
 
@@ -37,8 +37,6 @@ America's Blood Centers publishes a daily inventory report. Its national widget,
 | 3 or more days | Enough blood to meet normal operating demands |
 | 2 days | Running low; donations needed |
 | 1 day or less | Critically low; donations needed as soon as possible |
-
-The color key on the same page uses green for centers reporting a 3+ day supply, yellow for a 1–2 day supply, and red for a 0–1 day supply.
 
 America's Blood Centers adds two caveats: all blood centers need donations even when supply is adequate, and the national data reflects trends, so your local blood center's needs may differ.
 
@@ -65,10 +63,10 @@ America's Blood Centers says shortages can happen at any time but are especially
 
 ## Numbers come from more than one organization
 
-Blood in the U.S. is collected by several organizations. The American Red Cross says it provides about 40% of the nation's blood and monitors its own national supply daily; America's Blood Centers reports on community blood centers. A "days of supply" figure from one organization describes that organization's inventory, so check who is reporting before comparing numbers.
+Blood in the U.S. is collected by several organizations. The American Red Cross says it provides about 40% of the nation's blood and monitors the nation's blood supply daily; America's Blood Centers' daily inventory report covers community blood centers. America's Blood Centers notes that its data reflects national trends and that your local blood center's needs may differ.
 
 ## What it means for you
 
-- If your local center reports 2 days or less, it is asking for donors now.
-- If your type is the one running short, especially type O, your donation is likely needed most.
-- Even at 3+ days, regular donors keep the buffer from shrinking. The Red Cross says only about 3% of age-eligible people donate blood each year.
+- America's Blood Centers says centers with a 2-day supply need donations, and centers with a day or less need donations as soon as possible.
+- During its July 2026 crisis, the Red Cross urged all eligible donors, especially those with type O blood, to make an appointment as soon as possible.
+- America's Blood Centers says all blood centers need donations, even those with at least three days of supply. The Red Cross says only about 3% of age-eligible people donate blood each year.

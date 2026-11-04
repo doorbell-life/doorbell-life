@@ -1,11 +1,11 @@
 ---
 title: What should you know before and after donating blood?
-description: Before you give, sleep well, eat a healthy meal, drink extra fluids, and bring a photo ID and your medication list. Afterward, drink extra fluids, skip alcohol and heavy exercise for the rest of the day, and call the blood center if you feel unwell.
+description: Before you give, sleep well, eat a healthy meal, drink extra fluids, and bring a photo ID and your medication list. Afterward, drink extra fluids, avoid alcohol for 24 hours and heavy exercise for the rest of the day, and call the blood center if you have problems.
 region: usa
 topic: blood
 common: before-after-donation
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "American Red Cross Blood Services: What to Do Before, During and After Your Donation"
     url: https://www.redcrossblood.org/donate-blood/blood-donation-process/before-during-after.html
@@ -22,11 +22,14 @@ sources:
   - name: "21 CFR 630.15, Donor eligibility requirements specific to Whole Blood, Red Blood Cells and Plasma collected by apheresis (eCFR)"
     url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-F/part-630/subpart-B/section-630.15
     checkedAt: "2026-11-03"
+  - name: "American Red Cross (nonprofit): press release, Red Cross Declares Second-Ever National Blood Supply Crisis (July 27, 2026)"
+    url: https://www.redcross.org/about-us/news-and-events/press-release/2026/red-cross-declares-national-blood-supply-crisis-urges-immediate-.html
+    checkedAt: "2026-11-04"
 ---
 
-Before you give, sleep well, eat a healthy meal, drink extra fluids, and bring a photo ID and your medication list. Afterward, drink extra fluids, skip alcohol and heavy exercise for the rest of the day, and call the blood center if you feel unwell.
+Before you give, sleep well, eat a healthy meal, drink extra fluids, and bring a photo ID and your medication list. Afterward, drink extra fluids, avoid alcohol for 24 hours and heavy exercise for the rest of the day, and call the blood center if you have problems.
 
-The tips below come from the American Red Cross, which says it supplies about 40% of the nation's blood. Other blood centers give similar advice, but each sets some of its own rules, so follow the instructions your center gives you.
+The tips below come from the American Red Cross, which says it supplies about 40% of the nation's blood. The Red Cross notes that most donor eligibility rules are set by the Food and Drug Administration, while others are set by medical professionals at specific blood centers, so rules may differ between programs.
 
 ## The days before
 

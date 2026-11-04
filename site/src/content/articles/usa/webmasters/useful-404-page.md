@@ -5,7 +5,7 @@ region: usa
 topic: webmasters
 common: useful-404-page
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "RFC 9110 HTTP Semantics (15.5 Client Error 4xx, 15.5.5 404, 15.5.11 410)"
     url: https://www.rfc-editor.org/rfc/rfc9110
@@ -31,7 +31,7 @@ A useful 404 page tells visitors plainly that the page isn't there, gives them a
 
 ## The HTTP spec expects an explanation
 
-RFC 9110, the current HTTP specification, says that for 4xx errors the server SHOULD send a representation explaining the error and whether it is temporary or permanent (except for HEAD requests), and browsers SHOULD show it to the user. In other words, the body of a 404 response isn't decoration. It's where you explain what went wrong.
+RFC 9110, the current HTTP specification, says that for 4xx errors the server SHOULD send a representation explaining the error and whether it is temporary or permanent (except for HEAD requests), and browsers SHOULD show it to the user.
 
 ## What Google recommends putting on it
 
@@ -42,13 +42,7 @@ Google Search Central's crawling-errors guide gives four suggestions for a custo
 3. **Add links** to your most popular articles or posts, and to your home page.
 4. **Give visitors a way to report the broken link**, so you can fix it.
 
-Putting those together, a practical 404 page has:
-
-- a short headline ("We can't find that page") and one sentence of explanation;
-- your normal header, navigation, and footer;
-- a search box, if your site has search;
-- links to the home page and a few popular or recent pages;
-- a "report this broken link" option, even if it's just an email address.
+Google adds that a good custom 404 page helps people find the information they're looking for and encourages them to explore your site further.
 
 ## The status code must be 404
 
@@ -60,7 +54,7 @@ If you know a page is gone for good, RFC 9110 says 410 Gone is preferred. If you
 
 - **Nginx:** `error_page 404 /404.html;` serves your page and keeps the 404. Adding `=200` (as in `error_page 404 =200 /404.html;`) changes the status to 200. Pointing it at a full URL such as `http://example.com/notfound.html` makes Nginx send a redirect (302 by default) instead of the 404.
 - **Apache:** `ErrorDocument 404 /errors/404.html` with a local path keeps the 404. If you point `ErrorDocument` at a remote URL (anything starting with `http`), Apache sends a redirect, so the client never receives the original status code. Apache's documentation warns that this can confuse web robots that check URLs by their status code.
-- **Static hosts:** GitHub Pages uses a `404.html` (or `404.md`) file in your publishing source. Netlify automatically uses a `404.html` at your site root for any path that doesn't match a file. See [supported hosting environments](/support/usa/) for other platforms.
+- **Static hosts:** GitHub Pages uses a `404.html` (or `404.md`) file in your publishing source. Netlify automatically displays a `404.html` you add to your site for any path that doesn't resolve to a static file. See [supported hosting environments](/support/usa/) for other platforms.
 
 After you deploy, check it:
 
@@ -69,10 +63,6 @@ curl -I https://example.com/this-page-does-not-exist
 ```
 
 The first line should show `404`, not `200`, `301`, or `302`.
-
-## Put the essentials in the HTML
-
-Write the "not found" message, navigation, and home link directly into the HTML, so they appear even if JavaScript fails or is slow. Load anything extra asynchronously, so a failure doesn't break the page.
 
 ## Let your 404 page do one more thing
 

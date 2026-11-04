@@ -1,11 +1,11 @@
 ---
 title: How can you share a missing person alert without causing harm?
-description: Share only alerts from police or the family's official page, link to the original instead of copying it, and stop sharing once the person is found. Never add rumors, home addresses, or your own guesses.
+description: Share alerts that come from law enforcement, point people to the police tip line instead of anyone's personal contact details, and do not add details the official alert left out.
 region: usa
 topic: missing
 common: share-missing-alerts-safely
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "U.S. Department of Justice, Operation Lady Justice: When a Loved One Goes Missing (November 2021), sections on flyers, social media, media, and intentional disappearance"
     url: https://www.justice.gov/tribal/media/1268781/dl?inline=
@@ -27,54 +27,40 @@ sources:
     checkedAt: "2026-11-03"
 ---
 
-Share only alerts from police or the family's official page, link to the original instead of copying it, and stop sharing once the person is found. Never add rumors, home addresses, or your own guesses.
+Share alerts that come from law enforcement, point people to the police tip line instead of anyone's personal contact details, and do not add details the official alert left out.
 
-A shared post can bring in the one tip that matters. A careless one can spread false information, expose private details, help scammers, or follow someone long after they are safe. These habits keep your help useful.
+The U.S. Department of Justice guide *When a Loved One Goes Missing* (November 2021) says sharing a flyer on social media can reach people across a large area quickly. The same guide, and the Justice Department's AMBER Alert materials, also set out what to leave out.
 
 ## 1. Check the source first
 
-- **Official alerts come from law enforcement.** The U.S. Department of Justice AMBER Alert FAQ says AMBER Alerts are issued once law enforcement has determined that a child has been abducted and the case meets the criteria. Florida's Department of Law Enforcement says only law enforcement can request a state Silver Alert, and the Texas Department of Public Safety says only a law enforcement agency or authorized entity can activate its state alert network.
-- **Find the original.** Look for the post on the police department's, state agency's, or family's own account. A screenshot with no source, no date, and no agency name is a warning sign.
-- **Sign up for official alerts.** Several states let the public subscribe directly. Florida and Texas, for example, both offer sign-up pages on their official sites. Following official channels means you see updates and cancellations too.
+- **Official alerts come from law enforcement.** The Justice Department's AMBER Alert FAQ says AMBER Alerts are issued once law enforcement has determined that a child has been abducted and the case meets the criteria. Florida's Department of Law Enforcement says only law enforcement can request a State Silver Alert, and the Texas Department of Public Safety says only a law enforcement agency or authorized entity can request activation of its state alert network.
+- **Sign up for official alerts.** Florida lets the public sign up to receive Silver Alerts by email or text, and the Texas Department of Public Safety offers a page to subscribe to its alerts and view active ones.
 
-## 2. Share the link, not a copy
+## 2. Use the tip line the police gave
 
-Re-share the original post or link instead of downloading the photo and posting it fresh. When the case is updated or closed, the original changes; your copy does not.
+The Justice Department guide tells families to share the police non-emergency number or hotline for tips and to avoid sharing personal contact information online. It says not to put a home address, personal phone number, or personal email address on a flyer, and to use the police agency's preferred contact number instead.
 
-The OJJDP best-practices guide for broadcasters says an AMBER Alert should be ended as soon as the announcement is no longer needed. Copies that keep circulating after that can bury newer, active alerts and keep someone's photo online for no reason.
+The Justice Department's AMBER Alert guide for broadcasters says each alert should include a phone number for the public to call. Florida asks anyone who sees the person or vehicle in a Silver Alert to call 911 right away.
 
-## 3. Use the tip line the police gave
+## 3. Don't add to the story
 
-The Justice Department guide *When a Loved One Goes Missing* (November 2021) tells families to post the police non-emergency number or hotline for tips, and to avoid sharing personal contact information online. Follow the same rule:
+- **Nothing extra.** The AMBER Alert guide for broadcasters says nothing will be added to the official AMBER Alert message, and that broadcasters should question any speculative reports.
+- **Keep sensitive details private.** The Justice Department guide says to decide what to share publicly, keep sensitive details about the person private, and coordinate with police about which case details to share. The AMBER Alert guide asks for particular care with details such as race, disabilities, religion, and other sensitive information that has no bearing on finding the child.
+- **Only their photo.** The Justice Department guide recommends photos showing only the missing person, to protect other people's privacy and avoid confusion.
+- **Blaming comments.** The guide warns families they may get comments that shame or blame the missing person, and says they do not need to reply and can delete them.
 
-- Tell people to call the number in the official alert, or 911 if they see the person now.
-- Do not post the family's home address or personal phone number.
-- Do not send tips in comments. Call them in.
+## 4. Remember an adult may have left on purpose
 
-## 4. Don't add to the story
+The Justice Department guide explains that adults have the right to leave, and that some disappear to escape domestic or sexual violence. In those cases, it says, confidentiality "can be one of survival," and when a missing adult is found alive, the person must consent before police share their location with family.
 
-- **No guessing.** Do not speculate about why the person disappeared, who might be involved, or what happened. The Justice Department guide warns families they may get comments that shame or blame the missing person, and says they can delete them.
-- **No extra details.** The guide says to keep sensitive details private and to coordinate with police about what case details to share. Do not add medical history, family conflicts, or anything the official post left out.
-- **Only their photo.** The guide recommends photos showing only the missing person, so other people's privacy is protected and nobody gets confused.
+## 5. Watch for scams
 
-## 5. Remember an adult may have left on purpose
+The Justice Department guide says the FBI warns families to beware of scammers exploiting a loved one's disappearance for money. In a 2022 alert, FBI Pittsburgh described callers who scanned social media for people traveling, then phoned their relatives claiming the person was in danger or had been kidnapped and demanding money. The FBI advises hanging up and calling a family member to check, reporting the call to local police or the FBI, and never wiring money based on a request made over the phone or in an email.
 
-The Justice Department guide explains that adults have the right to leave, and that some disappear to escape domestic or sexual violence. In those cases, it says, confidentiality "can be one of survival," and when a missing adult is found alive, the person must consent before police share their location.
+## 6. Alerts end when they are no longer needed
 
-So be careful with posts about adults that do not come from police. A person "looking for" someone is not always a worried relative. If a post has no police case number or agency contact, think twice before sharing it.
-
-## 6. Watch for scams
-
-The Justice Department guide says the FBI warns families to beware of scammers exploiting a loved one's disappearance for money. In a 2022 alert, FBI Pittsburgh described callers who scanned social media for people traveling, then phoned their relatives claiming the person was in danger or had been kidnapped and demanding money. The FBI advises hanging up, calling a family member to check, reporting the call to police or the FBI, and never wiring money based on a phone or email request.
-
-Do not share fundraising links for a missing person unless the family or police point to them directly.
-
-## 7. When the person is found, stop
-
-- Delete or update your post so it says the person has been found.
-- Do not share photos or details of how or where they were found.
-- Do not share old posts "for awareness." The person deserves to move on.
+The AMBER Alert guide for broadcasters says law enforcement will quickly end an AMBER Alert when the threat is no longer imminent, and that an alert will be ended as soon as it is no longer needed. The Justice Department guide tells families to notify police right away if the missing person comes home or makes contact.
 
 ## Why fewer, better alerts matter
 
-The AMBER Alert FAQ says AMBER Alerts are used only in the most serious cases, because overuse could leave the public desensitized when alerts are issued. The same logic applies to your feed: one accurate, current, official alert is worth more than ten unverified ones.
+The AMBER Alert FAQ says AMBER Alerts are used only in the most serious cases, because overuse could leave the public desensitized when alerts are issued. The Texas Department of Public Safety says each of its alert programs has criteria to prevent public desensitization.

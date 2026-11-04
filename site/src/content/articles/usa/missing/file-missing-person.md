@@ -1,10 +1,10 @@
 ---
 title: How do you report a missing person in the United States?
-description: Contact the police where the person was last seen, by 911 if they may be in danger, and file a missing person report. There is no legal waiting period for anyone under 21, and the "wait 24 hours" rule is a myth.
+description: Contact the police where the person was last seen, by 911 if they may be in danger, and file a missing person report. There is no legal waiting period for anyone under 21, and California's police training agency calls the "wait 24 hours" idea a common myth.
 region: usa
 topic: missing
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "34 U.S.C. § 41307, Reporting requirement for missing children (Office of the Law Revision Counsel, current through Pub. L. 119-120)"
     url: https://uscode.house.gov/us/usc/119-120/t34/s41307
@@ -32,7 +32,7 @@ sources:
     checkedAt: "2026-11-03"
 ---
 
-Contact the police where the person was last seen, by 911 if they may be in danger, and file a missing person report. There is no legal waiting period for anyone under 21, and the "wait 24 hours" rule is a myth.
+Contact the police where the person was last seen, by 911 if they may be in danger, and file a missing person report. There is no legal waiting period for anyone under 21, and California's police training agency calls the "wait 24 hours" idea a common myth.
 
 Missing person reports in the United States are taken by local, county, state, and tribal police agencies, and each state adds its own rules on top of federal law. Here is what federal law sets, what differs by state, and how to get your report in.
 
@@ -45,9 +45,9 @@ Missing person reports in the United States are taken by local, county, state, a
 - The report must be entered into the state system, NCIC, and NamUs within 2 hours of receipt (34 U.S.C. § 41308(3)).
 - Within 30 days, the agency must verify and update the record, adding medical and dental records and a photo taken in the past 180 days where available (34 U.S.C. § 41308(4)(A)).
 
-**For adults 21 and older: it depends on the state and agency.** The U.S. Department of Justice guide *When a Loved One Goes Missing* (November 2021) says there is no standard, national protocol for how local police respond to missing adults over 21. Some states go further than federal law. California's Penal Code § 14211(a), as summarized in California POST's 2024 guidelines, requires every police and sheriff's department to accept any report of a missing person without delay, and to accept it regardless of jurisdiction. The same guidelines call the idea that 24 hours must pass before police will take a report a "common myth."
+**For adults 21 and older: it depends on the state and agency.** The U.S. Department of Justice guide *When a Loved One Goes Missing* (November 2021) says there is no standard, national protocol for how local police respond to missing adults over 21. Some states go further than federal law. California's Penal Code § 14211(a), as summarized in California POST's 2024 guidelines, makes it the duty of all law enforcement agencies to immediately assist anyone trying to report a missing person or runaway, and requires the report to be accepted regardless of jurisdiction. The same guidelines call the idea that 24 hours (or any other time frame) must pass before police will accept a report a "common myth."
 
-Your state's law may be different. Do not let a waiting-period rumor stop you from calling.
+Your state's law may be different. The Justice Department guide says to contact police as soon as possible to file a report, whatever the person's age.
 
 ## Who to call
 
@@ -60,7 +60,7 @@ Florida's Department of Law Enforcement gives the same basic rule: contact the l
 
 ## How to file
 
-You can report in person, by phone, or online, according to the Justice Department guide; ask your local agency which it accepts. Give as much as you can:
+You can report in person, by phone, or online, according to the Justice Department guide. Give as much as you can:
 
 - a recent photo
 - name, nicknames, date of birth
@@ -83,7 +83,7 @@ For a child, the federal statute lists what the police record must include: name
 
 ## Use NamUs
 
-The National Missing and Unidentified Persons System (NamUs), administered by the Justice Department's National Institute of Justice (NIJ), is a central database and support program for missing, unclaimed, and unidentified person cases. According to NIJ, families can create an account to enter their missing loved one; NamUs staff then verify the report with law enforcement, or connect the family with an agency if a report still needs to be made. Families can also work with NamUs to provide DNA samples for comparison.
+The National Missing and Unidentified Persons System (NamUs), administered by the Justice Department's National Institute of Justice (NIJ), is a central database and support program for missing, unclaimed, and unidentified person cases. According to NIJ, families can create an account to enter their missing loved one; NamUs staff then verify the report with law enforcement, or connect the family with an agency if a report still needs to be made. The Justice Department guide adds that if police have not gathered biometric information such as DNA, families can contact NamUs regional specialists for support.
 
 The Justice Department guide lists NamUs at 833-872-5176 and namus@usdoj.gov.
 

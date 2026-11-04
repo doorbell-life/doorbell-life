@@ -5,7 +5,7 @@ region: usa
 topic: animals
 common: before-adopting
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "CDC: Ways to Stay Healthy Around Animals (Healthy Pets, Healthy People), dated May 4, 2026"
     url: https://www.cdc.gov/healthy-pets/about/index.html
@@ -25,11 +25,14 @@ sources:
   - name: "LA Animal Services (City of Los Angeles): Licenses"
     url: https://www.laanimalservices.com/licensing
     checkedAt: "2026-11-03"
+  - name: "American Veterinary Medical Association (professional association): Microchips reunite pets with families"
+    url: https://www.avma.org/resources-tools/pet-owners/petcare/microchips-reunite-pets-families
+    checkedAt: "2026-11-04"
 ---
 
 Before you adopt, make sure the animal fits your household's time, space, budget, and health needs, learn your city or county's licensing rules, and gather the ID, paperwork, and supplies the shelter will ask for on adoption day.
 
-Rules in the United States are set mostly by cities and counties, so the details below use two public shelters as examples: the City of Los Angeles (LA Animal Services) and Montgomery County, Maryland. Check your own local animal services agency before you go.
+Licensing and adoption rules differ from place to place, so the details below use two public shelters as examples: the City of Los Angeles (LA Animal Services) and Montgomery County, Maryland.
 
 ## 1. Pick an animal that fits your life
 
@@ -40,7 +43,7 @@ The CDC's Healthy Pets, Healthy People guidance says different pets need differe
 - food, housing, and exercise needs, and
 - veterinary care costs.
 
-The CDC also asks you to think about everyone in your household and who will actually take care of the pet day to day. A dog that will live 15 years, a rabbit that needs space to move, and a cat that needs yearly vet visits are very different commitments.
+The CDC also asks you to think about everyone in your household and who will actually take care of the pet day to day.
 
 ## 2. Think about who in your home is at higher risk
 
@@ -49,44 +52,44 @@ Some people are more likely to get sick from germs that animals carry. The CDC n
 If you are considering a reptile or amphibian, the CDC is more specific:
 
 - Children younger than 5 should not handle or touch reptiles or amphibians or their habitats, because they are at higher risk of serious illness from *Salmonella*.
-- Reptiles and amphibians need specialized care, and the CDC notes that most veterinarians do not treat them, so find an exotic-animal vet before you bring one home.
-- The CDC also tells you to check local laws, since some species may be restricted where you live.
+- Reptiles and amphibians need specialized care, and the CDC notes that most veterinarians do not treat them. It advises finding an exotic veterinarian in your area.
+- The CDC also tells you to check state, local, and property laws first, since some reptiles or amphibians might not be allowed in apartments or rental homes.
 
-The CDC also says not to adopt or touch wild animals. If you find a wild animal that seems to be in trouble, call a local wildlife rehabilitation facility.
+The CDC also says not to adopt or touch wild animals. If you are concerned about the safety of a wild animal, it says to contact a local wildlife rehabilitation facility.
 
 ## 3. Budget for ongoing care
 
-The CDC calls regular veterinary visits essential and recommends keeping up with vaccines, deworming, and flea and tick control. Plan for these costs every year, not just at adoption.
+Veterinary care costs are on the CDC's list of things to think about before adopting. The CDC calls regular veterinary visits essential and recommends keeping up with your pet's vaccines, deworming, and flea and tick control.
 
 ## 4. Learn your local licensing rules
 
-Most places in the U.S. require a pet license from the city or county, and you usually need proof of rabies vaccination to get one. Two examples:
+Licensing is handled locally. In both example places, you need proof of rabies vaccination to get a license:
 
 - **City of Los Angeles:** all dogs over four months old must be licensed and spayed or neutered, and the license is valid only while the dog's rabies vaccination is current.
 - **Montgomery County, Maryland:** dogs and cats over four months old must wear current rabies and county license tags. The county notes that the rabies tag from your vet is not the county license.
 
-If you already have pets, check that their licenses and rabies vaccinations are current. Some shelters will ask about them.
+Montgomery County requires adopters of animals in foster care to bring rabies certificates for pets already in the home, and county residents must license those pets if they are not already licensed.
 
 ## 5. Get your documents ready
 
 Shelters ask for different things, so read your shelter's adoption page. The two examples:
 
-- **Montgomery County:** bring a government-issued photo ID. To finalize, you must bring copies of rabies certificates for any dogs, cats, or ferrets already in your home, and county residents must buy licenses for any household pets that aren't already licensed. You can fill out the adoption questionnaire online ahead of time.
+- **Montgomery County:** bring a government-issued photo ID, such as a driver's license. You can fill out the adoption questionnaire online ahead of time or at the shelter. If you adopt an animal that is in foster care, you must bring copies of rabies certificates for any dogs, cats, or ferrets in your household when you finalize, and county residents must buy licenses for household pets that aren't already licensed.
 - **City of Los Angeles:** a government-issued photo ID (driver's license, state ID, or passport) is required. If you pay by credit card, the name on the card must match the ID.
 
 ## 6. Bring supplies for the trip home
 
-Montgomery County asks adopters to bring a carrier for a cat or small animal, or a leash and a collar or harness for a dog, and asks you not to bring retractable leashes. Many shelters complete adoptions the same day, so arrive ready to take the animal home.
+Montgomery County asks adopters to bring a carrier for a cat or small animal, or a leash and a collar or harness for a dog, and asks you not to bring retractable leashes. It does same-day adoptions and asks you to be prepared to take the animal home as soon as you finalize the adoption.
 
 ## 7. Plan for identification
 
-A collar tag, a license tag, and a registered microchip work together to get a lost pet home. Shelters often microchip animals before adoption (both example shelters include a microchip in the adoption fee), but the chip only helps if you register it and keep your contact information current. See [Why should you microchip your pet?](/articles/usa/animals/why-microchip/) and [How do pet licensing and microchip registration work in the U.S.?](/articles/usa/animals/pet-registration/).
+LA Animal Services says license tags identify the guardians of lost animals, and that while collars may fall off and tags may get lost, a microchip stays with your pet for life. Both example shelters include a microchip in the adoption fee for dogs and cats. The American Veterinary Medical Association says a microchip is only as effective as the information linked to it, so owners must register the chip and keep their contact information current. See [Why should you microchip your pet?](/articles/usa/animals/why-microchip/) and [How do pet licensing and microchip registration work in the U.S.?](/articles/usa/animals/pet-registration/).
 
 ## A short checklist
 
 - The animal's lifespan, size, care needs, and yearly costs fit your household.
-- You've talked to a vet if anyone at home is at higher risk of animal-related illness.
+- You've talked to a vet about the best pet for your household.
 - You know your city or county's license and rabies rules.
-- You have a government photo ID and records for pets you already have.
+- You have a government photo ID, and any records your shelter asks for.
 - You have a carrier or a leash and collar.
 - You know how you'll register the microchip after adoption.
