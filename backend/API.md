@@ -25,7 +25,7 @@ Cloudflare Worker（`backend/`），網域預定 `api.doorbell.life`。資料庫
   - `template`：`bell` | `full-image` | `one-line`
   - `primary`：`oklch(L C H)`，L 0.45–0.55（淺底對比）；伺服器同時算出 hex 備援
   - `font`：白名單（系統字型堆疊、Noto Sans TC、Noto Serif TC）
-  - `logo`、`mascot`：先 `POST /brand/assets`（PNG/WebP/SVG 不收、≤200KB、只收 PNG/WebP）取得 CDN 網址
+  - `logo`、`mascot`：先 `POST /brand/assets`（只收 PNG、WebP，不收 SVG 以免夾帶腳本；≤200KB）取得 CDN 網址
   - 存檔即輸出 `b/{id}.json`：`{ "t": template, "v": { "brand": hex, "brand-o": oklch }, "n": name, "logo": url? }`，元件只讀這個靜態檔
 - `PUT /brand/sites` `{ sites: string[] }`：品牌主宣告自己的網域（報表只算這些網域）
 
