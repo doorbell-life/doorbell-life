@@ -38,6 +38,11 @@ export function collect(): Map<string, Set<string>> {
 
 export type Verdict = "ok" | "broken" | "blocked";
 
+// 已確認會擋雲端機房的網域（見 .github/link-blocklist.json）
+const BLOCKING_HOSTS = new Set<string>(
+  JSON.parse(readFileSync(join(ROOT, ".github/link-blocklist.json"), "utf8")).domains.map((d: { domain: string }) => d.domain),
+);
+
 export function judge(url: string, code: number, type: string, redirects = 0): Verdict {
   // 405、406 也是擋程式（例如 NIA 的頁面用瀏覽器讀得到，2026-11-04 實測）
   if ([401, 403, 405, 406, 429].includes(code) || code === 0) return "blocked";
@@ -64,7 +69,11 @@ async function main() {
   for (let i = 0; i < list.length; i += 8) {
     const batch = list.slice(i, i + 8);
     const out = await Promise.all(batch.map(async (u) => ({ u, ...(await check(u)) })));
-    for (const r of out) results.push({ url: r.u, v: judge(r.u, r.code, r.type, r.redirects), code: r.code });
+    for (const r of out) {
+      let v = judge(r.u, r.code, r.type, r.redirects);
+      if (v === "broken" && BLOCKING_HOSTS.has(new URL(r.u).host)) v = "blocked";
+      results.push({ url: r.u, v, code: r.code });
+    }
   }
   const broken = results.filter((r) => r.v === "broken");
   const blocked = results.filter((r) => r.v === "blocked");
