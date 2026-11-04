@@ -42,3 +42,11 @@ Cloudflare Worker（`backend/`），網域預定 `api.doorbell.life`。資料庫
 - `cdn.doorbell.life`：一個 Worker，Workers 靜態資源提供 `dist/cdn`（元件、每日資料、範本）；`/s` 曝光統計；`/b/{id}.json` 與品牌素材由 R2 提供。
 - `api.doorbell.life`：品牌主後台 API（`/auth/*`、`/brand/*`）。
 - 寄信：不用 Cloudflare Email Service（寄給任意收件人需付費方案），改用有免費額度的服務，經 `mailer` 介面接上。
+
+## 寄信（2026-11-04 選定 Resend，比較見 EMAIL.md）
+
+- 服務：Resend 免費方案（每月 3,000 封、每天 100 封，永久免費，可用自己的網域）。
+- 介面：`src/mailer.ts` 的 `Mailer.send({ to, subject, text })`。正式環境 `mailerFromEnv(env)` → `POST https://api.resend.com/emails`，`Authorization: Bearer ${RESEND_API_KEY}`，JSON `{ from: MAIL_FROM, to: [to], subject, text }`。測試注入假的寄件器或假的 `fetch`。
+- 設定：secret `RESEND_API_KEY`（`wrangler secret put RESEND_API_KEY`，權限 `sending_access`；`wrangler.jsonc` 的 `secrets.required` 列名，不放值），var `MAIL_FROM` = `login@doorbell.life`。寄件網域 `doorbell.life` 要先在 Resend 驗證，DNS 紀錄見 EMAIL.md。
+- 信件內容：只送純文字、繁體中文，寫明連結 15 分鐘內有效、只能用一次，沒有要求就忽略。不送 HTML，不開 Resend 的開信、點擊追蹤（網域設定預設關閉，保持關閉）。
+- 失敗：`/auth/request` 先回 202，信在 `ctx.waitUntil` 裡寄；寄信失敗不改變回應（不洩漏帳號存在與否）。錯誤只丟 `MailError.code`，格式 `resend_{HTTP 狀態}_{Resend 錯誤 name}`（例如 `resend_429_daily_quota_exceeded`）、`resend_network`、`resend_no_api_key`；不帶 Resend 的錯誤訊息（可能含收件信箱），log 只記這個代碼，不記信箱、token、金鑰。不重試。

@@ -15,8 +15,10 @@
   "vars": {
     "SITE_ORIGIN": "https://doorbell.life",
     "CDN_BASE": "https://cdn.doorbell.life",
-    "MAIL_FROM": "login@doorbell.life"
+    "MAIL_FROM": "login@doorbell.life" // 寄件者；doorbell.life 要先在 Resend 驗證（EMAIL.md）
   },
+  // 寄信用 Resend：`wrangler secret put RESEND_API_KEY`（只授權寄信的金鑰）。金鑰不進 repo、不放 vars。
+  "secrets": { "required": ["RESEND_API_KEY"] },
   "d1_databases": [
     {
       "binding": "DB",
@@ -31,7 +33,7 @@
       "bucket_name": "doorbell-life-brand" // PLACEHOLDER：品牌設定 b/{id}.json 與品牌素材，需能經 cdn.doorbell.life/b/ 讀到
     }
   ],
-  // Cloudflare Email Service（Beta）。寄給任意收件者需要 Workers Paid 方案。
+  // Cloudflare Email Service（Beta）。寄給任意收件者需要 Workers Paid 方案，已改用 Resend；src/index.ts 改接 mailerFromEnv 後刪除這段。
   "send_email": [
     {
       "name": "EMAIL",
