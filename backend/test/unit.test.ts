@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { DnsError, parseTxt, txtRecords } from "../src/dns.ts";
 import { oklchToHex } from "../src/oklch.ts";
 import * as v from "../src/validate.ts";
 
@@ -84,5 +85,35 @@ describe("validate", () => {
     expect(v.date("2026-02-28")).toBe("2026-02-28");
     expect(v.date("2026-02-30")).toBeNull();
     expect(v.date("2026-2-1")).toBeNull();
+  });
+
+  it("declaredImageType accepts only image/png and image/webp", () => {
+    expect(v.declaredImageType("image/png")).toBe("png");
+    expect(v.declaredImageType("Image/WebP; q=1")).toBe("webp");
+    for (const bad of [null, "", "image/svg+xml", "image/jpeg", "text/html"]) expect(v.declaredImageType(bad)).toBeNull();
+  });
+
+  it("font whitelist matches the front end's values", () => {
+    expect(Object.keys(v.FONTS)).toEqual(["system", "Noto Sans TC", "Noto Serif TC"]);
+  });
+});
+
+describe("dns", () => {
+  it("parseTxt joins split strings and unescapes quotes (DoH JSON data format)", () => {
+    expect(parseTxt('"doorbell-life-verify=abc"')).toBe("doorbell-life-verify=abc");
+    expect(parseTxt('"v=spf1 ip4:192.30.252.0/22 ip4:62.253.2" "27.114 ~all"')).toBe("v=spf1 ip4:192.30.252.0/22 ip4:62.253.227.114 ~all");
+    expect(parseTxt('"say \\"hi\\""')).toBe('say "hi"');
+  });
+
+  it("txtRecords: NXDOMAIN is empty, SERVFAIL and HTTP errors throw", async () => {
+    const reply = (body: unknown, status = 200) => (async () => Response.json(body, { status })) as unknown as typeof fetch;
+    expect(await txtRecords("x.example", reply({ Status: 3 }))).toEqual([]);
+    expect(await txtRecords("x.example", reply({ Status: 0, Answer: [{ type: 5, data: "y." }, { type: 16, data: '"a"' }] }))).toEqual(["a"]);
+    await expect(txtRecords("x.example", reply({ Status: 2 }))).rejects.toBeInstanceOf(DnsError);
+    await expect(txtRecords("x.example", reply({}, 500))).rejects.toBeInstanceOf(DnsError);
+    const boom = (async () => {
+      throw new TypeError("network");
+    }) as unknown as typeof fetch;
+    await expect(txtRecords("x.example", boom)).rejects.toBeInstanceOf(DnsError);
   });
 });

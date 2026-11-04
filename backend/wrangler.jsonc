@@ -7,9 +7,25 @@
   "main": "src/index.ts",
   "compatibility_date": "2026-11-04",
   "compatibility_flags": ["nodejs_compat"],
-  // 網域註冊後再開：api.doorbell.life 指到本 Worker
-  // "routes": [{ "pattern": "api.doorbell.life", "custom_domain": true }],
+  // 一個 Worker 提供兩個網域（CLAUDE.md §13 網域安排），程式依主機名稱分流（src/app.ts）：
+  //   cdn.doorbell.life：靜態資源（下面的 assets）＋ /s 曝光統計 ＋ /b/ 品牌設定與素材（R2）
+  //   api.doorbell.life：/auth/*、/brand/*
+  // 網域註冊後再開：
+  // "routes": [
+  //   { "pattern": "cdn.doorbell.life", "custom_domain": true },
+  //   { "pattern": "api.doorbell.life", "custom_domain": true }
+  // ],
   "workers_dev": false,
+  // Workers 靜態資源：根目錄 `pnpm build` 組出的 dist/cdn（元件、樣式、每日資料、時區對應、範本）。
+  // 靜態資源請求免費、不限次數，不算 Worker 呼叫；只有 run_worker_first 列的路徑和找不到檔案的請求才會執行 Worker。
+  // dist/cdn 裡的 _redirects（/z/{時區}.json → /d/{地區}.json 200）與 _headers（CORS、nosniff）由靜態資源直接套用。
+  // 快取沿用靜態資源預設：Cache-Control: public, max-age=0, must-revalidate ＋ ETag（元件更新後下一位訪客就拿到新版）。
+  "assets": {
+    "directory": "../dist/cdn",
+    "not_found_handling": "none",
+    "html_handling": "none",
+    "run_worker_first": ["/s", "/b/*"]
+  },
   "send_metrics": false,
   "observability": { "enabled": true, "head_sampling_rate": 0.1 },
   "vars": {

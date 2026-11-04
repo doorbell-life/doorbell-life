@@ -8,7 +8,7 @@
     "node": ">=22.23.4"
   },
   "scripts": {
-    "build": "pnpm -r build && node .github/scripts/assemble-cdn.ts",
+    "build": "pnpm -r --filter \"!@doorbell-life/backend\" build && node .github/scripts/assemble-cdn.ts && pnpm --filter @doorbell-life/backend build",
     "test": "vitest run --passWithNoTests && pnpm --filter @doorbell-life/backend test",
     "test:e2e": "playwright test",
     "sync": "pnpm --filter \"./regions/*\" sync",

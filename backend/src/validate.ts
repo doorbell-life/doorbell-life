@@ -42,11 +42,11 @@ export function date(v: unknown): string | null {
 export const TEMPLATES = ["bell", "full-image", "one-line"] as const;
 export type Template = (typeof TEMPLATES)[number];
 
-/** 字型白名單：鍵 → 實際字型堆疊。 */
+/** 字型白名單：值就是前端送來的字串（site/src/lib/brand.ts 的 FONTS）→ 實際字型堆疊。 */
 export const FONTS = {
   system: 'system-ui, -apple-system, "Segoe UI", sans-serif',
-  "noto-sans-tc": '"Noto Sans TC", system-ui, sans-serif',
-  "noto-serif-tc": '"Noto Serif TC", serif',
+  "Noto Sans TC": '"Noto Sans TC", system-ui, sans-serif',
+  "Noto Serif TC": '"Noto Serif TC", serif',
 } as const;
 export type Font = keyof typeof FONTS;
 
@@ -94,6 +94,12 @@ export function sites(v: unknown): string[] | null {
     out.add(h);
   }
   return [...out].sort();
+}
+
+/** 上傳時宣告的 Content-Type：只收 image/png、image/webp（可帶參數）。 */
+export function declaredImageType(v: string | null): "png" | "webp" | null {
+  const t = (v ?? "").split(";")[0].trim().toLowerCase();
+  return t === "image/png" ? "png" : t === "image/webp" ? "webp" : null;
 }
 
 /** 圖片類型以檔頭判斷，不信任 Content-Type。只收 PNG、WebP。 */
