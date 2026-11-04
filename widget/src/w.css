@@ -1,21 +1,35 @@
 /* doorbell.life widget 樣式。方向「門鈴燈」：中性灰藍底，只用一個橘色圓點當「門鈴亮了」的記號。
-   色彩取自 design-tokens（中性軸 hue 250；圓點用 --color-high）。字級用 px 而非 rem，避免被宿主根字級縮小到 18px 以下。 */
+   色彩取自 design-tokens（中性軸 hue 250；圓點用 --color-high）。字級用 px 而非 rem，避免被宿主根字級縮小到 18px 以下。
+   字型只用系統字型：品牌主選的字型不由元件載入（保住元件大小，也不讓訪客連到字型服務）。
+   品牌（CLAUDE.md §6）：套品牌時根元素帶版型 class（dbl-bell／dbl-full-image／dbl-one-line）；失蹤協尋個案不帶，維持中性。
+   品牌色只從 --b-brand-o（oklch）／--b-brand（hex）讀，且只用在只吃顏色的屬性，品牌設定就算塞 url() 也不會載入外部資源。 */
 .dbl{--dbl-bg:oklch(.97 .005 250);--dbl-fg:oklch(.2 .01 250);--dbl-mute:oklch(.45 .01 250);--dbl-line:oklch(.85 .005 250);--dbl-link:oklch(.48 .15 250);--dbl-bell:oklch(.55 .16 55);
 all:initial;display:block;box-sizing:border-box;max-width:640px;margin:24px auto;padding:24px;
-border:1px solid var(--dbl-line);border-radius:12px;background:var(--dbl-bg);color:var(--dbl-fg);
+border:1px solid var(--dbl-line);border-radius:12px;background-color:var(--dbl-bg);color:var(--dbl-fg);overflow-wrap:anywhere;
 font:400 24px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
-@supports not (color:oklch(0 0 0)){.dbl{--dbl-bg:#f5f6f8;--dbl-fg:#1e2030;--dbl-mute:#5e6070;--dbl-line:#d5d6da;--dbl-link:#1e5ab8;--dbl-bell:#b86a2a}}
+.dbl-bell,.dbl-full-image,.dbl-one-line{--dbl-bell:var(--b-brand-o,oklch(.55 .16 55));border-top:4px solid var(--dbl-bell)}
+@supports not (color:oklch(0 0 0)){.dbl{--dbl-bg:#f5f6f8;--dbl-fg:#1e2030;--dbl-mute:#5e6070;--dbl-line:#d5d6da;--dbl-link:#1e5ab8;--dbl-bell:#b86a2a}
+.dbl-bell,.dbl-full-image,.dbl-one-line{--dbl-bell:var(--b-brand,#b86a2a)}}
 .dbl *{all:revert;box-sizing:border-box;font:inherit;color:inherit;margin:0}
-.dbl-t,.dbl-l .dbl-h{display:flex;align-items:center;gap:14px}
+.dbl-t,.dbl-l .dbl-h,.dbl-one-line .dbl-h{display:flex;align-items:center;gap:14px}
 .dbl-t{margin-bottom:16px;font-size:20px;font-weight:700;color:var(--dbl-bell)}
-.dbl-t:before,.dbl-l .dbl-h:before{content:"";flex:none;width:18px;height:18px;margin:0 4px 0 7px;border-radius:50%;background:var(--dbl-bell);box-shadow:0 0 0 7px color-mix(in oklch,var(--dbl-bell) 28%,transparent)}
+.dbl-t:before,.dbl-l .dbl-h:before,.dbl-one-line .dbl-h:before{content:"";flex:none;width:18px;height:18px;margin:0 4px 0 7px;border-radius:50%;background-color:var(--dbl-bell);box-shadow:0 0 0 7px color-mix(in oklch,var(--dbl-bell) 28%,transparent)}
 .dbl-b:has(.dbl-i){display:grid;grid-template-columns:min(160px,35%) 1fr;gap:0 20px;align-items:start}
 .dbl-i{grid-row:span 3;width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px}
 .dbl-h{display:block;font-size:28px;font-weight:700;line-height:1.3}
 .dbl-d{margin-top:4px;color:var(--dbl-mute)}
 .dbl-n{margin-top:8px;font-weight:600}
 .dbl-w{margin-top:16px;color:var(--dbl-mute)}
-.dbl-l{padding:12px 20px}
-.dbl-l .dbl-b{display:flex;gap:16px;flex-wrap:wrap;align-items:baseline}
-.dbl-l .dbl-h{font-size:24px}
+/* 簡潔一行：401、403 一律如此；品牌選 one-line 時任何狀態碼都如此（標題、說明、圖片隱藏） */
+.dbl-l,.dbl-one-line{padding:12px 20px}
+.dbl-l .dbl-b,.dbl-one-line .dbl-b{display:flex;gap:16px;flex-wrap:wrap;align-items:baseline}
+.dbl-l .dbl-h,.dbl-one-line .dbl-h{font-size:24px}
+.dbl-one-line .dbl-t,.dbl-one-line .dbl-d,.dbl-one-line .dbl-i{display:none}
 .dbl a.dbl-s{display:block;margin-top:20px;font-size:18px;color:var(--dbl-link)}
+/* 品牌角落小字「由 {品牌} 支持」＋ Logo：Logo 在文字左邊，整組靠右 */
+.dbl-o{grid-column:1/-1;display:flex;flex-direction:row-reverse;align-items:center;gap:8px;margin:12px 0 0 auto;font-size:18px;color:var(--dbl-mute)}
+.dbl-g{flex:none;height:32px;width:auto;max-width:120px;object-fit:contain}
+/* 滿版圖：個案照片放最上面、撐滿卡片寬度，文字在下。沒有照片就沒有 .dbl-i，自然退回門鈴燈 */
+.dbl-full-image:has(.dbl-i){display:flex;flex-direction:column}
+.dbl-full-image .dbl-b:has(.dbl-i){display:contents}
+.dbl-full-image .dbl-i{order:-1;width:calc(100% + 48px);max-width:none;margin:-24px -24px 20px;aspect-ratio:16/9;border-radius:8px 8px 0 0}
