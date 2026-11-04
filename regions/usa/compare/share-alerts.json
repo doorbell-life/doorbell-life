@@ -1,0 +1,23 @@
+{
+  "practice": "The Justice Department's AMBER Alert program says alerts are used only in the most serious cases, because overuse could leave the public desensitized. OJJDP's best-practices guide for broadcasters asks for particular care in mentioning race or nationality, disabilities, sexual orientation, political affiliation, religion and other sensitive information that has no bearing on locating the child, and says an alert should be ended as soon as it is no longer needed. The Justice Department's guide for families of missing adults recommends keeping sensitive details private and posting photos that show only the missing person.",
+  "fields": {
+    "official-channel": {
+      "value": "AMBER Alerts are issued by law enforcement and sent to broadcasters, highway signs and, through FEMA's Wireless Emergency Alerts, to phones. Other alerts are run by states; for example, the Texas Department of Public Safety says only a law enforcement agency or authorized entity can activate its statewide alert network, and it offers public pages to view active alerts and subscribe. Florida's Department of Law Enforcement also offers Silver Alert sign-up by email or text.",
+      "sources": [
+        { "name": "AMBER Alert (U.S. Department of Justice, OJP): Frequently Asked Questions", "url": "https://amberalert.ojp.gov/about/faqs", "checkedAt": "2026-11-04" },
+        { "name": "Texas Department of Public Safety: Statewide Alert Programs", "url": "https://www.dps.texas.gov/section/intelligence-counterterrorism/statewide-alert-programs", "checkedAt": "2026-11-04" },
+        { "name": "Florida Department of Law Enforcement: Silver Alert FAQ", "url": "https://www.fdle.state.fl.us/crime-public-safety/alerts-missing-persons/mepic/types-of-alerts/silver-alert/silver-alert-faq", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "minor-privacy": null,
+    "false-info-penalty": null,
+    "remove-after-found": {
+      "value": "The issuing law enforcement agency ends the alert: Justice Department guidance for broadcasters says an AMBER Alert should be terminated as soon as it is no longer needed. In Florida, as an example, the local agency decides, and an alert generally stays active until the person is recovered. The Justice Department's family guide tells families to plan to remove fliers when the child is found.",
+      "sources": [
+        { "name": "OJJDP: AMBER Alert Best Practices Guide for Broadcasters and Other Media Outlets (April 2005)", "url": "https://ojjdp.ojp.gov/sites/ojjdp/files/pubs/amberalert/AMBERAlertMediaGuide.pdf", "checkedAt": "2026-11-04" },
+        { "name": "Florida Department of Law Enforcement: Silver Alert FAQ", "url": "https://www.fdle.state.fl.us/crime-public-safety/alerts-missing-persons/mepic/types-of-alerts/silver-alert/silver-alert-faq", "checkedAt": "2026-11-04" },
+        { "name": "OJJDP (U.S. Department of Justice): When Your Child Is Missing: A Family Survival Guide, 5th Edition, 2025 Update", "url": "https://ojjdp.ojp.gov/publications/family-survival-guide-fifth-edition.pdf", "checkedAt": "2026-11-04" }
+      ]
+    }
+  }
+}

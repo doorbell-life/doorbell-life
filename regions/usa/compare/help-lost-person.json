@@ -1,0 +1,28 @@
+{
+  "practice": "Florida's Department of Law Enforcement asks the public, when they come across an older adult who seems lost or disoriented and may not find their way home, to contact law enforcement, noting that this may help prevent a Silver Alert. North Dakota's state child-safety guidance teaches children who are separated from their parents in a public place to go to a checkout counter, security office or lost and found rather than wander.",
+  "fields": {
+    "call-number": {
+      "value": "Call 911 if the person is in danger or at immediate risk, which the Justice Department says includes a missing older adult with cognitive disabilities or someone out in extreme heat or cold; otherwise call the local police non-emergency number. For a missing child, USAGov also lists the National Center for Missing & Exploited Children (1-800-THE-LOST), a private nonprofit.",
+      "sources": [
+        { "name": "U.S. Department of Justice, Operation Lady Justice: When a Loved One Goes Missing (November 2021)", "url": "https://www.justice.gov/tribal/media/1268781/dl?inline=", "checkedAt": "2026-11-04" },
+        { "name": "USAGov: Report a crime", "url": "https://www.usa.gov/report-crime", "checkedAt": "2026-11-04" },
+        { "name": "OJJDP (U.S. Department of Justice): When Your Child Is Missing: A Family Survival Guide, 5th Edition, 2025 Update", "url": "https://ojjdp.ojp.gov/publications/family-survival-guide-fifth-edition.pdf", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "can-you-take-them": null,
+    "id-clues": {
+      "value": "The National Institute on Aging advises caregivers to have a person with dementia carry ID or wear a medical bracelet with name, address and a caregiver's phone number, or to label clothing, so these may be on the person. For children, North Dakota's state guidance, as one example, tells parents to teach children their full names, addresses and phone numbers.",
+      "sources": [
+        { "name": "National Institute on Aging: Coping With Alzheimer's Behaviors: Wandering and Getting Lost", "url": "https://www.nia.nih.gov/health/alzheimers-changes-behavior-and-communication/coping-alzheimers-behaviors-wandering-and", "checkedAt": "2026-11-04" },
+        { "name": "North Dakota Department of Emergency Services (ND Response): Child Safety", "url": "https://ndresponse.gov/alert/amber-alert/child-safety", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "public-alerts": {
+      "value": "Yes. AMBER Alerts for abducted children are issued by law enforcement under state plans in all 50 states, D.C., Puerto Rico and the U.S. Virgin Islands, and can reach phones through FEMA's Wireless Emergency Alerts. Alerts for missing older adults are run by states; for example, in Florida only law enforcement can request a State Silver Alert, and the public is asked to call 911 if they see the person.",
+      "sources": [
+        { "name": "AMBER Alert (U.S. Department of Justice, OJP): Frequently Asked Questions", "url": "https://amberalert.ojp.gov/about/faqs", "checkedAt": "2026-11-04" },
+        { "name": "Florida Department of Law Enforcement: Silver Alert FAQ", "url": "https://www.fdle.state.fl.us/crime-public-safety/alerts-missing-persons/mepic/types-of-alerts/silver-alert/silver-alert-faq", "checkedAt": "2026-11-04" }
+      ]
+    }
+  }
+}
