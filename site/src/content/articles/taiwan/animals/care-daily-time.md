@@ -6,7 +6,7 @@ topic: animals
 series: care
 species: [dog, cat, rabbit, guinea-pig, hamster, bird]
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: 全國法規資料庫：動物保護法（修正日期民國 110 年 5 月 19 日）
     url: https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=M0060027
@@ -97,4 +97,4 @@ sources:
 | 倉鼠 | 侏儒倉鼠 2 到 3 年；黃金鼠尚未查證 |
 | 鳥 | 依種類差很多，例如虎皮鸚鵡約 10 年，灰鸚鵡可能將近 50 年 |
 
-另外，你出遊、出差或生病的日子，牠一樣要有人照顧。通則提醒，請親友或寄養業者幫忙都要另外安排時間和費用，最好在養之前就先找好人選。
+另外，你出遊、度假的日子，牠一樣要有人照顧。通則提醒，計畫出遊時要妥善規劃寵物的安置，請親友或寄養業者幫忙都要另外安排時間和費用。
