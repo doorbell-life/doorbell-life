@@ -1,0 +1,34 @@
+{
+  "practice": "LA Animal Services is part of the LA Lost Pet Coalition, a joint effort between Petco Love and 20 Los Angeles-area shelters that uses Petco Love Lost as the main lost-and-found reporting tool, so a lost or found pet can be matched before it enters a shelter. Montgomery County, Maryland, also points owners to Petco Love Lost, which compares a pet's photo with photos of found animals.",
+  "fields": {
+    "check-shelters": {
+      "value": "Each city or county shelter posts its own listings, and both example agencies say to visit in person too. LA Animal Services has an online Lost Pet Search across its six centers and advises checking daily; Montgomery County, Maryland, asks owners to visit its shelter and neighboring shelters often. Petco Love Lost, a free non-government service, searches photos of found animals from shelters and the public.",
+      "sources": [
+        { "name": "LA Animal Services (City of Los Angeles): Lost Pets", "url": "https://www.laanimalservices.com/lost-pet", "checkedAt": "2026-11-04" },
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: Lost My Pet", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/lost-found-pets/lost-my-pet", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "report-loss": {
+      "value": "Recommended by local agencies, with the local animal services agency. For example, Montgomery County, Maryland, says to file a lost report immediately, online through 24PetConnect, in person or by phone; LA Animal Services offers 24PetConnect lost-pet registration that emails daily matches and lasts 30 days.",
+      "sources": [
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: Lost My Pet", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/lost-found-pets/lost-my-pet", "checkedAt": "2026-11-04" },
+        { "name": "LA Animal Services (City of Los Angeles): Lost Pets", "url": "https://www.laanimalservices.com/lost-pet", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "update-chip": {
+      "value": "Contact the chip's registry company, not a government agency, to report the pet lost and confirm your contact details. If you know the chip number but not the registry, the AVMA (a professional association) and LA Animal Services point to lookup tools such as the American Animal Hospital Association's Microchip Registry Lookup; a vet or shelter can scan the pet to find the number.",
+      "sources": [
+        { "name": "American Veterinary Medical Association (professional association): Microchips reunite pets with families", "url": "https://www.avma.org/resources-tools/pet-owners/petcare/microchips-reunite-pets-families", "checkedAt": "2026-11-04" },
+        { "name": "LA Animal Services (City of Los Angeles): Microchipping", "url": "https://www.laanimalservices.com/microchipping", "checkedAt": "2026-11-04" },
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: Lost My Pet", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/lost-found-pets/lost-my-pet", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "hotline": {
+      "value": "The local animal services agency's phone line. For example, Montgomery County, Maryland, takes lost reports at (240) 773-5900 during open hours, and LA Animal Services lists (888) 452-7381. Both also suggest calling nearby vet clinics, and Montgomery County adds emergency vet hospitals and shelters in neighboring areas.",
+      "sources": [
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: Lost My Pet", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/lost-found-pets/lost-my-pet", "checkedAt": "2026-11-04" },
+        { "name": "LA Animal Services (City of Los Angeles): Lost Pets", "url": "https://www.laanimalservices.com/lost-pet", "checkedAt": "2026-11-04" }
+      ]
+    }
+  }
+}

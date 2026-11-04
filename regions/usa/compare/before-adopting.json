@@ -1,0 +1,36 @@
+{
+  "practice": "Some public shelters bundle the first legal and health steps into the adoption fee. LA Animal Services' fee covers sterilization, vaccinations and a microchip, plus the first-year dog license for City of Los Angeles residents, and includes a certificate for a free exam at a participating vet within three working days. Montgomery County, Maryland, includes spay or neuter, a microchip, vaccines, and flea and deworming treatment for dogs and cats.",
+  "fields": {
+    "legal-duties": {
+      "value": "Set mostly by cities and counties. For example, the City of Los Angeles requires dogs over four months to be licensed, spayed or neutered, and vaccinated against rabies, with the tag worn off the owner's premises, and allows no more than three such dogs per premises; Montgomery County, Maryland, requires dogs and cats over four months to wear current rabies and county license tags.",
+      "sources": [
+        { "name": "LA Animal Services (City of Los Angeles): Licenses", "url": "https://www.laanimalservices.com/licensing", "checkedAt": "2026-11-04" },
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: Pet Licensing", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/pet-licensing", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "must-sterilize": {
+      "value": "Depends on the place and shelter. The City of Los Angeles requires all dogs over four months to be spayed or neutered (LAMC 53.15.2(b)) and sterilizes dogs and cats eight weeks or older before releasing them to adopters; Montgomery County, Maryland, includes spay or neuter in its dog and cat adoption fee.",
+      "sources": [
+        { "name": "LA Animal Services (City of Los Angeles): Licenses", "url": "https://www.laanimalservices.com/licensing", "checkedAt": "2026-11-04" },
+        { "name": "LA Animal Services (City of Los Angeles): About Adoption", "url": "https://www.laanimalservices.com/about-adoption", "checkedAt": "2026-11-04" },
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: How to Adopt", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/adopt-pet/how-adopt", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "vaccines": {
+      "value": "Rabies is the vaccine tied to the law in the examples. LA Animal Services says California law requires all dogs to be vaccinated against rabies, while rabies vaccination for cats is recommended; Montgomery County, Maryland, requires current rabies tags on dogs and cats over four months. Other vaccines, such as distemper, are given by the shelters, and the CDC advises keeping up with a pet's vaccines.",
+      "sources": [
+        { "name": "LA Animal Services (City of Los Angeles): About Adoption", "url": "https://www.laanimalservices.com/about-adoption", "checkedAt": "2026-11-04" },
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: Pet Licensing", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/pet-licensing", "checkedAt": "2026-11-04" },
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: How to Adopt", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/adopt-pet/how-adopt", "checkedAt": "2026-11-04" },
+        { "name": "CDC: Ways to Stay Healthy Around Animals (Healthy Pets, Healthy People)", "url": "https://www.cdc.gov/healthy-pets/about/index.html", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "cost-support": {
+      "value": "Local, not national, in the examples. The City of Los Angeles offers a $10 dog license to low-income seniors (62+) and low-income disabled owners, and lists free spay and neuter certificates and discount coupons; Montgomery County, Maryland, holds free rabies vaccination clinics several times a year.",
+      "sources": [
+        { "name": "LA Animal Services (City of Los Angeles): Licenses", "url": "https://www.laanimalservices.com/licensing", "checkedAt": "2026-11-04" },
+        { "name": "Montgomery County, MD, Animal Services and Adoption Center: Pet Licensing", "url": "https://www.montgomerycountymd.gov/animal-services-adoption-center/pet-licensing", "checkedAt": "2026-11-04" }
+      ]
+    }
+  }
+}

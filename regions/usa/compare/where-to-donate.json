@@ -1,0 +1,28 @@
+{
+  "practice": "In a July 10, 2026 joint statement, the three main national blood organizations, AABB, America's Blood Centers and the American Red Cross (all non-government), gave donors one shared list of where to find a local site and book an appointment, each with a website and phone number, instead of pointing only to their own services.",
+  "fields": {
+    "operators": {
+      "value": "Non-government blood organizations in the examples found. The American Red Cross, a nonprofit, says it supplies about 40% of the nation's blood, and America's Blood Centers (an association of community blood centers) says there are 59 community blood centers in America.",
+      "sources": [
+        { "name": "American Red Cross (nonprofit): American Red Cross Declares Second-Ever National Blood Supply Crisis (July 27, 2026)", "url": "https://www.redcross.org/about-us/news-and-events/press-release/2026/red-cross-declares-national-blood-supply-crisis-urges-immediate-.html", "checkedAt": "2026-11-04" },
+        { "name": "America's Blood Centers (non-government): Current U.S. Blood Supply, Daily Inventory Report widget", "url": "https://americasblood.org/widget/", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "site-count": null,
+    "find-site": {
+      "value": "Through the non-government blood organizations' locators: AABB's wheretodonateblood.org (+1.301.907.6977), America's Blood Centers' zip code search at americasblood.org (+1.202.393.5725), or the American Red Cross at RedCrossBlood.org, its Blood Donor App or 1-800-RED CROSS (1-800-733-2767).",
+      "sources": [
+        { "name": "AABB, America's Blood Centers and American Red Cross (non-government): Joint Statement: Blood Donors Needed to Help Boost the Nation's Strained Blood Supply This Summer (July 10, 2026)", "url": "https://www.aabb.org/news-resources/news/article/2026/07/10/joint-statement--blood-donors-needed-to-help-boost-the-nation-s-strained-blood-supply-this-summer", "checkedAt": "2026-11-04" },
+        { "name": "America's Blood Centers (non-government): Find a Blood Center", "url": "https://americasblood.org/for-donors/find-a-blood-center/", "checkedAt": "2026-11-04" },
+        { "name": "American Red Cross (nonprofit): American Red Cross Declares Second-Ever National Blood Supply Crisis (July 27, 2026)", "url": "https://www.redcross.org/about-us/news-and-events/press-release/2026/red-cross-declares-national-blood-supply-crisis-urges-immediate-.html", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "appointment": {
+      "value": "Appointments are encouraged. AABB, America's Blood Centers and the American Red Cross (all non-government) ask eligible donors to make and keep an appointment, and the Red Cross lists making an appointment, with a chosen donation type and time, as the first step before donating.",
+      "sources": [
+        { "name": "AABB, America's Blood Centers and American Red Cross (non-government): Joint Statement: Blood Donors Needed to Help Boost the Nation's Strained Blood Supply This Summer (July 10, 2026)", "url": "https://www.aabb.org/news-resources/news/article/2026/07/10/joint-statement--blood-donors-needed-to-help-boost-the-nation-s-strained-blood-supply-this-summer", "checkedAt": "2026-11-04" },
+        { "name": "American Red Cross Blood Services (nonprofit): What to Do Before, During and After Your Donation", "url": "https://www.redcrossblood.org/donate-blood/blood-donation-process/before-during-after.html", "checkedAt": "2026-11-04" }
+      ]
+    }
+  }
+}
