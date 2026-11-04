@@ -27,10 +27,18 @@ Cloudflare Worker（`backend/`），網域預定 `api.doorbell.life`。資料庫
   - `font`：白名單（系統字型堆疊、Noto Sans TC、Noto Serif TC）
   - `logo`、`mascot`：先 `POST /brand/assets`（只收 PNG、WebP，不收 SVG 以免夾帶腳本；≤200KB）取得 CDN 網址
   - 存檔即輸出 `b/{id}.json`：`{ "t": template, "v": { "brand": hex, "brand-o": oklch }, "n": name, "logo": url? }`，元件只讀這個靜態檔
-- `PUT /brand/sites` `{ sites: string[] }`：品牌主宣告自己的網域（報表只算這些網域）
+- `PUT /brand/sites` `{ sites: string[] }`：品牌主宣告自己的網域（新宣告的網域是未驗證狀態）
+- `GET /brand` 的 `sites` 改為 `[{ host, verified, txt }]`；`txt` 是要放進 DNS 的值 `doorbell-life-verify={每個品牌固定的隨機碼}`
+- `POST /brand/sites/verify` `{ host }` → 伺服器用 DNS over HTTPS 查 `_doorbell-life.{host}` 的 TXT，找到相符的值就標記已驗證，回 `{ host, verified }`。報表只計入已驗證的網域
 
 ## 報表（需登入）
 
 - `GET /brand/report?from=YYYY-MM-DD&to=YYYY-MM-DD` → 依品牌網域，`[{ date, topic, country, impressions }]`，`impressions = count × 10`（抽樣乘回），回應附 `"sampling": 10`。實際形狀：`{ "sampling": 10, "from", "to", "rows": [...] }`；區間最長 366 天
 - `GET /brand/report.csv?...` → 同上，CSV（UTF-8 BOM）
 - PDF：前端報表頁的列印版面，瀏覽器「列印成 PDF」
+
+## 網域與部署（2026-11-04 維護者定）
+
+- `cdn.doorbell.life`：一個 Worker，Workers 靜態資源提供 `dist/cdn`（元件、每日資料、範本）；`/s` 曝光統計；`/b/{id}.json` 與品牌素材由 R2 提供。
+- `api.doorbell.life`：品牌主後台 API（`/auth/*`、`/brand/*`）。
+- 寄信：不用 Cloudflare Email Service（寄給任意收件人需付費方案），改用有免費額度的服務，經 `mailer` 介面接上。
