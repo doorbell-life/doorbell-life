@@ -1,11 +1,11 @@
 ---
 title: What should you show visitors on a 429 rate-limit page?
-description: Tell visitors they've sent too many requests in a short time and how long to wait before trying again; send the wait time in a Retry-After header, repeat it on the page, and use the rest of the page to give them something useful while they wait.
+description: Explain that they've sent too many requests in a given amount of time, as RFC 6585 recommends, and say how long to wait before trying again; the Retry-After header is where the wait time goes.
 region: usa
 topic: webmasters
 common: rate-limit-429-page
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "RFC 6585 Additional HTTP Status Codes (4. 429 Too Many Requests)"
     url: https://www.rfc-editor.org/rfc/rfc6585
@@ -27,7 +27,7 @@ sources:
     checkedAt: "2026-11-03"
 ---
 
-Tell visitors they've sent too many requests in a short time and how long to wait before trying again; send the wait time in a Retry-After header, repeat it on the page, and use the rest of the page to give them something useful while they wait.
+Explain that they've sent too many requests in a given amount of time, as RFC 6585 recommends, and say how long to wait before trying again; the Retry-After header is where the wait time goes.
 
 ## What 429 means
 
@@ -50,18 +50,11 @@ Retry-After: 120
 Retry-After: Fri, 31 Dec 1999 23:59:59 GMT
 ```
 
-The first example means 2 minutes. Make the page text match the header, for example "Please try again in 2 minutes."
+The first example means 2 minutes. The page can say the same thing in words, for example "Please try again in 2 minutes."
 
 ## What the page should say
 
-Following RFC 6585, the page should cover at least two things:
-
-1. **What happened**, in plain language: "You've reloaded this page too many times in a short period."
-2. **How long to wait**, matching Retry-After.
-
-If your limits are public (for example, a number of requests per hour), state them so people know how to stay under them. If logged-in users or API keys get higher limits, say so and link to where people can sign in or get a key.
-
-Keep the page light. A visitor who is being rate-limited shouldn't have to load a heavy page that triggers more requests.
+RFC 6585 says the response SHOULD include details explaining the condition, and MAY say how long to wait (in Retry-After). Its own example page does both in one sentence: it states the limit (50 requests per hour per logged-in user) and says to try again soon.
 
 ## Nginx doesn't send 429 by default
 
@@ -76,7 +69,7 @@ The `error_page` line serves your own page and keeps the 429 status, as long as 
 
 ## How search engines see 429
 
-Google treats 429 as a signal that the server is overloaded and handles it as a server error: its crawlers temporarily slow down. Google also says that returning 503 or 429 for more than 2 days will cause it to drop those URLs from the index. So make sure your rate limits don't catch normal crawling, and don't return 429 for long periods.
+Google treats 429 as a signal that the server is overloaded and handles it as a server error: its crawlers temporarily slow down. Its crawling-errors guide says Googlebot retries URLs returning 503 or 429 for about 2 days, and that returning these codes for more than a few days will cause Google to permanently slow or stop crawling URLs on your site.
 
 ## Make the wait useful
 

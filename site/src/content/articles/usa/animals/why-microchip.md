@@ -5,7 +5,7 @@ region: usa
 topic: animals
 common: why-microchip
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "American Veterinary Medical Association (professional association): Microchips reunite pets with families"
     url: https://www.avma.org/resources-tools/pet-owners/petcare/microchips-reunite-pets-families
@@ -28,6 +28,9 @@ sources:
   - name: "USDA APHIS: Take a Pet From the United States to Another Country (Export), last modified August 14, 2026"
     url: https://www.aphis.usda.gov/pet-travel/us-to-another-country-export
     checkedAt: "2026-11-03"
+  - name: "NYC Health: Dog Licenses (guard dogs)"
+    url: https://www.nyc.gov/site/doh/services/dog-licenses.page
+    checkedAt: "2026-11-04"
 ---
 
 A microchip is permanent ID that can't fall off like a collar, and shelters and vets scan for it, so it gives a lost pet a much better chance of getting home; it only works if you register the chip and keep your contact information current, and dogs entering the U.S. must have one.
@@ -39,7 +42,7 @@ A pet microchip is about the size of a grain of rice. In the U.S. it is usually 
 - The chip has no battery. It stays inactive until a scanner passes over it, and then it sends back a unique ID number.
 - The chip stores only that number, not your name or address. Your contact information lives in a registry database linked to the number.
 
-That means a microchip is **not** a GPS tracker. It can't show where your pet is. It helps only after someone finds your pet and has it scanned.
+The number is read only when a scanner is passed over the chip, so it helps after someone finds your pet and has it scanned.
 
 ## Why it helps
 
@@ -55,16 +58,16 @@ The AVMA says a microchip is "only as effective as the information linked to it.
 
 What to do:
 
-1. **Find your chip number.** It's usually in your adoption or vet records. If not, a vet or shelter can scan your pet.
-2. **Find the registry.** The AVMA points to the American Animal Hospital Association's Microchip Registry Lookup Tool, which tells you which registry a chip number is associated with.
-3. **Update your details.** Contact the registry when you move or change phone numbers. LA Animal Services suggests listing your mobile number, since people tend to keep it when they move.
+1. **Find your chip number.** If you don't know it, the AVMA says to ask your veterinarian to scan the chip; LA Animal Services says a vet or your nearest animal shelter can scan it.
+2. **Find the registry.** The AVMA points to the American Animal Hospital Association's Microchip Registry Lookup Tool, which tells you which registry a chip number is associated with, or says your veterinarian can help.
+3. **Update your details.** LA Animal Services says it is very important to change your address with the microchip company if you move. LA Animal Services suggests listing your mobile number, since people tend to keep it when they move.
 4. **Check it regularly.** The AVMA recommends asking your vet to scan the chip at routine checkups to make sure it's still there and working. It also promotes August 15, "Check the Chip Day," as a yearly reminder to review your registry information.
 
 ## Getting a microchip
 
-Your veterinarian can implant one. The AVMA notes that vets are trained to implant chips safely and correctly. Some public shelters offer microchipping too. For example, LA Animal Services offers microchipping to City of Los Angeles residents at any of its six centers, with no appointment, for $15 (price as listed on its page, checked November 3, 2026). Prices and services vary by location.
+Your veterinarian can implant one. The AVMA notes that vets are trained to implant chips safely and correctly. Some public shelters offer microchipping too. For example, LA Animal Services offers microchipping to City of Los Angeles residents at any of its six centers, with no appointment, for $15 (price as listed on its page, checked November 3, 2026).
 
-Pets adopted from public shelters often already have a chip. LA Animal Services microchips every cat, dog, and rabbit it adopts out, and includes the cost in the adoption fee. Montgomery County, Maryland, includes a microchip in its adoption fee for dogs and cats. You still need to make sure the chip is registered in **your** name after adoption.
+Both example shelters microchip the animals they adopt out. LA Animal Services microchips every cat, dog, and rabbit it adopts out, and includes the cost in the adoption fee. Montgomery County, Maryland, includes a microchip in its adoption fee for dogs and cats. The AVMA's point still applies: the chip only helps if the registry has your current contact information.
 
 ## Which kind of chip
 
@@ -79,4 +82,4 @@ Microchips are required for some travel:
 
 ## Is a microchip required by law?
 
-Outside of travel, any requirement comes from your state, county, or city, and we have not verified a complete list (not yet verified). What many cities and counties do require is a **license**, which is separate from a microchip. See [How do pet licensing and microchip registration work in the U.S.?](/articles/usa/animals/pet-registration/).
+We have not verified a complete list of state and local microchip requirements. One local example: New York City requires trained guard dogs to have a microchip, with the number given to the Health Department. A pet **license**, which the example cities and counties in these articles require for dogs, is separate from a microchip. See [How do pet licensing and microchip registration work in the U.S.?](/articles/usa/animals/pet-registration/).

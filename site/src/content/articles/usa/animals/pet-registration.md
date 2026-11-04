@@ -1,11 +1,11 @@
 ---
 title: How do pet licensing and microchip registration work in the U.S.?
-description: In the U.S. they are two separate things; you license your pet with your city or county, usually with proof of rabies vaccination, and you register its microchip, if it has one, with the chip's registry company and keep your contact information current there.
+description: They are two separate things. You license your pet with your city or county (in the examples here, with proof of rabies vaccination), and you register its microchip, if it has one, with the chip's provider and keep your contact information current there.
 region: usa
 topic: animals
 common: pet-registration
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "LA Animal Services (City of Los Angeles): Licenses (fee schedule as of October 2010)"
     url: https://www.laanimalservices.com/licensing
@@ -30,9 +30,9 @@ sources:
     checkedAt: "2026-11-03"
 ---
 
-In the U.S. they are two separate things; you license your pet with your city or county, usually with proof of rabies vaccination, and you register its microchip, if it has one, with the chip's registry company and keep your contact information current there.
+They are two separate things. You license your pet with your city or county (in the examples here, with proof of rabies vaccination), and you register its microchip, if it has one, with the chip's provider and keep your contact information current there.
 
-Neither the license nor the microchip registry is run by the federal government. Licensing rules are written by local governments and differ a lot from place to place. The three examples below show how they vary; they are not a complete list.
+Licensing rules are local and differ from place to place. The three examples below show how they vary; they are not a complete list.
 
 ## Part 1: The license (city or county)
 
@@ -54,7 +54,7 @@ A pet license is a registration with your local government. You get a numbered t
 - The rabies tag from your vet is **not** the county license.
 - If you live in the City of Rockville or the City of Gaithersburg, you license your pet with your city, not the county.
 - The pet's rabies vaccination must be valid for at least 60 more days when you buy the license. License terms follow the vaccine dates, so a "1-year" license can run anywhere from 2 to 12 months.
-- You can apply by mail (with a copy of the rabies certificate; the license arrives in about 3 weeks) or in person, which is the only way to get one on the spot. The county lists three ways in all; see its page for the current options.
+- You can apply online or by mail (with a copy of the rabies certificate; the license arrives in about 3 weeks), or in person, which is the only way to get one on the spot.
 
 ### Example 3: New York City
 
@@ -65,15 +65,13 @@ A pet license is a registration with your local government. You get a numbered t
 
 ### How to find your rule
 
-Search for your city or county's "animal services" or "pet license" page. If you live in an incorporated city inside a county, check both. As Montgomery County's Rockville and Gaithersburg example shows, the city may handle licensing instead of the county.
+As Montgomery County's Rockville and Gaithersburg example shows, a city inside a county may handle licensing instead of the county.
 
 ## Part 2: Microchip registration (the chip's registry)
 
 ### What it is
 
-A microchip only holds an ID number. According to the American Veterinary Medical Association (AVMA, a professional association), you must register the chip and keep your contact information current in the associated registry, or a scanned pet may still not get home. Registration is separate from your city or county license: licensing your pet doesn't register the chip, and registering the chip doesn't license your pet.
-
-The registry is run by the chip's provider, not by the government. Both example agencies send owners to the chip company: Montgomery County tells owners of lost pets to "contact the company who manufactured their chip," and LA Animal Services says to contact your microchip provider to update your details.
+According to the American Veterinary Medical Association (AVMA, a professional association), a microchip itself contains only a unique identification number, so you must register the chip and keep your contact information current in the associated registry, or a scanned pet may still not get home. Registration is handled by the chip's provider, not by the agency that issues your license. Both example agencies send owners to the chip company: Montgomery County tells owners of lost pets to "contact the company who manufactured their chip," and LA Animal Services says to contact your microchip provider to update your details.
 
 ### How to check and update it
 

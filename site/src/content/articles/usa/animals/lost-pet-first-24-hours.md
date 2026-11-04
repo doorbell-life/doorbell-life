@@ -5,7 +5,7 @@ region: usa
 topic: animals
 common: lost-pet-first-24-hours
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "Montgomery County, MD, Animal Services and Adoption Center: Lost My Pet"
     url: https://www.montgomerycountymd.gov/animal-services-adoption-center/lost-found-pets/lost-my-pet
@@ -23,7 +23,7 @@ sources:
 
 Right away, post a photo and description to neighbors, tell your microchip company, and file a lost report with your local animal services agency; within hours, put up flyers and call nearby vets and shelters; within 24 hours, visit the shelters in person and search your neighborhood.
 
-The timeline below follows the "Lost My Pet" guide from Montgomery County, Maryland's Animal Services and Adoption Center, with tips from LA Animal Services (City of Los Angeles). Every city and county runs its own shelter and lost-pet reports, so use your local agency's forms and phone numbers.
+The timeline below follows the "Lost My Pet" guide from Montgomery County, Maryland's Animal Services and Adoption Center, with tips from LA Animal Services (City of Los Angeles). Report forms and phone numbers differ by agency, so use your local agency's.
 
 ## Right away: get the word out
 
@@ -34,7 +34,7 @@ Montgomery County lists four first steps:
 3. **File a lost report with animal services.** Montgomery County takes lost reports online through 24PetConnect. LA Animal Services offers lost-pet registration through 24PetConnect too: it emails you once a day when a matching animal is reported found or arrives at one of its six centers, and the registration lasts 30 days.
 4. **Search photo-matching services.** Montgomery County points owners to Petco Love Lost, a free service that compares your pet's photo with photos of found animals from shelters and the public.
 
-If you don't know your pet's microchip number or which registry it's in, check your adoption paperwork or vet records, or ask your vet. The AVMA points to the American Animal Hospital Association's Microchip Registry Lookup Tool, which identifies the registry a chip number is associated with, and LA Animal Services' microchip page links to online lookup tools as well.
+If you know your pet's microchip number but not which registry it's in, the AVMA points to the American Animal Hospital Association's Microchip Registry Lookup Tool, or says to ask your veterinarian to help identify the registry. LA Animal Services' microchip page links to online lookup tools as well.
 
 ## In the next few hours: flyers and phone calls
 
@@ -58,15 +58,13 @@ When you find your pet at a shelter, you'll need to show it's yours.
 - **LA Animal Services** asks for proof of ownership, such as photos, vaccination records, or adoption certificates, plus a valid government-issued photo ID.
 - **Montgomery County** asks for at least one of these: license and vaccination records, purchase or adoption receipts, microchip registration documents, or vet records. The name on them should match your ID.
 
-Gather these while you search so you aren't delayed at the front desk.
-
 ## Watch out for scams
 
 LA Animal Services warns about "pet recovery scams," where someone demands that you send or wire money before they return your pet. Ask for a photo of your pet first. If they refuse, they may not have it.
 
 ## Don't give up after the first day
 
-Montgomery County notes that cats often hide for around 10 days after being displaced, so don't lose hope if no one has seen your cat in the first two weeks. It also says lost pets have been found weeks, months, and even years later. Keep your lost report active and keep visiting the shelters.
+Montgomery County notes that cats often hide for around 10 days after being displaced, so don't lose hope if no one has seen your cat in the first two weeks. It also says lost pets have been found weeks, months, and even years later, and asks owners to visit the shelter as often as they can. LA Animal Services' lost-pet registration lasts 30 days.
 
 ## After your pet is home
 

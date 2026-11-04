@@ -1,11 +1,11 @@
 ---
 title: What should you do in the first hour after a family member goes missing?
-description: Call the police right away and file a missing person report. You do not have to wait 24 hours, and for anyone under 21 federal law forbids police from making you wait.
+description: Call the police right away and file a missing person report. The Justice Department says to contact police as soon as possible whatever the person's age, and for anyone under 21 federal law bars police from requiring a waiting period.
 region: usa
 topic: missing
 common: first-hour-missing
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "34 U.S.C. § 41307, Reporting requirement for missing children (Office of the Law Revision Counsel, current through Pub. L. 119-120)"
     url: https://uscode.house.gov/us/usc/119-120/t34/s41307
@@ -27,9 +27,9 @@ sources:
     checkedAt: "2026-11-03"
 ---
 
-Call the police right away and file a missing person report. You do not have to wait 24 hours, and for anyone under 21 federal law forbids police from making you wait.
+Call the police right away and file a missing person report. The Justice Department says to contact police as soon as possible whatever the person's age, and for anyone under 21 federal law bars police from requiring a waiting period.
 
-The rest of the first hour is about giving police what they need and keeping evidence intact. The steps below come from U.S. Department of Justice guides for families. Details of how police respond are set by each state and each agency, so ask the officer what happens next in your area.
+The rest of the first hour is about giving police what they need and keeping evidence intact. The steps below come from U.S. Department of Justice guides for families. The guide also notes that the police response varies with the circumstances of each case.
 
 ## 1. Call 911 or the police now
 
@@ -44,7 +44,7 @@ If there is no immediate danger, call the police non-emergency number for the pl
 
 Under federal law, every federal, state, and local law enforcement agency must report each case of a missing child under the age of 21 to the FBI's National Crime Information Center (NCIC) (34 U.S.C. § 41307). States must make sure no agency keeps a policy that requires a waiting period before accepting a missing child report, and the report must be entered into NCIC within 2 hours of receipt (34 U.S.C. § 41308).
 
-For adults over 21, the Justice Department guide says there is no standard national protocol, so responses differ between agencies. Report anyway. Some states set their own rules; check your state's missing persons clearinghouse or state police.
+For adults over 21, the Justice Department guide says there is no standard national protocol, so police may not always take a report right away. It still tells families to contact police as soon as possible to file a report, whatever the person's age. If local police are not willing to help, the guide says to file a complaint with the supervisor, such as the sheriff for county police or the police chief for city police.
 
 ## 2. Have this information ready
 
@@ -53,12 +53,12 @@ The Justice Department guide lists what to gather for police. You do not need ev
 - A recent photo
 - Full name, nicknames, date of birth, and age
 - Height, weight, hair and eye color, scars, marks, and tattoos
-- What the person was wearing and carrying
+- What the person was wearing, and any accessories
 - When and where they were last seen, and who they were with
-- Places they might go: favorite spots, work, school, friends' homes
+- Places they might go: favorite places, work, or study locations
 - Medical conditions, disabilities, and medications
 - Phone numbers, social media accounts, and email addresses
-- Vehicle make, model, and license plate
+- Vehicle registration number, make, and model
 - Items left behind, such as a wallet, phone, or keys
 - Any earlier times they went missing and how those ended
 

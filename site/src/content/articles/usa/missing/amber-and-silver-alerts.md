@@ -1,10 +1,10 @@
 ---
 title: What are AMBER Alerts and Silver Alerts, and who issues them?
-description: An AMBER Alert is an urgent public bulletin about an abducted child; a Silver Alert is a state alert for a missing older adult, usually one with dementia. Both are issued by law enforcement under state plans, and the rules differ from state to state.
+description: An AMBER Alert is an urgent public bulletin about an abducted child; a Silver Alert is a state alert for a missing older or cognitively impaired adult. Both are issued by law enforcement under state plans, and the rules differ from state to state.
 region: usa
 topic: missing
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "AMBER Alert (U.S. Department of Justice, OJP): Frequently Asked Questions (date modified May 22, 2026)"
     url: https://amberalert.ojp.gov/about/faqs
@@ -27,11 +27,14 @@ sources:
   - name: "U.S. Department of Justice: Section 4(c)(2)(C) Response (Ashanti Alert Act background)"
     url: https://www.justice.gov/tribal/media/1341181/dl?inline=
     checkedAt: "2026-11-03"
+  - name: "OJJDP (U.S. Department of Justice): AMBER Alert Best Practices Guide for Broadcasters and Other Media Outlets (April 2005)"
+    url: https://ojjdp.ojp.gov/sites/ojjdp/files/pubs/amberalert/AMBERAlertMediaGuide.pdf
+    checkedAt: "2026-11-04"
 ---
 
-An AMBER Alert is an urgent public bulletin about an abducted child; a Silver Alert is a state alert for a missing older adult, usually one with dementia. Both are issued by law enforcement under state plans, and the rules differ from state to state.
+An AMBER Alert is an urgent public bulletin about an abducted child; a Silver Alert is a state alert for a missing older or cognitively impaired adult. Both are issued by law enforcement under state plans, and the rules differ from state to state.
 
-Neither alert is something a family can send out on its own. If someone is missing, report to police first; police decide whether the case qualifies.
+Neither alert is something a family can send out on its own. Florida's Department of Law Enforcement, for example, tells families to contact local police right away; the agency takes a report and decides whether an alert is appropriate.
 
 ## AMBER Alert
 
@@ -43,7 +46,7 @@ Once law enforcement determines that a child has been abducted and the case meet
 
 ### Who issues it
 
-AMBER Alerts are issued by law enforcement under state plans. The Justice Department says AMBER plans exist in all 50 states, the District of Columbia, Puerto Rico, and the U.S. Virgin Islands, with expansion into Indian Country. A National AMBER Alert Coordinator at the Justice Department, a role created by the PROTECT Act of 2003, supports those plans but does not issue alerts.
+AMBER Alerts are issued by law enforcement under state plans. The Justice Department says AMBER plans exist in all 50 states, the District of Columbia, Puerto Rico, and the U.S. Virgin Islands, with expansion into Indian Country. A National AMBER Alert Coordinator at the Justice Department, a role created by the PROTECT Act of 2003, supports and coordinates those plans.
 
 If an abductor may have crossed state lines, the issuing state's AMBER coordinator can ask the other state to extend the alert. The program calls this a multi-state activation.
 
@@ -75,7 +78,7 @@ As of December 31, 2025, the Justice Department reports that 1,312 children had 
 
 ### What it is
 
-A Silver Alert is a public alert for a missing older adult, most often someone with Alzheimer's disease or another dementia. Silver Alerts are run by states, not by the federal government. A Congressional Research Service report (R47010) states that federal bills for a national senior alert system have been introduced, such as the National Silver Alert Act of 2014, but that no federal law establishing such a system has been enacted, and that several states run their own Silver or Senior Alert systems. We have not verified whether this has changed since that report.
+A Justice Department document describes Silver Alerts as alerts for when an elderly or developmentally or cognitively impaired person goes missing. Silver Alerts are run by states, not by the federal government. A Congressional Research Service report (R47010) states that federal bills for a national senior alert system have been introduced, such as the National Silver Alert Act of 2014, but that no federal law establishing such a system has been enacted, and that several states run their own Silver or Senior Alert systems. We have not verified whether this has changed since that report.
 
 ### Who issues it
 
@@ -97,15 +100,13 @@ There is no single national definition. The Justice Department's National Ashant
 
 Florida's FAQ adds its own details: road signs are used mainly for people 60 and older with an irreversible deterioration of intellectual faculties, such as Alzheimer's or dementia; how police confirm that condition is up to the agency; and the state's dynamic highway message signs stay on for a maximum of 6 hours. Florida also says the Emergency Alert System is restricted to child abductions and is not used for Silver Alerts there.
 
-To learn the rules where you live, check your state police or state missing persons clearinghouse.
+The Ashanti Alert Network page links to each state's program, so you can check the rules where you live.
 
 ## Ashanti Alert
 
-There is also a federal network for adults who fall outside both alerts. A Justice Department document describes the Ashanti Alert Act of 2018 (Public Law 115-401) as establishing a voluntary nationwide communication network for missing persons over age 17 who fall outside the scope of AMBER Alerts and Silver Alerts. As with the others, alerts go through law enforcement.
+There is also a federal network for adults who fall outside both alerts. A Justice Department document describes the Ashanti Alert Act of 2018 (Public Law 115-401) as establishing a voluntary nationwide communication network for missing persons over age 17 who fall outside the scope of AMBER Alerts and Silver Alerts.
 
 ## What you can do when you see an alert
 
-- Note the description of the person, any vehicle, and the plate number.
-- If you see them, call 911 or the number in the alert. Florida's FAQ asks people to note the location, direction of travel, and plate.
-- Do not approach a suspect yourself.
-- Share the official alert, not a screenshot, so updates and cancellations reach people too.
+- Florida's FAQ asks people who hear a Silver Alert to note the description of the person and any other details given, and to call 911 right away if they see the person or vehicle, noting the location, direction of travel, and vehicle tag.
+- The Justice Department's AMBER Alert guide for broadcasters says each AMBER Alert should include a phone number for the public to call, and that information about a missing child can be reported to 911 or 1-800-THE-LOST (1-800-843-5678).

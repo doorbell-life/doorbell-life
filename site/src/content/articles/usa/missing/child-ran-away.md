@@ -5,7 +5,7 @@ region: usa
 topic: missing
 common: child-runaway
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "34 U.S.C. § 41307, Reporting requirement for missing children (Office of the Law Revision Counsel, current through Pub. L. 119-120)"
     url: https://uscode.house.gov/us/usc/119-120/t34/s41307
@@ -25,11 +25,14 @@ sources:
   - name: "HHS: Homelessness Resources and Programs"
     url: https://www.hhs.gov/programs/social-services/homelessness/resources/index.html
     checkedAt: "2026-11-03"
+  - name: "USAGov: Report a crime (crimes involving children)"
+    url: https://www.usa.gov/report-crime
+    checkedAt: "2026-11-04"
 ---
 
 Report your child missing to the police right away, even if you think they left on their own. Then reach out through friends and the National Runaway Safeline (1-800-RUNAWAY), and plan for a calm conversation when they come home.
 
-A child who runs away is still a missing child, and police can only help find them if there is a report.
+A child who runs away is still a missing child. Texas's state youth helpline says it is never too early to report one, and federal law sets no waiting period for anyone under 21.
 
 ## 1. Call the police now
 
@@ -37,7 +40,7 @@ A child who runs away is still a missing child, and police can only help find th
 
 The Texas Youth Helpline, run by the Texas Department of Family and Protective Services, puts it simply: "It's never too early to report a missing child." It notes that police department procedures vary, but you can ask that your child's information be entered into the NCIC missing persons file.
 
-Call 911 if you think your child is in danger, was taken, or is with someone who could hurt them.
+The U.S. Department of Justice guide *When a Loved One Goes Missing* (November 2021) says to dial 911 when there is evidence or suspicion of foul play or the person is in danger.
 
 ## 2. Give police the details
 
@@ -45,14 +48,14 @@ Have this ready (drawn from the U.S. Department of Justice guide *When a Loved O
 
 - a recent photo
 - height, weight, hair and eye color, and any scars, marks, or tattoos
-- what your child was wearing and carrying
+- what your child was wearing, and any accessories
 - when and where they were last seen, and with whom
-- friends, partners, and places they might go
+- friends or relatives who may have been in contact with them, and places they might go
 - their phone number and social media usernames
-- any medical needs or medications
+- any medical conditions or disability
 - any earlier times they ran away and how those ended
 
-Be honest about recent conflicts at home or school. It helps police judge risk and figure out where to look; it is not about blame.
+Share what you know, even if it feels negative. The Justice Department guide says any information, positive or negative, can help investigators find a missing person.
 
 Write down the officer's name, badge number, and case number. If your child comes home or contacts you, tell the police right away.
 
@@ -63,8 +66,7 @@ The Texas Youth Helpline suggests:
 - leave voicemails for your child
 - contact their friends and their friends' parents and ask for help
 - keep your phone on and near you in case your child calls
-
-Keep messages short and safe-sounding: you love them, you want them safe, and they can come home or call. Avoid threats about punishment in these messages; your goal is to get them to make contact.
+- call the helpline to see if your child has left a message with its free, confidential message service
 
 ## 4. Use the National Runaway Safeline
 
@@ -81,8 +83,6 @@ According to the Family and Youth Services Bureau, the Safeline can:
 - **Refer** callers to local resources
 - **Offer a free trip home:** through a partnership with Greyhound, it can offer runaway and homeless youth a free bus ticket home
 
-Share the number with your child's friends. Your child may be more willing to call a neutral line than to call you.
-
 If you live in Texas, the Texas Youth Helpline (call or text 1-800-989-6884) also offers a free, confidential message service for youth and parents.
 
 ## 5. When your child comes back
@@ -95,8 +95,8 @@ The Texas Youth Helpline gives this advice:
 - Remember that running away does not necessarily mean you are a bad parent or your child is a "bad kid." Try not to blame yourself.
 - Look for a counselor. The helpline says it can help Texas families find low-cost or free counseling.
 
-Let the police know your child is home so they can close the report.
+Tell the police your child is home so they can confirm your child is safe, as the Justice Department guide advises.
 
 ## If your child says home is not safe
 
-Some young people leave to escape abuse. If your child tells you something like that, or if you learn of abuse by anyone, take it seriously. The National Runaway Safeline can connect callers with protective services, and HHS lists the Safeline among its resources for runaway and homeless youth.
+The National Runaway Safeline can set up calls between youth and social service protection agencies, and HHS lists the Safeline among its resources for runaway and homeless youth. To report child abuse or neglect, USAGov says to call 911 in an emergency, contact your state child protective agency, or call the Childhelp National Child Abuse Hotline at 1-800-4-A-CHILD (1-800-422-4453).

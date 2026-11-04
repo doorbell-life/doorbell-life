@@ -5,7 +5,7 @@ region: usa
 topic: webmasters
 common: custom-5xx-page
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "RFC 9110 HTTP Semantics (15.6 Server Error 5xx)"
     url: https://www.rfc-editor.org/rfc/rfc9110
@@ -50,9 +50,9 @@ Here is how RFC 9110 defines the common server errors:
 - **503 Service Unavailable:** the server can't handle the request right now because of temporary overload or scheduled maintenance.
 - **504 Gateway Timeout:** a gateway or proxy didn't get a response in time from the server behind it.
 
-A 502 or 504 means your application didn't answer properly. At that point, only the layer in front of it (Nginx, Apache, a CDN) can send a page, and that page should be a local static file that doesn't depend on anything else being up.
+A 502 or 504 means your application didn't answer properly. At that point, only the layer in front of it (Nginx, Apache, a CDN) can send a page.
 
-RFC 9110 also says 5xx responses SHOULD include an explanation of the error and whether it is temporary or permanent, so a bare default error is not what the spec has in mind.
+RFC 9110 also says that, except for HEAD requests, a 5xx response SHOULD include an explanation of the error and whether it is temporary or permanent.
 
 ## Nginx
 
@@ -82,7 +82,7 @@ A local path keeps the status code. If you point `ErrorDocument` at a remote URL
 
 For a reverse proxy, turn on `ProxyErrorOverride` (off by default). Without it, Apache shows the proxied server's own error page. When on, it applies to responses from 400 up to 599.
 
-`ErrorDocument` can also go in `.htaccess` (it needs `AllowOverride FileInfo`). On shared hosting that allows `.htaccess`, this may work, but whether a 5xx can be replaced depends on how the host's servers are set up. Ask your host.
+`ErrorDocument` can also go in `.htaccess` (it needs `AllowOverride FileInfo`). On shared hosting, most hosts don't let you replace 5xx pages; if yours allows `.htaccess`, the `ErrorDocument` lines from doorbell.life's Apache example may work.
 
 ## Cloudflare
 
@@ -94,7 +94,7 @@ Cloudflare's Custom Errors can replace error responses (status codes 400 and abo
 
 ## Static hosts
 
-GitHub Pages, Netlify, and Cloudflare Pages document how to add a `404.html`. None of their docs that we checked describe a way to customize 5xx pages. If your site runs entirely on one of these hosts, you probably can't replace their 5xx pages. Other platforms are listed under [supported hosting environments](/support/usa/).
+GitHub Pages, Netlify, and Cloudflare Pages document how to add a `404.html`. None of their docs that we checked describe a way to customize 5xx pages, so doorbell.life treats these hosts as 404-only. Other platforms are listed under [supported hosting environments](/support/usa/).
 
 ## Keep the page simple
 

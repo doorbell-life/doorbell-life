@@ -5,7 +5,7 @@ region: usa
 topic: webmasters
 common: maintenance-503-page
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "RFC 9110 HTTP Semantics (15.6.4 503 Service Unavailable, 10.2.3 Retry-After)"
     url: https://www.rfc-editor.org/rfc/rfc9110
@@ -25,7 +25,7 @@ During maintenance, return a 503 status code with a Retry-After header estimatin
 
 ## Why 503
 
-RFC 9110 defines 503 Service Unavailable as the server being "currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay." The key word is temporary. Browsers, crawlers, and other clients that see 503 know the page still exists and just isn't available right now.
+RFC 9110 defines 503 Service Unavailable as the server being "currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay." The key word is temporary. Google's documentation says that for 5xx errors, already-indexed URLs are kept in the index for a while, though they are eventually dropped.
 
 Don't use a different code to take your site offline. Google warns that blocking a site with 403, 404, or 410, or with a `noindex` robots meta tag or `X-Robots-Tag` header, will remove its URLs from Google Search.
 
@@ -42,11 +42,11 @@ Google's guide also recommends using the `retry-after` header with a best-effort
 
 Google suggests giving users clear next steps on the error page, such as:
 
-1. links to more information, like your status page or official social media accounts;
+1. links to more information;
 2. the date you expect the site to be back, or when you'll post an update;
 3. how to contact customer service.
 
-Keep the wording plain: "We're doing scheduled maintenance. We expect to be back by 6:00 a.m. Eastern. Updates: status.example.com."
+For example: "We're doing scheduled maintenance. We expect to be back by 6:00 a.m. Eastern. Updates: status.example.com."
 
 ## How to build it
 
@@ -68,10 +68,10 @@ The first line should read `HTTP/1.1 503 Service Unavailable` (or the HTTP/2 equ
 Google's guidance on pausing a site:
 
 - If you urgently need to disable the site for **1–2 days**, return an informational 503 error page instead of all content.
-- If you need to disable it longer, serve an indexable home page with a **200** status code that explains the situation, instead of a 503.
+- If you need to disable it longer, provide an indexable home page as a placeholder, with a **200** status code, instead of a 503.
 - Disabling a whole site is an extreme measure that should last "a few days at most"; otherwise it will significantly affect the site in Search even if done correctly.
 
-Google's crawling-errors guide adds that returning 503 or 429 for more than 2 days will cause Google to drop those URLs from the index, and its status-code documentation says URLs that keep returning server errors are eventually removed.
+Google's crawling-errors guide adds that Googlebot retries URLs returning 503 or 429 for about 2 days, and that returning these codes for more than a few days will cause Google to permanently slow or stop crawling URLs on your site. Its status-code documentation says URLs that keep returning server errors are eventually dropped from the index.
 
 ## Don't block robots.txt
 

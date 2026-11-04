@@ -5,7 +5,7 @@ region: usa
 topic: missing
 common: prevent-dementia-wandering
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: "National Institute on Aging: Coping With Alzheimer's Behaviors: Wandering and Getting Lost"
     url: https://www.nia.nih.gov/health/alzheimers-changes-behavior-and-communication/coping-alzheimers-behaviors-wandering-and
@@ -50,27 +50,27 @@ NIA's tips to keep a wandering person safe:
 
 ## Prepare a "go sheet" now
 
-If your loved one does go missing, police will ask for details fast. The U.S. Department of Justice guide *When a Loved One Goes Missing* (November 2021) lists what to give police. Write it down today and keep it with a recent photo:
+If your loved one does go missing, time is critical. The U.S. Department of Justice guide *When a Loved One Goes Missing* (November 2021) lists the information to gather and share with police. You can write it down ahead of time and keep it with a recent photo:
 
 - Full name, nicknames, and date of birth
 - Height, weight, hair and eye color, scars, marks, and tattoos
-- Medical conditions, medications, and any disability
-- Places they like to go, past homes, old workplaces
-- Vehicle make, model, and plate, if they still drive
-- Their phone number and any tracking device details
+- Medical conditions and any disability
+- Likely destinations, such as favorite places, work, or study locations
+- Vehicle registration number, make, and model, or other ways they get around
+- Their cellphone number
 - What happened in any earlier wandering episodes
 
 NIA also recommends keeping a recent photograph or video of the person on hand for police.
 
 ## If they go missing: call 911 right away
 
-The Justice Department guide says to dial 911 when there is an immediate risk of injury or death, and it names a missing older person with cognitive disabilities as an example, along with anyone missing in extreme heat or cold. Do not wait to search on your own first.
+The Justice Department guide says to dial 911 when there is an immediate risk of injury or death, and it names a missing older person with cognitive disabilities as an example, along with anyone missing during adverse weather such as extreme heat or cold. It stresses that time is critical and to notify law enforcement immediately, especially when the person has health issues, disabilities, or medication requirements.
 
 Tell the dispatcher about the dementia diagnosis. Florida's law enforcement agency, for example, says families should tell police if they believe the missing person has dementia, because that can affect whether a Silver Alert is issued there.
 
 ## Silver Alerts depend on your state
 
-Many states run an alert for missing older adults with dementia, often called a Silver Alert, but the name, age limit, and rules differ. The Justice Department's National Ashanti Alert Network lists each state's program: for example, Silver Alert (65+) in Kansas and Texas, Silver Alert (60+) in Maryland and Nevada, Silver Alert (50+) in New Mexico and North Carolina, and different program names in states such as Georgia, Michigan, and Ohio. Only law enforcement can request these alerts. Check your state police or attorney general's website to learn the rules where you live.
+Many states run an alert program that covers missing older adults, often called a Silver Alert, but the name, age limit, and rules differ. The Justice Department's National Ashanti Alert Network lists each state's program: for example, Silver Alert (65+) in Kansas and Texas, Silver Alert (60+) in Maryland and Nevada, Silver Alert (50+) in New Mexico and North Carolina, and different program names in states such as Georgia, Michigan, and Ohio. In Florida, for example, only law enforcement can request a State Silver Alert. The Ashanti Alert Network page links to each state's program, so you can check the rules where you live.
 
 ## Where to get more help
 
