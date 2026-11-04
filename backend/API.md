@@ -5,7 +5,7 @@ Cloudflare Worker（`backend/`），網域預定 `api.doorbell.life`。資料庫
 
 ## 曝光統計（元件呼叫）
 
-`GET /s?h={hostname}&k={topic}`（元件以 sendBeacon 送，抽樣 1/10）
+`GET /s?h={hostname}&k={topic}`（元件以 sendBeacon 送，抽樣 1/10；sendBeacon 實際是 POST，所以 GET、POST 都收，不讀 body）
 
 - 驗證：`h` 為合法主機名稱（最長 253、只含 a-z0-9.-），`k` 為 `schema` 的 TOPICS 之一；不合法直接回 204、不記錄。
 - 記錄：D1 `impressions(date, host, topic, country, count)` 以 upsert 加 1。`country` 取 `request.cf.country`（Cloudflare 邊緣提供），不讀、不存 IP。`date` 用 UTC 日期。
@@ -31,6 +31,6 @@ Cloudflare Worker（`backend/`），網域預定 `api.doorbell.life`。資料庫
 
 ## 報表（需登入）
 
-- `GET /brand/report?from=YYYY-MM-DD&to=YYYY-MM-DD` → 依品牌網域，`[{ date, topic, country, impressions }]`，`impressions = count × 10`（抽樣乘回），回應附 `"sampling": 10`
+- `GET /brand/report?from=YYYY-MM-DD&to=YYYY-MM-DD` → 依品牌網域，`[{ date, topic, country, impressions }]`，`impressions = count × 10`（抽樣乘回），回應附 `"sampling": 10`。實際形狀：`{ "sampling": 10, "from", "to", "rows": [...] }`；區間最長 366 天
 - `GET /brand/report.csv?...` → 同上，CSV（UTF-8 BOM）
 - PDF：前端報表頁的列印版面，瀏覽器「列印成 PDF」

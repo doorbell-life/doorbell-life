@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "pnpm -r build && node .github/scripts/assemble-cdn.ts",
-    "test": "vitest run --passWithNoTests",
+    "test": "vitest run --passWithNoTests && pnpm --filter @doorbell-life/backend test",
     "test:e2e": "playwright test",
     "sync": "pnpm --filter \"./regions/*\" sync",
     "daily": "pnpm sync && pnpm test && pnpm build && pnpm test:e2e",
@@ -25,7 +25,8 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "esbuild"
+      "esbuild",
+      "workerd"
     ]
   }
 }
