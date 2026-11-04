@@ -5,23 +5,23 @@ region: taiwan
 topic: webmasters
 common: useful-404-page
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: Google 搜尋中心：Troubleshoot Google Search crawling errors（2025-12-18 更新）
     url: https://developers.google.com/search/docs/crawling-indexing/troubleshoot-crawling-errors
-    checkedAt: "2026-11-03"
+    checkedAt: "2026-11-04"
   - name: RFC 9110 HTTP Semantics（15.5 Client Error 4xx、404、410）
     url: https://www.rfc-editor.org/rfc/rfc9110
-    checkedAt: "2026-11-03"
+    checkedAt: "2026-11-04"
   - name: Nginx 文件：error_page 指令
     url: https://nginx.org/en/docs/http/ngx_http_core_module.html#error_page
-    checkedAt: "2026-11-03"
+    checkedAt: "2026-11-04"
   - name: Apache HTTP Server 2.4 文件：ErrorDocument 指令
     url: https://httpd.apache.org/docs/2.4/mod/core.html#errordocument
-    checkedAt: "2026-11-03"
+    checkedAt: "2026-11-04"
   - name: GitHub Docs：Creating a custom 404 page for your GitHub Pages site
     url: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site
-    checkedAt: "2026-11-03"
+    checkedAt: "2026-11-04"
 ---
 
 有用的 404 頁要做到三件事：清楚告訴訪客這頁找不到、給他繼續逛下去的路，而且伺服器照樣回傳 404 狀態碼。
@@ -37,9 +37,9 @@ RFC 9110 對 4xx 錯誤的要求是：除了 HEAD 請求以外，伺服器應該
 Google 搜尋中心在說明軟 404 錯誤時，列出設計自訂 404 頁的建議：
 
 1. **清楚告訴訪客找不到這一頁。** 用友善、親切的語氣。
-2. **長得和網站其他頁面一樣。** 保留相同的外觀和導覽列，訪客才知道自己還在同一個網站。
+2. **長得和網站其他頁面一樣。** 保留相同的外觀和導覽列。
 3. **放連結。** 例如最熱門的文章，以及回首頁的連結。
-4. **讓訪客回報壞掉的連結。** 你才知道是哪裡連錯了。
+4. **讓訪客回報壞掉的連結。**
 
 ## 狀態碼一定要是 404
 
@@ -54,10 +54,6 @@ Google 說，自訂 404 頁純粹是做給人看的，對搜尋引擎沒有用�
 - **靜態網站代管**：GitHub Pages 是在發布來源放一個 `404.html`（或 `404.md`）。其他平台的做法見[支援的主機環境](/support/taiwan/)。
 
 改完後用 `curl -I https://你的網站/不存在的網址` 檢查，第一行應該是 404。
-
-## 重點內容直接寫在 HTML 裡
-
-找不到的說明、回首頁的連結，直接寫在 HTML 裡，不要等 JavaScript 跑完才出現。額外的內容用非同步載入，載不到也不影響原本的頁面。
 
 ## 讓 404 頁多做一件事
 

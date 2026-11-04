@@ -5,27 +5,27 @@ region: taiwan
 topic: webmasters
 common: maintenance-503-page
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: RFC 9110 HTTP Semantics（503、Retry-After）
     url: https://www.rfc-editor.org/rfc/rfc9110
-    checkedAt: "2026-11-03"
+    checkedAt: "2026-11-04"
   - name: Google 搜尋中心：Temporarily pause or disable a website（2025-12-10 更新）
     url: https://developers.google.com/search/docs/crawling-indexing/pause-online-business
-    checkedAt: "2026-11-03"
+    checkedAt: "2026-11-04"
   - name: Google 搜尋中心：Troubleshoot Google Search crawling errors（2025-12-18 更新）
     url: https://developers.google.com/search/docs/crawling-indexing/troubleshoot-crawling-errors
-    checkedAt: "2026-11-03"
-  - name: Google 搜尋中心：HTTP 狀態碼、網路與 DNS 錯誤如何影響 Google 搜尋
-    url: https://developers.google.com/search/docs/crawling-indexing/http-network-errors
-    checkedAt: "2026-11-03"
+    checkedAt: "2026-11-04"
+  - name: Google 抓取基礎架構文件：How HTTP status codes affect Google's crawlers（2026-02-04 更新）
+    url: https://developers.google.com/crawling/docs/troubleshooting/http-status-codes
+    checkedAt: "2026-11-04"
 ---
 
 維護期間回傳 503 狀態碼，加上 Retry-After 標頭說明大約多久恢復，頁面用純靜態 HTML 寫清楚何時回來、去哪裡看最新消息；Google 建議這種整站關閉只用在一兩天內。
 
 ## 為什麼是 503
 
-RFC 9110 定義 503 是「伺服器暫時無法處理請求，例如負載過重或排定維護，過一段時間應該會恢復」。重點是「暫時」：搜尋引擎和程式看到 503，就知道這頁還在，只是現在不能用。
+RFC 9110 定義 503 是「伺服器暫時無法處理請求，例如負載過重或排定維護，過一段時間應該會恢復」。重點是「暫時」。Google 的文件也說，遇到 5xx 時，已收錄的網址會先保留在索引裡，但最後還是會被移除。
 
 不要用其他狀態碼代替。Google 明確提醒，用 403、404、410 擋住網站，或加上 noindex，會讓網址從 Google 搜尋移除。
 
@@ -42,7 +42,7 @@ Google 也建議 503 錯誤頁附上 `retry-after` 標頭，填你盡力估計�
 
 Google 建議在錯誤頁上給使用者清楚的下一步，例如：
 
-1. 更多資訊的連結，例如官方社群帳號或狀態頁。
+1. 更多資訊的連結。
 2. 預計恢復的日期，或下次更新資訊的時間。
 3. 怎麼聯絡客服。
 
@@ -52,14 +52,15 @@ Google 建議在錯誤頁上給使用者清楚的下一步，例如：
 
 - 用靜態 HTML。
 - 盡量少用外部資源：CSS 直接寫在頁面裡，圖片用 base64 內嵌。
-- 上線前用 `curl -I` 確認回應真的是 `503`。
+
+Google 也建議用 `curl` 之類的工具，在本機確認回應真的是 `503`，例如 `curl -I -X GET "https://你的網站/"`。
 
 ## 不要關太久
 
 Google 的建議是：
 
 - 緊急關站 1 到 2 天：回 503 和說明頁。
-- 要關更久：改用 200 狀態碼放一個可以被收錄的首頁，告訴大家目前的狀況。
+- 要關更久：改用 200 狀態碼放一個可以被收錄的首頁當佔位頁，讓使用者在搜尋中找得到。
 - 整站關閉最多幾天，否則即使做法正確，對搜尋還是會有明顯影響。
 
 另一份文件也提醒，連續超過 2 天回 503 或 429，Google 會把這些網址從索引移除。持續回傳 500、502、503 的網址，最後也會被移出索引。

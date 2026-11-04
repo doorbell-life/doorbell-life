@@ -1,30 +1,30 @@
 ---
 title: 429 被限流時可以給訪客看什麼？
-description: 告訴訪客「你在短時間內送出太多請求」，並說明要等多久再試；等待時間放在 Retry-After 標頭，頁面上也寫一次，其餘時間可以放些有用的內容陪他等。
+description: 照 RFC 6585 的建議，在頁面上說明訪客在一段時間內送出太多請求；要等多久再試，可以用 Retry-After 標頭告訴他。
 region: taiwan
 topic: webmasters
 common: rate-limit-429-page
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: RFC 6585 Additional HTTP Status Codes（4. 429 Too Many Requests）
     url: https://www.rfc-editor.org/rfc/rfc6585
-    checkedAt: "2026-11-03"
+    checkedAt: "2026-11-04"
   - name: RFC 9110 HTTP Semantics（10.2.3 Retry-After）
     url: https://www.rfc-editor.org/rfc/rfc9110
-    checkedAt: "2026-11-03"
-  - name: Google 搜尋中心：HTTP 狀態碼、網路與 DNS 錯誤如何影響 Google 搜尋
-    url: https://developers.google.com/search/docs/crawling-indexing/http-network-errors
-    checkedAt: "2026-11-03"
+    checkedAt: "2026-11-04"
+  - name: Google 抓取基礎架構文件：How HTTP status codes affect Google's crawlers（2026-02-04 更新）
+    url: https://developers.google.com/crawling/docs/troubleshooting/http-status-codes
+    checkedAt: "2026-11-04"
   - name: Google 搜尋中心：Troubleshoot Google Search crawling errors（2025-12-18 更新）
     url: https://developers.google.com/search/docs/crawling-indexing/troubleshoot-crawling-errors
-    checkedAt: "2026-11-03"
+    checkedAt: "2026-11-04"
   - name: Nginx 文件：ngx_http_limit_req_module（limit_req_status）
     url: https://nginx.org/en/docs/http/ngx_http_limit_req_module.html#limit_req_status
-    checkedAt: "2026-11-03"
+    checkedAt: "2026-11-04"
 ---
 
-告訴訪客「你在短時間內送出太多請求」，並說明要等多久再試；等待時間放在 Retry-After 標頭，頁面上也寫一次，其餘時間可以放些有用的內容陪他等。
+照 RFC 6585 的建議，在頁面上說明訪客在一段時間內送出太多請求；要等多久再試，可以用 Retry-After 標頭告訴他。
 
 ## 429 是什麼
 
@@ -38,16 +38,13 @@ RFC 6585 的範例很簡單：一個 HTML 頁面，標題是「Too Many Requests
 
 ## Retry-After 怎麼寫
 
-RFC 9110 定義 Retry-After 的值可以是秒數（例如 `Retry-After: 120` 代表 2 分鐘），也可以是日期時間。頁面上的文字最好和標頭一致，例如「請在 2 分鐘後再試」。
+RFC 9110 定義 Retry-After 的值可以是秒數（例如 `Retry-After: 120` 代表 2 分鐘），也可以是日期時間（例如 `Retry-After: Fri, 31 Dec 1999 23:59:59 GMT`）。
 
 ## 頁面上該寫什麼
 
-照 RFC 6585 的要求，頁面至少要說清楚兩件事：
+RFC 6585 對頁面內容的要求是**應該**說明發生什麼事；要等多久，規格放在 Retry-After 標頭，是「可以」加的選項。上面的範例頁就是把限流規則（每位登入使用者每小時 50 個請求）直接寫出來，再請訪客稍後再試。
 
-1. **發生什麼事。** 用一般人聽得懂的話，例如「你在短時間內重新整理太多次了」。
-2. **要等多久。** 和 Retry-After 一致。
-
-如果你的限流規則是公開的（例如每小時幾次），也可以寫出來，訪客才知道怎麼避免。限流怎麼算、怎麼辨識使用者，RFC 6585 沒有規定，由你自己決定。
+限流怎麼算、怎麼辨識使用者，RFC 6585 沒有規定。
 
 ## Nginx 預設回的不是 429
 
@@ -61,7 +58,7 @@ limit_req_status 429;
 
 ## 搜尋引擎怎麼看 429
 
-Google 把 429 當成伺服器負載過重的訊號，會暫時放慢爬取速度。Google 也提醒，連續超過 2 天回 429 或 503，這些網址會從索引移除。所以限流規則最好不要擋到正常的爬蟲，也不要長期回 429。
+Google 把 429 當成伺服器負載過重的訊號，會暫時放慢爬取速度。Google 也提醒，連續超過 2 天回 429 或 503，這些網址會從索引移除；爬取速度降下來之後，就要停止對爬蟲回 503 或 429。
 
 ## 讓等待的時間有用
 
