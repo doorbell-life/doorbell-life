@@ -33,6 +33,8 @@ export const SAMPLING = 10;
 export const TOKEN_TTL_MS = 15 * 60 * 1000;
 export const RATE_WINDOW_MS = 15 * 60 * 1000;
 export const RATE_MAX = 3;
+// 全站每天最多寄出的登入信（Resend 免費方案每天 100 封；退信率過高會被停權，防止有人灌不存在的信箱）
+export const GLOBAL_DAILY_MAX = 90;
 export const MAX_ASSET_BYTES = 200_000; // 與前端 site/src/lib/brand.ts 的 MAX_IMAGE_BYTES 一致
 export const MAX_REPORT_DAYS = 366;
 const DAY_MS = 86400 * 1000;
@@ -159,8 +161,9 @@ async function authRequest(req: Req, env: Env, ctx: ExecutionContext, deps: Deps
     env.DB.prepare("DELETE FROM login_tokens WHERE created_at < ?1").bind(now - DAY_MS),
     env.DB.prepare(
       "INSERT INTO login_tokens (hash, email, created_at, expires_at) SELECT ?1, ?2, ?3, ?4 " +
-        "WHERE (SELECT COUNT(*) FROM login_tokens WHERE email = ?2 AND created_at > ?5) < ?6",
-    ).bind(hash, email, now, now + TOKEN_TTL_MS, now - RATE_WINDOW_MS, RATE_MAX),
+        "WHERE (SELECT COUNT(*) FROM login_tokens WHERE email = ?2 AND created_at > ?5) < ?6 " +
+        "AND (SELECT COUNT(*) FROM login_tokens WHERE created_at > ?7) < ?8",
+    ).bind(hash, email, now, now + TOKEN_TTL_MS, now - RATE_WINDOW_MS, RATE_MAX, now - DAY_MS, GLOBAL_DAILY_MAX),
   ]);
   if (!inserted || inserted.meta.changes !== 1) return error("rate_limited", 429, { "Retry-After": "900" });
 

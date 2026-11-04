@@ -196,6 +196,19 @@ describe("auth", () => {
     expect((await call("POST", "/auth/request", { json: { email: "rl@example.com" } })).status).toBe(202);
   });
 
+  it("caps sign-in mails site-wide per day", async () => {
+    const day = clock;
+    const stmt = env.DB.prepare("INSERT INTO login_tokens (hash, email, created_at, expires_at) VALUES (?1, ?2, ?3, ?4)");
+    await env.DB.batch(Array.from({ length: 90 }, (_, i) => stmt.bind(`h${i}`, `u${i}@example.com`, day, day + 1)));
+    const capped = await call("POST", "/auth/request", { json: { email: "new@example.com" } });
+    try {
+      expect(capped.status).toBe(429);
+      expect(mails).toHaveLength(0);
+    } finally {
+      await env.DB.prepare("DELETE FROM login_tokens WHERE hash LIKE 'h%'").run();
+    }
+  });
+
   it("does not leak whether an account exists", async () => {
     await login("exists@example.com");
     const a = await call("POST", "/auth/request", { json: { email: "exists@example.com" } });

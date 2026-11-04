@@ -38,7 +38,7 @@ const BRAND = {
   id: "b_test1",
   email: "owner@example.com",
   settings: { template: "bell", primary: "oklch(0.5 0.12 30)", font: "system", name: "<img src=x onerror=alert(1)>測試品牌" },
-  sites: ["www.example.com"],
+  sites: [{ host: "www.example.com", verified: false, txt: "doorbell-life-verify=abc123" }],
 };
 const me = (): Reply => ({ json: BRAND });
 
@@ -109,6 +109,25 @@ test("帳號與網域：資料一律當純文字顯示；網域儲存送出整�
   await expect(page.locator("#sites-msg")).toContainText("已儲存 2 個網域");
   const put = calls.find((c) => c.key === "PUT /brand/sites")!;
   expect(JSON.parse(put.body!)).toEqual({ sites: ["shop.example.com", "www.example.com"] });
+});
+
+test("網域驗證：顯示 TXT 記錄，驗證成功標為已驗證；DNS 查不到時說明", async ({ page }) => {
+  let ok = false;
+  const calls = await mockApi(page, {
+    "GET /brand": me,
+    "POST /brand/sites/verify": () => (ok ? { json: { host: "www.example.com", verified: true } } : { status: 502, json: { error: "dns_unavailable" } }),
+  });
+  await page.goto(BASE + "/brand/dashboard/");
+  await expect(page.locator("#verify-list")).toContainText("尚未驗證");
+  await expect(page.locator("#verify-list .rec")).toContainText("_doorbell-life.www.example.com");
+  await expect(page.locator("#verify-list .rec")).toContainText("doorbell-life-verify=abc123");
+  await page.getByRole("button", { name: "驗證" }).click();
+  await expect(page.locator("#verify-list")).toContainText("暫時查不到 DNS");
+  ok = true;
+  await page.getByRole("button", { name: "驗證" }).click();
+  await expect(page.locator("#verify-list")).toContainText("已驗證");
+  await expect(page.getByRole("button", { name: "驗證" })).toHaveCount(0);
+  expect(JSON.parse(calls.find((c) => c.key === "POST /brand/sites/verify")!.body!)).toEqual({ host: "www.example.com" });
 });
 
 test("登出：呼叫 /auth/logout 後回到登入頁", async ({ page }) => {

@@ -44,7 +44,8 @@ export interface Settings {
   logo?: string;
   mascot?: string;
 }
-export interface Brand { id: string; email: string; settings: Partial<Settings> | null; sites: string[] }
+export interface Site { host: string; verified: boolean; txt: string }
+export interface Brand { id: string; email: string; settings: Partial<Settings> | null; sites: Site[] }
 export interface ReportRow { date: string; topic: string; country: string; impressions: number }
 
 export class ApiError extends Error {

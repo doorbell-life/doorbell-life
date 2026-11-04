@@ -13,7 +13,7 @@ import BrandPage from "../../../components/BrandPage.astro";
     <p>品牌名稱、主色、Logo 等外觀，到<a href="/brand/design/">樣式設計</a>修改。</p>
 
     <h2>你的網域</h2>
-    <p>列出你自己的網站網域，報表只會統計這些網域上的顯示次數。一行一個，例如 <code>www.example.com</code>。貼完整網址也可以，我們只取網域。</p>
+    <p>列出你自己的網站網域，一行一個，例如 <code>www.example.com</code>。貼完整網址也可以，我們只取網域。報表只統計<strong>通過驗證</strong>的網域，避免看到別人網站的資料。</p>
     <form id="sites-form" novalidate>
       <label for="sites">網域清單</label>
       <textarea id="sites" name="sites" spellcheck="false" autocapitalize="off"></textarea>
@@ -21,18 +21,64 @@ import BrandPage from "../../../components/BrandPage.astro";
       <p id="sites-msg" class="msg" role="status" aria-live="polite"></p>
     </form>
 
+    <h3>驗證網域</h3>
+    <p>在你的網域 DNS 加一筆 TXT 記錄，名稱是 <code>_doorbell-life.你的網域</code>，值如下。加好之後按「驗證」，DNS 生效可能要等幾分鐘到幾小時。</p>
+    <ul id="verify-list" class="verify"></ul>
+
     <h2>在網站上使用你的品牌外觀</h2>
     <p>在安裝元件的那一行加上 <code>data-brand</code>，填你的品牌代號：</p>
     <pre><code id="snippet"></code></pre>
   </div>
 </BrandPage>
 <script>
-  import { call, errorText, jsonInit, parseSites, setMsg, type Brand } from "../../../lib/brand";
+  import { ApiError, call, errorText, jsonInit, parseSites, setMsg, type Brand, type Site } from "../../../lib/brand";
   import { WIDGET } from "../../../lib/site";
   const $ = (id: string) => document.getElementById(id)!;
   const load = $("load");
   const textarea = $("sites") as HTMLTextAreaElement;
   const msg = $("sites-msg");
+
+  // 網域清單與驗證狀態；所有文字都用 textContent
+  function renderSites(sites: Site[]) {
+    textarea.value = sites.map((s) => String(s.host)).join("\n");
+    const list = $("verify-list");
+    list.textContent = "";
+    for (const s of sites) {
+      const li = document.createElement("li");
+      const head = document.createElement("p");
+      const name = document.createElement("strong");
+      name.textContent = String(s.host);
+      head.append(name, s.verified ? "　已驗證" : "　尚未驗證");
+      li.append(head);
+      if (!s.verified) {
+        const rec = document.createElement("p");
+        rec.className = "rec";
+        rec.textContent = `TXT 名稱：_doorbell-life.${s.host}　值：${s.txt}`;
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = "驗證";
+        const out = document.createElement("p");
+        out.className = "msg";
+        out.setAttribute("role", "status");
+        btn.addEventListener("click", async () => {
+          setMsg(out, "正在查詢 DNS…", "ok");
+          try {
+            const r: { verified: boolean } = await (await call("/brand/sites/verify", jsonInit("POST", { host: s.host }))).json();
+            if (r.verified) {
+              s.verified = true;
+              renderSites(sites);
+            } else setMsg(out, "還沒找到這筆 TXT 記錄。剛加的記錄可能要等一下才生效，稍後再試。", "err");
+          } catch (err) {
+            if (err instanceof ApiError && err.status === 404) setMsg(out, "這個網域還沒儲存，請先按「儲存網域」。", "err");
+            else if (err instanceof ApiError && err.status === 502) setMsg(out, "暫時查不到 DNS，請稍後再試。", "err");
+            else setMsg(out, errorText(err), "err");
+          }
+        });
+        li.append(rec, btn, out);
+      }
+      list.append(li);
+    }
+  }
 
   async function init() {
     try {
@@ -40,7 +86,7 @@ import BrandPage from "../../../components/BrandPage.astro";
       $("email").textContent = String(b.email ?? "");
       $("brand-id").textContent = String(b.id ?? "");
       $("brand-name").textContent = b.settings?.name ? String(b.settings.name) : "尚未設定";
-      textarea.value = (Array.isArray(b.sites) ? b.sites : []).map(String).join("\n");
+      renderSites(Array.isArray(b.sites) ? b.sites : []);
       $("snippet").textContent = `<script src="${WIDGET}" async data-status="404" data-brand="${String(b.id ?? "")}"></` + "script>";
       load.hidden = true;
       $("body").hidden = false;
@@ -58,8 +104,9 @@ import BrandPage from "../../../components/BrandPage.astro";
     }
     try {
       await call("/brand/sites", jsonInit("PUT", { sites }));
-      textarea.value = sites.join("\n");
-      setMsg(msg, sites.length ? `已儲存 ${sites.length} 個網域。` : "已清空網域清單。報表在你加上網域之前不會有數字。", "ok");
+      const b: Brand = await (await call("/brand")).json();
+      renderSites(Array.isArray(b.sites) ? b.sites : []);
+      setMsg(msg, sites.length ? `已儲存 ${sites.length} 個網域。新加的網域要先驗證，報表才會計入。` : "已清空網域清單。", "ok");
     } catch (err) {
       setMsg(msg, errorText(err), "err");
     }
@@ -67,3 +114,8 @@ import BrandPage from "../../../components/BrandPage.astro";
 
   init();
 </script>
+<style>
+  .verify { list-style: none; padding: 0; }
+  .verify li { padding: 16px 0; border-bottom: 1px solid var(--border-subtle); }
+  .verify .rec { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: var(--text-xs); overflow-wrap: anywhere; }
+</style>
