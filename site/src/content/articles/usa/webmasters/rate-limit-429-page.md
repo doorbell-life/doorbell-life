@@ -69,7 +69,7 @@ The `error_page` line serves your own page and keeps the 429 status, as long as 
 
 ## How search engines see 429
 
-Google treats 429 as a signal that the server is overloaded and handles it as a server error: its crawlers temporarily slow down. Its crawling-errors guide says Googlebot retries URLs returning 503 or 429 for about 2 days, and that returning these codes for more than a few days will cause Google to permanently slow or stop crawling URLs on your site.
+Google treats 429 as a signal that the server is overloaded and handles it as a server error: its crawlers temporarily slow down. Its crawling-errors guide says Googlebot retries URLs returning 503 or 429 for about 2 days, that returning these codes for more than a few days will cause Google to permanently slow or stop crawling URLs on your site, and that returning 503 or 429 for more than 2 days will cause Google to drop those URLs from the index.
 
 ## Make the wait useful
 

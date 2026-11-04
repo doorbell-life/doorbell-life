@@ -70,6 +70,7 @@ Google's guidance on pausing a site:
 - If you urgently need to disable the site for **1–2 days**, return an informational 503 error page instead of all content.
 - If you need to disable it longer, provide an indexable home page as a placeholder, with a **200** status code, instead of a 503.
 - Disabling a whole site is an extreme measure that should last "a few days at most"; otherwise it will significantly affect the site in Search even if done correctly.
+- Google's crawling-errors guide adds that returning 503 or 429 for more than 2 days will cause Google to drop those URLs from the index.
 
 Google's crawling-errors guide adds that Googlebot retries URLs returning 503 or 429 for about 2 days, and that returning these codes for more than a few days will cause Google to permanently slow or stop crawling URLs on your site. Its status-code documentation says URLs that keep returning server errors are eventually dropped from the index.
 
