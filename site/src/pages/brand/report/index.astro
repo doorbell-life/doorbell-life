@@ -1,0 +1,123 @@
+---
+import BrandPage from "../../../components/BrandPage.astro";
+---
+<BrandPage title="曝光報表" h1="曝光報表" description="你登記的網域上，公益資訊被顯示的次數。" authed>
+  <p class="print-only" id="print-head"></p>
+  <form id="range" class="noprint" novalidate>
+    <div class="dates">
+      <div>
+        <label for="from">開始日期</label>
+        <input type="date" id="from" required />
+      </div>
+      <div>
+        <label for="to">結束日期</label>
+        <input type="date" id="to" required />
+      </div>
+    </div>
+    <div class="actions">
+      <button type="submit">查詢</button>
+      <a id="csv" class="button-link" href="#" download>下載 CSV</a>
+      <button type="button" class="secondary" id="pdf">下載 PDF</button>
+    </div>
+    <p class="muted">「下載 PDF」會打開列印視窗，印表機選「儲存為 PDF」就能存檔。</p>
+  </form>
+  <p id="msg" class="msg" role="status" aria-live="polite"></p>
+
+  <section id="result" hidden>
+    <p id="summary"></p>
+    <p class="muted" id="sampling"></p>
+    <table id="table">
+      <thead><tr><th scope="col">日期</th><th scope="col">議題</th><th scope="col">國家</th><th scope="col">曝光數</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <h2 class="noprint">數字怎麼來？</h2>
+  <ul class="noprint">
+    <li>只統計你在<a href="/brand/dashboard/">帳號與網域</a>登記的網域。</li>
+    <li>日期以世界標準時間（UTC）計算，台灣時間早上 8 點換日。</li>
+    <li>國家依 Cloudflare 判斷的連線位置，我們不記錄訪客的 IP。</li>
+  </ul>
+</BrandPage>
+<script>
+  import { API, call, countryName, errorText, isoDate, readReport, setMsg, sortRows, TOPIC_LABELS } from "../../../lib/brand";
+  const $ = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T;
+  const from = $<HTMLInputElement>("from");
+  const to = $<HTMLInputElement>("to");
+  const csv = $<HTMLAnchorElement>("csv");
+  const msg = $("msg");
+  const nf = new Intl.NumberFormat("zh-Hant-TW");
+
+  const today = new Date();
+  to.value = isoDate(today);
+  from.value = isoDate(new Date(today.getTime() - 29 * 86400e3));
+
+  const query = () => `from=${encodeURIComponent(from.value)}&to=${encodeURIComponent(to.value)}`;
+  const syncCsv = () => {
+    csv.href = `${API}/brand/report.csv?${query()}`;
+    csv.download = `doorbell-report-${from.value}-${to.value}.csv`;
+  };
+
+  function valid(): boolean {
+    const ok = /^\d{4}-\d{2}-\d{2}$/;
+    if (!ok.test(from.value) || !ok.test(to.value)) {
+      setMsg(msg, "請選開始與結束日期。", "err");
+      return false;
+    }
+    if (from.value > to.value) {
+      setMsg(msg, "開始日期不能晚於結束日期。", "err");
+      return false;
+    }
+    return true;
+  }
+
+  async function load() {
+    if (!valid()) return;
+    syncCsv();
+    setMsg(msg, "正在讀取…");
+    try {
+      const { rows, sampling } = readReport(await (await call(`/brand/report?${query()}`)).json());
+      const tbody = $("table").querySelector("tbody")!;
+      tbody.textContent = "";
+      for (const r of sortRows(rows)) {
+        const tr = document.createElement("tr");
+        for (const v of [r.date, TOPIC_LABELS[r.topic] ?? r.topic, countryName(r.country), nf.format(r.impressions)]) {
+          const td = document.createElement("td");
+          td.textContent = v;
+          tr.append(td);
+        }
+        tbody.append(tr);
+      }
+      const total = rows.reduce((s, r) => s + r.impressions, 0);
+      const range = `${from.value} 到 ${to.value}`;
+      $("summary").textContent = rows.length ? `${range}，總曝光數 ${nf.format(total)} 次。` : `${range} 沒有曝光紀錄。`;
+      $("sampling").textContent = `曝光數是抽樣統計：每顯示 ${sampling} 次記 1 次，再乘以 ${sampling} 得到這裡的數字，所以都是估計值。`;
+      $("print-head").textContent = `按門鈴 doorbell.life 曝光報表：${range}`;
+      $("table").hidden = rows.length === 0;
+      $("result").hidden = false;
+      setMsg(msg, "");
+    } catch (e) {
+      setMsg(msg, errorText(e), "err");
+    }
+  }
+
+  $<HTMLFormElement>("range").addEventListener("submit", (e) => {
+    e.preventDefault();
+    load();
+  });
+  for (const i of [from, to]) i.addEventListener("change", syncCsv);
+  csv.addEventListener("click", (e) => {
+    if (!valid()) e.preventDefault();
+  });
+  $("pdf").addEventListener("click", () => window.print());
+  syncCsv();
+  load();
+</script>
+<style is:global>
+  .ba .dates { display: flex; flex-wrap: wrap; gap: 0 24px; }
+  .ba .button-link { display: inline-block; padding: 12px 24px; border-radius: 8px; background: var(--bg-overlay); color: var(--text-primary); font-weight: 600; text-decoration: none; }
+  .ba #table td:last-child, .ba #table th:last-child { text-align: right; }
+  @media print {
+    .ba #table { font-size: var(--text-xs); }
+  }
+</style>

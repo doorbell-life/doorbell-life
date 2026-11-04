@@ -1,0 +1,60 @@
+---
+import BrandPage from "../../components/BrandPage.astro";
+---
+<BrandPage
+  title="品牌主登入"
+  h1="品牌主後台"
+  description="贊助企業可以在這裡換上自己的品牌外觀、查看曝光報表。用信箱登入，不用設密碼。"
+>
+  <p class="lead">贊助企業可以在這裡換上自己的品牌外觀，並查看公益資訊被顯示了多少次。只是要在錯誤頁安裝元件的話，不用登入，直接看<a href="/install/taiwan/">安裝說明</a>就好。</p>
+
+  <h2>用信箱登入</h2>
+  <p>輸入信箱，我們會寄一封登入信給你，點信裡的連結就能登入。不用設密碼。第一次登入會自動建立帳號。</p>
+  <form id="login" novalidate>
+    <label for="email">信箱</label>
+    <input type="email" id="email" name="email" autocomplete="email" required maxlength="254" />
+    <div class="actions"><button type="submit">寄登入信給我</button></div>
+    <p id="msg" class="msg" role="status" aria-live="polite"></p>
+  </form>
+
+  <h2>登入信沒收到？</h2>
+  <ul>
+    <li>登入連結 15 分鐘內有效，而且只能用一次。</li>
+    <li>先看看垃圾郵件匣。同一個信箱 15 分鐘內最多寄 3 封。</li>
+    <li>還是有問題，請寫信到 <a href="mailto:contact@doorbell.life">contact@doorbell.life</a>。</li>
+  </ul>
+
+  <h2>我們會記錄什麼？</h2>
+  <p>登入只會在這個網站存一個登入用的 cookie，30 天後失效，按「登出」就會刪除。報表只統計你登記的網域上的顯示次數，不記錄訪客的 IP，也不在訪客的瀏覽器存任何東西。</p>
+</BrandPage>
+<script>
+  import { API, setMsg } from "../../lib/brand";
+  // 不論信箱存不存在、寄信成不成功，都顯示同一段話，避免被拿來試探誰有帳號。
+  const SAME = "如果這個信箱可以登入，登入信已經寄出了。請在 15 分鐘內打開信裡的連結。";
+  const form = document.getElementById("login") as HTMLFormElement;
+  const input = document.getElementById("email") as HTMLInputElement;
+  const msg = document.getElementById("msg");
+  const btn = form.querySelector("button")!;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = input.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setMsg(msg, "請輸入完整的信箱，例如 name@example.com。", "err");
+      input.focus();
+      return;
+    }
+    btn.disabled = true;
+    try {
+      await fetch(API + "/auth/request", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+    } catch {
+      // 刻意不分辨結果
+    }
+    btn.disabled = false;
+    setMsg(msg, SAME, "ok");
+  });
+</script>

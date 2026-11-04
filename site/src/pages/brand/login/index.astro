@@ -1,0 +1,48 @@
+---
+import BrandPage from "../../../components/BrandPage.astro";
+---
+<BrandPage title="登入中" h1="登入品牌主後台" description="確認登入連結。">
+  <p id="msg" class="msg" role="status" aria-live="polite">正在確認登入連結…</p>
+  <p id="again" hidden><a href="/brand/">回到登入頁，重新寄一封登入信</a></p>
+</BrandPage>
+<script>
+  import { API, errorCode, setMsg } from "../../../lib/brand";
+  const msg = document.getElementById("msg");
+  const again = document.getElementById("again")!;
+  const fail = (text: string) => {
+    setMsg(msg, text, "err");
+    again.hidden = false;
+  };
+  const token = new URLSearchParams(location.search).get("token") ?? "";
+  // 拿到 token 後立刻從網址列移除，避免留在瀏覽紀錄或被截圖
+  history.replaceState(null, "", location.pathname);
+  async function verify() {
+    if (!/^[A-Za-z0-9_-]{16,256}$/.test(token)) {
+      fail("這個登入連結不完整。請確認是從登入信裡直接點開的，或重新寄一封。");
+      return;
+    }
+    try {
+      const res = await fetch(API + "/auth/verify", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token }),
+      });
+      if (res.ok) {
+        location.replace("/brand/dashboard/");
+      } else if (res.status >= 500) {
+        fail("伺服器暫時出了問題，請稍後再點一次登入信裡的連結。");
+      } else {
+        const code = await errorCode(res);
+        fail(
+          code === "used"
+            ? "這個登入連結已經用過了。每個連結只能用一次，請重新寄一封登入信。"
+            : "這個登入連結已經過期或用過了。連結只在 15 分鐘內有效，而且只能用一次，請重新寄一封登入信。",
+        );
+      }
+    } catch {
+      fail("連不上伺服器，請確認網路後再點一次登入信裡的連結。");
+    }
+  }
+  verify();
+</script>

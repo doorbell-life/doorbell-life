@@ -1,0 +1,69 @@
+---
+import BrandPage from "../../../components/BrandPage.astro";
+---
+<BrandPage title="帳號與網域" h1="帳號與網域" description="品牌主帳號資料與網域設定。" authed>
+  <p id="load" class="msg" role="status" aria-live="polite">正在讀取帳號資料…</p>
+  <div id="body" hidden>
+    <h2>帳號</h2>
+    <dl>
+      <dt>登入信箱</dt><dd id="email"></dd>
+      <dt>品牌代號</dt><dd id="brand-id"></dd>
+      <dt>品牌名稱</dt><dd id="brand-name"></dd>
+    </dl>
+    <p>品牌名稱、主色、Logo 等外觀，到<a href="/brand/design/">樣式設計</a>修改。</p>
+
+    <h2>你的網域</h2>
+    <p>列出你自己的網站網域，報表只會統計這些網域上的顯示次數。一行一個，例如 <code>www.example.com</code>。貼完整網址也可以，我們只取網域。</p>
+    <form id="sites-form" novalidate>
+      <label for="sites">網域清單</label>
+      <textarea id="sites" name="sites" spellcheck="false" autocapitalize="off"></textarea>
+      <div class="actions"><button type="submit">儲存網域</button></div>
+      <p id="sites-msg" class="msg" role="status" aria-live="polite"></p>
+    </form>
+
+    <h2>在網站上使用你的品牌外觀</h2>
+    <p>在安裝元件的那一行加上 <code>data-brand</code>，填你的品牌代號：</p>
+    <pre><code id="snippet"></code></pre>
+  </div>
+</BrandPage>
+<script>
+  import { call, errorText, jsonInit, parseSites, setMsg, type Brand } from "../../../lib/brand";
+  import { WIDGET } from "../../../lib/site";
+  const $ = (id: string) => document.getElementById(id)!;
+  const load = $("load");
+  const textarea = $("sites") as HTMLTextAreaElement;
+  const msg = $("sites-msg");
+
+  async function init() {
+    try {
+      const b: Brand = await (await call("/brand")).json();
+      $("email").textContent = String(b.email ?? "");
+      $("brand-id").textContent = String(b.id ?? "");
+      $("brand-name").textContent = b.settings?.name ? String(b.settings.name) : "尚未設定";
+      textarea.value = (Array.isArray(b.sites) ? b.sites : []).map(String).join("\n");
+      $("snippet").textContent = `<script src="${WIDGET}" async data-status="404" data-brand="${String(b.id ?? "")}"></` + "script>";
+      load.hidden = true;
+      $("body").hidden = false;
+    } catch (e) {
+      setMsg(load, errorText(e), "err");
+    }
+  }
+
+  ($("sites-form") as HTMLFormElement).addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const { sites, bad } = parseSites(textarea.value);
+    if (bad.length) {
+      setMsg(msg, `這些看起來不是網域，請修正：${bad.join("、")}`, "err");
+      return;
+    }
+    try {
+      await call("/brand/sites", jsonInit("PUT", { sites }));
+      textarea.value = sites.join("\n");
+      setMsg(msg, sites.length ? `已儲存 ${sites.length} 個網域。` : "已清空網域清單。報表在你加上網域之前不會有數字。", "ok");
+    } catch (err) {
+      setMsg(msg, errorText(err), "err");
+    }
+  });
+
+  init();
+</script>
