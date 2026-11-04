@@ -1,0 +1,31 @@
+{
+  "practice": "台灣把「要不要公開協尋」交給家屬決定：警察受理報案時，要主動問報案人是否同意相片建檔、是否同意警方透過媒體網路公開協尋，並寫進筆錄。疑似因家暴而離家的人，親屬報案時警方會先查是否屬保護性案件；查明是家暴被害人，就在證明單註記「本案不適宜公開協尋，請勿刊登」。",
+  "fields": {
+    "official-channel": {
+      "value": "警政署的「查尋失蹤人口、身分不明者資料」網頁，不含在臺無戶籍者、保護性案件和家屬不願公開查尋者。報案時家屬同意後，警方才會透過媒體網路公開協尋，或提供給衛福部及其所屬擇定的失蹤協尋單位公開協尋。",
+      "sources": [
+        { "name": "內政部警政署：查尋失蹤人口、身分不明者資料", "url": "https://eze8.npa.gov.tw/NpaE8ServerRWD/NK_Query.jsp", "checkedAt": "2026-11-04" },
+        { "name": "內政部警政署：失蹤人口查尋作業要點（110 年 3 月 5 日修正）第 5 點", "url": "https://glrs.moi.gov.tw/LawContent.aspx?id=GL000128", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "minor-privacy": {
+      "value": "《兒童及少年福利與權益保障法》第 69 條規定，兒少如果是刑事案件或少年保護事件的當事人或被害人、遭受虐待等法定情形，媒體與網路不得報導其姓名或其他足以識別身分的資訊，任何其他人也不得以媒體、資訊或其他公示方式揭示。這條適用於法條列出的情形，不是所有失蹤兒少。",
+      "sources": [
+        { "name": "全國法規資料庫：兒童及少年福利與權益保障法第 69 條", "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0050001&flno=69", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "false-info-penalty": {
+      "value": "《社會秩序維護法》第 63 條第 1 項第 5 款規定，散佈謠言、足以影響公共安寧者，處 3 日以下拘留或新臺幣 3 萬元以下罰鍰。這是一般規定，法條沒有專門針對協尋訊息。",
+      "sources": [
+        { "name": "全國法規資料庫：社會秩序維護法第 63 條", "url": "https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=D0080067&flno=63", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "remove-after-found": {
+      "value": "尋獲後要到警察機關辦理撤尋，由失蹤人或報案人帶身分證明文件辦理；警察在失蹤人口系統登錄尋獲經過，並把撤尋資料傳給戶政機關，在戶籍資料註記。",
+      "sources": [
+        { "name": "內政部警政署：失蹤人口查尋作業要點（110 年 3 月 5 日修正）第 8、11 點", "url": "https://glrs.moi.gov.tw/LawContent.aspx?id=GL000128", "checkedAt": "2026-11-04" },
+        { "name": "基隆市警察局常見問題：如何辦理失蹤人口撤銷查尋？", "url": "https://www.klg.gov.tw/cht/index.php?code=list&flag=detail&ids=594&article_id=1205", "checkedAt": "2026-11-04" }
+      ]
+    }
+  }
+}

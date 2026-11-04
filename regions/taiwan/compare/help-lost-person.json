@@ -1,0 +1,29 @@
+{
+  "practice": "臺南市政府宣導「看、問、留、撥」四步驟：先觀察長者言談舉止有無異狀，再關心詢問從哪來、要去哪裡，接著延長他停留的時間並聯絡家屬或警察、但不強留，疑似失智就撥 110 請警方協尋。警方端的分工是查證身分：員警會先請對方出示證件，查不到時在當事人同意或執行法定職務必要範圍內，可用行動載具做相片比對。",
+  "fields": {
+    "call-number": {
+      "value": "打 110（各縣市警察局勤務指揮中心）。如果發現長輩或孩子身上有不明傷口、疑似遭受不當對待，衛福部呼籲立即撥打 113 保護專線。",
+      "sources": [
+        { "name": "臺南市政府：失智要人幫 暖心四步曲「看問留撥」很簡單", "url": "https://bhland.tainan.gov.tw/News_Content.aspx?n=30022&s=7944130", "checkedAt": "2026-11-04" },
+        { "name": "衛生福利部心理健康司：全國諮詢及救援服務專線", "url": "https://dep.mohw.gov.tw/DOMHAOH/np-327-107.html", "checkedAt": "2026-11-04" },
+        { "name": "衛生福利部：春節前夕慰勞 113、1957、1925 及男性關懷專線值班同仁（114 年 1 月 14 日）", "url": "https://dep.mohw.gov.tw/DOMHAOH/cp-502-81246-107.html", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "can-you-take-them": null,
+    "id-clues": {
+      "value": "看手腕有沒有防走失手鍊：臺中市的愛心手鍊只刻使用者編號，把號碼告訴警察，警察局就能查到資料、聯絡家屬；臺北市的手鍊記載個案編號和 24 小時服務專線。警政署另宣導緊急連絡卡、愛心布標等預防走失工具，以及指紋捺印建檔供警方比對。",
+      "sources": [
+        { "name": "臺中市政府社會局：愛心手鍊（常見問答）", "url": "https://www.society.taichung.gov.tw/13710/13735/13774/13783/807828", "checkedAt": "2026-11-04" },
+        { "name": "臺北市政府社會局：預防走失手鍊申請說明", "url": "https://dosw.gov.taipei/cp.aspx?n=25900d7f6d4932e5&s=067625AC00AA3553", "checkedAt": "2026-11-04" },
+        { "name": "內政部警政署統計室：警政統計通報 115 年第 6 週（114 年警察機關受理失蹤人口概況）", "url": "https://opdadm.moi.gov.tw/api/v1/no-auth/resource/api/dataset/787B2715-CB2C-442C-A96F-D700F06499A4/resource/3050FC55-4057-4C84-8E0B-7BF70770918B/download", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "public-alerts": {
+      "value": "警政署有公開的「查尋失蹤人口、身分不明者資料」網頁，但不含在臺無戶籍者、保護性案件和家屬不願公開查尋者。屬於緊急查尋的案件，警方可視情形通報轄內外警力，或洽請大眾媒體報導協尋。",
+      "sources": [
+        { "name": "內政部警政署：查尋失蹤人口、身分不明者資料", "url": "https://eze8.npa.gov.tw/NpaE8ServerRWD/NK_Query.jsp", "checkedAt": "2026-11-04" },
+        { "name": "內政部警政署：失蹤人口查尋作業要點（110 年 3 月 5 日修正）第 6、7 點", "url": "https://glrs.moi.gov.tw/LawContent.aspx?id=GL000128", "checkedAt": "2026-11-04" }
+      ]
+    }
+  }
+}
