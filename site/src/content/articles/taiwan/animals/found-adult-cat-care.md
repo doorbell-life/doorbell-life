@@ -7,7 +7,7 @@ series: temporary-care
 species:
   - cat
 publishedAt: "2026-11-03"
-checkedAt: "2026-11-03"
+checkedAt: "2026-11-04"
 sources:
   - name: 農業部動物保護資訊網：哺乳類動物飼養及照顧指南ＱＡ【貓隻篇】
     url: https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000826?parentID=Tab0000126
@@ -27,7 +27,7 @@ checklist:
   - 準備一個關好門窗的安靜房間，讓牠慢慢適應
   - 放貓砂盆，數量是貓的隻數加 1
   - 給貓飼料、罐頭或無調味鮮食，不給素食
-  - 水碗放在牠常走的地方，每天換水、洗碗
+  - 水碗放在牠常走的地方，保持乾淨、不殘留清潔劑
   - 收好人吃的藥、百合花、精油和綠油精
   - 毛線、縫線、釣魚線收好，不給牠玩
   - 被抓咬傷用肥皂和清水沖洗 15 分鐘，再去看醫生
