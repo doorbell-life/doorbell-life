@@ -14,4 +14,14 @@ jobs:
       - uses: actions/setup-node@v7.1.0
         with:
           node-version: 26
-      - run: node .github/scripts/watch-sources.ts
+      - name: 監看資料來源有沒有變動
+        run: node .github/scripts/watch-sources.ts
+        continue-on-error: true
+        id: watch
+      - name: 檢查文章與比較表引用的連結
+        run: node .github/scripts/check-links.ts
+        id: links
+        continue-on-error: true
+      - name: 有任何一項需要人工查證就讓工作失敗，通知維護者
+        if: steps.watch.outcome == 'failure' || steps.links.outcome == 'failure'
+        run: exit 1

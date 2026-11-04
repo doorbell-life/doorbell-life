@@ -14,7 +14,8 @@
     "sync": "pnpm --filter \"./regions/*\" sync",
     "daily": "pnpm sync && pnpm test && pnpm build && pnpm test:e2e",
     "watch-sources": "node .github/scripts/watch-sources.ts",
-    "test:configs": "sh configs/test/run.sh"
+    "test:configs": "sh configs/test/run.sh",
+    "check-links": "node .github/scripts/check-links.ts"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",
