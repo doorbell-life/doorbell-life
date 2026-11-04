@@ -11,7 +11,7 @@
       "value": "用「天數」表示，網站上換成三色燈號：7 日以上正常、4 至 7 日偏低、4 日以下急缺。基金會內部依血品項目、血型分別以數量和天數統計；官網與《捐血須知》都沒有寫明天數的換算公式。",
       "sources": [
         { "name": "台灣血液基金會官方網站首頁（血液庫存燈號說明）", "url": "https://www.blood.org.tw/", "checkedAt": "2026-11-04" },
-        { "name": "台灣血液基金會：捐血須知，「血液供應百分百」", "url": "https://www.blood.org.tw/files/file_pool/1/0P076362309725494200/b572e88e-dd66-4b15-9ad5-97c9e0ed8f97.pdf", "checkedAt": "2026-11-04" }
+        { "name": "台灣血液基金會：捐血須知（114 年版），「血液供應百分百」", "url": "https://www.blood.org.tw/files/file_pool/1/0Q260362861290607007/B-003-8_114%E6%8D%90%E8%A1%80%E9%A0%88%E7%9F%A5_%E5%85%A7%E6%96%87_%E5%8D%B0%E5%88%B7%E6%AA%94FN-1.pdf", "checkedAt": "2026-11-04" }
       ]
     },
     "shortage-threshold": {
@@ -24,7 +24,7 @@
     "update-frequency": {
       "value": "基金會說明，每日血品安全庫存量統計機制每天自動統計三次。官網庫存區標示「最新更新時間」，但沒有另外寫明網站燈號多久更新一次。",
       "sources": [
-        { "name": "台灣血液基金會：捐血須知，「血液供應百分百」", "url": "https://www.blood.org.tw/files/file_pool/1/0P076362309725494200/b572e88e-dd66-4b15-9ad5-97c9e0ed8f97.pdf", "checkedAt": "2026-11-04" },
+        { "name": "台灣血液基金會：捐血須知（114 年版），「血液供應百分百」", "url": "https://www.blood.org.tw/files/file_pool/1/0Q260362861290607007/B-003-8_114%E6%8D%90%E8%A1%80%E9%A0%88%E7%9F%A5_%E5%85%A7%E6%96%87_%E5%8D%B0%E5%88%B7%E6%AA%94FN-1.pdf", "checkedAt": "2026-11-04" },
         { "name": "台灣血液基金會官方網站首頁（血液庫存）", "url": "https://www.blood.org.tw/", "checkedAt": "2026-11-04" }
       ]
     }
