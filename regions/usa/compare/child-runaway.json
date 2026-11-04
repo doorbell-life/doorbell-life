@@ -1,0 +1,30 @@
+{
+  "practice": "Federal law treats a child who runs away as a missing child: every law enforcement agency must report each missing child under 21 to the FBI's National Crime Information Center (34 U.S.C. § 41307), and states must ensure no agency keeps a waiting-period policy and that reports are entered within 2 hours (34 U.S.C. § 41308). The Justice Department's family guide tells parents to persist in confirming that police have taken the full report and entered the child into NCIC, because \"a runaway or lured-away child is a missing child.\" Some states run their own youth helplines; for example, the Texas Department of Family and Protective Services operates the Texas Youth Helpline, which offers a free, confidential message service between youth and parents.",
+  "fields": {
+    "report-or-not": {
+      "value": "Yes. Report to the local police right away; there is no waiting period for children, and federal law requires agencies to enter each missing child under 21 into the FBI's NCIC within 2 hours of receiving the report, with no exception for children who leave on their own. As an example of state guidance, Texas's youth helpline says \"it's never too early to report a missing child\" and that parents can ask police to enter the child into NCIC.",
+      "sources": [
+        { "name": "34 U.S.C. § 41307, Reporting requirement for missing children (Office of the Law Revision Counsel)", "url": "https://uscode.house.gov/us/usc/119-120/t34/s41307", "checkedAt": "2026-11-04" },
+        { "name": "34 U.S.C. § 41308, State requirements for reporting missing children (Office of the Law Revision Counsel)", "url": "https://uscode.house.gov/us/usc/119-120/t34/s41308", "checkedAt": "2026-11-04" },
+        { "name": "OJJDP (U.S. Department of Justice): When Your Child Is Missing: A Family Survival Guide, 5th Edition, 2025 Update", "url": "https://ojjdp.ojp.gov/publications/family-survival-guide-fifth-edition.pdf", "checkedAt": "2026-11-04" },
+        { "name": "Texas Department of Family and Protective Services, Texas Youth Helpline: What to do if a Teen Runs Away", "url": "https://www.dfps.texas.gov/youth-helpline/parent-guardian-resources/what-to-do-if-a-teen-runs-away.asp", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "youth-hotline": {
+      "value": "The National Runaway Safeline (call 1-800-RUNAWAY, text 66008, or 1800RUNAWAY.org) runs 24 hours a day, 365 days a year, with crisis help, message relay, three-way calls with parents and a free bus ticket home through Greyhound. It is listed among HHS Family and Youth Services Bureau programs and says it is funded by and works in partnership with that bureau, while also raising private funds. Some states have their own lines; for example, the Texas Youth Helpline (1-800-989-6884).",
+      "sources": [
+        { "name": "Administration for Children and Families, Family and Youth Services Bureau (HHS): National Runaway Safeline", "url": "https://acf.gov/fysb/programs/runaway-homeless-youth/programs/nrs", "checkedAt": "2026-11-04" },
+        { "name": "National Runaway Safeline: About Us", "url": "https://www.1800runaway.org/about-us", "checkedAt": "2026-11-04" },
+        { "name": "Texas Department of Family and Protective Services, Texas Youth Helpline: What to do if a Teen Runs Away", "url": "https://www.dfps.texas.gov/youth-helpline/parent-guardian-resources/what-to-do-if-a-teen-runs-away.asp", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "police-on-finding": {
+      "value": "Families should tell police as soon as the child returns or makes contact, so officers can confirm the child's safety. The Justice Department's family guide says the investigation can continue after recovery, and advises families to work with police on a medical examination and to request a specialized forensic interview, for example at a children's advocacy center; it notes that children who ran away may see police as a threat or fear prosecution.",
+      "sources": [
+        { "name": "OJJDP (U.S. Department of Justice): When Your Child Is Missing: A Family Survival Guide, 5th Edition, 2025 Update", "url": "https://ojjdp.ojp.gov/publications/family-survival-guide-fifth-edition.pdf", "checkedAt": "2026-11-04" },
+        { "name": "U.S. Department of Justice, Operation Lady Justice: When a Loved One Goes Missing (November 2021)", "url": "https://www.justice.gov/tribal/media/1268781/dl?inline=", "checkedAt": "2026-11-04" }
+      ]
+    },
+    "runaway-share": null
+  }
+}
