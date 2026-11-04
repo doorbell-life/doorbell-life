@@ -4,7 +4,11 @@
     {
       "id": "usagov-report-crime",
       "url": "https://www.usa.gov/report-crime",
-      "note": "911 與失蹤兒童專線號碼（hotlines.json 引用）"
+      "note": "911 與失蹤兒童專線號碼（hotlines.json 引用）",
+      "expect": [
+        "911",
+        "1-800-843-5678"
+      ]
     },
     {
       "id": "ncmec-hotline",
@@ -19,7 +23,8 @@
     {
       "id": "fbi-contact",
       "url": "https://www.fbi.gov/contact-us",
-      "note": "FBI 聯絡方式（tips.fbi.gov、1-800-CALL-FBI）；fbi.gov 可能擋程式讀取，讀不到時人工複查"
+      "note": "FBI 聯絡方式（tips.fbi.gov、1-800-CALL-FBI）；fbi.gov 可能擋程式讀取，讀不到時人工複查",
+      "manual": true
     }
   ]
 }

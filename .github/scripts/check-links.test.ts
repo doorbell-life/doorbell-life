@@ -7,7 +7,8 @@ describe("連結檢查", () => {
     expect(judge("https://a/x", 403, "")).toBe("blocked");
     expect(judge("https://a/x", 405, "")).toBe("blocked");
     expect(judge("https://a/x", 404, "text/html")).toBe("broken");
-    expect(judge("https://a/x.pdf", 200, "text/html; charset=utf-8")).toBe("broken");
+    expect(judge("https://a/x.pdf", 200, "text/html; charset=utf-8", 1)).toBe("broken");
+    expect(judge("https://a/x.pdf", 200, "text/html; charset=utf-8", 0)).toBe("blocked");
     expect(judge("https://a/x.pdf", 200, "application/pdf")).toBe("ok");
   });
   it("收集到文章與比較表引用的網址", () => {

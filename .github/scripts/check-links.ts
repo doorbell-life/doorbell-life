@@ -38,21 +38,22 @@ export function collect(): Map<string, Set<string>> {
 
 export type Verdict = "ok" | "broken" | "blocked";
 
-export function judge(url: string, code: number, type: string): Verdict {
+export function judge(url: string, code: number, type: string, redirects = 0): Verdict {
   // 405、406 也是擋程式（例如 NIA 的頁面用瀏覽器讀得到，2026-11-04 實測）
   if ([401, 403, 405, 406, 429].includes(code) || code === 0) return "blocked";
   if (code >= 400) return "broken";
-  if (/\.pdf($|\?)/i.test(url) && !/pdf|octet-stream/i.test(type)) return "broken"; // PDF 被轉到錯誤頁
+  // PDF 被轉址到網頁＝檔案已不在（例如舊版《捐血須知》）；沒有轉址卻回網頁，多半是擋海外連線，算無法自動檢查
+  if (/\.pdf($|\?)/i.test(url) && !/pdf|octet-stream/i.test(type)) return redirects > 0 ? "broken" : "blocked";
   return "ok";
 }
 
-async function check(url: string): Promise<{ code: number; type: string }> {
+async function check(url: string): Promise<{ code: number; type: string; redirects: number }> {
   try {
-    const { stdout } = await run("curl", ["-s", "-L", "-o", "/dev/null", "--max-time", "40", "-A", UA, "-w", "%{http_code} %{content_type}", url]);
-    const [code, ...type] = stdout.trim().split(" ");
-    return { code: Number(code), type: type.join(" ") };
+    const { stdout } = await run("curl", ["-s", "-L", "-o", "/dev/null", "--max-time", "40", "-A", UA, "-w", "%{http_code} %{num_redirects} %{content_type}", url]);
+    const [code, redirects, ...type] = stdout.trim().split(" ");
+    return { code: Number(code), redirects: Number(redirects), type: type.join(" ") };
   } catch {
-    return { code: 0, type: "" };
+    return { code: 0, type: "", redirects: 0 };
   }
 }
 
@@ -63,7 +64,7 @@ async function main() {
   for (let i = 0; i < list.length; i += 8) {
     const batch = list.slice(i, i + 8);
     const out = await Promise.all(batch.map(async (u) => ({ u, ...(await check(u)) })));
-    for (const r of out) results.push({ url: r.u, v: judge(r.u, r.code, r.type), code: r.code });
+    for (const r of out) results.push({ url: r.u, v: judge(r.u, r.code, r.type, r.redirects), code: r.code });
   }
   const broken = results.filter((r) => r.v === "broken");
   const blocked = results.filter((r) => r.v === "blocked");
