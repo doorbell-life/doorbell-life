@@ -1,0 +1,41 @@
+// doorbell.life backend：曝光統計、品牌主登入與設定、報表。契約見 API.md。
+// 網域尚未註冊：下面所有 PLACEHOLDER 都要在部署前換成真的值（D1 id 由 `wrangler d1 create doorbell-life` 產生）。
+// 本檔不放任何帳號 ID、金鑰；需要的金鑰一律用 `wrangler secret put`。
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "doorbell-life-backend",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-04",
+  "compatibility_flags": ["nodejs_compat"],
+  // 網域註冊後再開：api.doorbell.life 指到本 Worker
+  // "routes": [{ "pattern": "api.doorbell.life", "custom_domain": true }],
+  "workers_dev": false,
+  "send_metrics": false,
+  "observability": { "enabled": true, "head_sampling_rate": 0.1 },
+  "vars": {
+    "SITE_ORIGIN": "https://doorbell.life",
+    "CDN_BASE": "https://cdn.doorbell.life",
+    "MAIL_FROM": "login@doorbell.life"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "doorbell-life",
+      "database_id": "00000000-0000-0000-0000-000000000000", // PLACEHOLDER
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "CDN",
+      "bucket_name": "doorbell-life-brand" // PLACEHOLDER：品牌設定 b/{id}.json 與品牌素材，需能經 cdn.doorbell.life/b/ 讀到
+    }
+  ],
+  // Cloudflare Email Service（Beta）。寄給任意收件者需要 Workers Paid 方案。
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "allowed_sender_addresses": ["login@doorbell.life"] // PLACEHOLDER：寄件網域需先在 Email Service 驗證
+    }
+  ]
+}
