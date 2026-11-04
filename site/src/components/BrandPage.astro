@@ -1,0 +1,73 @@
+---
+// 品牌主後台共用版面。整區不收錄（noindex），不放進主導覽；只有「給企業贊助者」頁連過來。
+// authed：需要登入的頁面，顯示後台選單與登出按鈕。
+import Base from "../layouts/Base.astro";
+
+interface Props { title: string; h1: string; description: string; authed?: boolean }
+const { title, h1, description, authed = false } = Astro.props;
+const path = Astro.url.pathname;
+const MENU = [
+  ["/brand/dashboard/", "帳號與網域"],
+  ["/brand/design/", "樣式設計"],
+  ["/brand/report/", "曝光報表"],
+] as const;
+---
+<Base title={`${title}｜按門鈴品牌主後台`} description={description} region="taiwan" noindex>
+  <main class="ba">
+    {authed && (
+      <div class="ba-menu noprint">
+        {MENU.map(([href, label]) => <a href={href} aria-current={path === href ? "page" : undefined}>{label}</a>)}
+        <button type="button" class="secondary" id="logout">登出</button>
+      </div>
+    )}
+    <h1>{h1}</h1>
+    <slot />
+  </main>
+</Base>
+<script>
+  import { API } from "../lib/brand";
+  document.getElementById("logout")?.addEventListener("click", async () => {
+    try {
+      await fetch(API + "/auth/logout", { method: "POST", credentials: "include" });
+    } catch {
+      // 連不上也回首頁；cookie 30 天後會失效
+    }
+    location.replace("/brand/");
+  });
+</script>
+<style is:global>
+  .ba input, .ba select, .ba textarea, .ba button { font: inherit; color: inherit; }
+  .ba label, .ba legend { display: block; font-weight: 600; margin: 24px 0 8px; }
+  .ba fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  .ba input[type="email"], .ba input[type="text"], .ba input[type="date"], .ba textarea, .ba select {
+    box-sizing: border-box; width: 100%; max-width: 32em; padding: 12px; border: 1px solid var(--border-subtle);
+    border-radius: 8px; background: var(--bg-base); color: var(--text-primary);
+  }
+  .ba textarea { min-height: 8em; line-height: 1.5; }
+  .ba input[type="range"] { width: 100%; max-width: 32em; }
+  .ba input[type="file"] { max-width: 100%; }
+  .ba button { padding: 12px 24px; border: 0; border-radius: 8px; background: var(--text-primary); color: var(--bg-base); font-weight: 600; cursor: pointer; }
+  .ba button.secondary { background: var(--bg-overlay); color: var(--text-primary); }
+  .ba button:disabled { opacity: 0.6; cursor: wait; }
+  .ba .actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px; }
+  .ba .msg { min-height: 1.6em; margin: 16px 0; }
+  .ba .msg.err { color: var(--color-critical); }
+  .ba .msg.ok { color: var(--color-pass); }
+  .ba .choice { display: flex; align-items: baseline; gap: 12px; font-weight: 400; margin: 12px 0; }
+  .ba .choice input { flex: none; }
+  .ba .choice small { display: block; color: var(--text-secondary); font-size: var(--text-xs); }
+  .ba dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 24px; }
+  .ba dt { color: var(--text-secondary); }
+  .ba dd { margin: 0; overflow-wrap: anywhere; }
+  .ba-menu { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; margin-top: 24px; font-size: var(--text-sm); }
+  .ba-menu a { color: var(--text-secondary); text-decoration: none; }
+  .ba-menu a[aria-current="page"] { color: var(--text-primary); font-weight: 700; }
+  .ba-menu button { margin-left: auto; padding: 8px 16px; }
+  .ba [hidden] { display: none !important; }
+  .print-only { display: none; }
+  @media print {
+    .noprint, body > header, body > footer, .prelaunch { display: none !important; }
+    .print-only { display: block; }
+    .ba table { display: table; overflow: visible; }
+  }
+</style>

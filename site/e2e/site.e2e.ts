@@ -27,6 +27,8 @@ const PAGES = [
   ...PAGES_US,
   ...["taiwan", "usa"].flatMap((r) => ["", "privacy/", "terms/", "security/", "contact/"].map((p) => `/legal/${r}/${p}`)),
   "/animals/taiwan/practice/",
+  // 品牌主後台：API 在測試裡一律擋掉（見下方），頁面只會顯示連不上的說明
+  ...["", "login/", "dashboard/", "design/", "report/"].map((p) => `/brand/${p}`),
   ...["taiwan", "usa"].flatMap((r) => ["", "missing/how-to-report-missing/", "blood/who-can-donate-blood/", "animals/shelter-adoption/", "animals/pet-registration/", "animals/found-animal/", "blood/blood-stock/", "missing/dementia-wandering/", "missing/child-runaway/", "missing/help-lost-person/", "missing/share-alerts/", "blood/where-to-donate/", "animals/before-adopting/", "animals/lost-pet-24h/"].map((p) => `/compare/${r}/${p}`)),
 ];
 
@@ -41,6 +43,7 @@ test("法律頁草稿：不收錄，且顯示草稿標示", async ({ page }) => 
 for (const path of PAGES) {
   for (const width of [360, 1280]) {
     test(`${path} @${width}px：字級不小於 18px、沒有橫向捲動`, async ({ page }) => {
+      await page.route("https://api.doorbell.life/**", (r) => r.abort());
       await page.setViewportSize({ width, height: 800 });
       const res = await page.goto(BASE + path);
       expect(res?.status()).toBe(200);

@@ -1,0 +1,292 @@
+---
+// 樣式設計器。預覽直接用元件的 w.css 與相同的 class 名稱，所見即元件實際的樣子。
+import "../../../../../widget/src/w.css";
+import BrandPage from "../../../components/BrandPage.astro";
+import { FONTS, L_MAX, L_MIN, C_MAX, TEMPLATES } from "../../../lib/brand";
+---
+<BrandPage title="樣式設計" h1="樣式設計" description="選版型、主色、字型，上傳 Logo 與吉祥物。" authed>
+  <p id="load" class="msg" role="status" aria-live="polite">正在讀取目前的設定…</p>
+  <form id="design" novalidate hidden>
+    <p class="lead">版面結構是固定的，確保每個議題都能正確顯示。失蹤協尋的卡片一律用中性樣式，你的品牌只會在角落用小字標示。</p>
+
+    <fieldset>
+      <legend>版型</legend>
+      {TEMPLATES.map((t, i) => (
+        <label class="choice">
+          <input type="radio" name="template" value={t.id} checked={i === 0} />
+          <span>{t.label}<small>{t.hint}</small></span>
+        </label>
+      ))}
+    </fieldset>
+
+    <fieldset>
+      <legend>主色</legend>
+      <p class="muted">亮度限制在中間一段，確保文字放在淺色底上看得清楚。</p>
+      <div class="color">
+        <div id="swatch" class="swatch" aria-hidden="true"></div>
+        <code id="color-value"></code>
+      </div>
+      <label for="c-l">亮度</label>
+      <input type="range" id="c-l" min={L_MIN} max={L_MAX} step="0.005" />
+      <label for="c-c">鮮豔程度</label>
+      <input type="range" id="c-c" min="0" max={C_MAX} step="0.005" />
+      <label for="c-h">色相</label>
+      <input type="range" id="c-h" min="0" max="360" step="1" />
+      <p id="contrast" class="note" aria-live="polite"></p>
+    </fieldset>
+
+    <label for="font">字型</label>
+    <select id="font">
+      {FONTS.map((f) => <option value={f.id}>{f.label}</option>)}
+    </select>
+    <p class="muted">預覽用你電腦上已安裝的字型；沒有安裝的話，會用相近的字型代替。</p>
+
+    <label for="name">品牌名稱</label>
+    <input type="text" id="name" maxlength="40" required autocomplete="organization" />
+    <p class="muted">失蹤協尋卡片角落會顯示「由（品牌名稱）支持」。</p>
+
+    <fieldset>
+      <legend>Logo 與吉祥物</legend>
+      <p class="muted">只收 PNG 或 WebP，每個檔案 200KB 以內。不收 SVG，因為 SVG 可能夾帶程式。</p>
+      <label for="logo">Logo</label>
+      <input type="file" id="logo" accept="image/png,image/webp" />
+      <div class="actions"><button type="button" class="secondary" id="logo-clear">不用 Logo</button></div>
+      <p id="logo-msg" class="msg" role="status" aria-live="polite"></p>
+      <label for="mascot">吉祥物插圖</label>
+      <input type="file" id="mascot" accept="image/png,image/webp" />
+      <div class="actions"><button type="button" class="secondary" id="mascot-clear">不用吉祥物</button></div>
+      <p id="mascot-msg" class="msg" role="status" aria-live="polite"></p>
+    </fieldset>
+
+    <h2>預覽</h2>
+    <h3>動物、捐血等議題</h3>
+    <div id="preview-brand" class="preview"></div>
+    <h3>失蹤協尋（一律中性樣式）</h3>
+    <div id="preview-missing" class="preview"></div>
+
+    <div class="actions"><button type="submit" id="save">儲存設定</button></div>
+    <p id="save-msg" class="msg" role="status" aria-live="polite"></p>
+  </form>
+</BrandPage>
+<script>
+  import zh from "../../../../../i18n/zh-TW.json";
+  import {
+    call, CARD_BG, checkImage, contrast, DEFAULT_PRIMARY, errorText, FONTS, formatOklch, inGamut, isCdnUrl,
+    jsonInit, L_MAX, L_MIN, C_MAX, parseOklch, setMsg, TEMPLATES, toHex, WHITE,
+    type Brand, type Font, type Oklch, type Settings, type Template,
+  } from "../../../lib/brand";
+
+  const $ = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T;
+  const form = $<HTMLFormElement>("design");
+  const sl = { l: $<HTMLInputElement>("c-l"), c: $<HTMLInputElement>("c-c"), h: $<HTMLInputElement>("c-h") };
+  const fontSel = $<HTMLSelectElement>("font");
+  const nameIn = $<HTMLInputElement>("name");
+
+  type Img = { url: string; preview: string } | null;
+  const state: { template: Template; color: Oklch; font: Font; logo: Img; mascot: Img } = {
+    template: "bell", color: DEFAULT_PRIMARY, font: "system", logo: null, mascot: null,
+  };
+  const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
+
+  // 建元素：一律 textContent，不用 innerHTML
+  const el = (tag: string, cls: string, parent: Element, text?: string) => {
+    const e = document.createElement(tag);
+    e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    parent.append(e);
+    return e;
+  };
+
+  const SAMPLE_BRAND = { h: "範例：等待認養的米克斯犬", d: "臺中市・2 歲、親人、已結紮", c: "聯絡：收容所電話（範例）" };
+  const SAMPLE_MISSING = { h: "範例：失蹤兒少個案", d: "這裡會顯示合作單位公開的特徵與失蹤地點", c: "聯絡：協尋專線（範例）" };
+
+  // 結構與 widget/src/widget.ts 產生的 DOM 相同：aside.dbl.dbl-{c|l} > p.dbl-t + div.dbl-b > … + a.dbl-s
+  function card(neutral: boolean): HTMLElement {
+    const tpl: Template = neutral ? "bell" : state.template;
+    const mode = tpl === "one-line" ? "l" : "c";
+    const s = neutral ? SAMPLE_MISSING : SAMPLE_BRAND;
+    const root = document.createElement("aside");
+    root.className = `dbl dbl-${mode}`;
+    root.lang = "zh-tw";
+    root.dataset.t = tpl;
+    if (!neutral) {
+      // 與元件讀 b/{id}.json 的 v 相同：--dbl-brand（hex 備援）、--dbl-brand-o（oklch）
+      root.dataset.branded = "";
+      root.style.setProperty("--dbl-brand", toHex(state.color));
+      root.style.setProperty("--dbl-brand-o", formatOklch(state.color));
+      const stack = FONTS.find((f) => f.id === state.font)?.stack;
+      if (stack) root.style.fontFamily = stack;
+    }
+    if (mode !== "l") el("p", "dbl-t", root, zh.widget.title);
+    const box = el("div", "dbl-b", root);
+    if (tpl === "full-image") el("div", "bp-photo", box, "個案照片");
+    else if (mode !== "l") el("div", "dbl-i bp-ph", box, "照片");
+    el("strong", "dbl-h", box, s.h);
+    if (mode !== "l") el("p", "dbl-d", box, s.d);
+    el("p", "dbl-n", box, s.c);
+    const foot = el("div", "bp-foot", root);
+    const by = el("a", "dbl-s", foot, zh.widget.by) as HTMLAnchorElement;
+    by.href = "https://doorbell.life/";
+    by.tabIndex = -1;
+    if (neutral) {
+      el("p", "bp-sponsor", foot, `由 ${nameIn.value.trim() || "品牌名稱"} 支持`);
+    } else {
+      const imgs = el("div", "bp-imgs", foot);
+      for (const [key, alt] of [["logo", "Logo"], ["mascot", "吉祥物"]] as const) {
+        const img = state[key];
+        if (!img || (key === "mascot" && mode === "l")) continue;
+        const i = el("img", `bp-${key}`, imgs) as HTMLImageElement;
+        i.src = img.preview;
+        i.alt = alt;
+      }
+    }
+    return root;
+  }
+
+  function render() {
+    for (const [id, neutral] of [["preview-brand", false], ["preview-missing", true]] as const) {
+      const box = $(id);
+      box.textContent = "";
+      box.append(card(neutral));
+    }
+    const c = state.color;
+    $("swatch").style.background = formatOklch(c);
+    $("color-value").textContent = formatOklch(c);
+    const onCard = contrast(c, CARD_BG);
+    const white = contrast(WHITE, c);
+    const fmt = (n: number) => n.toFixed(1) + ":1";
+    const verdict =
+      onCard >= 4.5 ? "一般大小的文字也看得清楚。"
+      : onCard >= 3 ? "標題這類粗體大字看得清楚（標準是 3:1），但不適合拿來寫小字。"
+      : "太淡了，請把亮度往左調。";
+    const lines = [
+      `主色當文字放在卡片底色上，對比是 ${fmt(onCard)}，${verdict}`,
+      `白字放在主色上，對比是 ${fmt(white)}${white >= 4.5 ? "，看得清楚。" : "，偏淡。"}`,
+    ];
+    if (!inGamut(c)) lines.push("這個顏色太鮮豔，部分螢幕顯示不出來，會用最接近的顏色代替。");
+    const note = $("contrast");
+    note.textContent = "";
+    for (const t of lines) el("span", "", note, t);
+  }
+
+  function readSliders() {
+    state.color = { l: +sl.l.value, c: +sl.c.value, h: +sl.h.value };
+    render();
+  }
+
+  function apply(s: Partial<Settings> | null | undefined) {
+    if (s && TEMPLATES.some((t) => t.id === s.template)) state.template = s.template as Template;
+    const p = parseOklch(s?.primary);
+    if (p) state.color = { l: clamp(p.l, L_MIN, L_MAX), c: clamp(p.c, 0, C_MAX), h: p.h };
+    if (s && FONTS.some((f) => f.id === s.font)) state.font = s.font as Font;
+    const logo = s?.logo;
+    const mascot = s?.mascot;
+    if (isCdnUrl(logo)) state.logo = { url: logo, preview: logo };
+    if (isCdnUrl(mascot)) state.mascot = { url: mascot, preview: mascot };
+    nameIn.value = typeof s?.name === "string" ? s.name : "";
+    for (const r of form.querySelectorAll<HTMLInputElement>('input[name="template"]')) r.checked = r.value === state.template;
+    sl.l.value = String(state.color.l);
+    sl.c.value = String(state.color.c);
+    sl.h.value = String(state.color.h);
+    fontSel.value = state.font;
+    render();
+  }
+
+  async function upload(key: "logo" | "mascot") {
+    const input = $<HTMLInputElement>(key);
+    const msg = $(`${key}-msg`);
+    const file = input.files?.[0];
+    if (!file) return;
+    const bad = await checkImage(file);
+    if (bad) {
+      input.value = "";
+      setMsg(msg, bad, "err");
+      return;
+    }
+    setMsg(msg, "上傳中…");
+    try {
+      const res = await call("/brand/assets", { method: "POST", headers: { "Content-Type": file.type }, body: file });
+      const body = await res.json();
+      if (!isCdnUrl(body?.url)) throw new Error("bad url");
+      if (state[key]?.preview.startsWith("blob:")) URL.revokeObjectURL(state[key]!.preview);
+      state[key] = { url: body.url, preview: URL.createObjectURL(file) };
+      setMsg(msg, "已上傳，記得按「儲存設定」。", "ok");
+      render();
+    } catch (e) {
+      input.value = "";
+      const status = (e as { status?: number }).status;
+      setMsg(msg, status === 413 || status === 415 || status === 400 ? "伺服器不接受這個檔案，請確認是 200KB 以內的 PNG 或 WebP。" : errorText(e), "err");
+    }
+  }
+
+  form.addEventListener("change", (e) => {
+    const t = e.target as HTMLInputElement;
+    if (t.name === "template") state.template = t.value as Template;
+    else if (t.id === "font") state.font = fontSel.value as Font;
+    else if (t.id === "logo" || t.id === "mascot") return void upload(t.id);
+    render();
+  });
+  for (const s of Object.values(sl)) s.addEventListener("input", readSliders);
+  nameIn.addEventListener("input", render);
+  for (const key of ["logo", "mascot"] as const) {
+    $(`${key}-clear`).addEventListener("click", () => {
+      state[key] = null;
+      $<HTMLInputElement>(key).value = "";
+      setMsg($(`${key}-msg`), "");
+      render();
+    });
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const msg = $("save-msg");
+    const name = nameIn.value.trim();
+    if (!name) {
+      setMsg(msg, "請填品牌名稱。", "err");
+      nameIn.focus();
+      return;
+    }
+    const body: Settings = { template: state.template, primary: formatOklch(state.color), font: state.font, name };
+    if (state.logo) body.logo = state.logo.url;
+    if (state.mascot) body.mascot = state.mascot.url;
+    const btn = $<HTMLButtonElement>("save");
+    btn.disabled = true;
+    try {
+      await call("/brand/settings", jsonInit("PUT", body));
+      setMsg(msg, "已儲存。CDN 更新後，網站上的元件就會換成新外觀。", "ok");
+    } catch (err) {
+      setMsg(msg, errorText(err), "err");
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  (async () => {
+    try {
+      const b: Brand = await (await call("/brand")).json();
+      apply(b.settings);
+      $("load").hidden = true;
+      form.hidden = false;
+    } catch (e) {
+      setMsg($("load"), errorText(e), "err");
+    }
+  })();
+</script>
+<style is:global>
+  .ba .color { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+  .ba .swatch { width: 64px; height: 64px; border-radius: 12px; border: 1px solid var(--border-subtle); }
+  .ba .note span { display: block; margin-top: 8px; }
+  .ba .preview { margin: 16px 0 32px; }
+  /* 品牌色：與元件相同，用 --dbl-brand-o（oklch），不支援時用 --dbl-brand（hex） */
+  .dbl[data-branded] { --dbl-bell: var(--dbl-brand-o); }
+  @supports not (color: oklch(0 0 0)) { .dbl[data-branded] { --dbl-bell: var(--dbl-brand); } }
+  .dbl .bp-ph, .dbl .bp-photo { display: flex; align-items: center; justify-content: center; background: var(--dbl-line); color: var(--dbl-mute); border-radius: 8px; }
+  .dbl .bp-photo { aspect-ratio: 16 / 9; margin-bottom: 16px; }
+  .dbl[data-t="full-image"] .dbl-b { display: block; }
+  .dbl .bp-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-top: 20px; }
+  .dbl .bp-foot a.dbl-s { margin-top: 0; }
+  .dbl .bp-imgs { display: flex; align-items: center; gap: 12px; }
+  .dbl img.bp-logo { height: 40px; width: auto; max-width: 160px; }
+  .dbl img.bp-mascot { height: 72px; width: auto; max-width: 120px; }
+  .dbl .bp-sponsor { font-size: 18px; color: var(--dbl-mute); }
+</style>
